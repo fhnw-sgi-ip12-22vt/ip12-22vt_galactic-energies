@@ -21,4 +21,17 @@ public class Player extends SpaceObject {
 	public void moveDown() {
 		setY_Pos(getY_Pos() - 1);
 	}
+
+	public int getLives() {
+		return lives;
+	}
+
+	/**
+	 * Player loses 1 life.
+	 *
+	 * @return
+	 */
+	public void loseLives(){
+		lives --;
+	}
 }

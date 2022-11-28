@@ -26,4 +26,15 @@ public class PlayerTest {
         }
         assertEquals(yPos - counter,player.getY_Pos());
     }
-}
+    @Test
+    public void testLives(){
+        int lives = player.getLives();
+        int counter =0;
+
+        for(int i = 1; i>=0; i--) {
+            player.loseLives();
+            counter++;
+        }
+        assertEquals(lives-counter,player.getLives());
+        }
+    }
