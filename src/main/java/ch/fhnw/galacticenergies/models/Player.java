@@ -21,9 +21,4 @@ public class Player extends SpaceObject {
 	public void moveDown() {
 		setY_Pos(getY_Pos() - 1);
 	}
-
-	@Override
-	public boolean borderIntersect() {
-		return false;
-	}
 }
