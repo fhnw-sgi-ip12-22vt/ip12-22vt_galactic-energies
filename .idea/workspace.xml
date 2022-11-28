@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab62d768-cc0c-4eeb-a13d-050241538dc9" name="Changes" comment="javafx example">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/GameView.java" afterDir="false" />
+    <list default="true" id="ab62d768-cc0c-4eeb-a13d-050241538dc9" name="Changes" comment="deleted Player.java started commenting">
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/controllers/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/controllers/PlayerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/controllers/PowerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/controllers/PowerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/models/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/models/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/models/Player_old.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/models/SpaceObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/models/SpaceObject.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +160,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669189557538</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="deleted Player.java started commenting">
+      <created>1669635454314</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1669635454314</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,7 +178,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/Backend" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -182,6 +199,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="javafx example" />
     <MESSAGE value="added folder structure, added sample files" />
-    <option name="LAST_COMMIT_MESSAGE" value="added folder structure, added sample files" />
+    <MESSAGE value="deleted Player.java started commenting" />
+    <option name="LAST_COMMIT_MESSAGE" value="deleted Player.java started commenting" />
   </component>
 </project>
