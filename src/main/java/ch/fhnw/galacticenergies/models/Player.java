@@ -13,13 +13,13 @@ public class Player extends SpaceObject {
 	 * Moves Players position up (+1)
 	 */
 	public void moveUp() {
-		setX_Pos(getX_Pos() + 1);
+		setY_Pos(getY_Pos() + 1);
 	}
 	/**
 	 * Moves Players position down (-1)
 	 */
 	public void moveDown() {
-		setX_Pos(getX_Pos() - 1);
+		setY_Pos(getY_Pos() - 1);
 	}
 
 	@Override

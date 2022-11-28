@@ -1,13 +1,9 @@
 package ch.fhnw.galacticenergies.controllers;
 
-
-import ch.fhnw.galacticenergies.GameView;
-
 public class PowerController {
 
 	private double totalPower;
 
-	private GameView gameView;
 
 	/**
 	 *

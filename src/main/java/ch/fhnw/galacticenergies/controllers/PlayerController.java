@@ -18,14 +18,14 @@ public class PlayerController {
 	/**
 	 * Moves player up.
 	 */
-	public void moveUp(){
+	public static void moveUp(){
 		player.moveUp();
 	}
 
 	/**
 	 * Moves player down.
 	 */
-	public void moveDown(){
+	public static void moveDown(){
 		player.moveDown();
 	}
 
