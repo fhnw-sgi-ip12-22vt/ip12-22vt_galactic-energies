@@ -4,11 +4,14 @@ public class Player extends SpaceObject {
 
 	private int lives;
 
-	public Player(double x_Pos) {
-		super(x_Pos,50,10);
+	public Player() {
+		super(10,50,10);
 		this.lives = 3;
 	}
 
+	/**
+	 * Moves Players position up
+	 */
 	public void moveUp() {
 		setX_Pos(getX_Pos() + 1);
 	}
