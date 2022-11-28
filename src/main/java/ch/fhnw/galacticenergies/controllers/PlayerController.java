@@ -1,22 +1,14 @@
 package ch.fhnw.galacticenergies.controllers;
 
-import ch.fhnw.galacticenergies.models.Player;
+import ch.fhnw.galacticenergies.models.*;
+
 
 public class PlayerController {
 
-    public static Player p = new Player();
+	private Player player;
 
-    public static void joystickDown()
-    {
-        p.moveDown();
-    }
+	public void intersect(SpaceObject obj) {
 
-
-
-    public static void interactionWithAsteroid()
-    {
-        p.removeLive();
-        p.resetPosition();
-    }
+	}
 
 }
