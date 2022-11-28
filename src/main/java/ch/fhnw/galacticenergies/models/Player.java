@@ -1,45 +1,19 @@
 package ch.fhnw.galacticenergies.models;
 
-public class Player {
-    int pos_y;
-    int lives;
+public class Player extends SpaceObject {
 
-    public void moveUp()
-    {
+	private int lives;
 
-        pos_y += 1;
-    }
+	public Player : double)() {
 
-    public void moveDown()
-    {
-        pos_y -= 1;
-        System.out.println(pos_y);
-    }
+	}
 
-    public void resetPosition()
-    {
-        pos_y = 0;
-    }
+	public void moveUp() {
 
-    public int getPos_y() {
-        return pos_y;
-    }
+	}
 
-    public int getLives() {
-        return lives;
-    }
+	public void moveDown() {
 
-    public void setLives(int lives) {
-        this.lives = lives;
-    }
+	}
 
-    public void removeLive()
-    {
-        if(this.lives == 1) {
-
-        } else {
-            this.lives -= 1;
-        }
-
-    }
 }
