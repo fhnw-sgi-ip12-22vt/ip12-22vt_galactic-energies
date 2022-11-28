@@ -4,16 +4,21 @@ public class Player extends SpaceObject {
 
 	private int lives;
 
-	public Player : double)() {
-
+	public Player(double x_Pos) {
+		super(x_Pos,50,10);
+		this.lives = 3;
 	}
 
 	public void moveUp() {
-
+		setX_Pos(getX_Pos() + 1);
 	}
 
 	public void moveDown() {
-
+		setX_Pos(getX_Pos() + 1);
 	}
 
+	@Override
+	public boolean borderIntersect() {
+		return false;
+	}
 }
