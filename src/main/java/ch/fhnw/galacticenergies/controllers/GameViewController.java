@@ -23,19 +23,34 @@ public class GameViewController {
     @FXML
     private AnchorPane rootAnchor;
 
+    private double maxBorder;
+    public void initPlayer(){
+        PlayerController.initPlayer(spaceshipimgview.getLayoutX(),spaceshipimgview.getLayoutY());
+        final Bounds bounds = rootAnchor.getBoundsInLocal();
+        maxBorder = bounds.getMaxY();
+        System.out.println("maxinit:" + maxBorder);
+    }
+
     public void moveDown()
     {
         final Bounds bounds = rootAnchor.getBoundsInLocal();
         final boolean atBottomBorder = spaceshipimgview.getLayoutY() >= (bounds.getMaxY());
 
-        if(atBottomBorder) return;
-        spaceshipimgview.setLayoutY(spaceshipimgview.getLayoutY() + 5);
+        //if(atBottomBorder) return;
+        System.out.println("ship: "+"hoch: "+ spaceshipimg.getWidth());
+        PlayerController.moveDown(maxBorder- spaceshipimg.getWidth());
+        spaceshipimgview.setLayoutY(PlayerController.getPlayer().getY_Pos());
+       // spaceshipimgview.setLayoutY(spaceshipimgview.getLayoutY() + 5);
+       // System.out.println("max: "+ bounds.getMaxY());
+        //System.out.println("raumschiff: "+spaceshipimgview.getLayoutY());
     }
 
     public void moveUp()
     {
-        if(spaceshipimgview.getLayoutY() - 5 < 0) spaceshipimgview.setLayoutY(0);
-        spaceshipimgview.setLayoutY(spaceshipimgview.getLayoutY() - 5);
-        System.out.println(spaceshipimgview.getLayoutY());
+        PlayerController.moveUp();
+        spaceshipimgview.setLayoutY(PlayerController.getPlayer().getY_Pos());
+        //if(spaceshipimgview.getLayoutY() - 5 < 0) spaceshipimgview.setLayoutY(0);
+        //spaceshipimgview.setLayoutY(spaceshipimgview.getLayoutY() - 5);
+
     }
 }

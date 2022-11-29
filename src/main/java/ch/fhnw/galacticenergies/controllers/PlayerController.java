@@ -10,6 +10,10 @@ public class PlayerController {
 
 	private static Player player = new Player();
 
+	public static void initPlayer(double x, double y){
+		player = new Player(x,y);
+	}
+
 	/**
 	 * @return name of the player
 	 */
@@ -27,8 +31,8 @@ public class PlayerController {
 	/**
 	 * Moves player down.
 	 */
-	public static void moveDown(){
-		player.moveDown();
+	public static void moveDown(double maxY){
+		player.moveDown(maxY);
 	}
 
 	/**

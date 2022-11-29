@@ -6,9 +6,9 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.layout.AnchorPane?>
 <AnchorPane fx:id="rootAnchor" xmlns:fx="http://javafx.com/fxml" fx:controller="ch.fhnw.galacticenergies.controllers.GameViewController" style="-fx-background-image: url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?ixlib=rb-4.0.3'); -fx-background-size: cover">
-    <AnchorPane fx:id="spaceanchor" style="-fx-background-color: red" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0">
+    <AnchorPane fx:id="spaceanchor" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0">
         <children>
-            <ImageView fx:id="spaceshipimgview" style="-fx-background-color: blue" rotate="90" fitWidth="100" preserveRatio="true">
+            <ImageView fx:id="spaceshipimgview" rotate="90" fitWidth="100" preserveRatio="true">
                 <image>
                     <Image fx:id="spaceshipimg" url="@images/Rakete.png" backgroundLoading="false"/>
                 </image>

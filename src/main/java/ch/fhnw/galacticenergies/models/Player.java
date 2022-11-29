@@ -8,6 +8,11 @@ public class Player extends SpaceObject {
 
 	private int lives;
 
+	public Player(double x, double y) {
+		super(x,y,10);
+		this.lives = 3;
+	}
+
 	public Player() {
 		super(10,50,10);
 		this.lives = 3;
@@ -17,13 +22,19 @@ public class Player extends SpaceObject {
 	 * Moves Players position up (+1)
 	 */
 	public void moveUp() {
-		setY_Pos(getY_Pos() + 1);
+		if(getY_Pos() > 0){
+			setY_Pos(getY_Pos() - 5);
+		}
+
 	}
 	/**
 	 * Moves Players position down (-1)
 	 */
-	public void moveDown() {
-		setY_Pos(getY_Pos() - 1);
+	public void moveDown(double maxY) {
+
+		if(getY_Pos()< maxY){
+			setY_Pos(getY_Pos() + 5);
+		}
 	}
 
 	public int getLives() {

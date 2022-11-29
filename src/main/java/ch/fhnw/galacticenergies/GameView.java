@@ -26,8 +26,14 @@ public class GameView extends Application {
         Scene scene = new Scene(fxmlLoader.load());
 
         GameViewController controller = fxmlLoader.getController();
+        stage.setTitle("Galactic Energies");
+        //stage.setFullScreen(true);
+        stage.setMaximized(true);
+        stage.setScene(scene);
+        stage.show();
+        controller.initPlayer();
         scene.setOnKeyPressed(e -> {
-            Player p = PlayerController.getPlayer();
+            //Player p = PlayerController.getPlayer();
             switch (e.getCode()) {
                 case W -> {
                     //p.moveUp();
@@ -40,10 +46,7 @@ public class GameView extends Application {
             }
 
         });
-        stage.setTitle("Galactic Energies");
-        stage.setFullScreen(true);
-        stage.setScene(scene);
-        stage.show();
+
 
         stage.heightProperty().addListener((obs, oldVal, newVal) -> {
             WindowService.setWindowHeight((Double) newVal);
