@@ -1,25 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.Scene?>
+
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
-<?import javafx.scene.layout.AnchorPane?>
-<AnchorPane fx:id="rootAnchor" xmlns:fx="http://javafx.com/fxml" fx:controller="ch.fhnw.galacticenergies.controllers.GameViewController" >
+<?import javafx.scene.layout.StackPane?>
+<StackPane xmlns:fx="http://javafx.com/fxml" fx:controller="ch.fhnw.galacticenergies.controllers.GameViewController">
     <ImageView fx:id="space" fitWidth="1920" pickOnBounds="true" preserveRatio="true">
         <image>
-            <Image url="@images/SpaceMoving.gif" backgroundLoading="false" smooth="false"/>
+            <Image url="@images/SpaceBackground2.jpg" backgroundLoading="false"/>
         </image>
     </ImageView>
-    <AnchorPane fx:id="spaceanchor" style="-fx-background-color: red" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0">
-        <children>
-            <ImageView fx:id="spaceshipimgview" fitWidth="100" preserveRatio="true">
-                <image>
-                    <Image fx:id="spaceshipimg" url="@images/Rakete.png" backgroundLoading="false"/>
-                </image>
-            </ImageView>
-        </children>
-
-    </AnchorPane>
-
-</AnchorPane>
+    <ImageView fx:id="spaceshipimg" fitWidth="100" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@images/Spaceship.png" backgroundLoading="false"/>
+        </image>
+    </ImageView>
+</StackPane>
