@@ -11,8 +11,6 @@ public class PlayerController {
         p.moveDown();
     }
 
-
-
     public static void interactionWithAsteroid()
     {
         p.removeLive();

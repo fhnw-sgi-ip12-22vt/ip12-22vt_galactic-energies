@@ -11,4 +11,5 @@ module ch.fhnw.galacticenergies {
     exports ch.fhnw.galacticenergies.models;
     //exports ch.fhnw.galacticenergies.views;
     //opens ch.fhnw.galacticenergies.views to javafx.fxml;
+    opens ch.fhnw.galacticenergies.controllers to javafx.fxml;
 }

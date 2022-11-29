@@ -2,14 +2,13 @@ package ch.fhnw.galacticenergies.services;
 
 public class WindowService {
 
-    public static int getWindowHeight()
-    {
-        return 1080;
+    static double windowHeight;
+
+    public static double getWindowHeight() {
+        return windowHeight;
     }
 
-    public static int getWindowWidth()
-    {
-        return 1920;
+    public static void setWindowHeight(double windowHeight) {
+        WindowService.windowHeight = windowHeight;
     }
-
 }
