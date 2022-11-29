@@ -17,9 +17,6 @@ public class GameViewController {
     @FXML
     private Image spaceshipimg;
     @FXML
-    private AnchorPane spaceanchor;
-
-    @FXML
     private AnchorPane rootAnchor;
 
     private double maxBorder;
