@@ -38,4 +38,9 @@ public class GameViewController {
         spaceshipimgview.setLayoutY(spaceshipimgview.getLayoutY() - 5);
         System.out.println(spaceshipimgview.getLayoutY());
     }
+
+    public void resizeImg()
+    {
+
+    }
 }
