@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab62d768-cc0c-4eeb-a13d-050241538dc9" name="Changes" comment=" Initialized testGetLives">
+    <list default="true" id="ab62d768-cc0c-4eeb-a13d-050241538dc9" name="Changes" comment="added images, Player Class, PlayerController, JavaFX XML Files, GameView Class">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/views/Ex.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/data/Power.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/data/PowerInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/data/PowerInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/GameView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/controllers/GameViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/controllers/GameViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/models/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/models/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/services/WindowService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/services/WindowService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ch/fhnw/galacticenergies/game-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ch/fhnw/galacticenergies/game-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,9 +26,6 @@
         <option value="Class" />
       </list>
     </option>
-  </component>
-  <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="master" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -55,10 +57,7 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -67,17 +66,29 @@
       <recent name="C:\Users\andre\IdeaProjects\fhnw\galactic-energies\galactic-energies\src\main\resources\ch\fhnw\galacticenergies" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Benaja\OneDrive - FHNW\Documents\FHNW\IP1\Code\galactic-energies\src\main\java\ch\fhnw\galacticenergies\models" />
-      <recent name="C:\Users\Benaja\OneDrive - FHNW\Documents\FHNW\IP1\Code\galactic-energies\src\main\java\ch\fhnw\galacticenergies\controllers" />
       <recent name="C:\Users\andre\IdeaProjects\fhnw\galactic-energies\galactic-energies\src\main\resources\ch\fhnw\galacticenergies\images" />
       <recent name="C:\Users\andre\IdeaProjects\fhnw\galactic-energies\galactic-energies\src\main\java\ch\fhnw\galacticenergies\images" />
       <recent name="C:\Users\andre\IdeaProjects\fhnw\galactic-energies\galactic-energies\src\main\java\ch\fhnw\galacticenergies" />
+      <recent name="C:\Users\andre\IdeaProjects\fhnw\galactic-energies\galactic-energies\src" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="ch.fhnw.galacticenergies" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.GameView">
+    <configuration name="Ex" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ch.fhnw.galacticenergies.views.Ex" />
+      <module name="galactic-energies" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ch.fhnw.galacticenergies.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="GameView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ch.fhnw.galacticenergies.GameView" />
       <module name="galactic-energies" />
@@ -130,21 +141,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PlayerTest.testLives" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="galactic-energies" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PlayerTest" />
-      <option name="METHOD_NAME" value="testLives" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.PlayerTest.testLives" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="Application.GameView" />
+        <item itemvalue="Application.Ex" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.PlayerController" />
         <item itemvalue="Application.HelloApplication" />
       </list>
@@ -159,6 +160,8 @@
       <option name="presentableId" value="Default" />
       <updated>1669187448157</updated>
       <workItem from="1669187449558" duration="10578000" />
+      <workItem from="1669619908655" duration="2136000" />
+      <workItem from="1669622828507" duration="17562000" />
     </task>
     <task id="LOCAL-00001" summary="javafx example">
       <created>1669187662688</created>
@@ -174,28 +177,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669189557538</updated>
     </task>
-    <task id="LOCAL-00003" summary="deleted Player.java started commenting">
-      <created>1669635454314</created>
+    <task id="LOCAL-00003" summary="added images, Player Class, PlayerController, JavaFX XML Files, GameView Class">
+      <created>1669620631086</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1669635454314</updated>
+      <updated>1669620631086</updated>
     </task>
-    <task id="LOCAL-00004" summary="update comments and initialized player">
-      <created>1669636955465</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1669636955465</updated>
-    </task>
-    <task id="LOCAL-00005" summary=" Initialized testGetLives">
-      <created>1669642854265</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1669642854265</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -206,19 +195,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="origin/Backend" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -227,9 +204,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="javafx example" />
     <MESSAGE value="added folder structure, added sample files" />
-    <MESSAGE value="deleted Player.java started commenting" />
-    <MESSAGE value="update comments and initialized player" />
-    <MESSAGE value=" Initialized testGetLives" />
-    <option name="LAST_COMMIT_MESSAGE" value=" Initialized testGetLives" />
+    <MESSAGE value="added images, Player Class, PlayerController, JavaFX XML Files, GameView Class" />
+    <option name="LAST_COMMIT_MESSAGE" value="added images, Player Class, PlayerController, JavaFX XML Files, GameView Class" />
   </component>
 </project>
