@@ -1,5 +1,9 @@
 package ch.fhnw.galacticenergies.models;
 
+/**
+ * Defines the Position and the Size of the SpaceObject.
+ * @version 1.0
+ */
 public abstract class SpaceObject {
 
 	private double x_Pos;

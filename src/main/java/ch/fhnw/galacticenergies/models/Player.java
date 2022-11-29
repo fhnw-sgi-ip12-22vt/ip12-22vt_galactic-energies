@@ -1,5 +1,9 @@
 package ch.fhnw.galacticenergies.models;
 
+/**
+ * Defines the movement and the attributes of the player.
+ * @version 1.0
+ */
 public class Player extends SpaceObject {
 
 	private int lives;

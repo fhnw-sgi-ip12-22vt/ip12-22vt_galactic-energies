@@ -4,6 +4,11 @@ import java.util.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 
+/**
+ * Upload data from a CSV-File and create an ArrayList with the uploaded data.
+ * @version 1.0
+ */
+
 public class PowerInput {
     public static List readCSV(){
         List<String> records = new ArrayList<>();
