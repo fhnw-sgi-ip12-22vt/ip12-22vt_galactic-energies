@@ -9,6 +9,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * Creation of the stage with the movement of the spaceship (up and down).
+ */
+
 public class GameView extends Application {
 
     private static Stage mainStage;

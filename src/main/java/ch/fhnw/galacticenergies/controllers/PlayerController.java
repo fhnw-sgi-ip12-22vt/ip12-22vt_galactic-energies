@@ -7,7 +7,9 @@ import ch.fhnw.galacticenergies.models.*;
  * @version 1.0
  */
 public class PlayerController {
-
+	/**
+	 * Initialization of a new player.
+	 */
 	private static Player player = new Player();
 
 	public static void initPlayer(double x, double y){
