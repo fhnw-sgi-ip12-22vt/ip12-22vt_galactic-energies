@@ -9,6 +9,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * Creation of the stage with the movement of the spaceship (up and down).
+ */
+
 public class GameView extends Application {
 
     private static Stage mainStage;
@@ -26,31 +30,25 @@ public class GameView extends Application {
         Scene scene = new Scene(fxmlLoader.load());
 
         GameViewController controller = fxmlLoader.getController();
+        stage.setTitle("Galactic Energies");
+        //stage.setFullScreen(true);
+        stage.setMaximized(true);
+        stage.setScene(scene);
+        stage.show();
+        controller.initPlayer();
         scene.setOnKeyPressed(e -> {
-            Player p = PlayerController.p;
             switch (e.getCode()) {
                 case W -> {
-                    //p.moveUp();
                     controller.moveUp();
                 }
                 case S -> {
-                    //p.moveDown();
                     controller.moveDown();
                 }
             }
-
         });
-        stage.setTitle("Galactic Energies");
-        stage.setFullScreen(true);
-        stage.setScene(scene);
-        stage.show();
 
         stage.heightProperty().addListener((obs, oldVal, newVal) -> {
             WindowService.setWindowHeight((Double) newVal);
         });
-    }
-
-    public static void open() {
-        GameView.launch();
     }
 }

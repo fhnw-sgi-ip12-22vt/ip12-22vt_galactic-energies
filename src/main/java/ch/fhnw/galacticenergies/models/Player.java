@@ -1,58 +1,52 @@
 package ch.fhnw.galacticenergies.models;
 
-import ch.fhnw.galacticenergies.services.WindowService;
+/**
+ * Defines the movement and the attributes of the player.
+ * @version 1.0
+ */
+public class Player extends SpaceObject {
 
-public class Player {
-    int pos_y = 0;
-    int lives;
+	private int lives;
 
-    private final int step = 5;
+	public Player(double x, double y) {
+		super(x,y,10);
+		this.lives = 3;
+	}
 
-    public void moveUp()
-    {
-        System.out.println("pos: " + pos_y);
-        if(pos_y - step < 0) return;
-        pos_y -= step;
-    }
+	public Player() {
+		super(10,50,10);
+		this.lives = 3;
+	}
 
-    public void moveDown()
-    {
-        System.out.println(WindowService.getWindowHeight());
-        if(WindowService.getWindowHeight() < pos_y + step) return;
-        pos_y += step;
-        System.out.println("Pos: " + pos_y);
-    }
+	/**
+	 * Moves Players position up (+1)
+	 */
+	public void moveUp() {
+		if(getY_Pos() > 0){
+			setY_Pos(getY_Pos() - 5);
+		}
 
-    public void resetPosition()
-    {
-        pos_y = 0;
-    }
+	}
+	/**
+	 * Moves Players position down (-1)
+	 */
+	public void moveDown(double maxY) {
 
-    public int getPos_y() {
-        return pos_y;
-    }
+		if(getY_Pos()< maxY){
+			setY_Pos(getY_Pos() + 5);
+		}
+	}
 
-    public void setPos_y(int pos_y) {
-        this.pos_y = pos_y;
-    }
+	public int getLives() {
+		return lives;
+	}
 
-    public int getLives() {
-        return lives;
-    }
-
-    public void setLives(int lives) {
-        this.lives = lives;
-    }
-
-    public void removeLive()
-    {
-        if(this.lives == 1) {
-
-        } else {
-            this.lives -= 1;
-        }
-
-    }
-
-
+	/**
+	 * Player loses 1 life.
+	 *
+	 * @return
+	 */
+	public void loseLives(){
+		lives --;
+	}
 }
