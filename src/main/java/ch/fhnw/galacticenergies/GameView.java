@@ -27,7 +27,7 @@ public class GameView extends Application {
 
         GameViewController controller = fxmlLoader.getController();
         scene.setOnKeyPressed(e -> {
-            Player p = PlayerController.p;
+            Player p = PlayerController.getPlayer();
             switch (e.getCode()) {
                 case W -> {
                     //p.moveUp();
