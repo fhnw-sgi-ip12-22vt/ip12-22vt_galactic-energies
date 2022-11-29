@@ -6,12 +6,7 @@ import ch.fhnw.galacticenergies.models.Player;
 import ch.fhnw.galacticenergies.services.WindowService;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Dimension2D;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
-import javafx.scene.input.KeyCode;
-import javafx.scene.layout.Region;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 public class GameView extends Application {
@@ -33,12 +28,15 @@ public class GameView extends Application {
         GameViewController controller = fxmlLoader.getController();
         scene.setOnKeyPressed(e -> {
             Player p = PlayerController.p;
-            if(e.getCode() == KeyCode.W) {
-                p.moveUp();
-                controller.updateSpaceShipY();
-            } else if (e.getCode() == KeyCode.S) {
-                p.moveDown();
-                controller.updateSpaceShipY();
+            switch (e.getCode()) {
+                case W -> {
+                    //p.moveUp();
+                    controller.moveUp();
+                }
+                case S -> {
+                    //p.moveDown();
+                    controller.moveDown();
+                }
             }
 
         });
@@ -47,7 +45,9 @@ public class GameView extends Application {
         stage.setScene(scene);
         stage.show();
 
-        WindowService.setWindowHeight(stage.getHeight());
+        stage.heightProperty().addListener((obs, oldVal, newVal) -> {
+            WindowService.setWindowHeight((Double) newVal);
+        });
     }
 
     public static void open() {

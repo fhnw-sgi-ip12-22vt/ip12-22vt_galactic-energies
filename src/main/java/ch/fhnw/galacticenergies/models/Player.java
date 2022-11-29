@@ -18,7 +18,7 @@ public class Player {
     public void moveDown()
     {
         System.out.println(WindowService.getWindowHeight());
-        if(WindowService.getWindowHeight() - 800 < pos_y + step) return;
+        if(WindowService.getWindowHeight() < pos_y + step) return;
         pos_y += step;
         System.out.println("Pos: " + pos_y);
     }

@@ -1,8 +1,10 @@
 package ch.fhnw.galacticenergies.services;
 
+import javafx.beans.property.DoubleProperty;
+
 public class WindowService {
 
-    static double windowHeight;
+    private static double windowHeight;
 
     public static double getWindowHeight() {
         return windowHeight;
