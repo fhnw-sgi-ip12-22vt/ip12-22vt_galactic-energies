@@ -70,6 +70,11 @@ public class GameViewController {
         ImagePaneSpeed p = new ImagePaneSpeed(getClass().getResource("/ch/fhnw/galacticenergies/images/SteuerboardLevel"+speedLevel+".png").toString(), "-fx-background-size: contain; -fx-background-repeat: no-repeat;");
         speedAnchor.getChildren().add(p);
     }
+    public void showArrow(int direction) {
+        System.out.println(direction);
+        ImagePaneSpeed p = new ImagePaneSpeed(getClass().getResource("/ch/fhnw/galacticenergies/images/Arrow"+direction+".png").toString(), "-fx-background-size: contain; -fx-background-repeat: no-repeat;");
+        speedAnchor.getChildren().add(p);
+    }
     public void speedStop(){
 
     }

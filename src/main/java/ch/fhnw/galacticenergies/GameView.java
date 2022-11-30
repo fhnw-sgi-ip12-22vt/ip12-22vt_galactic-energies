@@ -40,9 +40,11 @@ public class GameView extends Application {
             switch (e.getCode()) {
                 case W -> {
                     controller.moveUp();
+                    controller.showArrow(2);
                 }
                 case S -> {
                     controller.moveDown();
+                    controller.showArrow(3);
                 }
                 case T -> {
                     SpeedController.speedUp();
@@ -52,6 +54,9 @@ public class GameView extends Application {
                     SpeedController.speedDown();
                     controller.showSpeed(SpeedController.getSpeed());
                 }
+                /*case null{
+                    controller.showArrow(1);
+                }*/
             }
         });
 

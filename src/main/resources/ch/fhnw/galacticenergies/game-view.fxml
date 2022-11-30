@@ -41,14 +41,14 @@
                 </ImageView>
             </children>
         </StackPane>
-        <!--      <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">-->
-        <!--         <children>-->
-        <!--            <ImageView fx:id="speedImage" fitHeight="197.0" fitWidth="341.0" nodeOrientation="INHERIT" preserveRatio="true">-->
-        <!--               <image>-->
-        <!--                  <Image fx:id="speedPNG" url="@images/Steuerboard%20Level%201.png" />-->
-        <!--               </image>-->
-        <!--            </ImageView>-->
-        <!--         </children>-->
-        <!--      </HBox>-->
+        <StackPane fx:id="arrowAnchor" alignment="BOTTOM_CENTER" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <children>
+                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image fx:id="arrowPNG" url="@images/Arrow1.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </StackPane>
     </children>
 </GridPane>
