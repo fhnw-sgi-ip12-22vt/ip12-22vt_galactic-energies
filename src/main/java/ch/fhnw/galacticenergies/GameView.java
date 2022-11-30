@@ -37,27 +37,18 @@ public class GameView extends Application {
         stage.show();
         controller.initPlayer();
         scene.setOnKeyPressed(e -> {
-            //Player p = PlayerController.getPlayer();
             switch (e.getCode()) {
                 case W -> {
-                    //p.moveUp();
                     controller.moveUp();
                 }
                 case S -> {
-                    //p.moveDown();
                     controller.moveDown();
                 }
             }
-
         });
-
 
         stage.heightProperty().addListener((obs, oldVal, newVal) -> {
             WindowService.setWindowHeight((Double) newVal);
         });
-    }
-
-    public static void open() {
-        GameView.launch();
     }
 }

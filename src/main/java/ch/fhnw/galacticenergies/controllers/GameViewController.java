@@ -5,6 +5,9 @@ import javafx.geometry.Bounds;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import org.controlsfx.control.spreadsheet.Grid;
 
 /**
  * Controls the functionality of the view.
@@ -21,6 +24,11 @@ public class GameViewController {
     @FXML
     private ImageView velocityindicator;
 
+    @FXML
+    private GridPane root;
+
+    @FXML
+    private Pane grid_c1_r1;
     private double maxBorder;
 
     /**
@@ -30,13 +38,15 @@ public class GameViewController {
         PlayerController.initPlayer(spaceshipimgview.getLayoutX(), spaceshipimgview.getLayoutY());
         final Bounds bounds = rootAnchor.getBoundsInLocal();
         maxBorder = bounds.getMaxY();
+
+        spaceshipimgview.fitHeightProperty().bind(grid_c1_r1.heightProperty());
     }
 
     /**
      * Move down the player.
      */
     public void moveDown() {
-        PlayerController.moveDown(maxBorder - spaceshipimg.getWidth());
+        PlayerController.moveDown(maxBorder - spaceshipimgview.getFitWidth());
         spaceshipimgview.setLayoutY(PlayerController.getPlayer().getY_Pos());
     }
 
@@ -46,7 +56,6 @@ public class GameViewController {
     public void moveUp() {
         PlayerController.moveUp();
         spaceshipimgview.setLayoutY(PlayerController.getPlayer().getY_Pos());
-
     }
     public void speedUp() {
 
