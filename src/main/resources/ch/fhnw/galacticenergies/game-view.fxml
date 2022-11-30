@@ -3,7 +3,6 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<?import javafx.scene.shape.SVGPath?>
 <GridPane fx:id="root" prefHeight="506.0" prefWidth="730.0" stylesheets="@game-view.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.fhnw.galacticenergies.controllers.GameViewController">
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="360.0" minWidth="100.0" percentWidth="20.0" prefWidth="161.00001525878906" />
@@ -15,11 +14,16 @@
     <children>
         <AnchorPane fx:id="rootAnchor" xmlns:fx="http://javafx.com/fxml">
             <children>
-                <ImageView fx:id="spaceshipimgview" fitWidth="80.0" preserveRatio="true">
-                    <image>
-                        <Image fx:id="spaceshipimg" url="@images/Rakete.png" />
-                    </image>
-                </ImageView>
+
+            <Pane fx:id="grid_c1_r1" style="-fx-background-color: red" prefHeight="200.0" prefWidth="146.0">
+                <children>
+                    <ImageView fx:id="spaceshipimgview" fitHeight="100" preserveRatio="true">
+                        <image>
+                            <Image fx:id="spaceshipimg" url="@images/Rakete.png" />
+                        </image>
+                    </ImageView>
+                </children>
+            </Pane>
             </children>
         </AnchorPane>
     </children>
