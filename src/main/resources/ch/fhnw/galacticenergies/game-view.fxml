@@ -12,12 +12,12 @@
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     </rowConstraints>
     <children>
-        <AnchorPane fx:id="rootAnchor" xmlns:fx="http://javafx.com/fxml">
+        <AnchorPane fx:id="rootAnchor" style="-fx-background-color: blue" xmlns:fx="http://javafx.com/fxml">
             <children>
 
             <Pane fx:id="grid_c1_r1" style="-fx-background-color: red" prefHeight="200.0" prefWidth="146.0">
                 <children>
-                    <ImageView fx:id="spaceshipimgview" fitHeight="100" preserveRatio="true">
+                    <ImageView fx:id="spaceshipimgview" fitHeight="250" preserveRatio="true" rotate="90">
                         <image>
                             <Image fx:id="spaceshipimg" url="@images/Rakete.png" />
                         </image>

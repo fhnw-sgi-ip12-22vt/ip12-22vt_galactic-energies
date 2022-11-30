@@ -31,15 +31,16 @@ public class GameViewController {
     private Pane grid_c1_r1;
     private double maxBorder;
 
+
     /**
      * Initialization of the player with the current position.
      */
     public void initPlayer() {
         PlayerController.initPlayer(spaceshipimgview.getLayoutX(), spaceshipimgview.getLayoutY());
-        final Bounds bounds = rootAnchor.getBoundsInLocal();
+        final Bounds bounds = root.getBoundsInLocal();
         maxBorder = bounds.getMaxY();
-
-        spaceshipimgview.fitHeightProperty().bind(grid_c1_r1.heightProperty());
+        System.out.println(maxBorder);
+        //spaceshipimgview.fitHeightProperty().bind(grid_c1_r1.heightProperty());
     }
 
     /**
@@ -48,6 +49,7 @@ public class GameViewController {
     public void moveDown() {
         PlayerController.moveDown(maxBorder - spaceshipimgview.getFitWidth());
         spaceshipimgview.setLayoutY(PlayerController.getPlayer().getY_Pos());
+        System.out.println("spaceship: "+spaceshipimgview.getLayoutY());
     }
 
     /**
