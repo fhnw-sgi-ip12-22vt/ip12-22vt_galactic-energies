@@ -1,11 +1,11 @@
 package ch.fhnw.galacticenergies.controllers;
 
+import ch.fhnw.galacticenergies.views.ImagePaneSpeed;
 import javafx.fxml.FXML;
 import javafx.geometry.Bounds;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.*;
 import javafx.scene.layout.Pane;
 import org.controlsfx.control.spreadsheet.Grid;
 
@@ -20,7 +20,8 @@ public class GameViewController {
     @FXML
     private Image spaceshipimg;
     @FXML
-    private AnchorPane rootAnchor;
+    private StackPane speedAnchor;
+
     @FXML
     private ImageView velocityindicator;
 
@@ -29,6 +30,12 @@ public class GameViewController {
 
     @FXML
     private Pane grid_c1_r1;
+
+    @FXML
+    private Image speedPNG;
+
+    @FXML
+    private ImageView speedImage;
     private double maxBorder;
 
 
@@ -60,6 +67,14 @@ public class GameViewController {
         spaceshipimgview.setLayoutY(PlayerController.getPlayer().getY_Pos());
     }
     public void speedUp() {
+        //speedImage.setImage(new Image("@images/Steuerboard%20Level%s202.png"));
+
+        ImagePaneSpeed p = new ImagePaneSpeed(getClass().getResource("/ch/fhnw/galacticenergies/images/SteuerboardLevel2.png").toString(), "-fx-background-size: contain; -fx-background-repeat: no-repeat;");
+        speedAnchor.getChildren().add(p);
+
+
+      //  Image image = new Image(getClass().getResourceAsStream("/resources/ch/fhnw/galacticenergies/images/SteuerboardLevel2.png"));
+        //speedImage.setImage(image);
 
     }
     public void speedStop(){
@@ -70,4 +85,6 @@ public class GameViewController {
     {
 
     }
+
+
 }

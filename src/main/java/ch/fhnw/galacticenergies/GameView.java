@@ -36,6 +36,7 @@ public class GameView extends Application {
         stage.setScene(scene);
         stage.show();
         controller.initPlayer();
+        controller.speedUp();
         scene.setOnKeyPressed(e -> {
             switch (e.getCode()) {
                 case W -> {
