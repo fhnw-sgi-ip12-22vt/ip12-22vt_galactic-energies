@@ -7,7 +7,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.layout.Pane;
-import org.controlsfx.control.spreadsheet.Grid;
 
 /**
  * Controls the functionality of the view.
@@ -66,16 +65,10 @@ public class GameViewController {
         PlayerController.moveUp();
         spaceshipimgview.setLayoutY(PlayerController.getPlayer().getY_Pos());
     }
-    public void speedUp() {
-        //speedImage.setImage(new Image("@images/Steuerboard%20Level%s202.png"));
-
-        ImagePaneSpeed p = new ImagePaneSpeed(getClass().getResource("/ch/fhnw/galacticenergies/images/SteuerboardLevel2.png").toString(), "-fx-background-size: contain; -fx-background-repeat: no-repeat;");
+    public void showSpeed(int speedLevel) {
+        System.out.println(speedLevel);
+        ImagePaneSpeed p = new ImagePaneSpeed(getClass().getResource("/ch/fhnw/galacticenergies/images/SteuerboardLevel"+speedLevel+".png").toString(), "-fx-background-size: contain; -fx-background-repeat: no-repeat;");
         speedAnchor.getChildren().add(p);
-
-
-      //  Image image = new Image(getClass().getResourceAsStream("/resources/ch/fhnw/galacticenergies/images/SteuerboardLevel2.png"));
-        //speedImage.setImage(image);
-
     }
     public void speedStop(){
 

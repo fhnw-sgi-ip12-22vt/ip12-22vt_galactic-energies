@@ -1,8 +1,7 @@
 package ch.fhnw.galacticenergies;
 
 import ch.fhnw.galacticenergies.controllers.GameViewController;
-import ch.fhnw.galacticenergies.controllers.PlayerController;
-import ch.fhnw.galacticenergies.models.Player;
+import ch.fhnw.galacticenergies.controllers.SpeedController;
 import ch.fhnw.galacticenergies.services.WindowService;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -36,7 +35,7 @@ public class GameView extends Application {
         stage.setScene(scene);
         stage.show();
         controller.initPlayer();
-        controller.speedUp();
+        controller.showSpeed(1);
         scene.setOnKeyPressed(e -> {
             switch (e.getCode()) {
                 case W -> {
@@ -44,6 +43,14 @@ public class GameView extends Application {
                 }
                 case S -> {
                     controller.moveDown();
+                }
+                case T -> {
+                    SpeedController.speedUp();
+                    controller.showSpeed(SpeedController.getSpeed());
+                }
+                case Z -> {
+                    SpeedController.speedDown();
+                    controller.showSpeed(SpeedController.getSpeed());
                 }
             }
         });
