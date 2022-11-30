@@ -18,6 +18,8 @@ public class GameViewController {
     private Image spaceshipimg;
     @FXML
     private AnchorPane rootAnchor;
+    @FXML
+    private ImageView velocityindicator;
 
     private double maxBorder;
 
@@ -44,6 +46,12 @@ public class GameViewController {
     public void moveUp() {
         PlayerController.moveUp();
         spaceshipimgview.setLayoutY(PlayerController.getPlayer().getY_Pos());
+
+    }
+    public void speedUp() {
+
+    }
+    public void speedStop(){
 
     }
 
