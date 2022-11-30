@@ -17,10 +17,10 @@
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
     </rowConstraints>
     <children>
-        <StackPane fx:id="rootAnchor" style="-fx-background-color: blue" xmlns:fx="http://javafx.com/fxml">
+        <StackPane fx:id="rootAnchor" xmlns:fx="http://javafx.com/fxml">
             <children>
 
-                <Pane fx:id="grid_c1_r1" prefHeight="200.0" prefWidth="146.0" style="-fx-background-color: red">
+                <Pane fx:id="grid_c1_r1" prefHeight="200.0" prefWidth="146.0">
                     <children>
                         <ImageView fx:id="spaceshipimgview" fitHeight="250" preserveRatio="true" rotate="90">
                             <image>
@@ -32,22 +32,10 @@
 
             </children>
         </StackPane>
-        <StackPane fx:id="speedAnchor" alignment="BOTTOM_CENTER" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
-            <children>
-                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image fx:id="speedPNG" url="@images/Steuerboard%20Level%201.png" />
-                    </image>
-                </ImageView>
-            </children>
-        </StackPane>
         <StackPane fx:id="arrowAnchor" alignment="BOTTOM_CENTER" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
             <children>
-                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image fx:id="arrowPNG" url="@images/Arrow1.png" />
-                    </image>
-                </ImageView>
+                <StackPane fx:id="speedAnchor" alignment="BOTTOM_CENTER" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                </StackPane>
             </children>
         </StackPane>
     </children>

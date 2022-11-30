@@ -6,6 +6,7 @@ import ch.fhnw.galacticenergies.services.WindowService;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 
 /**
@@ -36,15 +37,16 @@ public class GameView extends Application {
         stage.show();
         controller.initPlayer();
         controller.showSpeed(1);
+        controller.showArrow(1);
         scene.setOnKeyPressed(e -> {
             switch (e.getCode()) {
                 case W -> {
                     controller.moveUp();
-                    controller.showArrow(2);
+                    controller.showArrow(3);
                 }
                 case S -> {
                     controller.moveDown();
-                    controller.showArrow(3);
+                    controller.showArrow(2);
                 }
                 case T -> {
                     SpeedController.speedUp();
@@ -54,10 +56,10 @@ public class GameView extends Application {
                     SpeedController.speedDown();
                     controller.showSpeed(SpeedController.getSpeed());
                 }
-                /*case null{
-                    controller.showArrow(1);
-                }*/
             }
+        });
+        scene.setOnKeyReleased(e -> {
+            if(e.getCode() == KeyCode.W ||  e.getCode() == KeyCode.S ) controller.showArrow(1);
         });
 
         stage.heightProperty().addListener((obs, oldVal, newVal) -> {

@@ -20,6 +20,8 @@ public class GameViewController {
     private Image spaceshipimg;
     @FXML
     private StackPane speedAnchor;
+    @FXML
+    private StackPane arrowAnchor;
 
     @FXML
     private ImageView velocityindicator;
@@ -66,23 +68,13 @@ public class GameViewController {
         spaceshipimgview.setLayoutY(PlayerController.getPlayer().getY_Pos());
     }
     public void showSpeed(int speedLevel) {
-        System.out.println(speedLevel);
-        ImagePaneSpeed p = new ImagePaneSpeed(getClass().getResource("/ch/fhnw/galacticenergies/images/SteuerboardLevel"+speedLevel+".png").toString(), "-fx-background-size: contain; -fx-background-repeat: no-repeat;");
+        ImagePaneSpeed p = new ImagePaneSpeed(getClass().getResource("/ch/fhnw/galacticenergies/images/SteuerboardLevel"+speedLevel+".png").toString(), "-fx-background-size: contain; -fx-background-position: bottom, center; -fx-background-repeat: no-repeat;");
         speedAnchor.getChildren().add(p);
     }
     public void showArrow(int direction) {
-        System.out.println(direction);
-        ImagePaneSpeed p = new ImagePaneSpeed(getClass().getResource("/ch/fhnw/galacticenergies/images/Arrow"+direction+".png").toString(), "-fx-background-size: contain; -fx-background-repeat: no-repeat;");
-        speedAnchor.getChildren().add(p);
-    }
-    public void speedStop(){
+        ImagePaneSpeed p = new ImagePaneSpeed(getClass().getResource("/ch/fhnw/galacticenergies/images/Arrow"+direction+".png").toString(), "-fx-background-size: contain; -fx-background-position: center; -fx-background-repeat: no-repeat;");
+        p.setMaxSize(100,100);
+        arrowAnchor.getChildren().add(p);
 
     }
-
-    public void resizeImg()
-    {
-
-    }
-
-
 }
