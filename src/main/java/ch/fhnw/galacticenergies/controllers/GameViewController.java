@@ -46,4 +46,9 @@ public class GameViewController {
         spaceshipimgview.setLayoutY(PlayerController.getPlayer().getY_Pos());
 
     }
+
+    public void resizeImg()
+    {
+
+    }
 }

@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.Scene?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.layout.AnchorPane?>
-<AnchorPane fx:id="rootAnchor" xmlns:fx="http://javafx.com/fxml" fx:controller="ch.fhnw.galacticenergies.controllers.GameViewController" style="-fx-background-image: url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?ixlib=rb-4.0.3'); -fx-background-size: cover">
-    <AnchorPane fx:id="spaceanchor" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0">
-        <children>
-            <ImageView fx:id="spaceshipimgview" rotate="90" fitWidth="100" preserveRatio="true">
-                <image>
-                    <Image fx:id="spaceshipimg" url="@images/Rakete.png" backgroundLoading="false"/>
-                </image>
-            </ImageView>
-        </children>
-    </AnchorPane>
-</AnchorPane>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane fx:id="root" prefHeight="506.0" prefWidth="730.0" stylesheets="@game-view.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.fhnw.galacticenergies.controllers.GameViewController">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="360.0" minWidth="100.0" percentWidth="20.0" prefWidth="161.00001525878906" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="568.9999847412109" minWidth="10.0" percentWidth="80.0" prefWidth="568.9999847412109" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    </rowConstraints>
+    <children>
+      <AnchorPane prefHeight="228.0" prefWidth="165.0">
+         <children>
+              <ImageView fx:id="spaceshipimgview" fitHeight="156.0" fitWidth="58.0" layoutX="49.0" layoutY="-49.0" preserveRatio="true" rotate="90" styleClass="rocket">
+                  <image>
+                      <Image fx:id="spaceshipimg" url="@images/Rakete.png" />
+                  </image>
+              </ImageView>
+         </children>
+      </AnchorPane>
+    </children>
+</GridPane>
