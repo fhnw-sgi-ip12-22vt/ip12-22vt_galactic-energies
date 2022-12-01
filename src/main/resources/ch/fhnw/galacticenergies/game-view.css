@@ -1,8 +1,0 @@
-.root {
-    -fx-background-image: url('images/Space.jpg');
-    -fx-background-size: cover;
-}
-
-.rocket {
-    -fx-background-color: red;
-}

@@ -4,11 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab62d768-cc0c-4eeb-a13d-050241538dc9" name="Changes" comment="Merge remote-tracking branch 'origin/Backend' into frontend&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/resources/ch/fhnw/galacticenergies/game-view.fxml">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ch/fhnw/galacticenergies/images/Rocket.svg" afterDir="false" />
+    <list default="true" id="ab62d768-cc0c-4eeb-a13d-050241538dc9" name="Changes" comment="added ImagePane">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/View.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/BackgroundStarsViewComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/RocketComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/controllers/LevelController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/enums/GalacticEnergiesType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/factories/GalacticEnergiesFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/asteroids/Enemy1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/asteroids/Enemy2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/asteroids/Enemy3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/asteroids/Enemy4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/bat_hit.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/controllers/GameViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/controllers/GameViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ch/fhnw/galacticenergies/game-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ch/fhnw/galacticenergies/game-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/GameView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/HelloApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/HelloController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/controllers/GameViewController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/images/Spaceship.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/views/Ex.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/views/components/ImagePane.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ch/fhnw/galacticenergies/game-view.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ch/fhnw/galacticenergies/game-view.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ch/fhnw/galacticenergies/hello-view.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ch/fhnw/galacticenergies/images/Rakete.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/Rakete.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ch/fhnw/galacticenergies/images/SpaceBackground.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/bg/SpaceBackground.jpg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +49,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="frontend" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -43,37 +66,46 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/andre/IdeaProjects/fhnw/galactic-energies/galactic-energies/src/main/resources/ch/fhnw/galacticenergies/images&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/andre/IdeaProjects/galactic-energies/src/main/resources/assets/textures",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\andre\IdeaProjects\galactic-energies\src\main\resources\assets\textures" />
       <recent name="C:\Users\andre\IdeaProjects\fhnw\galactic-energies\galactic-energies\src\main\resources\ch\fhnw\galacticenergies\images" />
       <recent name="C:\Users\andre\IdeaProjects\fhnw\galactic-energies\galactic-energies\src\main\resources\ch\fhnw\galacticenergies" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\andre\IdeaProjects\galactic-energies\src\main\resources\ch\fhnw\galacticenergies\images" />
-      <recent name="C:\Users\andre\IdeaProjects\fhnw\galactic-energies\galactic-energies\src\main\resources\ch\fhnw\galacticenergies\images" />
-      <recent name="C:\Users\andre\IdeaProjects\fhnw\galactic-energies\galactic-energies\src\main\java\ch\fhnw\galacticenergies\images" />
-      <recent name="C:\Users\andre\IdeaProjects\fhnw\galactic-energies\galactic-energies\src\main\java\ch\fhnw\galacticenergies" />
-      <recent name="C:\Users\andre\IdeaProjects\fhnw\galactic-energies\galactic-energies\src" />
+      <recent name="C:\Users\andre\IdeaProjects\galactic-energies\src\main\resources\assets" />
+      <recent name="C:\Users\andre\IdeaProjects\galactic-energies\src\main\resources\assets\textures" />
+      <recent name="C:\Users\andre\IdeaProjects\galactic-energies\src\main\resources\assets\textures\rocket" />
+      <recent name="C:\Users\andre\IdeaProjects\galactic-energies\src\main\resources\assets\textures\bg" />
+      <recent name="C:\Users\andre\IdeaProjects\galactic-energies\src\main\resources\assets\textures\" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="ch.fhnw.galacticenergies.components" />
       <recent name="ch.fhnw.galacticenergies" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.GameView">
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mv install" />
+      <command value="mvn clean install" />
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.View">
     <configuration name="Ex" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ch.fhnw.galacticenergies.views.Ex" />
       <module name="galactic-energies" />
@@ -100,12 +132,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ch.fhnw.galacticenergies.Main" />
+    <configuration name="ImageFill" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ch.fhnw.galacticenergies.views.ImageFill" />
       <module name="galactic-energies" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ch.fhnw.galacticenergies.*" />
+          <option name="PATTERN" value="ch.fhnw.galacticenergies.views.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -113,12 +145,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PlayerController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ch.fhnw.galacticenergies.controllers.PlayerController" />
+    <configuration name="View" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ch.fhnw.galacticenergies.View" />
       <module name="galactic-energies" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ch.fhnw.galacticenergies.controllers.*" />
+          <option name="PATTERN" value="ch.fhnw.galacticenergies.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -137,11 +169,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.View" />
         <item itemvalue="Application.GameView" />
+        <item itemvalue="Application.ImageFill" />
         <item itemvalue="JUnit.PlayerTest" />
         <item itemvalue="Application.Ex" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.PlayerController" />
       </list>
     </recent_temporary>
   </component>
@@ -158,6 +190,7 @@
       <workItem from="1669622828507" duration="17562000" />
       <workItem from="1669730005983" duration="3559000" />
       <workItem from="1669792918266" duration="3404000" />
+      <workItem from="1669879251532" duration="16592000" />
     </task>
     <task id="LOCAL-00001" summary="javafx example">
       <created>1669187662688</created>
@@ -194,7 +227,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669794925114</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="added ImagePane">
+      <created>1669813313081</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1669813313081</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,7 +270,8 @@
     <MESSAGE value="merge with current frontend status" />
     <MESSAGE value="Changed fxml to GridPane, added css file" />
     <MESSAGE value="Merge remote-tracking branch 'origin/Backend' into frontend&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/resources/ch/fhnw/galacticenergies/game-view.fxml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/Backend' into frontend&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/resources/ch/fhnw/galacticenergies/game-view.fxml" />
+    <MESSAGE value="added ImagePane" />
+    <option name="LAST_COMMIT_MESSAGE" value="added ImagePane" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
