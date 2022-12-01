@@ -18,6 +18,6 @@ public class LevelController {
     }
 
     public static void setLevel(int level){
-
+        spawn("rocket");
     }
 }

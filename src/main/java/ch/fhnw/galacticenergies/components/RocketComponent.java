@@ -4,10 +4,14 @@ import com.almasb.fxgl.core.math.Vec2;
 import com.almasb.fxgl.dsl.components.EffectComponent;
 import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.entity.component.Component;
+import com.almasb.fxgl.physics.PhysicsComponent;
 import com.almasb.fxgl.texture.Texture;
 import javafx.scene.effect.Effect;
 import javafx.scene.effect.MotionBlur;
 import javafx.util.Duration;
+
+import static com.almasb.fxgl.dsl.FXGL.getAppHeight;
+import static com.almasb.fxgl.dsl.FXGL.getAppWidth;
 
 public class RocketComponent extends Component {
 
@@ -15,7 +19,11 @@ public class RocketComponent extends Component {
 
     private static final float SPEED_DECAY = 0.66f;
 
-    private Effect blur = new MotionBlur();
+    private static final float BOUNCE_FACTOR = 1.2f;
+
+    private PhysicsComponent physics;
+
+    private MotionBlur blur = new MotionBlur();
 
     private float speed = 0;
 
@@ -32,22 +40,31 @@ public class RocketComponent extends Component {
         speed = ROCKET_SPEED * (float) tpf;
 
         velocity.mulLocal(SPEED_DECAY);
+
+        if (entity.getY() < 0) {
+            velocity.set(0, BOUNCE_FACTOR * (float) + entity.getY());
+        } else if (entity.getBottomY() > getAppHeight()) {
+            velocity.set(0, BOUNCE_FACTOR * (float) + (entity.getBottomY() - getAppHeight()));
+        }
+
+        physics.setBodyLinearVelocity(velocity);
     }
 
     public void up() {
-        velocity.set(-speed, 0);
+        velocity.set(0, speed);
         applyMoveEffects();
     }
 
     public void down() {
-        velocity.set(speed, 0);
+        velocity.set(0, -speed);
         applyMoveEffects();
     }
 
     private void applyMoveEffects()
     {
-        entity.setScaleY(1.05);
-        entity.setScaleX(1 / entity.getScaleY());
+        entity.setScaleX(1.05);
+        entity.setScaleY(1 / entity.getScaleY());
+        blur.setRadius(3);
         entity.getViewComponent().getParent().setEffect(blur);
     }
 
