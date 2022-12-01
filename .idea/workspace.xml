@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab62d768-cc0c-4eeb-a13d-050241538dc9" name="Changes" comment="dump images, implemented Rocket move, implemented Button Up/Down">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/Rocket.png" afterDir="false" />
+    <list default="true" id="ab62d768-cc0c-4eeb-a13d-050241538dc9" name="Changes" comment="Changed Rocket Image">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/LifeComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/controllers/ViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/events/GameEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/services/SemiRingService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/heart.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/View.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/BackgroundStarsViewComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/BackgroundStarsViewComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/enums/GalacticEnergiesType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/enums/GalacticEnergiesType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/factories/GalacticEnergiesFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/factories/GalacticEnergiesFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,6 +24,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -68,9 +73,9 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\andre\IdeaProjects\galactic-energies\src\main\resources\assets\textures" />
+      <recent name="C:\Users\andre\IdeaProjects\galactic-energies\src\main\resources\assets" />
       <recent name="C:\Users\andre\IdeaProjects\galactic-energies\src\main\resources\assets\textures\dashboard" />
       <recent name="C:\Users\andre\IdeaProjects\galactic-energies\src\main\resources\assets\textures\bg" />
-      <recent name="C:\Users\andre\IdeaProjects\galactic-energies\src\main\resources\assets" />
       <recent name="C:\Users\andre\IdeaProjects\galactic-energies\src\main\resources\assets\textures\rocket" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -169,7 +174,7 @@
       <workItem from="1669622828507" duration="17562000" />
       <workItem from="1669730005983" duration="3559000" />
       <workItem from="1669792918266" duration="3404000" />
-      <workItem from="1669879251532" duration="31543000" />
+      <workItem from="1669879251532" duration="36045000" />
     </task>
     <task id="LOCAL-00001" summary="javafx example">
       <created>1669187662688</created>
@@ -227,7 +232,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669932486818</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Changed Rocket Image">
+      <created>1669934149322</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1669934149322</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,7 +278,8 @@
     <MESSAGE value="added ImagePane" />
     <MESSAGE value="WIP FXGL" />
     <MESSAGE value="dump images, implemented Rocket move, implemented Button Up/Down" />
-    <option name="LAST_COMMIT_MESSAGE" value="dump images, implemented Rocket move, implemented Button Up/Down" />
+    <MESSAGE value="Changed Rocket Image" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed Rocket Image" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
