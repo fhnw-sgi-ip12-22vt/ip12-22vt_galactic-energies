@@ -1,13 +1,16 @@
 package ch.fhnw.galacticenergies;
 
 import ch.fhnw.galacticenergies.components.DashboardComponent;
+import ch.fhnw.galacticenergies.components.LifeComponent;
 import ch.fhnw.galacticenergies.controllers.LevelController;
+import ch.fhnw.galacticenergies.controllers.ViewController;
 import ch.fhnw.galacticenergies.factories.GalacticEnergiesFactory;
 import ch.fhnw.galacticenergies.components.RocketComponent;
 import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.app.GameSettings;
-import com.almasb.fxgl.entity.Entity;
+import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.input.UserAction;
+import com.almasb.fxgl.ui.UI;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 
@@ -15,17 +18,20 @@ import static com.almasb.fxgl.dsl.FXGL.*;
 import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.*;
 
 import java.util.Map;
+import java.util.stream.IntStream;
 
 public class View extends GameApplication {
 
     private static final int STARTING_LEVEL = 1;
+
+    private ViewController uiController;
 
     @Override
     protected void initSettings(GameSettings settings) {
         settings.setTitle("Galactic Energies");
         settings.setVersion("0.1");
         settings.setFullScreenAllowed(true);
-        settings.setFullScreenFromStart(true);
+        settings.setFullScreenFromStart(false);
         settings.setIntroEnabled(false);
         settings.setProfilingEnabled(false);
         settings.setManualResizeEnabled(true);
@@ -94,12 +100,16 @@ public class View extends GameApplication {
     {
         getGameScene().setBackgroundColor(Color.BLACK);
         spawn("background");
-        spawn("dashboard");
     }
 
     @Override
     protected void initUI() {
+        spawn("dashboard");
         getDashboardControl().noButtonPressed();
+        uiController = new ViewController(FXGL.getGameScene());
+
+        IntStream.range(0, geti("lives"))
+                .forEach(i -> uiController.addLife());
     }
 
     private RocketComponent getRocketControl() {
@@ -109,6 +119,11 @@ public class View extends GameApplication {
     private DashboardComponent getDashboardControl()
     {
         return getGameWorld().getSingleton(DASHBOARD).getComponent(DashboardComponent.class);
+    }
+
+    private LifeComponent getLifeComponent()
+    {
+        return getGameWorld().getSingleton(LIFE).getComponent(LifeComponent.class);
     }
 
     public static void main(String[] args) {
