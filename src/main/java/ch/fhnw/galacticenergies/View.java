@@ -25,7 +25,7 @@ public class View extends GameApplication {
         settings.setTitle("Galactic Energies");
         settings.setVersion("0.1");
         settings.setFullScreenAllowed(true);
-        settings.setFullScreenFromStart(false);
+        settings.setFullScreenFromStart(true);
         settings.setIntroEnabled(false);
         settings.setProfilingEnabled(false);
         settings.setManualResizeEnabled(true);
