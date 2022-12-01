@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab62d768-cc0c-4eeb-a13d-050241538dc9" name="Changes" comment="Merge remote-tracking branch 'origin/Backend' into frontend&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/resources/ch/fhnw/galacticenergies/game-view.fxml">
+    <list default="true" id="ab62d768-cc0c-4eeb-a13d-050241538dc9" name="Changes" comment="Adjusted Position of speedometer and Arrows">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/controllers/GameViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/controllers/GameViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ch/fhnw/galacticenergies/game-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ch/fhnw/galacticenergies/game-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +51,8 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -62,14 +61,17 @@
       <recent name="C:\Users\andre\IdeaProjects\fhnw\galactic-energies\galactic-energies\src\main\resources\ch\fhnw\galacticenergies" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Benaj\Documents\FHNWLocal\IP1\src\main\resources\ch\fhnw\galacticenergies\images" />
       <recent name="C:\Users\andre\IdeaProjects\galactic-energies\src\main\resources\ch\fhnw\galacticenergies\images" />
       <recent name="C:\Users\andre\IdeaProjects\fhnw\galactic-energies\galactic-energies\src\main\resources\ch\fhnw\galacticenergies\images" />
       <recent name="C:\Users\andre\IdeaProjects\fhnw\galactic-energies\galactic-energies\src\main\java\ch\fhnw\galacticenergies\images" />
       <recent name="C:\Users\andre\IdeaProjects\fhnw\galactic-energies\galactic-energies\src\main\java\ch\fhnw\galacticenergies" />
-      <recent name="C:\Users\andre\IdeaProjects\fhnw\galactic-energies\galactic-energies\src" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="ch.fhnw.galacticenergies" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ch.fhnw.galacticenergies.views" />
     </key>
   </component>
   <component name="RunManager" selected="Application.GameView">
@@ -157,6 +159,7 @@
       <workItem from="1669622828507" duration="17562000" />
       <workItem from="1669730005983" duration="3559000" />
       <workItem from="1669792918266" duration="3404000" />
+      <workItem from="1669817222785" duration="5531000" />
     </task>
     <task id="LOCAL-00001" summary="javafx example">
       <created>1669187662688</created>
@@ -193,7 +196,42 @@
       <option name="project" value="LOCAL" />
       <updated>1669794925114</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added Speed view">
+      <created>1669808780295</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1669808780295</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added ImagePaneSpeed">
+      <created>1669815390755</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1669815390755</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Added Speedadjustment display">
+      <created>1669817314825</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1669817314825</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Added Arrows">
+      <created>1669818364008</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1669818364008</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Adjusted Position of speedometer and Arrows">
+      <created>1669822714059</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1669822714059</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,7 +267,12 @@
     <MESSAGE value="merge with current frontend status" />
     <MESSAGE value="Changed fxml to GridPane, added css file" />
     <MESSAGE value="Merge remote-tracking branch 'origin/Backend' into frontend&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/resources/ch/fhnw/galacticenergies/game-view.fxml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/Backend' into frontend&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/resources/ch/fhnw/galacticenergies/game-view.fxml" />
+    <MESSAGE value="Added Speed view" />
+    <MESSAGE value="Added ImagePaneSpeed" />
+    <MESSAGE value="Added Speedadjustment display" />
+    <MESSAGE value="Added Arrows" />
+    <MESSAGE value="Adjusted Position of speedometer and Arrows" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adjusted Position of speedometer and Arrows" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
