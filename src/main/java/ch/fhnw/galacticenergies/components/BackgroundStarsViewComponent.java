@@ -35,7 +35,7 @@ public class BackgroundStarsViewComponent extends ChildViewComponent {
     {
         star.setTranslateX(star.getTranslateX() - tpf * FXGLMath.random(1, 30));
 
-        if(star.getTranslateX() + star.getHeight() <= getAppWidth()){
+        if(star.getTranslateX() + star.getWidth() <= getAppWidth()){
             star.setTranslateX(0);
         }
     }

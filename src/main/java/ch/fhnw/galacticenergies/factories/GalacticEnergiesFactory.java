@@ -73,13 +73,13 @@ public class GalacticEnergiesFactory implements EntityFactory {
         PhysicsComponent physics = new PhysicsComponent();
         physics.setBodyType(BodyType.KINEMATIC);
 
-        Texture texture = texture("Rakete.png");
+        Texture texture = texture("Rocket.png");
         texture.setPreserveRatio(true);
-        texture.setFitHeight(100);
+        texture.setFitWidth(70);
 
         return entityBuilder(data)
                 .type(ROCKET)
-                .at(20, getAppHeight() / 2 - (texture.getFitHeight() / 2))
+                .at(10, getAppHeight() / 2 - (texture.getFitHeight() / 2))
                 .viewWithBBox(texture)
                 .collidable()
                 .with(physics)
