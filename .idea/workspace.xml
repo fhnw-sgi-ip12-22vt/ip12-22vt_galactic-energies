@@ -4,20 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab62d768-cc0c-4eeb-a13d-050241538dc9" name="Changes" comment="Adjusted Position of speedometer and Arrows">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pi4j/catalog/components/Component.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pi4j/catalog/components/Joystick.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pi4j/catalog/components/SimpleButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pi4j/catalog/components/SimpleLed.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pi4j/catalog/components/helpers/ContinuousMeasuringException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pi4j/catalog/components/helpers/InstanceAlreadyRunningException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pi4j/catalog/components/helpers/PIN.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pi4j/catalog/components/helpers/PrintInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pi4j/catalog/components/helpers/SingletonAppHelper.java" afterDir="false" />
+    <list default="true" id="ab62d768-cc0c-4eeb-a13d-050241538dc9" name="Changes" comment="javafx example">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/GameView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/models/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/models/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,24 +48,24 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Rinor/IdeaProjects/galactic-energies/src/main/java/com/pi4j/catalog/components",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Rinor/IdeaProjects/galactic-energies/src/main/java/com/pi4j/catalog/components&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Rinor\IdeaProjects\galactic-energies\src\main\java\com\pi4j\catalog\components" />
@@ -221,6 +210,7 @@
       <workItem from="1669792918266" duration="3404000" />
       <workItem from="1669817222785" duration="5531000" />
       <workItem from="1669879349106" duration="426000" />
+      <workItem from="1669975037950" duration="1038000" />
     </task>
     <task id="LOCAL-00001" summary="javafx example">
       <created>1669187662688</created>

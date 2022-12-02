@@ -23,7 +23,7 @@ public class Player extends SpaceObject {
 	 */
 	public void moveUp() {
 		if(getY_Pos() > 0){
-			setY_Pos(getY_Pos() - 5);
+			setY_Pos(getY_Pos() - 15);
 		}
 
 	}
@@ -33,7 +33,7 @@ public class Player extends SpaceObject {
 	public void moveDown(double maxY) {
 
 		if(getY_Pos()< maxY){
-			setY_Pos(getY_Pos() + 5);
+			setY_Pos(getY_Pos() + 15);
 		}
 	}
 
