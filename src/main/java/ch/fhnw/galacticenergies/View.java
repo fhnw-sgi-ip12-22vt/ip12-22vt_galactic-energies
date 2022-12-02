@@ -1,5 +1,6 @@
 package ch.fhnw.galacticenergies;
 
+import ch.fhnw.galacticenergies.components.ArrowsComponent;
 import ch.fhnw.galacticenergies.components.DashboardComponent;
 import ch.fhnw.galacticenergies.components.LifeComponent;
 import ch.fhnw.galacticenergies.controllers.LevelController;
@@ -49,13 +50,13 @@ public class View extends GameApplication {
             @Override
             protected void onAction() {
                 getRocketControl().up();
-                getDashboardControl().buttonUpPressed();
+                getArrowsControl().buttonUpPressed();
             }
 
             @Override
             protected void onActionEnd() {
                 getRocketControl().stop();
-                getDashboardControl().noButtonPressed();
+                getArrowsControl().noButtonPressed();
             }
         }, KeyCode.W);
 
@@ -63,13 +64,13 @@ public class View extends GameApplication {
             @Override
             protected void onAction() {
                 getRocketControl().down();
-                getDashboardControl().buttonDownPressed();
+                getArrowsControl().buttonDownPressed();
             }
 
             @Override
             protected void onActionEnd() {
                 getRocketControl().stop();
-                getDashboardControl().noButtonPressed();
+                getArrowsControl().noButtonPressed();
             }
         }, KeyCode.S);
 
@@ -105,7 +106,10 @@ public class View extends GameApplication {
     @Override
     protected void initUI() {
         spawn("dashboard");
-        getDashboardControl().noButtonPressed();
+
+        spawn("arrows");
+        getArrowsControl().noButtonPressed();
+
         uiController = new ViewController(FXGL.getGameScene());
 
         IntStream.range(0, geti("lives"))
@@ -119,6 +123,11 @@ public class View extends GameApplication {
     private DashboardComponent getDashboardControl()
     {
         return getGameWorld().getSingleton(DASHBOARD).getComponent(DashboardComponent.class);
+    }
+
+    private ArrowsComponent getArrowsControl()
+    {
+        return getGameWorld().getSingleton(ARROWS).getComponent(ArrowsComponent.class);
     }
 
     private LifeComponent getLifeComponent()
