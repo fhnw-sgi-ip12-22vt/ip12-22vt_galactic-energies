@@ -78,9 +78,11 @@ public class GameView extends Application {
 
         joystick.whileNorth(30, () -> {
             System.out.println("north!!!!!");
+            Platform.runLater(() -> {
+                controller.moveUp();
+                controller.showArrow(3);
+            });
 
-            controller.moveUp();
-            controller.showArrow(3);
         });
         joystick.onNorth(() -> {
             System.out.println("North !!!!!!");
@@ -90,6 +92,14 @@ public class GameView extends Application {
             });
 
         });
+
+        joystick.whileSouth(30, () -> {
+                    System.out.println("north!!!!!");
+                    Platform.runLater(() -> {
+                        controller.moveDown();
+                        controller.showArrow(2);
+                    });
+                });
 
         joystick.onSouth(() -> {
                     System.out.println("South !!!!!!");

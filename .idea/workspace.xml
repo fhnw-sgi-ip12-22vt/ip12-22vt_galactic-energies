@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab62d768-cc0c-4eeb-a13d-050241538dc9" name="Changes" comment="javafx example">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/models/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/models/Player.java" afterDir="false" />
+    <list default="true" id="ab62d768-cc0c-4eeb-a13d-050241538dc9" name="Changes" comment="jsn">
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/GameView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,7 +209,7 @@
       <workItem from="1669792918266" duration="3404000" />
       <workItem from="1669817222785" duration="5531000" />
       <workItem from="1669879349106" duration="426000" />
-      <workItem from="1669975037950" duration="1038000" />
+      <workItem from="1669975037950" duration="1734000" />
     </task>
     <task id="LOCAL-00001" summary="javafx example">
       <created>1669187662688</created>
@@ -289,7 +288,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669879619126</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="jsn">
+      <created>1669977034662</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1669977034662</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -334,7 +340,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="javafx example" />
     <MESSAGE value="added folder structure, added sample files" />
     <MESSAGE value="added images, Player Class, PlayerController, JavaFX XML Files, GameView Class" />
     <MESSAGE value="merge with current frontend status" />
@@ -345,7 +350,9 @@
     <MESSAGE value="Added Speedadjustment display" />
     <MESSAGE value="Added Arrows" />
     <MESSAGE value="Adjusted Position of speedometer and Arrows" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adjusted Position of speedometer and Arrows" />
+    <MESSAGE value="javafx example" />
+    <MESSAGE value="jsn" />
+    <option name="LAST_COMMIT_MESSAGE" value="jsn" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
