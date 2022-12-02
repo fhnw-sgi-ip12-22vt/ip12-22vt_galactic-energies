@@ -1,11 +1,9 @@
 package ch.fhnw.galacticenergies.factories;
 
-import ch.fhnw.galacticenergies.components.BackgroundStarsViewComponent;
-import ch.fhnw.galacticenergies.components.DashboardComponent;
-import ch.fhnw.galacticenergies.components.LifeComponent;
-import ch.fhnw.galacticenergies.components.RocketComponent;
+import ch.fhnw.galacticenergies.components.*;
 import ch.fhnw.galacticenergies.services.SemiRingService;
 import com.almasb.fxgl.core.util.LazyValue;
+import com.almasb.fxgl.dsl.EntityBuilder;
 import com.almasb.fxgl.dsl.components.EffectComponent;
 import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.entity.EntityFactory;
@@ -79,35 +77,20 @@ public class GalacticEnergiesFactory implements EntityFactory {
 
     @Spawns("dashboard")
     public Entity newDashboard(SpawnData data) {
-        Texture texture = texture("dashboard/Pfeil Neutral.png");
+        Texture texture = texture("dashboard/Steuerboard Level 1.png");
         texture.setPreserveRatio(true);
-        texture.setFitHeight(20);
-
-        StackPane root = new StackPane();
-        int i = 10;
-        while (i < 100) {
-            i += 10;
-        }
-        LinearGradient g = LinearGradient.valueOf(
-                "from 100.0% 100.0% to 100.0% 0.0% " +    // from top to bottom
-                        "rgb(148, 0, 0) 50%, " +               // red at the top
-                        "rgb(148, 0, 0) " + i + "%, " +  // red at percentage
-                        "rgb(14, 147, 0) " + 80 + "%, " + // green at percentage
-                        "rgb(14, 147, 0) 5%"              // green at the bottom
-        );
+        texture.setFitHeight(100);
 
 
-        Rectangle r = new Rectangle(500, 500);
-        r.setFill(g);
+        StackPane s = new StackPane();
+        s.getChildren().add(texture);
+        StackPane.setAlignment(texture, Pos.BOTTOM_CENTER);
 
-        Path semiRing = SemiRingService.drawSemiRing(0, 0, 100, 80, g, Color.DARKGREEN);
-        root.getChildren().add(semiRing);
-        root.setAlignment(semiRing, Pos.CENTER);
-        //root.getChildren().add(r);
 
         return entityBuilder(data)
                 .type(DASHBOARD)
-                .at(getAppWidth() / 2 - DashboardComponent.getBUTTON_SIZE(), getAppHeight() - DashboardComponent.getBUTTON_SIZE())
+                .at(getAppWidth() / 2 - 100, getAppHeight() - texture.getFitHeight() )
+                .view(s)
                 .with(new DashboardComponent())
                 .build();
     }
@@ -127,4 +110,17 @@ public class GalacticEnergiesFactory implements EntityFactory {
                 .build();
     }
 
+    @Spawns("arrows")
+    public Entity newArrows(SpawnData data)
+    {
+        Texture texture = texture("dashboard/Pfeil Neutral.png");
+        texture.setPreserveRatio(true);
+        texture.setFitHeight(20);
+
+        return entityBuilder(data)
+                .type(ARROWS)
+                .at(getAppWidth() / 2 - ArrowsComponent.getBUTTON_SIZE(), getAppHeight() - ArrowsComponent.getBUTTON_SIZE() - 5)
+                .with(new ArrowsComponent())
+                .build();
+    }
 }
