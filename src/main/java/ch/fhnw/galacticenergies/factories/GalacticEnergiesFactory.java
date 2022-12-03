@@ -5,15 +5,19 @@ import ch.fhnw.galacticenergies.services.SemiRingService;
 import com.almasb.fxgl.core.util.LazyValue;
 import com.almasb.fxgl.dsl.EntityBuilder;
 import com.almasb.fxgl.dsl.components.EffectComponent;
+import com.almasb.fxgl.dsl.components.OffscreenCleanComponent;
+import com.almasb.fxgl.dsl.components.ProjectileComponent;
 import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.entity.EntityFactory;
 import com.almasb.fxgl.entity.SpawnData;
 import com.almasb.fxgl.entity.Spawns;
+import com.almasb.fxgl.entity.components.CollidableComponent;
 import com.almasb.fxgl.entity.components.IrremovableComponent;
 import com.almasb.fxgl.physics.PhysicsComponent;
 import com.almasb.fxgl.physics.box2d.dynamics.BodyType;
 import com.almasb.fxgl.texture.ImagesKt;
 import com.almasb.fxgl.texture.Texture;
+import javafx.geometry.Point2D;
 import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
@@ -29,15 +33,10 @@ import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.*;
 
 public class GalacticEnergiesFactory implements EntityFactory {
 
-    private LazyValue<Image> image;
+
 
     public GalacticEnergiesFactory() {
-        this.image = new LazyValue<>(() -> {
-            var images = IntStream.rangeClosed(1, 13)
-                    .mapToObj(i -> image("dashboard/Steuerboard Level " + i + ".png"))
-                    .collect(Collectors.toList());
-            return ImagesKt.merge(images);
-        });
+
     }
 
     @Spawns("background")
@@ -75,6 +74,22 @@ public class GalacticEnergiesFactory implements EntityFactory {
                 .build();
     }
 
+    @Spawns("rocketBullet")
+    public Entity newRocketBullet(SpawnData data)
+    {
+        Entity owner = data.get("owner");
+        return entityBuilder(data)
+                .type(ROCKETBULLET)
+                .at(owner.getCenter().add(owner.getWidth() / 2, 0))
+                .viewWithBBox(new Rectangle(10,  2, Color.BLACK))
+                .collidable()
+                .with(new ProjectileComponent(new Point2D(1, 0), 200))
+                .with(new OwnerComponent(owner.getType()))
+                .with(new OffscreenCleanComponent(), new RocketBulletComponent())
+                .with("dead", false)
+                .build();
+    }
+
     @Spawns("dashboard")
     public Entity newDashboard(SpawnData data) {
         Texture texture = texture("dashboard/Steuerboard Level 1.png");
@@ -86,10 +101,9 @@ public class GalacticEnergiesFactory implements EntityFactory {
         s.getChildren().add(texture);
         StackPane.setAlignment(texture, Pos.BOTTOM_CENTER);
 
-
         return entityBuilder(data)
                 .type(DASHBOARD)
-                .at(getAppWidth() / 2 - 100, getAppHeight() - texture.getFitHeight() )
+                .at( getAppCenter().getY(), getAppCenter().getX() + texture.getFitHeight() )
                 .view(s)
                 .with(new DashboardComponent())
                 .build();
@@ -105,7 +119,7 @@ public class GalacticEnergiesFactory implements EntityFactory {
         return entityBuilder(data)
                 .type(LIFE)
                 .at(getAppWidth(), 10)
-                .viewWithBBox(textureLife)
+                .view(textureLife)
                 .with(new LifeComponent())
                 .build();
     }
@@ -116,11 +130,27 @@ public class GalacticEnergiesFactory implements EntityFactory {
         Texture texture = texture("dashboard/Pfeil Neutral.png");
         texture.setPreserveRatio(true);
         texture.setFitHeight(20);
-
+        texture.setFitWidth(20);
+        System.out.println(texture.getFitWidth());
         return entityBuilder(data)
                 .type(ARROWS)
-                .at(getAppWidth() / 2 - ArrowsComponent.getBUTTON_SIZE(), getAppHeight() - ArrowsComponent.getBUTTON_SIZE() - 5)
+                .at(getAppWidth() / 2 - texture.getFitWidth() / 1.5, getAppHeight() - texture.getHeight() / 2)
                 .with(new ArrowsComponent())
+                .build();
+    }
+
+    private DashboardComponent getDashboardControl() {
+        return getGameWorld().getSingleton(DASHBOARD).getComponent(DashboardComponent.class);
+    }
+
+    @Spawns("asteroid")
+    public Entity newAsteroid(SpawnData data)
+    {
+        Texture texture = texture("asteroids/Enemy1.png");
+
+        return entityBuilder(data)
+                .type(ASTEROID)
+                .viewWithBBox(texture)
                 .build();
     }
 }

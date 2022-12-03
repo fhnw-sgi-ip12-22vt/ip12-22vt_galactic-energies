@@ -1,12 +1,16 @@
 package ch.fhnw.galacticenergies.controllers;
 
+import ch.fhnw.galacticenergies.components.RocketComponent;
 import ch.fhnw.galacticenergies.models.*;
+
+import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.ROCKET;
+import static com.almasb.fxgl.dsl.FXGL.getGameWorld;
 
 /**
  * Generates and controls the Player object
  * @version 1.0
  */
-public class PlayerController {
+public class RocketController {
 	/**
 	 * Initialization of a new player.
 	 */
@@ -43,6 +47,10 @@ public class PlayerController {
 	 */
 	public void intersect(SpaceObject obj) {
 
+	}
+
+	public static RocketComponent getRocketControl() {
+		return getGameWorld().getSingleton(ROCKET).getComponent(RocketComponent.class);
 	}
 
 }

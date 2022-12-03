@@ -1,12 +1,12 @@
 package ch.fhnw.galacticenergies.components;
 
 import com.almasb.fxgl.entity.component.Component;
+import com.almasb.fxgl.entity.component.Required;
 import com.almasb.fxgl.texture.Texture;
 
 import static com.almasb.fxgl.dsl.FXGL.texture;
 
 public class ArrowsComponent extends Component {
-
     private final Texture textureUp = texture("dashboard/Pfeil Hoch.png");
     private final Texture textureDown = texture("dashboard/Pfeil Down.png");
     private final Texture textureNone = texture("dashboard/Pfeil Neutral.png");
@@ -26,11 +26,6 @@ public class ArrowsComponent extends Component {
     }
     @Override
     public void onUpdate(double tpf) {
-
-    }
-
-    public void setGradient()
-    {
 
     }
 
