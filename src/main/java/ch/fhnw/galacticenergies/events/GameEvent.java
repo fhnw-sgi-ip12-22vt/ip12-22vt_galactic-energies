@@ -10,6 +10,9 @@ public class GameEvent extends Event {
 
     public static final EventType<GameEvent> PLAYER_GOT_HIT =
             new EventType<>(ANY, "PLAYER_GOT_HIT");
+
+    public static final EventType<GameEvent> ASTEROID_GOT_HIT =
+            new EventType<>(ANY, "ASTEROID_HIT");
     public GameEvent(EventType<? extends Event> eventType) {
         super(eventType);
     }

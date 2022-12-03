@@ -1,7 +1,7 @@
 package ch.fhnw.galacticenergies.enums;
 
 public enum GalacticEnergiesType {
-    ROCKET, ASTEROID, PLANET, LIFE,
+    ROCKET, ASTEROID, PLANET, LIFE, ROCKETBULLET,
 
-    BACKGROUND, DASHBOARD, ARROWS
+    BACKGROUND, DASHBOARD, WALL, ARROWS
 }

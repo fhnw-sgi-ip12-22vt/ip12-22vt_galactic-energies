@@ -1,8 +1,10 @@
 package ch.fhnw.galacticenergies.components;
 
+import ch.fhnw.galacticenergies.Config;
 import com.almasb.fxgl.core.math.Vec2;
 import com.almasb.fxgl.dsl.components.EffectComponent;
 import com.almasb.fxgl.entity.Entity;
+import com.almasb.fxgl.entity.SpawnData;
 import com.almasb.fxgl.entity.component.Component;
 import com.almasb.fxgl.physics.PhysicsComponent;
 import com.almasb.fxgl.texture.Texture;
@@ -10,12 +12,9 @@ import javafx.scene.effect.Effect;
 import javafx.scene.effect.MotionBlur;
 import javafx.util.Duration;
 
-import static com.almasb.fxgl.dsl.FXGL.getAppHeight;
-import static com.almasb.fxgl.dsl.FXGL.getAppWidth;
+import static com.almasb.fxgl.dsl.FXGL.*;
 
 public class RocketComponent extends Component {
-
-    private static final int ROCKET_SPEED = 1000;
 
     private static final float SPEED_DECAY = 0.66f;
 
@@ -27,6 +26,11 @@ public class RocketComponent extends Component {
 
     private float speed = 0;
 
+    private float speedMultiplier = 1;
+
+    private boolean canShoot = true;
+    private double lastShot = 0;
+
     private Vec2 velocity = new Vec2();
 
     private Texture textureOnHit;
@@ -37,7 +41,7 @@ public class RocketComponent extends Component {
 
     @Override
     public void onUpdate(double tpf) {
-        speed = ROCKET_SPEED * (float) tpf;
+        speed = Config.ROCKET_SPEED * (float) tpf * speedMultiplier;
 
         velocity.mulLocal(SPEED_DECAY);
 
@@ -45,6 +49,12 @@ public class RocketComponent extends Component {
             velocity.set(0, BOUNCE_FACTOR * (float) + entity.getY());
         } else if (entity.getBottomY() > getAppHeight()) {
             velocity.set(0, BOUNCE_FACTOR * (float) + (entity.getBottomY() - getAppHeight()));
+        }
+
+        if (!canShoot) {
+            if ((getGameTimer().getNow() - lastShot) >= 1.0 / Config.ROCKET_ATTACK_SPEED) {
+                canShoot = true;
+            }
         }
 
         physics.setBodyLinearVelocity(velocity);
@@ -72,6 +82,20 @@ public class RocketComponent extends Component {
         entity.setScaleX(1);
         entity.setScaleY(1);
         entity.getViewComponent().getParent().setEffect(null);
+    }
+
+    public void shoot()
+    {
+        if(!canShoot) return;
+
+        canShoot = false;
+        lastShot = getGameTimer().getNow();
+
+        spawn("rocketBullet", new SpawnData(0,0).put("owner", getEntity()));
+    }
+
+    public void setSpeedMultiplier(float speedMultiplier) {
+        this.speedMultiplier = speedMultiplier;
     }
 
     public void onHit() {
