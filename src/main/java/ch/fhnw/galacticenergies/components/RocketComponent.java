@@ -98,6 +98,10 @@ public class RocketComponent extends Component {
         this.speedMultiplier = speedMultiplier;
     }
 
+    public float getSpeedMultiplier() {
+        return speedMultiplier;
+    }
+
     public void onHit() {
         entity.getComponent(EffectComponent.class).startEffect(new HitEffect());
     }

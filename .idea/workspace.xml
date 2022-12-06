@@ -4,20 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab62d768-cc0c-4eeb-a13d-050241538dc9" name="Changes" comment="Changed Rocket Image">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/Config.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/AsteroidComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/OwnerComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/RocketBulletComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/controllers/AsteroidController.java" afterDir="false" />
+    <list default="true" id="ab62d768-cc0c-4eeb-a13d-050241538dc9" name="Changes" comment="added shoot functionality, fixed Dashboard, added speed functionality, added Config, added Event Boilerplate">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/collision/AsteroidHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/View.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/ArrowsComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/ArrowsComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/DashboardComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/DashboardComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/AsteroidComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/AsteroidComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/BackgroundStarsViewComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/BackgroundStarsViewComponent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/RocketComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/RocketComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/controllers/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/controllers/RocketController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/enums/GalacticEnergiesType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/enums/GalacticEnergiesType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/events/GameEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/events/GameEvent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/factories/GalacticEnergiesFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/factories/GalacticEnergiesFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -180,6 +173,8 @@
       <workItem from="1669730005983" duration="3559000" />
       <workItem from="1669792918266" duration="3404000" />
       <workItem from="1669879251532" duration="36045000" />
+      <workItem from="1670080716286" duration="4928000" />
+      <workItem from="1670161785857" duration="3014000" />
     </task>
     <task id="LOCAL-00001" summary="javafx example">
       <created>1669187662688</created>
@@ -244,7 +239,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669934149322</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="added shoot functionality, fixed Dashboard, added speed functionality, added Config, added Event Boilerplate">
+      <created>1670025766437</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1670025766437</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -253,6 +255,11 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="7b4ba2be-9fda-4f43-881f-b92043787a2a">
+          <value>
+            <State />
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State>
@@ -272,6 +279,11 @@
         </entry>
       </map>
     </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="7b4ba2be-9fda-4f43-881f-b92043787a2a" value="TOOL_WINDOW" />
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="javafx example" />
@@ -284,7 +296,8 @@
     <MESSAGE value="WIP FXGL" />
     <MESSAGE value="dump images, implemented Rocket move, implemented Button Up/Down" />
     <MESSAGE value="Changed Rocket Image" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed Rocket Image" />
+    <MESSAGE value="added shoot functionality, fixed Dashboard, added speed functionality, added Config, added Event Boilerplate" />
+    <option name="LAST_COMMIT_MESSAGE" value="added shoot functionality, fixed Dashboard, added speed functionality, added Config, added Event Boilerplate" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

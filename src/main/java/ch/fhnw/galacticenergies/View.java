@@ -109,7 +109,6 @@ public class View extends GameApplication {
         getGameScene().getRoot().setCursor(Cursor.NONE);
 
         initBackground();
-        LevelController.setLevel(STARTING_LEVEL);
 
     }
 
@@ -133,7 +132,11 @@ public class View extends GameApplication {
     protected void initUI() {
         spawn("dashboard");
         spawn("arrows");
+        spawn("asteroid");
         getArrowsControl().noButtonPressed();
+
+
+        LevelController.setLevel(STARTING_LEVEL);
 
         uiController = new ViewController(FXGL.getGameScene());
 
