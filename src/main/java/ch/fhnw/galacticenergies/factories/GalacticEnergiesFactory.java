@@ -2,29 +2,35 @@ package ch.fhnw.galacticenergies.factories;
 
 import ch.fhnw.galacticenergies.components.*;
 import ch.fhnw.galacticenergies.services.SemiRingService;
+import com.almasb.fxgl.core.math.FXGLMath;
 import com.almasb.fxgl.core.util.LazyValue;
 import com.almasb.fxgl.dsl.EntityBuilder;
-import com.almasb.fxgl.dsl.components.EffectComponent;
-import com.almasb.fxgl.dsl.components.OffscreenCleanComponent;
-import com.almasb.fxgl.dsl.components.ProjectileComponent;
+import com.almasb.fxgl.dsl.components.*;
 import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.entity.EntityFactory;
 import com.almasb.fxgl.entity.SpawnData;
 import com.almasb.fxgl.entity.Spawns;
+import com.almasb.fxgl.entity.components.BoundingBoxComponent;
 import com.almasb.fxgl.entity.components.CollidableComponent;
 import com.almasb.fxgl.entity.components.IrremovableComponent;
+import com.almasb.fxgl.physics.BoundingShape;
+import com.almasb.fxgl.physics.HitBox;
 import com.almasb.fxgl.physics.PhysicsComponent;
+import com.almasb.fxgl.physics.box2d.dynamics.BodyDef;
 import com.almasb.fxgl.physics.box2d.dynamics.BodyType;
+import com.almasb.fxgl.physics.box2d.dynamics.FixtureDef;
 import com.almasb.fxgl.texture.ImagesKt;
 import com.almasb.fxgl.texture.Texture;
 import javafx.geometry.Point2D;
 import javafx.geometry.Pos;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.LinearGradient;
 import javafx.scene.shape.*;
 
+import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -32,7 +38,6 @@ import static com.almasb.fxgl.dsl.FXGL.*;
 import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.*;
 
 public class GalacticEnergiesFactory implements EntityFactory {
-
 
 
     public GalacticEnergiesFactory() {
@@ -75,15 +80,14 @@ public class GalacticEnergiesFactory implements EntityFactory {
     }
 
     @Spawns("rocketBullet")
-    public Entity newRocketBullet(SpawnData data)
-    {
+    public Entity newRocketBullet(SpawnData data) {
         Entity owner = data.get("owner");
         return entityBuilder(data)
                 .type(ROCKETBULLET)
                 .at(owner.getCenter().add(owner.getWidth() / 2, 0))
-                .viewWithBBox(new Rectangle(10,  2, Color.BLACK))
+                .viewWithBBox(new Rectangle(10, 2, Color.BLACK))
                 .collidable()
-                .with(new ProjectileComponent(new Point2D(1, 0), 200))
+                .with(new ProjectileComponent(new Point2D(1, 0), 50))
                 .with(new OwnerComponent(owner.getType()))
                 .with(new OffscreenCleanComponent(), new RocketBulletComponent())
                 .with("dead", false)
@@ -103,7 +107,7 @@ public class GalacticEnergiesFactory implements EntityFactory {
 
         return entityBuilder(data)
                 .type(DASHBOARD)
-                .at( getAppCenter().getY(), getAppCenter().getX() + texture.getFitHeight() )
+                .at(getAppCenter().getY(), getAppCenter().getX() + texture.getFitHeight())
                 .view(s)
                 .with(new DashboardComponent())
                 .build();
@@ -125,8 +129,7 @@ public class GalacticEnergiesFactory implements EntityFactory {
     }
 
     @Spawns("arrows")
-    public Entity newArrows(SpawnData data)
-    {
+    public Entity newArrows(SpawnData data) {
         Texture texture = texture("dashboard/Pfeil Neutral.png");
         texture.setPreserveRatio(true);
         texture.setFitHeight(20);
@@ -144,13 +147,33 @@ public class GalacticEnergiesFactory implements EntityFactory {
     }
 
     @Spawns("asteroid")
-    public Entity newAsteroid(SpawnData data)
-    {
-        Texture texture = texture("asteroids/Enemy1.png");
+    public Entity newAsteroid(SpawnData data) {
+        Random r = new Random();
+        Texture texture = texture("asteroids/Enemy" + r.nextInt(1, 4) + ".png");
+        texture.setPreserveRatio(true);
+        texture.setFitWidth(texture.getHeight() / 2);
+
+        PhysicsComponent physics = new PhysicsComponent();
+        physics.setBodyType(BodyType.DYNAMIC);
+        physics.setFixtureDef(new FixtureDef().restitution(1f).density(0.03f));
+
+        var bd = new BodyDef();
+        bd.setType(BodyType.DYNAMIC);
+        bd.setFixedRotation(true);
+
+        physics.setBodyDef(bd);
 
         return entityBuilder(data)
                 .type(ASTEROID)
-                .viewWithBBox(texture)
+                .at(getAppWidth() - texture.getFitWidth() - 10, getAppHeight() / 2)
+                .view(texture)
+                .collidable()
+                .with(physics)
+                .with(new AsteroidComponent())
+                .with(new OffscreenCleanComponent())
+                .scaleOrigin(0, 0)
+                .scale(0.1, 0.1)
                 .build();
     }
+
 }
