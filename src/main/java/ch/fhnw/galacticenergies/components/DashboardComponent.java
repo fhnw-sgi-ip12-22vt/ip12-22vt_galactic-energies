@@ -1,21 +1,16 @@
 package ch.fhnw.galacticenergies.components;
 
-import com.almasb.fxgl.core.util.LazyValue;
-import com.almasb.fxgl.entity.Entity;
-import com.almasb.fxgl.entity.SpawnData;
 import com.almasb.fxgl.entity.component.Component;
-import com.almasb.fxgl.texture.ImagesKt;
 import com.almasb.fxgl.texture.Texture;
-import javafx.scene.image.Image;
 
 import java.util.ArrayList;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import static com.almasb.fxgl.dsl.FXGL.*;
+import static com.almasb.fxgl.dsl.FXGL.image;
+import static com.almasb.fxgl.dsl.FXGL.texture;
 
 public class DashboardComponent extends Component {
-    private ArrayList<Texture> images = new ArrayList<>();
+    private final ArrayList<Texture> images = new ArrayList<>();
 
     private Texture currentImage = new Texture(image("dashboard/Steuerboard Level 1.png"));
 

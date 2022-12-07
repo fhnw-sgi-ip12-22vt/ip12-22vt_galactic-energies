@@ -81,7 +81,7 @@ public class View extends GameApplication {
             }
         }, KeyCode.S);
 
-        onKey(KeyCode.SPACE, "Shoot", () -> RocketController.getRocketControl().shoot());
+
         onKeyDown(KeyCode.K, "nextSpeed", () -> {
             if(geti("speed") == 12) return;
             inc("speed", + 1);
@@ -95,7 +95,7 @@ public class View extends GameApplication {
 
     @Override
     protected void initGameVars(Map<String, Object> vars) {
-        vars.put("lives", 3);
+        vars.put("lives", 5);
         vars.put("speed", 0);
         vars.put("currentEnergy", 0);
         vars.put("totalEnergy", 0);

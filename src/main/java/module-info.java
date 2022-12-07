@@ -6,7 +6,6 @@ open module ch.fhnw.galacticenergies {
 
     exports ch.fhnw.galacticenergies;
     exports ch.fhnw.galacticenergies.controllers;
-    exports ch.fhnw.galacticenergies.models;
 
     exports ch.fhnw.galacticenergies.factories;
 
