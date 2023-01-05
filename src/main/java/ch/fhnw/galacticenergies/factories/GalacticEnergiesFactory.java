@@ -1,38 +1,21 @@
 package ch.fhnw.galacticenergies.factories;
 
 import ch.fhnw.galacticenergies.components.*;
-import ch.fhnw.galacticenergies.services.SemiRingService;
-import com.almasb.fxgl.core.math.FXGLMath;
-import com.almasb.fxgl.core.util.LazyValue;
-import com.almasb.fxgl.dsl.EntityBuilder;
 import com.almasb.fxgl.dsl.components.*;
 import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.entity.EntityFactory;
 import com.almasb.fxgl.entity.SpawnData;
 import com.almasb.fxgl.entity.Spawns;
-import com.almasb.fxgl.entity.components.BoundingBoxComponent;
-import com.almasb.fxgl.entity.components.CollidableComponent;
 import com.almasb.fxgl.entity.components.IrremovableComponent;
-import com.almasb.fxgl.physics.BoundingShape;
-import com.almasb.fxgl.physics.HitBox;
 import com.almasb.fxgl.physics.PhysicsComponent;
 import com.almasb.fxgl.physics.box2d.dynamics.BodyDef;
 import com.almasb.fxgl.physics.box2d.dynamics.BodyType;
 import com.almasb.fxgl.physics.box2d.dynamics.FixtureDef;
-import com.almasb.fxgl.texture.ImagesKt;
 import com.almasb.fxgl.texture.Texture;
-import javafx.geometry.Point2D;
 import javafx.geometry.Pos;
-import javafx.geometry.Rectangle2D;
-import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.LinearGradient;
-import javafx.scene.shape.*;
 
 import java.util.Random;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 import static com.almasb.fxgl.dsl.FXGL.*;
 import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.*;
@@ -76,21 +59,6 @@ public class GalacticEnergiesFactory implements EntityFactory {
                 .with(physics)
                 .with(new EffectComponent())
                 .with(new RocketComponent(texture("bat_hit.png")))
-                .build();
-    }
-
-    @Spawns("rocketBullet")
-    public Entity newRocketBullet(SpawnData data) {
-        Entity owner = data.get("owner");
-        return entityBuilder(data)
-                .type(ROCKETBULLET)
-                .at(owner.getCenter().add(owner.getWidth() / 2, 0))
-                .viewWithBBox(new Rectangle(10, 2, Color.BLACK))
-                .collidable()
-                .with(new ProjectileComponent(new Point2D(1, 0), 50))
-                .with(new OwnerComponent(owner.getType()))
-                .with(new OffscreenCleanComponent(), new RocketBulletComponent())
-                .with("dead", false)
                 .build();
     }
 

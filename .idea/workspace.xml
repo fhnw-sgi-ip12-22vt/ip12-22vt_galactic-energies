@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab62d768-cc0c-4eeb-a13d-050241538dc9" name="Changes" comment="WIP EntitySpawner tests">
-      <change afterPath="$PROJECT_DIR$/src/test/java/RocketMoveTest.java" afterDir="false" />
+    <list default="true" id="ab62d768-cc0c-4eeb-a13d-050241538dc9" name="Changes" comment="added shoot functionality, fixed Dashboard, added speed functionality, added Config, added Event Boilerplate">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/collision/AsteroidHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/View.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/AsteroidComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/AsteroidComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/controllers/AsteroidController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/controllers/AsteroidController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/BackgroundStarsViewComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/BackgroundStarsViewComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/RocketComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/RocketComponent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/factories/GalacticEnergiesFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/factories/GalacticEnergiesFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -87,6 +88,19 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.View">
+    <configuration name="Ex" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ch.fhnw.galacticenergies.views.Ex" />
+      <module name="galactic-energies" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ch.fhnw.galacticenergies.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="GameView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ch.fhnw.galacticenergies.GameView" />
       <module name="galactic-energies" />
@@ -135,22 +149,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RocketMoveTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="galactic-energies" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="RocketMoveTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.View" />
-        <item itemvalue="JUnit.RocketMoveTest" />
         <item itemvalue="Application.GameView" />
         <item itemvalue="Application.ImageFill" />
         <item itemvalue="JUnit.PlayerTest" />
+        <item itemvalue="Application.Ex" />
       </list>
     </recent_temporary>
   </component>
@@ -170,9 +175,6 @@
       <workItem from="1669879251532" duration="36045000" />
       <workItem from="1670080716286" duration="4928000" />
       <workItem from="1670161785857" duration="3014000" />
-      <workItem from="1670360760647" duration="739000" />
-      <workItem from="1672852169549" duration="1206000" />
-      <workItem from="1672947594219" duration="3634000" />
     </task>
     <task id="LOCAL-00001" summary="javafx example">
       <created>1669187662688</created>
@@ -244,14 +246,7 @@
       <option name="project" value="LOCAL" />
       <updated>1670025766437</updated>
     </task>
-    <task id="LOCAL-00011" summary="WIP EntitySpawner tests">
-      <created>1670361333377</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1670361333377</updated>
-    </task>
-    <option name="localTasksCounter" value="12" />
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -302,8 +297,7 @@
     <MESSAGE value="dump images, implemented Rocket move, implemented Button Up/Down" />
     <MESSAGE value="Changed Rocket Image" />
     <MESSAGE value="added shoot functionality, fixed Dashboard, added speed functionality, added Config, added Event Boilerplate" />
-    <MESSAGE value="WIP EntitySpawner tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="WIP EntitySpawner tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="added shoot functionality, fixed Dashboard, added speed functionality, added Config, added Event Boilerplate" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
