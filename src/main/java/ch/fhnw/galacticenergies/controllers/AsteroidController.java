@@ -7,5 +7,11 @@ public class AsteroidController {
     public static void onAsteroidHit(GameEvent event)
     {
         inc("asteroidsKilled", +1);
+        System.out.println("TEST");
+    }
+
+    public static void onAsteroidReachedBorder(GameEvent event)
+    {
+
     }
 }

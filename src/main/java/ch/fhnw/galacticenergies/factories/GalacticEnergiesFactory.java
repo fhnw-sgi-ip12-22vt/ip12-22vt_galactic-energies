@@ -151,7 +151,7 @@ public class GalacticEnergiesFactory implements EntityFactory {
         Random r = new Random();
         Texture texture = texture("asteroids/Enemy" + r.nextInt(1, 4) + ".png");
         texture.setPreserveRatio(true);
-        texture.setFitWidth(texture.getHeight() / 2);
+        texture.setFitWidth(texture.getHeight());
 
         PhysicsComponent physics = new PhysicsComponent();
         physics.setBodyType(BodyType.DYNAMIC);
@@ -163,10 +163,12 @@ public class GalacticEnergiesFactory implements EntityFactory {
 
         physics.setBodyDef(bd);
 
+        Random random = new Random();
+
         return entityBuilder(data)
                 .type(ASTEROID)
-                .at(getAppWidth() - texture.getFitWidth() - 10, getAppHeight() / 2)
-                .view(texture)
+                .at(getAppWidth() - texture.getFitWidth(), random.nextFloat(0, getAppHeight()))
+                .viewWithBBox(texture)
                 .collidable()
                 .with(physics)
                 .with(new AsteroidComponent())

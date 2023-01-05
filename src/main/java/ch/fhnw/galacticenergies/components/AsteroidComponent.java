@@ -1,5 +1,6 @@
 package ch.fhnw.galacticenergies.components;
 
+import ch.fhnw.galacticenergies.controllers.RocketController;
 import ch.fhnw.galacticenergies.events.GameEvent;
 import com.almasb.fxgl.core.math.FXGLMath;
 import com.almasb.fxgl.core.math.Vec2;
@@ -16,10 +17,12 @@ import javafx.geometry.Point2D;
 import javafx.util.Duration;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import static com.almasb.fxgl.dsl.FXGL.*;
 import static java.lang.Math.abs;
 import static java.lang.Math.signum;
+
 
 public class AsteroidComponent extends Component {
 
@@ -29,6 +32,9 @@ public class AsteroidComponent extends Component {
     private Vec2 velocity = new Vec2();
     private static final float BOUNCE_FACTOR = 1.2f;
 
+    private float r1;
+    private float r2;
+
     public AsteroidComponent()
     {
 
@@ -37,12 +43,20 @@ public class AsteroidComponent extends Component {
             asteroidImages.add(texture("asteroids/Enemy" + i + ".png"));
         }
 
+        Random random = new Random();
+        r1 = random.nextFloat(-2, -1);
+        r2 = random.nextFloat(-2, 2);
     }
 
     @Override
     public void onUpdate(double tpf) {
         limitVelocity();
-        //checkOffscreen();
+        checkOffscreen();
+
+        if(entity.getX() < 10) {
+            entity.removeFromWorld();
+        }
+
     }
 
     private void limitVelocity() {
@@ -67,6 +81,7 @@ public class AsteroidComponent extends Component {
 
             physics.setVelocityY(signY * BALL_MIN_SPEED);
         }
+
     }
 
     public void hit() {

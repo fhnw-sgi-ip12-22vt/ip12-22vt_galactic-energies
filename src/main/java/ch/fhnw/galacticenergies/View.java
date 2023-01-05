@@ -83,9 +83,9 @@ public class View extends GameApplication {
 
         onKey(KeyCode.SPACE, "Shoot", () -> RocketController.getRocketControl().shoot());
         onKeyDown(KeyCode.K, "nextSpeed", () -> {
-            if(geti("speed") == 12) return;
-            inc("speed", + 1);
-            RocketController.getRocketControl().setSpeedMultiplier(1 + (float)(geti("speed")) / 10);
+            if (geti("speed") == 12) return;
+            inc("speed", +1);
+            RocketController.getRocketControl().setSpeedMultiplier(1 + (float) (geti("speed")) / 10);
             getDashboardControl().setSpeedImage(geti("speed"));
         });
         if (!isReleaseMode()) {
