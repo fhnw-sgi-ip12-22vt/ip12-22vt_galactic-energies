@@ -46,6 +46,7 @@ public class AsteroidComponent extends Component {
         Random random = new Random();
         r1 = random.nextFloat(-2, -1);
         r2 = random.nextFloat(-2, 2);
+
     }
 
     @Override
@@ -55,6 +56,7 @@ public class AsteroidComponent extends Component {
 
         if(entity.getX() < 10) {
             entity.removeFromWorld();
+            spawn("asteroid");
         }
 
     }
@@ -66,7 +68,7 @@ public class AsteroidComponent extends Component {
 
             // if 0, then choose direction to the right
             if (signX == 0.0)
-                signX = 1.0;
+                signX = -1.0;
 
             physics.setVelocityX(signX * BALL_MIN_SPEED);
         }
@@ -81,11 +83,24 @@ public class AsteroidComponent extends Component {
 
             physics.setVelocityY(signY * BALL_MIN_SPEED);
         }
+        velocity.set(r1,r2);
 
+        if (entity.getY() <= 10){
+            r2 = r2*-1;
+            velocity.set(r1, r2);
+        }
+       if (entity.getBottomY() >= getAppHeight()-5){
+            r2 = r2*-1;
+            //entity.setY(getAppHeight()-100);
+           velocity.set(r1, r2);
+            System.out.println("unten" + r2);
+        }
+        physics.setBodyLinearVelocity(velocity);
     }
 
     public void hit() {
         entity.removeFromWorld();
+
 
         fire(new GameEvent(GameEvent.ASTEROID_GOT_HIT));
     }

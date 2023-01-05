@@ -42,13 +42,15 @@ public class ViewController implements UIController {
     }
 
     public void loseLife() {
+
         Entity life = lives.get(lives.size() - 1);
-
+        life.removeFromWorld();
         lives.remove(life);
-
-//        Animation animation = getAnimationLoseLife(life);
-//        animation.setOnFinished(e -> gameScene.removeUINode(life));
-//        animation.play();
+        if(lives.size() == 0){
+            //TODO
+            //Gameover screen einfügen
+            System.out.println("Game Over");
+        }
 
         Viewport viewport = gameScene.getViewport();
 
@@ -59,20 +61,5 @@ public class ViewController implements UIController {
         runOnce(() -> gameScene.removeUINode(flash), Duration.seconds(1));
     }
 
-//    private Animation getAnimationLoseLife(Entity life) {
-//        life.getTransformComponent().set(64);
-//        e.setFitHeight(64);
-//
-//        Viewport viewport = gameScene.getViewport();
-//
-//        TranslateTransition tt = new TranslateTransition(Duration.seconds(0.66), texture);
-//        tt.setToX(viewport.getWidth() / 2 - texture.getFitWidth() / 2);
-//        tt.setToY(viewport.getHeight() / 2 - texture.getFitHeight() / 2);
-//
-//        ScaleTransition st = new ScaleTransition(Duration.seconds(0.66), texture);
-//        st.setToX(0);
-//        st.setToY(0);
-//
-//        return new SequentialTransition(tt, st);
-//    }
+
 }

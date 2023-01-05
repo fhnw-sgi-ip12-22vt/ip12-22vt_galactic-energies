@@ -7,13 +7,16 @@ import ch.fhnw.galacticenergies.controllers.AsteroidController;
 import ch.fhnw.galacticenergies.controllers.LevelController;
 import ch.fhnw.galacticenergies.controllers.RocketController;
 import ch.fhnw.galacticenergies.controllers.ViewController;
+import ch.fhnw.galacticenergies.enums.GalacticEnergiesType;
 import ch.fhnw.galacticenergies.events.GameEvent;
 import ch.fhnw.galacticenergies.factories.GalacticEnergiesFactory;
 import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.app.GameSettings;
 import com.almasb.fxgl.dsl.FXGL;
+import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.entity.components.IrremovableComponent;
 import com.almasb.fxgl.input.UserAction;
+import com.almasb.fxgl.physics.CollisionHandler;
 import javafx.scene.Cursor;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
@@ -97,6 +100,7 @@ public class View extends GameApplication {
     protected void initGameVars(Map<String, Object> vars) {
         vars.put("lives", 5);
         vars.put("speed", 0);
+        vars.put("amountAsteroids", 5);
         vars.put("currentEnergy", 0);
         vars.put("totalEnergy", 0);
         vars.put("level", STARTING_LEVEL);
@@ -114,7 +118,16 @@ public class View extends GameApplication {
 
     @Override
     protected void initPhysics() {
-        // TODO
+        FXGL.getPhysicsWorld().addCollisionHandler(new CollisionHandler(ROCKET, ASTEROID) {
+
+            // order of types is the same as passed into the constructor
+            @Override
+            protected void onCollisionBegin(Entity ROCKET, Entity ASTEROID) {
+                ASTEROID.removeFromWorld();
+                uiController.loseLife();
+
+            }
+        });
     }
 
     private void initBackground() {
@@ -132,7 +145,8 @@ public class View extends GameApplication {
     protected void initUI() {
         spawn("dashboard");
         spawn("arrows");
-        spawn("asteroid");
+        IntStream.range(0, geti("amountAsteroids"))
+                        .forEach( i -> spawn("asteroid"));
         getArrowsControl().noButtonPressed();
 
 
