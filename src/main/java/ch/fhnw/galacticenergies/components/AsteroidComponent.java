@@ -93,7 +93,6 @@ public class AsteroidComponent extends Component {
             r2 = r2*-1;
             //entity.setY(getAppHeight()-100);
            velocity.set(r1, r2);
-            System.out.println("unten" + r2);
         }
         physics.setBodyLinearVelocity(velocity);
     }
