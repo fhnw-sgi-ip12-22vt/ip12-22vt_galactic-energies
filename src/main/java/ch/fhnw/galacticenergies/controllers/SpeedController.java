@@ -1,5 +1,4 @@
 package ch.fhnw.galacticenergies.controllers;
-import ch.fhnw.galacticenergies.controllers.GameViewController;
 
 public class SpeedController {
     private static int speed =1;
