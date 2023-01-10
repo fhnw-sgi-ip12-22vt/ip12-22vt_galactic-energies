@@ -130,7 +130,6 @@ public class View extends GameApplication {
         });
 
 
-
         getInput().addAction(new UserAction("Move Down") {
             @Override
             protected void onAction() {
@@ -179,7 +178,7 @@ public class View extends GameApplication {
 
     @Override
     protected void initPhysics() {
-        FXGL.getPhysicsWorld().addCollisionHandler(new CollisionHandler(ROCKET, ASTEROID) {
+       /* FXGL.getPhysicsWorld().addCollisionHandler(new CollisionHandler(ROCKET, ASTEROID) {
 
             // order of types is the same as passed into the constructor
             @Override
@@ -188,7 +187,7 @@ public class View extends GameApplication {
                 uiController.loseLife();
 
             }
-        });
+        });*/
     }
 
     private void initBackground() {
@@ -206,8 +205,8 @@ public class View extends GameApplication {
     protected void initUI() {
         spawn("dashboard");
         spawn("arrows");
-        IntStream.range(0, geti("amountAsteroids"))
-                        .forEach( i -> spawn("asteroid"));
+        /*IntStream.range(0, geti("amountAsteroids"))
+                        .forEach( i -> spawn("asteroid"));*/
         getArrowsControl().noButtonPressed();
 
 

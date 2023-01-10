@@ -33,7 +33,9 @@ public class ArrowsComponent extends Component {
     {
         if(entity.getViewComponent().getChildren().contains(textureUp)) return;
 
+        //entity.getViewComponent().removeChild(textureNone);
         entity.getViewComponent().removeChild(textureNone);
+        entity.getViewComponent().removeChild(textureDown);
         entity.getViewComponent().addChild(textureUp);
 
     }
@@ -41,14 +43,17 @@ public class ArrowsComponent extends Component {
     public void buttonDownPressed()
     {
         if(entity.getViewComponent().getChildren().contains(textureDown)) return;
+        //entity.getViewComponent().removeChild(textureNone);
         entity.getViewComponent().removeChild(textureNone);
+        entity.getViewComponent().removeChild(textureUp);
         entity.getViewComponent().addChild(textureDown);
     }
 
     public void noButtonPressed()
     {
-        entity.getViewComponent().removeChild(textureDown);
-        entity.getViewComponent().removeChild(textureUp);
+        if(entity.getViewComponent().getChildren().contains(textureNone)) return;
+        //entity.getViewComponent().removeChild(textureDown);
+        //entity.getViewComponent().removeChild(textureUp);
 
         entity.getViewComponent().addChild(textureNone);
     }
