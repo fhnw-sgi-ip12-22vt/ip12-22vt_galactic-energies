@@ -18,7 +18,7 @@ public class RocketComponent extends Component {
 
     private static final float SPEED_DECAY = 0.66f;
 
-    private static final float BOUNCE_FACTOR = 1.2f;
+    private static final float BOUNCE_FACTOR = 0.2f;
 
     private PhysicsComponent physics;
 

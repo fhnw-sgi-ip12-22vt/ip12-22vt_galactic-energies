@@ -7,14 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab62d768-cc0c-4eeb-a13d-050241538dc9" name="Changes" comment="WIP hardware in fxgl refactor">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="ab62d768-cc0c-4eeb-a13d-050241538dc9" name="Changes" comment="Arrows fixed, Asteroids auskommentiert">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/View.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/ArrowsComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/ArrowsComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/factories/GalacticEnergiesFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/factories/GalacticEnergiesFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/RocketMoveTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/RocketMoveTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/RocketComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/RocketComponent.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -298,7 +293,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670025766437</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Arrows fixed, Asteroids auskommentiert">
+      <created>1673367448554</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1673367448554</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -349,7 +351,8 @@
     <MESSAGE value="dump images, implemented Rocket move, implemented Button Up/Down" />
     <MESSAGE value="Changed Rocket Image" />
     <MESSAGE value="added shoot functionality, fixed Dashboard, added speed functionality, added Config, added Event Boilerplate" />
-    <option name="LAST_COMMIT_MESSAGE" value="added shoot functionality, fixed Dashboard, added speed functionality, added Config, added Event Boilerplate" />
+    <MESSAGE value="Arrows fixed, Asteroids auskommentiert" />
+    <option name="LAST_COMMIT_MESSAGE" value="Arrows fixed, Asteroids auskommentiert" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
