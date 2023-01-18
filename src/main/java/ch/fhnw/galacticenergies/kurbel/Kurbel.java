@@ -1,23 +1,26 @@
-package ch.fhnw.galacticenergies.kurbel
+package ch.fhnw.galacticenergies.kurbel;
 
-import com.pi4j.config.exception.ConfigException;
 import com.pi4j.context.Context;
-import com.pi4j.catalog.components.helpers.ContinuousMeasuringException;
 import com.pi4j.io.i2c.I2C;
 import com.pi4j.io.i2c.I2CConfig;
 
-import java.util.Arrays;
-import java.util.function.Consumer;
-
-public class kurbel {
+public class Kurbel {
     private final int i2cBus;
     private static final int CONFIGURATION_REGISTER = 0x00;
     private final I2C i2c;
 
 
-    public kurbel(Context pi4j) {
+    public Kurbel(Context pi4j) {
         this.i2cBus = 0x40;
-        i2c = pi4j.create(buildI2CConfig(pi4j, bus, address.getAddress(), DEVICE_ID)));
+        i2c = pi4j.create(buildI2CConfig(pi4j, i2cBus, ADDRESS.GND.getAddress(), "0x40"));
+    }
+
+    private static I2CConfig buildI2CConfig(Context pi4j, int bus, int device, String deviceId) {
+        return I2C.newConfigBuilder(pi4j).id("I2C-" + device + "@" + bus).name(deviceId).bus(bus).device(device).build();
+    }
+
+    public void writeConfigurationRegister(){
+        i2c.writeRegisterWord(CONFIGURATION_REGISTER, 295);
     }
 
 
