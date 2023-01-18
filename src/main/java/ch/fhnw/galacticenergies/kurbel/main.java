@@ -12,6 +12,7 @@ import com.pi4j.plugin.raspberrypi.platform.RaspberryPiPlatform;
 
 public class main {
     public static void main(String[] args) {
+        System.out.println("start");
         final var piGpio = PiGpio.newNativeInstance();
         final var pi4j = Pi4J.newContextBuilder()
                 .noAutoDetect()
@@ -29,10 +30,11 @@ public class main {
                         LinuxFsI2CProvider.newInstance()
                 )
                 .build();
+        System.out.println("kurbel");
 
         Kurbel k = new Kurbel(pi4j);
         k.writeConfigurationRegister();
-        k.readConfigurationRegister();
+        System.out.println(k.readConfigurationRegister());
 
     }
 }

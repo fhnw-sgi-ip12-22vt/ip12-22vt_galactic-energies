@@ -11,7 +11,7 @@ public class Kurbel {
 
 
     public Kurbel(Context pi4j) {
-        this.i2cBus = 0x40;
+        this.i2cBus = 0x01;
         i2c = pi4j.create(buildI2CConfig(pi4j, i2cBus, ADDRESS.GND.getAddress(), "0x40"));
     }
 

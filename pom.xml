@@ -10,7 +10,7 @@
     <name>galactic-energies</name>
 
     <properties>
-        <example.launcher.class>ch.fhnw.galacticenergies/ch.fhnw.galacticenergies.View</example.launcher.class>
+        <example.launcher.class>ch.fhnw.galacticenergies/ch.fhnw.galacticenergies.kurbel.main</example.launcher.class>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>5.8.2</junit.version>
 
@@ -22,7 +22,7 @@
 
         <pi4j.version>2.2.1</pi4j.version>
         <!-- Raspberry Remote Deployment -->
-        <example.remote.host>10.175.6.112</example.remote.host>
+        <example.remote.host>192.168.123.122</example.remote.host>
         <example.remote.port>22</example.remote.port>
         <example.remote.username>pi</example.remote.username>
         <example.remote.password>crowpi</example.remote.password>
