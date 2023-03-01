@@ -52,7 +52,7 @@ public class View extends GameApplication {
         settings.setTitle("Galactic Energies");
         settings.setVersion("0.1");
         settings.setFullScreenAllowed(true);
-        settings.setFullScreenFromStart(false);
+        settings.setFullScreenFromStart(true);
         settings.setIntroEnabled(false);
         settings.setProfilingEnabled(false);
         settings.setManualResizeEnabled(true);
@@ -70,6 +70,9 @@ public class View extends GameApplication {
     protected void initInput() {
 
         if(!Config.DEVELOPMENT_MODE){
+
+            System.out.println("das if isch perfekt");
+
             MovementControllerJoyStick.movement();
         }else{
             MovementControllerDEV.movement();

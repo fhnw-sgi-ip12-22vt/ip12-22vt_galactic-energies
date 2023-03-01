@@ -34,7 +34,13 @@ public class main {
 
         Kurbel k = new Kurbel(pi4j);
         k.writeConfigurationRegister();
+       // k.writeCalibrationRegister();
+
         System.out.println(k.readConfigurationRegister());
+
+      /*  while (1==1){
+            System.out.println(k.readPowerRegister());
+            }*/
 
     }
 }
