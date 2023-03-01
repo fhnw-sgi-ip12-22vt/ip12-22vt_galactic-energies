@@ -7,11 +7,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab62d768-cc0c-4eeb-a13d-050241538dc9" name="Changes" comment="Kurbel test">
+    <list default="true" id="ab62d768-cc0c-4eeb-a13d-050241538dc9" name="Changes" comment="added shoot functionality, fixed Dashboard, added speed functionality, added Config, added Event Boilerplate">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/controllers/MovementControllerDEV.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/controllers/MovementControllerJoyStick.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/kurbel/Kurbel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/kurbel/Kurbel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/kurbel/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/kurbel/main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/View.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +101,7 @@
       <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager" selected="Maven.galactic-energies [install]">
+  <component name="RunManager" selected="Application.View">
     <configuration name="Ex" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ch.fhnw.galacticenergies.views.Ex" />
       <module name="galactic-energies" />
@@ -200,10 +200,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.View" />
         <item itemvalue="JUnit.PlayerTest" />
         <item itemvalue="Application.GameView" />
         <item itemvalue="Application.Ex" />
-        <item itemvalue="Application.View" />
         <item itemvalue="Application.ImageFill" />
       </list>
     </recent_temporary>

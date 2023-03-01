@@ -3,10 +3,7 @@ package ch.fhnw.galacticenergies;
 import ch.fhnw.galacticenergies.components.ArrowsComponent;
 import ch.fhnw.galacticenergies.components.DashboardComponent;
 import ch.fhnw.galacticenergies.components.LifeComponent;
-import ch.fhnw.galacticenergies.controllers.AsteroidController;
-import ch.fhnw.galacticenergies.controllers.LevelController;
-import ch.fhnw.galacticenergies.controllers.RocketController;
-import ch.fhnw.galacticenergies.controllers.ViewController;
+import ch.fhnw.galacticenergies.controllers.*;
 import ch.fhnw.galacticenergies.enums.GalacticEnergiesType;
 import ch.fhnw.galacticenergies.events.GameEvent;
 import ch.fhnw.galacticenergies.factories.GalacticEnergiesFactory;
@@ -72,88 +69,12 @@ public class View extends GameApplication {
     @Override
     protected void initInput() {
 
-        // Initialize Pi4J context
-
-        final var piGpio = PiGpio.newNativeInstance();
-        final var pi4j = Pi4J.newContextBuilder()
-                .noAutoDetect()
-                .add(new RaspberryPiPlatform() {
-                    @Override
-                    protected String[] getProviders() {
-                        return new String[]{};
-                    }
-                })
-                .add(PiGpioDigitalInputProvider.newInstance(piGpio),
-                        PiGpioDigitalOutputProvider.newInstance(piGpio),
-                        PiGpioPwmProvider.newInstance(piGpio),
-                        PiGpioSerialProvider.newInstance(piGpio),
-                        PiGpioSpiProvider.newInstance(piGpio),
-                        LinuxFsI2CProvider.newInstance()
-                )
-                .build();
-
-
-
-        // var pi4j = Pi4J.newAutoContext();
-        final var joystick = new Joystick(pi4j, PIN.D5, PIN.D6, PIN.PWM13, PIN.PWM19, PIN.D26);
-
-        getInput().addAction(new UserAction("Move Up") {
-            @Override
-            protected void onAction() {
-                RocketController.getRocketControl().up();
-                getArrowsControl().buttonUpPressed();
-            }
-
-            @Override
-            protected void onActionEnd() {
-                RocketController.getRocketControl().stop();
-                getArrowsControl().noButtonPressed();
-            }
-        }, KeyCode.W);
-
-        joystick.whileNorth(5, () -> {
-            Platform.runLater(() -> {
-                System.out.println("north!!!!!");
-                RocketController.getRocketControl().up();
-                getArrowsControl().buttonUpPressed();
-            });
-
-
-        });
-
-        joystick.whileSouth(5, () -> {
-            Platform.runLater(() -> {
-                System.out.println("south!!!!!");
-                RocketController.getRocketControl().down();
-                getArrowsControl().buttonDownPressed();
-            });
-        });
-
-
-        getInput().addAction(new UserAction("Move Down") {
-            @Override
-            protected void onAction() {
-                RocketController.getRocketControl().down();
-                getArrowsControl().buttonDownPressed();
-            }
-
-            @Override
-            protected void onActionEnd() {
-                RocketController.getRocketControl().stop();
-                getArrowsControl().noButtonPressed();
-            }
-        }, KeyCode.S);
-
-
-        onKeyDown(KeyCode.K, "nextSpeed", () -> {
-            if (geti("speed") == 12) return;
-            inc("speed", +1);
-            RocketController.getRocketControl().setSpeedMultiplier(1 + (float) (geti("speed")) / 10);
-            getDashboardControl().setSpeedImage(geti("speed"));
-        });
-        if (!isReleaseMode()) {
-            onKeyDown(KeyCode.L, "Next Level", LevelController::nextLevel);
+        if(!Config.DEVELOPMENT_MODE){
+            MovementControllerJoyStick.movement();
+        }else{
+            MovementControllerDEV.movement();
         }
+
     }
 
     @Override
