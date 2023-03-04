@@ -7,11 +7,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab62d768-cc0c-4eeb-a13d-050241538dc9" name="Changes" comment="added shoot functionality, fixed Dashboard, added speed functionality, added Config, added Event Boilerplate">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/controllers/MovementControllerDEV.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/controllers/MovementControllerJoyStick.java" afterDir="false" />
+    <list default="true" id="ab62d768-cc0c-4eeb-a13d-050241538dc9" name="Changes" comment="Development mode added for movement &#10;created MovementControllerDEV&#10;created MovementControllerJoyStick">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/factories/GalacticEnergiesFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/factories/GalacticEnergiesFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -319,7 +318,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674044996894</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Development mode added for movement &#10;created MovementControllerDEV&#10;created MovementControllerJoyStick">
+      <created>1677663844801</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1677663844801</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -372,7 +378,8 @@
     <MESSAGE value="added shoot functionality, fixed Dashboard, added speed functionality, added Config, added Event Boilerplate" />
     <MESSAGE value="Arrows fixed, Asteroids auskommentiert" />
     <MESSAGE value="Kurbel test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Kurbel test" />
+    <MESSAGE value="Development mode added for movement &#10;created MovementControllerDEV&#10;created MovementControllerJoyStick" />
+    <option name="LAST_COMMIT_MESSAGE" value="Development mode added for movement &#10;created MovementControllerDEV&#10;created MovementControllerJoyStick" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

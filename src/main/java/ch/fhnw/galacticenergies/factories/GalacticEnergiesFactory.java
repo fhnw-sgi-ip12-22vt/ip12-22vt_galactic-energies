@@ -114,7 +114,7 @@ public class GalacticEnergiesFactory implements EntityFactory {
         return getGameWorld().getSingleton(DASHBOARD).getComponent(DashboardComponent.class);
     }
 
-  /*@Spawns("asteroid")
+  @Spawns("asteroid")
     public Entity newAsteroid(SpawnData data) {
         Random r = new Random();
         Texture texture = texture("asteroids/Enemy" + r.nextInt(1, 4) + ".png");
@@ -144,6 +144,6 @@ public class GalacticEnergiesFactory implements EntityFactory {
                 .scaleOrigin(0, 0)
                 .scale(0.1, 0.1)
                 .build();
-    }*/
+    }
 
 }
