@@ -23,7 +23,9 @@ import static com.almasb.fxgl.dsl.FXGL.*;
 import static java.lang.Math.abs;
 import static java.lang.Math.signum;
 
-
+/** the class Generates random enemy asteroids
+ * @version 1.0
+ */
 public class AsteroidComponent extends Component {
 
     ArrayList<Texture> asteroidImages = new ArrayList<>();

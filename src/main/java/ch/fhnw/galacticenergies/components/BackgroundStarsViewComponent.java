@@ -8,6 +8,10 @@ import javafx.util.Duration;
 
 import static com.almasb.fxgl.dsl.FXGL.getAppWidth;
 import static com.almasb.fxgl.dsl.FXGL.run;
+
+/** class builds the background of the game which moves
+ * @version 1.0
+ */
 public class BackgroundStarsViewComponent extends ChildViewComponent {
 
     private Texture[] stars;

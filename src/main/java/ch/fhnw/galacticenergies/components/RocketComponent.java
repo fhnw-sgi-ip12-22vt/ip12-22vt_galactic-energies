@@ -14,6 +14,9 @@ import javafx.util.Duration;
 
 import static com.almasb.fxgl.dsl.FXGL.*;
 
+/** shows the flying rocket and its abilities
+ * @version 1.0
+ */
 public class RocketComponent extends Component {
 
     private static final float SPEED_DECAY = 0.66f;
