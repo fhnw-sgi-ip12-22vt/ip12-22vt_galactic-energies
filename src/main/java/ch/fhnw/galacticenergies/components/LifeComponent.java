@@ -8,7 +8,7 @@ import java.util.List;
 
 import static com.almasb.fxgl.dsl.FXGL.*;
 
-/** shows the lifes of the player
+/** shows the lives of the player
  * @version 1.0
  */
 public class LifeComponent extends Component {

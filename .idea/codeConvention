@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<codeConventions>
+    <namingConventions>
+        <classNamingConvention>
+            <description>Classes should be named using UpperCamelCase convention</description>
+            <example>public class MyClass {...}</example>
+        </classNamingConvention>
+        <variableNamingConvention>
+            <description>Variables should be named using lowerCamelCase convention</description>
+            <example>int myVariable = 0;</example>
+        </variableNamingConvention>
+        <methodNamingConvention>
+            <description>Methods should be named using lowerCamelCase convention</description>
+            <example>public void myMethod() {...}</example>
+        </methodNamingConvention>
+        <constantNamingConvention>
+            <description>Constants should be named using all uppercase letters with underscores separating words</description>
+            <example>public static final int MAX_COUNT = 100;</example>
+        </constantNamingConvention>
+    </namingConventions>
+    <formattingConventions>
+        <indentation>
+            <description>Use 4 spaces for indentation</description>
+        </indentation>
+        <braces>
+            <description>Opening braces should be placed at the end of the line, not on a new line</description>
+            <example>if (condition) {
+                // code here
+                }</example>
+        </braces>
+        <lineLength>
+            <description>Lines should be no longer than 120 characters</description>
+        </lineLength>
+        <whiteSpace>
+            <description>Use spaces around operators and after commas, but not between method names and parentheses</description>
+            <example>int sum = num1 + num2;</example>
+                </whiteSpace>
+                    </formattingConventions>
+    <commentingConventions>
+        <description>Code should be well documented with clear and concise comments</description>
+        <commentStyle>
+            <description>Use single-line comments (//) for short comments and multi-line comments (/* */) for longer comments</description>
+        </commentStyle>
+        <javadocComments>
+            <description>Classes, interfaces, constructors, methods, and fields should be documented with Javadoc comments</description>
+            <example>
+                            /**
+                            * This is a Javadoc comment for a method.
+                            * It should describe what the method does, its parameters, and its return value.
+                            * @param parameterName description of the parameter
+                            * @return description of the return value
+                            */
+                            public int myMethod(int parameterName) {...}
+            </example>
+        </javadocComments>
+    </commentingConventions>
+    <errorHandlingConventions>
+        <description>Code should handle errors and exceptions in a clear and consistent manner</description>
+        <nullHandling>
+            <description>Null checks should be performed where necessary to avoid null pointer exceptions</description>
+            <example>
+                if (myObject != null) {
+                // code that uses myObject
+                }
+            </example>
+        </nullHandling>
+        <tryCatchBlocks>
+            <description>Exceptions should be handled with try-catch blocks where appropriate</description>
+            <example>
+                try {
+                // code that might throw an exception
+                } catch (Exception e) {
+                // code to handle the exception
+                }
+            </example>
+        </tryCatchBlocks>
+    </errorHandlingConventions>
+</codeConventions>
