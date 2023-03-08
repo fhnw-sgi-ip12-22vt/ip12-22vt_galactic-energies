@@ -7,7 +7,7 @@ import com.almasb.fxgl.texture.Texture;
 import static com.almasb.fxgl.dsl.FXGL.texture;
 
 /** The class ArrowComponent implements arrow's which show the flight direction of the rocket
- *
+ * @version 1.0
  */
 public class ArrowsComponent extends Component {
     private final Texture textureUp = texture("dashboard/Pfeil Hoch.png");
