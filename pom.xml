@@ -22,7 +22,7 @@
 
         <pi4j.version>2.2.1</pi4j.version>
         <!-- Raspberry Remote Deployment -->
-        <example.remote.host>raspberrypi</example.remote.host>
+        <example.remote.host>10.175.17.64</example.remote.host>
         <example.remote.port>22</example.remote.port>
         <example.remote.username>pi</example.remote.username>
         <example.remote.password>crowpi</example.remote.password>

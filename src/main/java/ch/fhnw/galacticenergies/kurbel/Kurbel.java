@@ -15,7 +15,7 @@ public class Kurbel {
 
         private static final int CONFIGURATION_REGISTER = 0x00;
         private static final int CALIBRATION_REGISTER = 0x05;
-        private static final int POWER_REGISTER = 0x02;
+        private static final int POWER_REGISTER = 0x03;
 
         private final I2C i2c;
 
@@ -44,7 +44,7 @@ public class Kurbel {
         }
 
         public void writeCalibrationRegister() {
-        i2c.writeRegisterWord(CALIBRATION_REGISTER, 2560);
+        i2c.writeRegisterWord(CALIBRATION_REGISTER, 17420);
         }
 
 
