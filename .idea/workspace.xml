@@ -7,11 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab62d768-cc0c-4eeb-a13d-050241538dc9" name="Changes" comment="Comments">
-      <change afterPath="$PROJECT_DIR$/.idea/codeConvention" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/LifeComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/LifeComponent.java" afterDir="false" />
-    </list>
+    <list default="true" id="ab62d768-cc0c-4eeb-a13d-050241538dc9" name="Changes" comment="javafx example" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -325,21 +321,7 @@
       <option name="project" value="LOCAL" />
       <updated>1677663844801</updated>
     </task>
-    <task id="LOCAL-00015" summary="SpaceInvaders Background">
-      <created>1678267227566</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1678267227566</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Comments">
-      <created>1678267320880</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1678267320880</updated>
-    </task>
-    <option name="localTasksCounter" value="17" />
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -393,9 +375,7 @@
     <MESSAGE value="Arrows fixed, Asteroids auskommentiert" />
     <MESSAGE value="Kurbel test" />
     <MESSAGE value="Development mode added for movement &#10;created MovementControllerDEV&#10;created MovementControllerJoyStick" />
-    <MESSAGE value="SpaceInvaders Background" />
-    <MESSAGE value="Comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Development mode added for movement &#10;created MovementControllerDEV&#10;created MovementControllerJoyStick" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -37,6 +37,11 @@ public class AsteroidComponent extends Component {
     private float r1;
     private float r2;
 
+    /**This code initializes the AsteroidComponent
+     * object by loading four asteroid images from the "asteroids" folder
+     * and adding them to the asteroidImages list.
+     *
+     */
     public AsteroidComponent()
     {
 
@@ -51,6 +56,10 @@ public class AsteroidComponent extends Component {
 
     }
 
+    /**
+     * This method is called every frame to update the behavior of the entity object.
+     * @param tpf time per frame
+     */
     @Override
     public void onUpdate(double tpf) {
         limitVelocity();
@@ -63,6 +72,10 @@ public class AsteroidComponent extends Component {
 
     }
 
+    /**
+     * This method is responsible for limiting the velocity of
+     * the entity in both the x- and y-directions to a minimum speed
+     */
     private void limitVelocity() {
         // we don't want the ball to move too slow in X direction
         if (abs(physics.getVelocityX()) < BALL_MIN_SPEED) {
@@ -99,12 +112,22 @@ public class AsteroidComponent extends Component {
         physics.setBodyLinearVelocity(velocity);
     }
 
+    /**
+     * The method removes the entity from the game world and fires a
+     * GameEvent indicating that the asteroid has been hit
+     */
     public void hit() {
         entity.removeFromWorld();
 
 
         fire(new GameEvent(GameEvent.ASTEROID_GOT_HIT));
     }
+
+    /**
+     * the method checks whether the entity is outside
+     * the visible area of the game world and repositions it to the center of the screen if it is.
+     * @return
+     */
 
     private void checkOffscreen() {
         if (getEntity().getBoundingBoxComponent().isOutside(getGameScene().getViewport().getVisibleArea())) {
