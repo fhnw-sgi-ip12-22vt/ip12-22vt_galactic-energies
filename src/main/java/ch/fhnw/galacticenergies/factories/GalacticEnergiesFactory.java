@@ -20,13 +20,21 @@ import java.util.Random;
 import static com.almasb.fxgl.dsl.FXGL.*;
 import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.*;
 
+/**
+ * Creates all design components for the game
+ * @version 1.0
+ */
 public class GalacticEnergiesFactory implements EntityFactory {
-
 
     public GalacticEnergiesFactory() {
 
     }
 
+    /**
+     * Background modeling and design
+     * @param data
+     * @return
+     */
     @Spawns("background")
     public Entity newBackground(SpawnData data) {
         return entityBuilder(data)
@@ -42,6 +50,11 @@ public class GalacticEnergiesFactory implements EntityFactory {
                 .build();
     }
 
+    /**
+     * Creating a new Rocket
+     * @param data
+     * @return
+     */
     @Spawns("rocket")
     public Entity newRocket(SpawnData data) {
         PhysicsComponent physics = new PhysicsComponent();
@@ -62,6 +75,11 @@ public class GalacticEnergiesFactory implements EntityFactory {
                 .build();
     }
 
+    /**
+     * Creating a new Dashboard
+     * @param data
+     * @return
+     */
     @Spawns("dashboard")
     public Entity newDashboard(SpawnData data) {
         Texture texture = texture("dashboard/Steuerboard Level 1.png");
@@ -81,7 +99,11 @@ public class GalacticEnergiesFactory implements EntityFactory {
                 .build();
     }
 
-
+    /**
+     * Reset lives
+     * @param data
+     * @return
+     */
     @Spawns("life")
     public Entity newLive(SpawnData data) {
         Texture textureLife = texture("heart.png");
@@ -96,6 +118,11 @@ public class GalacticEnergiesFactory implements EntityFactory {
                 .build();
     }
 
+    /**
+     * Creates an Arrow
+     * @param data
+     * @return
+     */
     @Spawns("arrows")
     public Entity newArrows(SpawnData data) {
         Texture texture = texture("dashboard/Pfeil Neutral.png");
@@ -114,6 +141,9 @@ public class GalacticEnergiesFactory implements EntityFactory {
         return getGameWorld().getSingleton(DASHBOARD).getComponent(DashboardComponent.class);
     }
 
+    /**
+     * Creates a Asteroid
+     */
   @Spawns("asteroid")
     public Entity newAsteroid(SpawnData data) {
         Random r = new Random();

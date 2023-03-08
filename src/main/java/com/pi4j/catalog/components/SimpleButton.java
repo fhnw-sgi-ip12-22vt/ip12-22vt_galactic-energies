@@ -10,6 +10,10 @@ import com.pi4j.io.gpio.digital.PullResistance;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/**
+ * Defines input of buttons
+ * @version 1.0
+ */
 public class SimpleButton extends Component {
     /**
      * Default debounce time in microseconds
