@@ -20,6 +20,11 @@ import java.util.List;
 
 import static com.almasb.fxgl.dsl.FXGL.*;
 
+/**
+ * Defines all visuals of the game
+ * @version 1.0
+ */
+
 public class ViewController implements UIController {
 
     private List<Entity> lives = new ArrayList<>();
@@ -35,12 +40,18 @@ public class ViewController implements UIController {
 
     }
 
+    /**
+     * Adds a life to the life-dashboard
+     */
     public void addLife() {
         Entity life = spawn("life");
         lives.add(life);
         life.setX(getAppWidth() - lives.size() * 30);
     }
 
+    /**
+     * Removes a life on the life-dashboard
+     */
     public void loseLife() {
 
         Entity life = lives.get(lives.size() - 1);
