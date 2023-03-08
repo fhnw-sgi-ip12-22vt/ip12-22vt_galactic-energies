@@ -37,7 +37,7 @@ public class ArrowsComponent extends Component {
     }
 
     /**
-     * shows how the up arrow behaves when the corresponding button is pressed
+     * This method shows how the up arrow behaves when the corresponding button is pressed
      */
     public void buttonUpPressed()
     {
@@ -51,7 +51,7 @@ public class ArrowsComponent extends Component {
     }
 
     /**
-     * shows how the down arrow behaves when the corresponding button is pressed
+     * This method shows how the down arrow behaves when the corresponding button is pressed
      */
     public void buttonDownPressed()
     {
@@ -63,7 +63,7 @@ public class ArrowsComponent extends Component {
     }
 
     /**
-     * shows how the arrows behave when no button is pressed
+     * This method shows how the arrows behave when no button is pressed
      */
     public void noButtonPressed()
     {
