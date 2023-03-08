@@ -27,6 +27,12 @@ public class BackgroundStarsViewComponent extends ChildViewComponent {
         run(() -> onUpdate(0.016), Duration.seconds(0.016));
     }
 
+    /**
+     * This method updates the position of the stars by looping through
+     * each Texture object in the stars list and calling the move() method on it,
+     * passing in the time since the last frame as a parameter.
+     * @param tpf time per frame
+     */
     @Override
     public void onUpdate(double tpf) {
         for(Texture t : stars)
@@ -35,6 +41,12 @@ public class BackgroundStarsViewComponent extends ChildViewComponent {
         }
     }
 
+    /**
+     * This method suggests that the Texture object represents a single star in a starfield,
+     * and that the move() method is responsible for animating the star by updating its position every frame.
+     * @param star
+     * @param tpf
+     */
     private void move(Texture star, double tpf)
     {
         float multiplier = RocketController.getRocketControl().getSpeedMultiplier();
