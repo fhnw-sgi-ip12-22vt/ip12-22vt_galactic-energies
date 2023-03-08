@@ -6,6 +6,9 @@ import com.almasb.fxgl.texture.Texture;
 
 import static com.almasb.fxgl.dsl.FXGL.texture;
 
+/** The class ArrowComponent implements arrow's which show the flight direction of the rocket
+ *
+ */
 public class ArrowsComponent extends Component {
     private final Texture textureUp = texture("dashboard/Pfeil Hoch.png");
     private final Texture textureDown = texture("dashboard/Pfeil Down.png");
@@ -13,6 +16,9 @@ public class ArrowsComponent extends Component {
 
     private static final double BUTTON_SIZE = 50;
 
+/**
+ * shows defined arrow button
+ */
     public ArrowsComponent()
     {
         textureDown.setPreserveRatio(true);
@@ -25,10 +31,14 @@ public class ArrowsComponent extends Component {
         textureNone.setFitHeight(BUTTON_SIZE);
     }
     @Override
+
     public void onUpdate(double tpf) {
 
     }
 
+    /**
+     * shows how the up arrow behaves when the corresponding button is pressed
+     */
     public void buttonUpPressed()
     {
         if(entity.getViewComponent().getChildren().contains(textureUp)) return;
@@ -40,6 +50,9 @@ public class ArrowsComponent extends Component {
 
     }
 
+    /**
+     * shows how the down arrow behaves when the corresponding button is pressed
+     */
     public void buttonDownPressed()
     {
         if(entity.getViewComponent().getChildren().contains(textureDown)) return;
@@ -49,6 +62,9 @@ public class ArrowsComponent extends Component {
         entity.getViewComponent().addChild(textureDown);
     }
 
+    /**
+     * shows how the arrows behave when no button is pressed
+     */
     public void noButtonPressed()
     {
         if(entity.getViewComponent().getChildren().contains(textureNone)) return;
