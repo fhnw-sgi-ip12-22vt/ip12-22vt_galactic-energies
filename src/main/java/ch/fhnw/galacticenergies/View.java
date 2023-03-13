@@ -33,7 +33,7 @@ public class View extends GameApplication {
     @Override
     protected void initSettings(GameSettings settings) {
         settings.setTitle("Galactic Energies");
-        settings.setVersion("0.1");
+        settings.setVersion("0.2");
         settings.setFullScreenAllowed(true);
         settings.setFullScreenFromStart(true);
         settings.setIntroEnabled(false);
