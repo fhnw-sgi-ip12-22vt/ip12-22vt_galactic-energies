@@ -150,7 +150,7 @@ public class GalacticEnergiesFactory implements EntityFactory {
 
     @Spawns("planet")
     public Entity newPlanet(SpawnData data) {
-      /**  Random r = new Random();
+       Random r = new Random();
         Texture texture = texture("asteroids/Enemy" + r.nextInt(1, 4) + ".png");
         texture.setPreserveRatio(true);
         texture.setFitWidth(texture.getHeight());
@@ -166,18 +166,18 @@ public class GalacticEnergiesFactory implements EntityFactory {
         physics.setBodyDef(bd);
 
         Random random = new Random();
-*/
+
         return entityBuilder(data)
             .type(PLANET)
-          // .at(getAppWidth() - texture.getFitWidth(), random.nextFloat(0, getAppHeight()))
-          // .viewWithBBox(texture)
-            .viewWithBBox(new Rectangle(30 , 30, 20 ,20))
+           .at(getAppWidth() - texture.getFitWidth(), random.nextFloat(0, getAppHeight()))
+           .viewWithBBox(texture)
+
             .collidable()
-          // .with(physics)
-            // .with(new AsteroidComponent())
-           // .with(new OffscreenCleanComponent())
-           // .scaleOrigin(0, 0)
-           // .scale(0.1, 0.1)
+           .with(physics)
+             .with(new CheckpointComponent())
+            .with(new OffscreenCleanComponent())
+            .scaleOrigin(0, 0)
+            .scale(5, 5)
             .build();
     }
 }
