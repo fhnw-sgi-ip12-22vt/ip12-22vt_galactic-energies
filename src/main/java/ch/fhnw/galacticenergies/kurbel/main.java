@@ -10,6 +10,8 @@ import com.pi4j.plugin.pigpio.provider.serial.PiGpioSerialProvider;
 import com.pi4j.plugin.pigpio.provider.spi.PiGpioSpiProvider;
 import com.pi4j.plugin.raspberrypi.platform.RaspberryPiPlatform;
 
+import java.util.concurrent.TimeUnit;
+
 public class main {
     public static void main(String[] args) {
         System.out.println("start");
@@ -32,15 +34,18 @@ public class main {
                 .build();
         System.out.println("kurbel");
 
+
+
         Kurbel k = new Kurbel(pi4j);
         k.writeConfigurationRegister();
-       // k.writeCalibrationRegister();
+        k.writeCalibrationRegister();
 
         System.out.println(k.readConfigurationRegister());
 
-      /*  while (1==1){
+        while (1==1){
             System.out.println(k.readPowerRegister());
-            }*/
+            System.out.println();
+            }
 
     }
 }

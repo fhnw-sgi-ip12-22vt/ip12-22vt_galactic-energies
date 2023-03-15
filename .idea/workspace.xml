@@ -9,8 +9,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ab62d768-cc0c-4eeb-a13d-050241538dc9" name="Changes" comment="Development mode added for movement &#10;created MovementControllerDEV&#10;created MovementControllerJoyStick">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/View.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/factories/GalacticEnergiesFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/factories/GalacticEnergiesFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/kurbel/Kurbel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/kurbel/Kurbel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/kurbel/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/kurbel/main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +33,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="fxgl" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -71,6 +72,7 @@
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -100,7 +102,7 @@
       <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.View">
+  <component name="RunManager" selected="Maven.galactic-energies [install]">
     <configuration name="Ex" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ch.fhnw.galacticenergies.views.Ex" />
       <module name="galactic-energies" />
@@ -347,7 +349,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="FXGL_Hardware" />
+                        <option value="origin/FXGL_Hardware" />
                       </list>
                     </value>
                   </entry>
@@ -358,9 +360,24 @@
         </entry>
       </map>
     </option>
-    <option name="OPEN_GENERIC_TABS">
+    <option name="RECENT_FILTERS">
       <map>
-        <entry key="7b4ba2be-9fda-4f43-881f-b92043787a2a" value="TOOL_WINDOW" />
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/FXGL_Hardware" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/master" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
       </map>
     </option>
   </component>

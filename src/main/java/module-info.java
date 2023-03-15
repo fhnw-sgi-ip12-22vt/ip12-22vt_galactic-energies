@@ -13,6 +13,7 @@ open module ch.fhnw.galacticenergies {
     //for LCD Display
     requires com.pi4j.plugin.linuxfs;
     requires java.logging;
+    requires java.sql;
 
     exports ch.fhnw.galacticenergies;
     exports ch.fhnw.galacticenergies.controllers;
