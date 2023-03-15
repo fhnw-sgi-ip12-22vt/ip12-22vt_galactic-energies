@@ -122,6 +122,7 @@ public class View extends GameApplication {
 
         IntStream.range(0, geti("lives"))
                 .forEach(i -> uiController.addLife());
+        spawn("planet");
     }
 
 
