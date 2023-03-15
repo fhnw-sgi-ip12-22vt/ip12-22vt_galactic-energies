@@ -151,7 +151,7 @@ public class GalacticEnergiesFactory implements EntityFactory {
     @Spawns("planet")
     public Entity newPlanet(SpawnData data) {
        Random r = new Random();
-        Texture texture = texture("asteroids/Enemy" + r.nextInt(1, 4) + ".png");
+        Texture texture = texture("planet/planet" + r.nextInt(1, 9) + ".png");
         texture.setPreserveRatio(true);
         texture.setFitWidth(texture.getHeight());
 
@@ -171,13 +171,12 @@ public class GalacticEnergiesFactory implements EntityFactory {
             .type(PLANET)
            .at(getAppWidth() - texture.getFitWidth(), random.nextFloat(0, getAppHeight()))
            .viewWithBBox(texture)
-
             .collidable()
            .with(physics)
-             .with(new CheckpointComponent())
+            .with(new CheckpointComponent())
             .with(new OffscreenCleanComponent())
             .scaleOrigin(0, 0)
-            .scale(5, 5)
+            .scale(0.5, 0.5)
             .build();
     }
 }

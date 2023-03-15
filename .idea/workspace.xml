@@ -7,8 +7,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab62d768-cc0c-4eeb-a13d-050241538dc9" name="Changes" comment="Checkpoints">
+    <list default="true" id="ab62d768-cc0c-4eeb-a13d-050241538dc9" name="Changes" comment="Development mode added for movement &#10;created MovementControllerDEV&#10;created MovementControllerJoyStick">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/planet/planet1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/planet/planet2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/planet/planet3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/planet/planet4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/planet/planet5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/planet/planet6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/planet/planet7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/planet/planet8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/planet/planet9.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/AsteroidComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/AsteroidComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/CheckpointComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/CheckpointComponent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/factories/GalacticEnergiesFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/factories/GalacticEnergiesFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -54,24 +66,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Rinor/IdeaProjects/galactic-energies",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Rinor/IdeaProjects/galactic-energies&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\andre\IdeaProjects\galactic-energies\src\main\resources\assets\textures\bg" />
@@ -80,11 +93,11 @@
       <recent name="C:\Users\andre\IdeaProjects\fhnw\galactic-energies\galactic-energies\src\main\resources\ch\fhnw\galacticenergies" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\KlaS_\IdeaProjects\galactic-energies\src\main\resources\assets\textures\planet" />
       <recent name="C:\Users\andre\IdeaProjects\galactic-energies\src\main\resources\assets\textures" />
       <recent name="C:\Users\andre\IdeaProjects\galactic-energies\src\main\resources\assets" />
       <recent name="C:\Users\andre\IdeaProjects\galactic-energies\src\main\resources\assets\textures\dashboard" />
       <recent name="C:\Users\andre\IdeaProjects\galactic-energies\src\main\resources\assets\textures\bg" />
-      <recent name="C:\Users\andre\IdeaProjects\galactic-energies\src\main\resources\assets\textures\rocket" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="ch.fhnw.galacticenergies.components" />
@@ -323,42 +336,7 @@
       <option name="project" value="LOCAL" />
       <updated>1677663844801</updated>
     </task>
-    <task id="LOCAL-00015" summary="Checkpoints">
-      <created>1678867876670</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1678867876670</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Checkpoints">
-      <created>1678867964579</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1678867964579</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Checkpoints">
-      <created>1678870395771</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1678870395771</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Checkpoints">
-      <created>1678870531297</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1678870531297</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Checkpoints">
-      <created>1678872057894</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1678872057894</updated>
-    </task>
-    <option name="localTasksCounter" value="20" />
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -412,8 +390,17 @@
     <MESSAGE value="Arrows fixed, Asteroids auskommentiert" />
     <MESSAGE value="Kurbel test" />
     <MESSAGE value="Development mode added for movement &#10;created MovementControllerDEV&#10;created MovementControllerJoyStick" />
-    <MESSAGE value="Checkpoints" />
-    <option name="LAST_COMMIT_MESSAGE" value="Checkpoints" />
+    <option name="LAST_COMMIT_MESSAGE" value="Development mode added for movement &#10;created MovementControllerDEV&#10;created MovementControllerJoyStick" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalArgumentException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

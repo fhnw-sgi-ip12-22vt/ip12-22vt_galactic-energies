@@ -71,6 +71,7 @@ public class View extends GameApplication {
         vars.put("totalEnergy", 0);
         vars.put("level", STARTING_LEVEL);
         vars.put("asteroidsKilled", 0);
+        vars.put("amountPlanet",1);
     }
 
     @Override
@@ -113,6 +114,8 @@ public class View extends GameApplication {
         spawn("arrows");
         IntStream.range(0, geti("amountAsteroids"))
                         .forEach( i -> spawn("asteroid"));
+        IntStream.range(0, geti("amountPlanet"))
+            .forEach( i -> spawn("planet"));
         getArrowsControl().noButtonPressed();
 
 
@@ -122,7 +125,7 @@ public class View extends GameApplication {
 
         IntStream.range(0, geti("lives"))
                 .forEach(i -> uiController.addLife());
-        spawn("planet");
+        spawn("asteroid");
     }
 
 
