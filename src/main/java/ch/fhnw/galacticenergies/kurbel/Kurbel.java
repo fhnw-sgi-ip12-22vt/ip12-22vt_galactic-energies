@@ -63,11 +63,11 @@ public class Kurbel {
     }
 
     /**
-     * Reading the ConfigurationRegister
-     * @return ConfigurationRegister output
+     * Reading the CalibrationRegister
+     * @return CalibrationRegister output
      */
-    public int readConfigurationRegister() {
-        return i2c.readRegisterWord(CONFIGURATION_REGISTER);
+    public int readCalibrationRegister() {
+        return i2c.readRegisterWord(CALIBRATION_REGISTER);
     }
 
     /**
