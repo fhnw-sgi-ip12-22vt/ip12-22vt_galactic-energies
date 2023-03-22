@@ -3,13 +3,7 @@ package ch.fhnw.galacticenergies.controllers;
 import com.almasb.fxgl.app.scene.GameScene;
 import com.almasb.fxgl.app.scene.Viewport;
 import com.almasb.fxgl.entity.Entity;
-import com.almasb.fxgl.texture.Texture;
 import com.almasb.fxgl.ui.UIController;
-import javafx.animation.Animation;
-import javafx.animation.ScaleTransition;
-import javafx.animation.SequentialTransition;
-import javafx.animation.TranslateTransition;
-import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -22,9 +16,9 @@ import static com.almasb.fxgl.dsl.FXGL.*;
 
 public class ViewController implements UIController {
 
-    private List<Entity> lives = new ArrayList<>();
+    private final List<Entity> lives = new ArrayList<>();
 
-    private GameScene gameScene;
+    private final GameScene gameScene;
 
     public ViewController(GameScene gameScene) {
         this.gameScene = gameScene;

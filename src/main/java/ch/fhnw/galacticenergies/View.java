@@ -1,6 +1,7 @@
 package ch.fhnw.galacticenergies;
 
 import ch.fhnw.galacticenergies.components.ArrowsComponent;
+import ch.fhnw.galacticenergies.components.AsteroidComponent;
 import ch.fhnw.galacticenergies.components.DashboardComponent;
 import ch.fhnw.galacticenergies.components.LifeComponent;
 import ch.fhnw.galacticenergies.controllers.*;
@@ -36,8 +37,8 @@ public class View extends GameApplication {
     private static final int STARTING_LEVEL = 1;
 
     private ViewController uiController;
-
-    private int timeout = 0;
+    private boolean gameRunning = true;
+    private final int timeout = 0;
 
 
     @Override
@@ -134,6 +135,18 @@ public class View extends GameApplication {
             .forEach( i -> spawn("planet"));
         getArrowsControl().noButtonPressed();
 
+        AsteroidController asteroidController = new AsteroidController();
+        getGameTimer().runAtInterval(() -> {
+            for (int i = 0; i < asteroidController.getAsteroidAmount(); i++) {
+                asteroidController.addAsteroid();
+            }
+
+        }, Duration.seconds(1));
+
+        IntStream.range(0, geti("amountAsteroids"))
+            .forEach( i -> spawn("asteroid"));
+
+        getArrowsControl().noButtonPressed();
 
         LevelController.setLevel(STARTING_LEVEL);
 
