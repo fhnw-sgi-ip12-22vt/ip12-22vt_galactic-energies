@@ -55,6 +55,7 @@ public class PowerController {
      */
     public static void setCurrentPower(double currentPower) {
         PowerController.currentPower = currentPower;
+        SpeedController.setSpeed((int)currentPower);
         calcPower();
     }
 
