@@ -6,6 +6,7 @@ import ch.fhnw.galacticenergies.components.LifeComponent;
 import ch.fhnw.galacticenergies.controllers.*;
 import ch.fhnw.galacticenergies.events.GameEvent;
 import ch.fhnw.galacticenergies.factories.GalacticEnergiesFactory;
+import com.almasb.fxgl.app.ApplicationMode;
 import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.app.GameSettings;
 import com.almasb.fxgl.dsl.FXGL;
@@ -32,12 +33,13 @@ public class View extends GameApplication {
     @Override
     protected void initSettings(GameSettings settings) {
         settings.setTitle("Galactic Energies");
-        settings.setVersion("0.1");
+        settings.setVersion("0.2");
         settings.setFullScreenAllowed(true);
         settings.setFullScreenFromStart(true);
         settings.setIntroEnabled(false);
         settings.setProfilingEnabled(false);
         settings.setManualResizeEnabled(true);
+        settings.setApplicationMode(ApplicationMode.DEVELOPER);
     }
 
     @Override
@@ -51,10 +53,7 @@ public class View extends GameApplication {
     @Override
     protected void initInput() {
 
-        if(!Config.DEVELOPMENT_MODE){
-
-            System.out.println("das if isch perfekt");
-
+        if(getSettings().getApplicationMode() == ApplicationMode.RELEASE){
             MovementControllerJoyStick.movement();
         }else{
             MovementControllerDEV.movement();
