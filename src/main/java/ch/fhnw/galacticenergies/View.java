@@ -4,6 +4,7 @@ import ch.fhnw.galacticenergies.components.ArrowsComponent;
 import ch.fhnw.galacticenergies.components.DashboardComponent;
 import ch.fhnw.galacticenergies.components.LifeComponent;
 import ch.fhnw.galacticenergies.controllers.*;
+import ch.fhnw.galacticenergies.data.PowerInput;
 import ch.fhnw.galacticenergies.events.GameEvent;
 import ch.fhnw.galacticenergies.factories.GalacticEnergiesFactory;
 import com.almasb.fxgl.app.ApplicationMode;
@@ -21,6 +22,14 @@ import java.util.stream.IntStream;
 
 import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.*;
 import static com.almasb.fxgl.dsl.FXGL.*;
+import javafx.beans.property.ObjectProperty;
+import javafx.scene.input.KeyCode;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 
 public class View extends GameApplication {
 
@@ -29,6 +38,7 @@ public class View extends GameApplication {
     private ViewController uiController;
 
     private int timeout = 0;
+
 
     @Override
     protected void initSettings(GameSettings settings) {
@@ -39,13 +49,14 @@ public class View extends GameApplication {
         settings.setIntroEnabled(false);
         settings.setProfilingEnabled(false);
         settings.setManualResizeEnabled(true);
-        settings.setApplicationMode(ApplicationMode.DEVELOPER);
+        settings.setApplicationMode(ApplicationMode.RELEASE);
     }
 
     @Override
     protected void onPreInit() {
         getSettings().setGlobalMusicVolume(0.5);
         getSettings().setGlobalSoundVolume(0.5);
+
 
         onEvent(GameEvent.ASTEROID_GOT_HIT, AsteroidController::onAsteroidHit);
     }
@@ -79,6 +90,11 @@ public class View extends GameApplication {
         getGameScene().getRoot().setCursor(Cursor.NONE);
 
         initBackground();
+        if(ApplicationMode.RELEASE == getSettings().getApplicationMode()){
+            PowerInput.initPower();
+            PowerInput.powerLoop();
+            PowerController.initText();
+        }
 
     }
 
@@ -105,6 +121,7 @@ public class View extends GameApplication {
                 .collidable()
                 .with(new IrremovableComponent())
                 .buildScreenBoundsAndAttach(40);
+
     }
 
     @Override
