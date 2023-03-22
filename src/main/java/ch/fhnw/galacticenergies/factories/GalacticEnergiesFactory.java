@@ -16,6 +16,8 @@ import com.almasb.fxgl.texture.Texture;
 import javafx.geometry.Point2D;
 import javafx.geometry.Pos;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 import java.util.Random;
 
@@ -116,7 +118,7 @@ public class GalacticEnergiesFactory implements EntityFactory {
         return getGameWorld().getSingleton(DASHBOARD).getComponent(DashboardComponent.class);
     }
 
-    @Spawns("asteroid")
+  @Spawns("asteroid")
     public Entity newAsteroid(SpawnData data) {
         Random r = new Random();
         Texture texture = texture("asteroids/Enemy" + r.nextInt(1, 4) + ".png");
@@ -137,4 +139,18 @@ public class GalacticEnergiesFactory implements EntityFactory {
             .buildAndAttach();
     }
 
+        Random random = new Random();
+
+        return entityBuilder(data)
+            .type(PLANET)
+           .at(getAppWidth() - texture.getFitWidth(), random.nextFloat(0, getAppHeight()))
+           .viewWithBBox(texture)
+            .collidable()
+           .with(physics)
+            .with(new CheckpointComponent())
+            .with(new OffscreenCleanComponent())
+            .scaleOrigin(0, 0)
+            .scale(0.5, 0.5)
+            .build();
+    }
 }
