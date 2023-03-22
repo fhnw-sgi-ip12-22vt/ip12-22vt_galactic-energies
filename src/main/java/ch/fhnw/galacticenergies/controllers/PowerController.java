@@ -26,13 +26,13 @@ public class PowerController {
     public static void calcPower() {
             totalPower = totalPower + (currentPower / 3600);
         System.out.println(totalPower);
-        text.setText("Current: "+ (int)PowerController.getCurrentPower() +"W Total: " + (int)PowerController.getTotalPower() + " W");
+        text.setText("Current: "+ (int)PowerController.getCurrentPower()/ 1000 +"W Total: " + (int)PowerController.getTotalPower() + " W");
 
     }
 
     public static void initText(){
-        text = new Text("Current: "+ (int)PowerController.getCurrentPower() +"W Total: " + 0 + " W");
-        text.setTranslateX(getAppHeight() / 2 +30);
+        text = new Text("Current: "+ (int)PowerController.getCurrentPower() / 1000 +"W Total: " + 0 + " W");
+        text.setTranslateX(getAppHeight() / 2 -50);
         text.setTranslateY(30);
         text.setFont(Font.font(30));
         getGameScene().addUINode(text);
