@@ -2,6 +2,7 @@ package ch.fhnw.galacticenergies.data;
 
 import ch.fhnw.galacticenergies.controllers.PowerController;
 import ch.fhnw.galacticenergies.kurbel.Kurbel;
+import com.almasb.fxgl.app.ApplicationMode;
 import com.pi4j.Pi4J;
 import com.pi4j.library.pigpio.PiGpio;
 import com.pi4j.plugin.linuxfs.provider.i2c.LinuxFsI2CProvider;
@@ -17,6 +18,7 @@ import java.util.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 
+import static com.almasb.fxgl.dsl.FXGL.getSettings;
 import static com.almasb.fxgl.dsl.FXGLForKtKt.getGameTimer;
 
 /**
@@ -55,8 +57,12 @@ public class PowerInput {
     }
     public static void powerLoop(){
         getGameTimer().runAtInterval(() -> {
-                System.out.println(k.readPowerRegister());
+
+            if(ApplicationMode.RELEASE == getSettings().getApplicationMode()) {
                 PowerController.setCurrentPower(k.readPowerRegister());
+            }else{
+                PowerController.setCurrentPower(26);
+            }
             }
         , Duration.seconds(1));
     }
