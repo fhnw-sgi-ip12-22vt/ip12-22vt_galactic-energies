@@ -1,32 +1,25 @@
 package ch.fhnw.galacticenergies;
 
 import ch.fhnw.galacticenergies.components.ArrowsComponent;
+import ch.fhnw.galacticenergies.components.AsteroidComponent;
 import ch.fhnw.galacticenergies.components.DashboardComponent;
 import ch.fhnw.galacticenergies.components.LifeComponent;
 import ch.fhnw.galacticenergies.controllers.AsteroidController;
 import ch.fhnw.galacticenergies.controllers.LevelController;
 import ch.fhnw.galacticenergies.controllers.RocketController;
 import ch.fhnw.galacticenergies.controllers.ViewController;
-import ch.fhnw.galacticenergies.enums.GalacticEnergiesType;
 import ch.fhnw.galacticenergies.events.GameEvent;
 import ch.fhnw.galacticenergies.factories.GalacticEnergiesFactory;
 import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.app.GameSettings;
-import com.almasb.fxgl.core.concurrent.Async;
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.entity.components.IrremovableComponent;
 import com.almasb.fxgl.input.UserAction;
-import com.almasb.fxgl.physics.CollisionHandler;
-import com.pi4j.catalog.components.Joystick;
-import javafx.application.Platform;
-import javafx.scene.Cursor;
-import javafx.scene.input.KeyCode;
-import javafx.scene.paint.Color;
 import com.pi4j.Pi4J;
-import com.pi4j.library.pigpio.PiGpio;
 import com.pi4j.catalog.components.Joystick;
 import com.pi4j.catalog.components.helpers.PIN;
+import com.pi4j.library.pigpio.PiGpio;
 import com.pi4j.plugin.linuxfs.provider.i2c.LinuxFsI2CProvider;
 import com.pi4j.plugin.pigpio.provider.gpio.digital.PiGpioDigitalInputProvider;
 import com.pi4j.plugin.pigpio.provider.gpio.digital.PiGpioDigitalOutputProvider;
@@ -34,21 +27,27 @@ import com.pi4j.plugin.pigpio.provider.pwm.PiGpioPwmProvider;
 import com.pi4j.plugin.pigpio.provider.serial.PiGpioSerialProvider;
 import com.pi4j.plugin.pigpio.provider.spi.PiGpioSpiProvider;
 import com.pi4j.plugin.raspberrypi.platform.RaspberryPiPlatform;
-
-
-import static com.almasb.fxgl.dsl.FXGL.*;
-import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.*;
+import javafx.application.Platform;
+import javafx.geometry.Point2D;
+import javafx.scene.Cursor;
+import javafx.scene.input.KeyCode;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.util.Duration;
 
 import java.util.Map;
 import java.util.stream.IntStream;
+
+import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.*;
+import static com.almasb.fxgl.dsl.FXGL.*;
 
 public class View extends GameApplication {
 
     private static final int STARTING_LEVEL = 1;
 
     private ViewController uiController;
-
-    private int timeout = 0;
+    private boolean gameRunning = true;
+    private final int timeout = 0;
 
     @Override
     protected void initSettings(GameSettings settings) {
@@ -74,7 +73,7 @@ public class View extends GameApplication {
 
         // Initialize Pi4J context
 
-        final var piGpio = PiGpio.newNativeInstance();
+        /*final var piGpio = PiGpio.newNativeInstance();
         final var pi4j = Pi4J.newContextBuilder()
                 .noAutoDetect()
                 .add(new RaspberryPiPlatform() {
@@ -91,11 +90,10 @@ public class View extends GameApplication {
                         LinuxFsI2CProvider.newInstance()
                 )
                 .build();
-
-
+        */
 
         // var pi4j = Pi4J.newAutoContext();
-        final var joystick = new Joystick(pi4j, PIN.D5, PIN.D6, PIN.PWM13, PIN.PWM19, PIN.D26);
+        //final var joystick = new Joystick(pi4j, PIN.D5, PIN.D6, PIN.PWM13, PIN.PWM19, PIN.D26);
 
         getInput().addAction(new UserAction("Move Up") {
             @Override
@@ -111,7 +109,7 @@ public class View extends GameApplication {
             }
         }, KeyCode.W);
 
-        joystick.whileNorth(5, () -> {
+        /*joystick.whileNorth(5, () -> {
             Platform.runLater(() -> {
                 System.out.println("north!!!!!");
                 RocketController.getRocketControl().up();
@@ -127,7 +125,7 @@ public class View extends GameApplication {
                 RocketController.getRocketControl().down();
                 getArrowsControl().buttonDownPressed();
             });
-        });
+        });*/
 
 
         getInput().addAction(new UserAction("Move Down") {
@@ -205,10 +203,19 @@ public class View extends GameApplication {
     protected void initUI() {
         spawn("dashboard");
         spawn("arrows");
-        /*IntStream.range(0, geti("amountAsteroids"))
-                        .forEach( i -> spawn("asteroid"));*/
-        getArrowsControl().noButtonPressed();
 
+        AsteroidController asteroidController = new AsteroidController();
+        getGameTimer().runAtInterval(() -> {
+            for (int i = 0; i < asteroidController.getAsteroidAmount(); i++) {
+                asteroidController.addAsteroid();
+            }
+
+        }, Duration.seconds(1));
+
+        IntStream.range(0, geti("amountAsteroids"))
+            .forEach( i -> spawn("asteroid"));
+
+        getArrowsControl().noButtonPressed();
 
         LevelController.setLevel(STARTING_LEVEL);
 
