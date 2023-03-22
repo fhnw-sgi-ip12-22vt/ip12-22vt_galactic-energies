@@ -8,6 +8,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab62d768-cc0c-4eeb-a13d-050241538dc9" name="Changes" comment="Development mode added for movement &#10;created MovementControllerDEV&#10;created MovementControllerJoyStick">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/planet/planet1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/planet/planet2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/planet/planet3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/planet/planet4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/planet/planet5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/planet/planet6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/planet/planet7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/planet/planet8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/planet/planet9.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/kurbel/Kurbel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/kurbel/Kurbel.java" afterDir="false" />
@@ -84,11 +93,11 @@
       <recent name="C:\Users\andre\IdeaProjects\fhnw\galactic-energies\galactic-energies\src\main\resources\ch\fhnw\galacticenergies" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\KlaS_\IdeaProjects\galactic-energies\src\main\resources\assets\textures\planet" />
       <recent name="C:\Users\andre\IdeaProjects\galactic-energies\src\main\resources\assets\textures" />
       <recent name="C:\Users\andre\IdeaProjects\galactic-energies\src\main\resources\assets" />
       <recent name="C:\Users\andre\IdeaProjects\galactic-energies\src\main\resources\assets\textures\dashboard" />
       <recent name="C:\Users\andre\IdeaProjects\galactic-energies\src\main\resources\assets\textures\bg" />
-      <recent name="C:\Users\andre\IdeaProjects\galactic-energies\src\main\resources\assets\textures\rocket" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="ch.fhnw.galacticenergies.components" />
@@ -397,6 +406,16 @@
     <MESSAGE value="Kurbel test" />
     <MESSAGE value="Development mode added for movement &#10;created MovementControllerDEV&#10;created MovementControllerJoyStick" />
     <option name="LAST_COMMIT_MESSAGE" value="Development mode added for movement &#10;created MovementControllerDEV&#10;created MovementControllerJoyStick" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalArgumentException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
