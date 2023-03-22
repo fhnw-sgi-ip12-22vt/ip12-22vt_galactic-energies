@@ -9,6 +9,7 @@ import static com.almasb.fxgl.dsl.FXGL.getGameScene;
 
 /**
  * Controls the current and totalPower that is being produced
+ *
  * @version 1.0
  */
 
@@ -24,15 +25,15 @@ public class PowerController {
      * Calculates the totalPower that was generated and stores it in totalPower
      */
     public static void calcPower() {
-            totalPower = totalPower + (currentPower / 3600);
+        totalPower = totalPower + (currentPower / 3.6);
         System.out.println(totalPower);
-        text.setText("Current: "+ (int)PowerController.getCurrentPower()/ 1000 +"W Total: " + (int)PowerController.getTotalPower() + " W");
+        text.setText("Current: " + (int) PowerController.getCurrentPower()+ "W per Hour Total: " + (int) PowerController.getTotalPower() + " Wh");
 
     }
 
-    public static void initText(){
-        text = new Text("Current: "+ (int)PowerController.getCurrentPower() / 1000 +"W Total: " + 0 + " W");
-        text.setTranslateX(getAppHeight() / 2 -50);
+    public static void initText() {
+        text = new Text("Current: " + 0 + "W per Hour Total: " + 0 + " Wh");
+        text.setTranslateX(10);
         text.setTranslateY(30);
         text.setFont(Font.font(30));
         getGameScene().addUINode(text);
@@ -53,7 +54,7 @@ public class PowerController {
      * @param currentPower
      */
     public static void setCurrentPower(double currentPower) {
-        PowerController.currentPower = currentPower * 1000;
+        PowerController.currentPower = currentPower;
         calcPower();
     }
 
