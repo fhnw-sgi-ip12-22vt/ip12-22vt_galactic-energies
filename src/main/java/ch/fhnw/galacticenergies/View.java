@@ -97,6 +97,8 @@ public class View extends GameApplication {
         PowerInput.powerLoop();
         PowerController.initText();
 
+
+
     }
 
     @Override
@@ -155,10 +157,14 @@ public class View extends GameApplication {
         IntStream.range(0, geti("lives"))
                 .forEach(i -> uiController.addLife());
         spawn("asteroid");
+
+
     }
 
 
+
     private DashboardComponent getDashboardControl() {
+
         return getGameWorld().getSingleton(DASHBOARD).getComponent(DashboardComponent.class);
     }
 

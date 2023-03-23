@@ -2,6 +2,8 @@ package ch.fhnw.galacticenergies.controllers;
 
 import ch.fhnw.galacticenergies.components.ArrowsComponent;
 import ch.fhnw.galacticenergies.components.DashboardComponent;
+import ch.fhnw.galacticenergies.components.LifeComponent;
+import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.input.UserAction;
 import javafx.scene.input.KeyCode;
 
@@ -46,13 +48,9 @@ public class MovementControllerDEV {
         }, KeyCode.W);
 
 
-//        onKeyDown(KeyCode.K, "nextSpeed", () -> {
-//            if (geti("speed") == 12) return;
-//            System.out.println(geti("speed"));
-//            inc("speed", +1);
-//            RocketController.getRocketControl().setSpeedMultiplier(1 + (float) (geti("speed")) / 10);
-//            getDashboardControl().setSpeedImage(geti("speed"));
-//        });
+        onKeyDown(KeyCode.K, "kill", () -> {
+            GameOverController.showGameOver();
+        });
         if (!isReleaseMode()) {
             onKeyDown(KeyCode.L, "Next Level", LevelController::nextLevel);
         }
