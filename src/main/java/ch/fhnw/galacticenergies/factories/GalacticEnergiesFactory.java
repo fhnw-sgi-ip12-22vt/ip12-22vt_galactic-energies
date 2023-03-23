@@ -37,11 +37,6 @@ public class GalacticEnergiesFactory implements EntityFactory {
             .type(BACKGROUND)
             .with(new IrremovableComponent())
             .with(new BackgroundStarsViewComponent(
-//                        texture("bg/bg_blue1.png"),
-                texture("bg/ColorBlend.png"),
-                texture("bg/Stars3.png")
-//                        texture("bg/StarsBackground1.png"),
-//                        texture("bg/StarsBackground2.png")
             ))
             .build();
     }

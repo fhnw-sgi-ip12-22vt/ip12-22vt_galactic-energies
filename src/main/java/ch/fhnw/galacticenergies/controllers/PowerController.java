@@ -1,10 +1,10 @@
 package ch.fhnw.galacticenergies.controllers;
 
 
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
-import static com.almasb.fxgl.dsl.FXGL.getAppHeight;
 import static com.almasb.fxgl.dsl.FXGL.getGameScene;
 
 /**
@@ -36,6 +36,7 @@ public class PowerController {
         text.setTranslateX(10);
         text.setTranslateY(30);
         text.setFont(Font.font(30));
+        text.setFill(Color.WHITE);
         getGameScene().addUINode(text);
     }
 
