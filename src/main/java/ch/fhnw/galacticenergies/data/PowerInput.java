@@ -22,14 +22,17 @@ import static com.almasb.fxgl.dsl.FXGL.getSettings;
 import static com.almasb.fxgl.dsl.FXGLForKtKt.getGameTimer;
 
 /**
- *
+ * Reads the Data form INA219 with i2c
  * @version 1.0
  */
 
 public class PowerInput {
     private static Kurbel k;
+
+    /**
+     * initializes Pi4j providers & configurates the required registers
+     */
     public static void initPower(){
-        System.out.println("start");
         final var piGpio = PiGpio.newNativeInstance();
         final var pi4j = Pi4J.newContextBuilder()
             .noAutoDetect()
@@ -47,14 +50,15 @@ public class PowerInput {
                 LinuxFsI2CProvider.newInstance()
             )
             .build();
-        System.out.println("kurbel");
-
-
 
         k = new Kurbel(pi4j);
         k.writeConfigurationRegister();
         k.writeCalibrationRegister();
     }
+
+    /**
+     * Loop in which the Power currently measured by the INA219 is read and transferred to the PowerController
+     */
     public static void powerLoop(){
         getGameTimer().runAtInterval(() -> {
 
