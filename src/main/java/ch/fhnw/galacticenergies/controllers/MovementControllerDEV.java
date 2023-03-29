@@ -9,13 +9,19 @@ import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.ARROWS;
 import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.DASHBOARD;
 import static com.almasb.fxgl.dsl.FXGL.*;
 
+/**
+ * Defines the movement of the rocket with keys.
+ * @version 1.0
+ */
 public class MovementControllerDEV {
 
     public MovementControllerDEV(){
 
     }
 
-
+    /**
+     * Moves rocket up and down with a key.
+     */
     public static void movement() {
         getInput().addAction(new UserAction("Move Down") {
             @Override

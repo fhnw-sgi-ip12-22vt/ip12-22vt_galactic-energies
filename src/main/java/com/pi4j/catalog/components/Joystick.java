@@ -10,6 +10,7 @@ import java.util.List;
 
 /**
  * Implementation of a joystick using 5 GPIO up, left, down, right and push  with Pi4J
+ * @version 1.0
  */
 public class Joystick extends Component{
 

@@ -17,6 +17,10 @@ import javafx.application.Platform;
 import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.ARROWS;
 import static com.almasb.fxgl.dsl.FXGL.getGameWorld;
 
+/**
+ * Defines the movement of the rocket with joystick
+ * @version 1.0
+ */
 public  class MovementControllerJoyStick {
 
 
