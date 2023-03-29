@@ -1,11 +1,14 @@
 package ch.fhnw.galacticenergies;
 
 import ch.fhnw.galacticenergies.components.ArrowsComponent;
+import ch.fhnw.galacticenergies.components.AsteroidComponent;
 import ch.fhnw.galacticenergies.components.DashboardComponent;
 import ch.fhnw.galacticenergies.components.LifeComponent;
 import ch.fhnw.galacticenergies.controllers.*;
+import ch.fhnw.galacticenergies.data.PowerInput;
 import ch.fhnw.galacticenergies.events.GameEvent;
 import ch.fhnw.galacticenergies.factories.GalacticEnergiesFactory;
+import com.almasb.fxgl.app.ApplicationMode;
 import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.app.GameSettings;
 import com.almasb.fxgl.dsl.FXGL;
@@ -20,6 +23,15 @@ import java.util.stream.IntStream;
 
 import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.*;
 import static com.almasb.fxgl.dsl.FXGL.*;
+import javafx.beans.property.ObjectProperty;
+import javafx.scene.input.KeyCode;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.util.Duration;
 
 public class View extends GameApplication {
 
@@ -27,17 +39,18 @@ public class View extends GameApplication {
 
     private ViewController uiController;
 
-    private int timeout = 0;
+
 
     @Override
     protected void initSettings(GameSettings settings) {
         settings.setTitle("Galactic Energies");
-        settings.setVersion("0.1");
+        settings.setVersion("0.2");
         settings.setFullScreenAllowed(true);
         settings.setFullScreenFromStart(true);
         settings.setIntroEnabled(false);
         settings.setProfilingEnabled(false);
         settings.setManualResizeEnabled(true);
+        settings.setApplicationMode(ApplicationMode.DEVELOPER);
     }
 
     @Override
@@ -45,16 +58,14 @@ public class View extends GameApplication {
         getSettings().setGlobalMusicVolume(0.5);
         getSettings().setGlobalSoundVolume(0.5);
 
+
         onEvent(GameEvent.ASTEROID_GOT_HIT, AsteroidController::onAsteroidHit);
     }
 
     @Override
     protected void initInput() {
 
-        if(!Config.DEVELOPMENT_MODE){
-
-            System.out.println("das if isch perfekt");
-
+        if(getSettings().getApplicationMode() == ApplicationMode.RELEASE){
             MovementControllerJoyStick.movement();
         }else{
             MovementControllerDEV.movement();
@@ -71,6 +82,7 @@ public class View extends GameApplication {
         vars.put("totalEnergy", 0);
         vars.put("level", STARTING_LEVEL);
         vars.put("asteroidsKilled", 0);
+        vars.put("amountPlanet",1);
     }
 
     @Override
@@ -79,6 +91,11 @@ public class View extends GameApplication {
         getGameScene().getRoot().setCursor(Cursor.NONE);
 
         initBackground();
+        if(ApplicationMode.RELEASE == getSettings().getApplicationMode()){
+            PowerInput.initPower();
+        }
+        PowerInput.powerLoop();
+        PowerController.initText();
 
     }
 
@@ -105,6 +122,7 @@ public class View extends GameApplication {
                 .collidable()
                 .with(new IrremovableComponent())
                 .buildScreenBoundsAndAttach(40);
+
     }
 
     @Override
@@ -113,8 +131,22 @@ public class View extends GameApplication {
         spawn("arrows");
         IntStream.range(0, geti("amountAsteroids"))
                         .forEach( i -> spawn("asteroid"));
+        IntStream.range(0, geti("amountPlanet"))
+            .forEach( i -> spawn("planet"));
         getArrowsControl().noButtonPressed();
 
+        AsteroidController asteroidController = new AsteroidController();
+        getGameTimer().runAtInterval(() -> {
+            for (int i = 0; i < asteroidController.getAsteroidAmount(); i++) {
+                asteroidController.addAsteroid();
+            }
+
+        }, Duration.seconds(1));
+
+        IntStream.range(0, geti("amountAsteroids"))
+            .forEach( i -> spawn("asteroid"));
+
+        getArrowsControl().noButtonPressed();
 
         LevelController.setLevel(STARTING_LEVEL);
 
@@ -122,6 +154,7 @@ public class View extends GameApplication {
 
         IntStream.range(0, geti("lives"))
                 .forEach(i -> uiController.addLife());
+        spawn("asteroid");
     }
 
 
