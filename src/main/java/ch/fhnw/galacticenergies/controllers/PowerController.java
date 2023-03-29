@@ -1,9 +1,11 @@
 package ch.fhnw.galacticenergies.controllers;
 
-import ch.fhnw.galacticenergies.data.PowerInput;
 
-import java.util.ArrayList;
-import java.util.List;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+
+import static com.almasb.fxgl.dsl.FXGL.getAppHeight;
+import static com.almasb.fxgl.dsl.FXGL.getGameScene;
 
 /**
  * Controls the current and totalPower that is being produced
@@ -13,45 +15,27 @@ import java.util.List;
 public class PowerController {
 
     private static double currentPower;
-    private static double totalPower;
+    private static double totalPower = 0;
     private static int lastTimestamp = 0;
+    private static Text text;
 
     /**
      * Processes the ArrayLists that were created in PowerInput
      * Calculates the totalPower that was generated and stores it in totalPower
      */
     public static void calcPower() {
-        int currentTimestamp = 0;
-        String currentPowerStr;
-        List<List> input = new ArrayList<>();
-        /**
-         * Endless loop that updates the current and total Power that is beeing generated
-         */
-        while (1 == 1) {
-            input = PowerInput.readCSV();
-            input.remove(0);
-            currentPowerStr = (String) input.get(input.size() - 1).get(7);
-            setCurrentPower(Double.valueOf(currentPowerStr));
-            // loop through the input ArrayList
-            for (int i = 0; i < input.size(); i++) {
-                //read the timestamp of the current entry
-                currentTimestamp = Integer.valueOf((String) input.get(i).get(2));
-                //if the timestamp is newer then the lastTimestamp that has been processed
-                if (currentTimestamp > lastTimestamp) {
-                    //Add the power generated in this entry to totalPower
-                    addTotalPower(Double.valueOf((String) input.get(i).get(7)));
-                    lastTimestamp = currentTimestamp;
-                }
-            }
-            /**
-             * pauses for 1 second
-             */
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException ie) {
-                Thread.currentThread().interrupt();
-            }
-        }
+            totalPower = totalPower + (currentPower / 3600);
+        System.out.println(totalPower);
+        text.setText("Current: "+ (int)PowerController.getCurrentPower()/ 1000 +"W Total: " + (int)PowerController.getTotalPower() + " W");
+
+    }
+
+    public static void initText(){
+        text = new Text("Current: "+ (int)PowerController.getCurrentPower() / 1000 +"W Total: " + 0 + " W");
+        text.setTranslateX(getAppHeight() / 2 -50);
+        text.setTranslateY(30);
+        text.setFont(Font.font(30));
+        getGameScene().addUINode(text);
     }
 
     /**
@@ -69,18 +53,8 @@ public class PowerController {
      * @param currentPower
      */
     public static void setCurrentPower(double currentPower) {
-        PowerController.currentPower = currentPower;
-    }
-
-    /**
-     * Adds power to totalPower
-     *
-     * @param power amount of power to be added to total Power
-     */
-
-    public static void addTotalPower(double power) {
-        totalPower += power;
-
+        PowerController.currentPower = currentPower * 1000;
+        calcPower();
     }
 
     /**
@@ -91,11 +65,6 @@ public class PowerController {
         return totalPower;
     }
 
-    /**
-     * @return calculate the total value of the power.
-     */
-    public double calculateTotalPower() {
-        return 0;
-    }
 
 }
+

@@ -16,6 +16,8 @@ import com.almasb.fxgl.texture.Texture;
 import javafx.geometry.Point2D;
 import javafx.geometry.Pos;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 import java.util.Random;
 
@@ -136,6 +138,38 @@ public class GalacticEnergiesFactory implements EntityFactory {
             .with(asteroidComponent)
             .with(new OffscreenCleanComponent())
             .buildAndAttach();
+    }
+
+    @Spawns("planet")
+    public Entity newPlanet(SpawnData data) {
+        Random r = new Random();
+        Texture texture = texture("planet/planet" + r.nextInt(1, 9) + ".png");
+        texture.setPreserveRatio(true);
+        texture.setFitWidth(texture.getHeight());
+
+        PhysicsComponent physics = new PhysicsComponent();
+        physics.setBodyType(BodyType.DYNAMIC);
+        physics.setFixtureDef(new FixtureDef().restitution(1f).density(0.03f));
+
+        var bd = new BodyDef();
+        bd.setType(BodyType.DYNAMIC);
+        bd.setFixedRotation(true);
+
+        physics.setBodyDef(bd);
+
+        Random random = new Random();
+
+        return entityBuilder(data)
+            .type(PLANET)
+            .at(getAppWidth() - texture.getFitWidth(), random.nextFloat(0, getAppHeight()))
+            .viewWithBBox(texture)
+            .collidable()
+            .with(physics)
+            .with(new CheckpointComponent())
+            .with(new OffscreenCleanComponent())
+            .scaleOrigin(0, 0)
+            .scale(0.5, 0.5)
+            .build();
     }
 
 }
