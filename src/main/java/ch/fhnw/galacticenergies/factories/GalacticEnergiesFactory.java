@@ -120,8 +120,8 @@ public class GalacticEnergiesFactory implements EntityFactory {
         System.out.println(r.nextInt(1, 4));
         texture.setScaleX(0.5);
         texture.setScaleY(0.5);
-        Point2D velocity = new Point2D(r.nextFloat(-100, -25),
-            r.nextFloat(1, 50));
+        Point2D velocity = new Point2D(r.nextFloat(-100, -75),
+            r.nextFloat(0, 25));
 
         AsteroidComponent asteroidComponent = new AsteroidComponent();
         asteroidComponent.setVelocity(velocity);
@@ -129,8 +129,10 @@ public class GalacticEnergiesFactory implements EntityFactory {
         return entityBuilder(data)
             .type(ASTEROID)
             .at(getAppWidth() - texture.getFitWidth(), r.nextFloat(0, getAppHeight()))
+            .collidable()
             .viewWithBBox(texture)
             .with(asteroidComponent)
+            .with(new OffscreenCleanComponent())
             .buildAndAttach();
     }
 
