@@ -22,7 +22,7 @@
 
         <pi4j.version>2.2.1</pi4j.version>
         <!-- Raspberry Remote Deployment -->
-        <example.remote.host>192.168.124.122</example.remote.host>
+        <example.remote.host>galacticenergies</example.remote.host>
         <example.remote.port>22</example.remote.port>
         <example.remote.username>pi</example.remote.username>
         <example.remote.password>crowpi</example.remote.password>
@@ -101,6 +101,12 @@
             <groupId>com.pi4j</groupId>
             <artifactId>pi4j-core</artifactId>
             <version>2.2.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.32</version>
         </dependency>
     </dependencies>
     <build>
