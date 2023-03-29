@@ -38,8 +38,7 @@ public class View extends GameApplication {
     private static final int STARTING_LEVEL = 1;
 
     private ViewController uiController;
-    private boolean gameRunning = true;
-    private final int timeout = 0;
+
 
 
     @Override
@@ -51,7 +50,7 @@ public class View extends GameApplication {
         settings.setIntroEnabled(false);
         settings.setProfilingEnabled(false);
         settings.setManualResizeEnabled(true);
-        settings.setApplicationMode(ApplicationMode.RELEASE);
+        settings.setApplicationMode(ApplicationMode.DEVELOPER);
     }
 
     @Override
@@ -94,9 +93,9 @@ public class View extends GameApplication {
         initBackground();
         if(ApplicationMode.RELEASE == getSettings().getApplicationMode()){
             PowerInput.initPower();
-            PowerInput.powerLoop();
-            PowerController.initText();
         }
+        PowerInput.powerLoop();
+        PowerController.initText();
 
     }
 
