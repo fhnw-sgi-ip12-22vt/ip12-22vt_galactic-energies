@@ -138,32 +138,67 @@ public class GalacticEnergiesFactory implements EntityFactory {
     public Entity newPlanet(SpawnData data) {
         Random r = new Random();
         Texture texture = texture("planet/planet" + r.nextInt(1, 9) + ".png");
-        texture.setPreserveRatio(true);
-        texture.setFitWidth(texture.getHeight());
+        System.out.println(r.nextInt(1, 4));
+        texture.setScaleX(0.5);
+        texture.setScaleY(0.5);
+        Point2D velocity = new Point2D(r.nextFloat(-100, -25),
+            r.nextFloat(1, 50));
 
-        PhysicsComponent physics = new PhysicsComponent();
-        physics.setBodyType(BodyType.DYNAMIC);
-        physics.setFixtureDef(new FixtureDef().restitution(1f).density(0.03f));
-
-        var bd = new BodyDef();
-        bd.setType(BodyType.DYNAMIC);
-        bd.setFixedRotation(true);
-
-        physics.setBodyDef(bd);
-
-        Random random = new Random();
+        CheckpointComponent checkpointComponent = new CheckpointComponent();
+        checkpointComponent.setVelocity(velocity);
 
         return entityBuilder(data)
             .type(PLANET)
-            .at(getAppWidth() - texture.getFitWidth(), random.nextFloat(0, getAppHeight()))
+            .at(getAppWidth() - texture.getFitWidth(), r.nextFloat(0, getAppHeight()))
             .viewWithBBox(texture)
-            .collidable()
-            .with(physics)
-            .with(new CheckpointComponent())
-            .with(new OffscreenCleanComponent())
-            .scaleOrigin(0, 0)
-            .scale(0.5, 0.5)
-            .build();
+            .with(checkpointComponent)
+            .buildAndAttach();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//        texture.setPreserveRatio(true);
+//        texture.setFitWidth(texture.getHeight());
+//
+//        PhysicsComponent physics = new PhysicsComponent();
+//        physics.setBodyType(BodyType.DYNAMIC);
+//        physics.setFixtureDef(new FixtureDef().restitution(1f).density(0.03f));
+//
+//        var bd = new BodyDef();
+//        bd.setType(BodyType.DYNAMIC);
+//        bd.setFixedRotation(true);
+//
+//        physics.setBodyDef(bd);
+//
+//        Random random = new Random();
+//
+//        return entityBuilder(data)
+//            .type(PLANET)
+//            .at(getAppWidth() - texture.getFitWidth(), random.nextFloat(0, getAppHeight()))
+//            .viewWithBBox(texture)
+//            .collidable()
+//            .with(physics)
+//            .with(new CheckpointComponent())
+//            .with(new OffscreenCleanComponent())
+//            .scaleOrigin(0, 0)
+//            .scale(0.5, 0.5)
+//            .build();
     }
 
 }

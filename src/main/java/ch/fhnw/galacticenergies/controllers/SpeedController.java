@@ -11,7 +11,7 @@ public class SpeedController {
 
     public static void setSpeed(int newSpeed) {
 
-        speed = (newSpeed < 24)?(newSpeed/2) : 12;
+        speed = (newSpeed < 24)?(newSpeed/2) : 5;
         System.out.println("speedy"+ speed);
         RocketController.getRocketControl().setSpeedMultiplier(1 + (float) (speed) / 10);
         getDashboardControl().setSpeedImage(speed);

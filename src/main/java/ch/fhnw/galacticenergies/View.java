@@ -97,6 +97,7 @@ public class View extends GameApplication {
         PowerInput.powerLoop();
         PowerController.initText();
 
+
     }
 
     @Override
@@ -134,14 +135,20 @@ public class View extends GameApplication {
         IntStream.range(0, geti("amountPlanet"))
             .forEach( i -> spawn("planet"));
         getArrowsControl().noButtonPressed();
-
-        AsteroidController asteroidController = new AsteroidController();
+        final int[] counter = {0};
+        final double[] level = {100, 200, 300};
         getGameTimer().runAtInterval(() -> {
-            for (int i = 0; i < asteroidController.getAsteroidAmount(); i++) {
-                asteroidController.addAsteroid();
+            if(PowerController.getTotalPower()>level[0] && counter[0] == 0) {
+                CheckpointController.addCheckpoint();
+                counter[0]++;
+            }else if(PowerController.getTotalPower()>level[1] && counter[0] == 1){
+                CheckpointController.addCheckpoint();
+                counter[0]++;
+            }else if(PowerController.getTotalPower()>level[2] && counter[0] == 2 ){
+                CheckpointController.addCheckpoint();
+                counter[0]++;
             }
-
-        }, Duration.seconds(1));
+            }, Duration.seconds(1));
 
         IntStream.range(0, geti("amountAsteroids"))
             .forEach( i -> spawn("asteroid"));
@@ -155,6 +162,7 @@ public class View extends GameApplication {
         IntStream.range(0, geti("lives"))
                 .forEach(i -> uiController.addLife());
         spawn("asteroid");
+
     }
 
 

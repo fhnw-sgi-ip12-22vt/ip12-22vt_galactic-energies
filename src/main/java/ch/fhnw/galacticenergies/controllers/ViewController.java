@@ -31,7 +31,6 @@ public class ViewController implements UIController {
 
     @Override
     public void init() {
-
     }
 
     /**
@@ -65,6 +64,7 @@ public class ViewController implements UIController {
 
         runOnce(() -> gameScene.removeUINode(flash), Duration.seconds(1));
     }
+
 
 
 }
