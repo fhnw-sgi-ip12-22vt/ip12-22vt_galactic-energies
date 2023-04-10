@@ -1,6 +1,5 @@
 package ch.fhnw.galacticenergies.controllers;
 
-import ch.fhnw.galacticenergies.View;
 import com.almasb.fxgl.app.scene.GameScene;
 import com.almasb.fxgl.app.scene.Viewport;
 import com.almasb.fxgl.entity.Entity;
@@ -14,7 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.almasb.fxgl.dsl.FXGL.*;
-import static javafx.application.Platform.exit;
 
 public class ViewController implements UIController {
 
@@ -38,14 +36,16 @@ public class ViewController implements UIController {
     }
 
     public void loseLife() {
-
+        if(lives.size() == 0){
+            //TODO
+            //Gameover screen einfügen
+            System.out.println("Game Over");
+            return;
+        }
         Entity life = lives.get(lives.size() - 1);
         life.removeFromWorld();
         lives.remove(life);
-        if(lives.size() == 0){
-           GameOverController.showGameOver();
 
-        }
 
         Viewport viewport = gameScene.getViewport();
 

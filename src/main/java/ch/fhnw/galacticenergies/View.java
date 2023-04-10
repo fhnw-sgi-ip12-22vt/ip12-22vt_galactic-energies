@@ -138,15 +138,7 @@ public class View extends GameApplication {
         getArrowsControl().noButtonPressed();
 
         AsteroidController asteroidController = new AsteroidController();
-        getGameTimer().runAtInterval(() -> {
-            for (int i = 0; i < asteroidController.getAsteroidAmount(); i++) {
-                asteroidController.addAsteroid();
-            }
-
-        }, Duration.seconds(1));
-
-        IntStream.range(0, geti("amountAsteroids"))
-            .forEach( i -> spawn("asteroid"));
+        asteroidController.init();
 
         getArrowsControl().noButtonPressed();
 
