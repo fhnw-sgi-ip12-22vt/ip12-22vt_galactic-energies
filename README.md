@@ -1,10 +1,18 @@
 **Projekt: Digitaler Alltag**
 
+**Anweisungen zur Konfiguration**
 
+**Anweisungen für die Installation**
 
+**Dateiliste**
 
+**Changelog**
 
+**Fehlerbehebung**
 
+**Bekannte Bugs**
+
+**Danksagung und Credits**
 
 
 
