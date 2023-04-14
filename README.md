@@ -1,4 +1,5 @@
-#Digitaler Alltag
+***Digitaler Alltag***
+> aqesad
 
 **Anweisungen zur Konfiguration**
 
@@ -13,9 +14,6 @@
 **Bekannte Bugs**
 
 **Danksagung und Credits**
-
-
-
 
 **Kontaktinformationen:**
 Jan Rudolf	
