@@ -1,5 +1,5 @@
 ***Digitaler Alltag***
-
+Das Projekt Digitaler Alltag verfolgt das Ziel durch eine spielerische Weise Kindern und Jugendlichen ein Strombewusstsein zu vermitteln. Dabei greift das Projektteam auf eine Arcade-Spiel zurück, welches eine angepasste Form von den bekannten Spiele " Space Invaders" sein sollte. Durch die Hardware-Komponente in Form einer Kurbel wird der Spieler animiert Strom zu erzeugen und durch die im Spiel erreichten Checkpoints zu erfahren wieviel Strom mit der Kurbel bis zu diesem Punkt erzeugt wurde und welche Alltagsgegenstände für wie lange damit betrieben oder geladen werden können.
 
 **Anweisungen zur Konfiguration**
 
@@ -16,8 +16,8 @@
 **Danksagung und Credits**
 
 **Kontaktinformationen:**
-Jan Rudolf jan.rudolf@students.fhnw.ch
-
+Jan Rudolf 
+jan.rudolf@students.fhnw.ch
 Rinor Shala	
 rinor.shala@students.fhnw.ch	
 Andreas Löffel	
