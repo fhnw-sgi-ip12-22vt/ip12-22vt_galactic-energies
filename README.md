@@ -1,14 +1,15 @@
+**Kontaktinformationen:**
 Jan Rudolf	
-jan.rudolf@students.fhnw.ch	079 267 36 64
+jan.rudolf@students.fhnw.ch
 Rinor Shala	
-rinor.shala@students.fhnw.ch 076 388 60 07	
+rinor.shala@students.fhnw.ch	
 Andreas Löffel	
-andreas.loeffel@students.fhnw.ch 078 670 96 66
+andreas.loeffel@students.fhnw.ch
 Ayse Soy	
-ayse.soy@students.fhnw.ch 078 915 65 60	
+ayse.soy@students.fhnw.ch
 Benaja Kuhn	
-benaja.kuhn@students.fhnw.ch 078 768 21 47	
+benaja.kuhn@students.fhnw.ch
 Simon Wildi	
-simon.wildi@students.fhnw.ch 076 575 54 08
+simon.wildi@students.fhnw.ch
 Jasmin Bajwa
-jasmin.bajwa@students.fhnw.ch 078 829 11 77	-	
+jasmin.bajwa@students.fhnw.ch-	
