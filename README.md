@@ -8,6 +8,50 @@ Das Projekt Digitaler Alltag verfolgt das Ziel durch eine spielerische Weise Kin
 
 **Dateiliste**
 
+***collision:*** AsteroidHandler
+
+***components:***
+ArrowsComponent,
+AsteroidComponent,
+BackgroundStarsViewComponent,
+CheckpointComponent,
+DashboardComponent,
+LifeComponent,
+RocketComponent
+
+***controllers:***
+AsteroidController,
+CheckpointController,
+LevelController,
+MovementControllerDEV,
+MovementControllerJoyStick,
+PowerController,
+RocketController,
+SpeedController,
+ViewController
+
+***data:***
+DBConnection,
+PowerInput,
+SelectTest
+
+***enums:***
+GalacticEnergiesType,
+GameStates,
+
+***events:***
+GameEvent
+
+***factories:***
+GalacticEnergiesFactory
+
+***kurbel:***
+KrubelTest
+Kurbel
+
+Config
+View
+
 **Changelog**
 
 **Fehlerbehebung**
