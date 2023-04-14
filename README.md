@@ -1,5 +1,5 @@
 ***Digitaler Alltag***
-> aqesad
+
 
 **Anweisungen zur Konfiguration**
 
@@ -16,8 +16,8 @@
 **Danksagung und Credits**
 
 **Kontaktinformationen:**
-Jan Rudolf	
-jan.rudolf@students.fhnw.ch
+Jan Rudolf jan.rudolf@students.fhnw.ch
+
 Rinor Shala	
 rinor.shala@students.fhnw.ch	
 Andreas Löffel	
