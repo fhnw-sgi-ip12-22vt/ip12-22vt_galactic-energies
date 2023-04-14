@@ -1,4 +1,4 @@
-**Projekt: Digitaler Alltag**
+#Digitaler Alltag
 
 **Anweisungen zur Konfiguration**
 
