@@ -23,4 +23,4 @@ benaja.kuhn@students.fhnw.ch
 Simon Wildi	
 simon.wildi@students.fhnw.ch
 Jasmin Bajwa
-jasmin.bajwa@students.fhnw.ch-	
+jasmin.bajwa@students.fhnw.ch
