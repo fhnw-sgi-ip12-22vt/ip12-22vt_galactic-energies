@@ -4,10 +4,10 @@ Das Projekt Digitaler Alltag verfolgt das Ziel durch eine spielerische Weise Kin
 
 **Komponenten**
 
-RaspberryPi 
-Button 
-Kurbel 
-MikroHDMI-Anschluss
+RaspberryPi, 
+Button,  
+Kurbel,  
+Micro HDMI-Anschluss
 
 
 **Anweisungen zur Konfiguration**
