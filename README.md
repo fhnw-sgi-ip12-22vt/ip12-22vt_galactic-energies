@@ -57,7 +57,7 @@ GameEvent
 GalacticEnergiesFactory
 
 ***kurbel:***
-KrubelTest
+KurbelTest
 Kurbel
 
 Config
