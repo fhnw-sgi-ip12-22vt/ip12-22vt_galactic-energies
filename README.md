@@ -14,7 +14,9 @@ Holzbox
 **Systeminformationen**
 
 RaspberryPi: Version 
+
 Betriebssystem: Linux
+
 Programmiersprache: Java 
 
 
