@@ -19,6 +19,7 @@ Betriebssystem: Linux
 
 Programmiersprache: Java 
 
+Datenbank: MariaDB
 
 
 **Anweisungen für die Installation**
