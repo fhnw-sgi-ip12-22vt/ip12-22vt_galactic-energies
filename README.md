@@ -7,10 +7,15 @@ Das Projekt Digitaler Alltag verfolgt das Ziel durch eine spielerische Weise Kin
 RaspberryPi, 
 Button,  
 Kurbel,  
-Micro HDMI-Anschluss
+Strommesser,
+Holzbox
 
 
-**Anweisungen zur Konfiguration**
+**Systeminformationen**
+
+RaspberryPi: Version 
+Betriebssystem: Linux
+Programmiersprache: Java 
 
 
 
