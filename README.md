@@ -25,7 +25,8 @@ Datenbank: MariaDB
 **Anweisungen für die Installation**
 
 Aufsetzen Betriebssystem auf Raspberry Pi.
-Materialliste dazu:
+
+Materialliste:
 
 
 - Raspberry Pi,
