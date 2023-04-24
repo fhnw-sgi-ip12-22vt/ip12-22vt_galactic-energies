@@ -28,7 +28,7 @@ Aufsetzen Betriebssystem Raspberry Pi.
 
 Installation Git auf Entwickler-PC 
 
-Herunterladen Git-Reposatory https://gitlab.fhnw.ch/ip12-22vt/ip12-22vt_digitaleralltag/galactic-energies
+Herunterladen Git-Repository https://gitlab.fhnw.ch/ip12-22vt/ip12-22vt_digitaleralltag/galactic-energies
 
 Verbindung Entwickler-PC mit Raspberry Pi durch IP-Adresse vom Raspberry Pi 
 
