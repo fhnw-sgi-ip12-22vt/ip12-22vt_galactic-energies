@@ -4,11 +4,11 @@ Das Projekt Digitaler Alltag verfolgt das Ziel durch eine spielerische Weise Kin
 
 **Komponenten**
 
-RaspberryPi, 
+Raspberry Pi, 
 Button,  
 Kurbel,  
 Strommesser,
-Holzbox
+Holzbox, Stromkabel Pi
 
 
 **Systeminformationen**
