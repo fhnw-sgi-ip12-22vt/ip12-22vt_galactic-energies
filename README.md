@@ -28,13 +28,28 @@ Aufsetzen Betriebssystem auf Raspberry Pi.
 
 Materialliste:
 
-
 - Raspberry Pi,
-
 - Micro SD card, minimally 16Gb b
+- PC (oder anderer Raspberry Pi) mit einem SD-Kartensteckplatz (eventuell benötigen Sie einen SD-Kartenadapter)
+- Stromversorgung (5V, 2 or 3A)
 
-- PC (or other Raspberry Pi) with an SD card slot (maybe you will need an SD card adapter)
-- Power supply (5V, 2 or 3A)
+Auf der SD-Karte wird das Betriebssystem gespeichert. Auf der Raspberry Pi-Website finden Sie auf der Download-Seite das Imager-Tool. Wählen Sie die Version für Ihren Computer aus, laden Sie sie herunter und installieren Sie sie.
+https://www.raspberrypi.com/software/
+
+1. Klicken Sie bei "Operating System" auf "CHOOSE OS"
+2. Wählen Sie "Raspberry Pi OS (other)"
+3. Wählen Sie "Raspberry Pi OS Full (32-bit)"
+4. Stecken Sie Ihre SD-Karte in Ihren Computer oder in den SD-Kartenadapter 
+5. Klicken Sie bei "SD-Karte" auf "CHOOSE SD CARD"
+6. Wählen Sie Ihre SD-Karte aus.
+7. Klicken Sie danach auf "WRITE"
+
+Das Betriebssystem wird nun auf die SD-Karte geladen.
+
+8. Stecken Sie nun die SD-Karte in den Raspberry Pi. 
+9. Folgen Sie der Installationanweisung.
+
+Java wird mit der Vollversion des Betriebssystem installiert. Kontrollieren Sie welche Version installiert ist. Öffnen Sie ein Terminal und geben Sie java -version ein.
 
 Installation Git auf Entwickler-PC 
 
