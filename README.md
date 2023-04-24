@@ -24,7 +24,7 @@ Datenbank: MariaDB
 
 **Anweisungen für die Installation**
 
-Aufsetzen Betriebssystem Raspberry Pi.
+Aufsetzen Betriebssystem auf Raspberry Pi.
 
 Installation Git auf Entwickler-PC 
 
@@ -50,6 +50,9 @@ Die Ip-Adresse muss im pom.xml file hinterlegt werden
 
 
 **Dateiliste**
+
+
+**Klassen**
 
 ***collision:***
  AsteroidHandler
