@@ -5,6 +5,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
+import java.text.DecimalFormat;
+
 import static com.almasb.fxgl.dsl.FXGL.getGameScene;
 
 /**
@@ -20,19 +22,22 @@ public class PowerController {
     private static int lastTimestamp = 0;
     private static Text text;
 
+    private static DecimalFormat df = new DecimalFormat("#.####");
+
     /**
      * Processes the ArrayLists that were created in PowerInput
      * Calculates the totalPower that was generated and stores it in totalPower
      */
     public static void calcPower() {
-        totalPower = totalPower + (currentPower / 3.6);
+
+        totalPower = totalPower + (currentPower / 3600);
         System.out.println(totalPower);
-        text.setText("Current: " + (int) PowerController.getCurrentPower()+ "W per Hour Total: " + (int) PowerController.getTotalPower() + " Wh");
+        text.setText("Current: " + (int) currentPower+ "W per Hour Total: " + df.format(totalPower)+ " Wh");
 
     }
 
     public static void initText() {
-        text = new Text("Current: " + 0 + "W per Hour Total: " + 0 + " Wh");
+        text = new Text("Current: " + 0 + "W per Hour Total: " + 0.0000 + " Wh");
         text.setTranslateX(10);
         text.setTranslateY(30);
         text.setFont(Font.font(30));

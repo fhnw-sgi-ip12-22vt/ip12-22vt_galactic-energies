@@ -67,6 +67,7 @@ public class View extends GameApplication {
 
         if(getSettings().getApplicationMode() == ApplicationMode.RELEASE){
             MovementControllerJoyStick.movement();
+            ButtonController.movement();
         }else{
             MovementControllerDEV.movement();
         }
