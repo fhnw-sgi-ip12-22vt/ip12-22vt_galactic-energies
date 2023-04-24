@@ -26,10 +26,14 @@ Datenbank: MariaDB
 
 Aufsetzen Betriebssystem auf Raspberry Pi.
 Materialliste dazu:
-Raspberry Pi,
-Micro SD card, minimally 16Gb b
-PC (or other Raspberry Pi) with an SD card slot (maybe you will need an SD card adapter)
-Power supply (5V, 2 or 3A)
+
+
+- Raspberry Pi,
+
+- Micro SD card, minimally 16Gb b
+
+- PC (or other Raspberry Pi) with an SD card slot (maybe you will need an SD card adapter)
+- Power supply (5V, 2 or 3A)
 
 Installation Git auf Entwickler-PC 
 
