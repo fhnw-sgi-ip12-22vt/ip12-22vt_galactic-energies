@@ -38,9 +38,8 @@ public class ViewController implements UIController {
     }
 
     public void loseLife() {
-        if(lives.size() == 0){
+        if(lives.size() == 1){
            GameOverController.showGameOver();
-
         }
         Entity life = lives.get(lives.size() - 1);
         life.removeFromWorld();
