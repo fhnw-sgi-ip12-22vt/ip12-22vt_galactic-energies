@@ -67,6 +67,7 @@ public class View extends GameApplication {
 
         if(getSettings().getApplicationMode() == ApplicationMode.RELEASE){
             MovementControllerJoyStick.movement();
+            ButtonController.movement();
         }else{
             MovementControllerDEV.movement();
         }
@@ -96,6 +97,8 @@ public class View extends GameApplication {
         }
         PowerInput.powerLoop();
         PowerController.initText();
+
+
 
     }
 
@@ -147,10 +150,14 @@ public class View extends GameApplication {
         IntStream.range(0, geti("lives"))
                 .forEach(i -> uiController.addLife());
         spawn("asteroid");
+
+
     }
 
 
+
     private DashboardComponent getDashboardControl() {
+
         return getGameWorld().getSingleton(DASHBOARD).getComponent(DashboardComponent.class);
     }
 

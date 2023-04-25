@@ -1,9 +1,10 @@
 package ch.fhnw.galacticenergies.controllers;
 
-import ch.fhnw.galacticenergies.components.ArrowsComponent;
 import com.pi4j.Pi4J;
 import com.pi4j.catalog.components.Joystick;
 import com.pi4j.catalog.components.helpers.PIN;
+import com.pi4j.context.Context;
+import com.pi4j.catalog.components.SimpleButton;
 import com.pi4j.library.pigpio.PiGpio;
 import com.pi4j.plugin.linuxfs.provider.i2c.LinuxFsI2CProvider;
 import com.pi4j.plugin.pigpio.provider.gpio.digital.PiGpioDigitalInputProvider;
@@ -13,14 +14,15 @@ import com.pi4j.plugin.pigpio.provider.serial.PiGpioSerialProvider;
 import com.pi4j.plugin.pigpio.provider.spi.PiGpioSpiProvider;
 import com.pi4j.plugin.raspberrypi.platform.RaspberryPiPlatform;
 import javafx.application.Platform;
-
-import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.ARROWS;
-import static com.almasb.fxgl.dsl.FXGL.getGameWorld;
-
-public  class MovementControllerJoyStick {
+import com.pi4j.catalog.components.SimpleButton;
 
 
-
+/**
+     * This example app initializes all four directional buttons and registers event handlers for every button. While this example itself does
+     * not do much, it showcases how it could be used for controlling a player character in a game. Before the application exits it will cleanly
+     * unregister all previously configured event handlers.
+     */
+    public class ButtonController {
 
     public static void movement() {
 
@@ -30,7 +32,7 @@ public  class MovementControllerJoyStick {
             .add(new RaspberryPiPlatform() {
                 @Override
                 protected String[] getProviders() {
-                    return new String[]{};
+                    return new String[] {};
                 }
             })
             .add(PiGpioDigitalInputProvider.newInstance(piGpio),
@@ -42,31 +44,16 @@ public  class MovementControllerJoyStick {
             )
             .build();
 
-        final var joystick = new Joystick(pi4j, PIN.D5, PIN.D6, PIN.PWM13, PIN.PWM19, PIN.D26);
+        final var button = new SimpleButton(pi4j, PIN.PWM18, false);
 
 
-        joystick.whileNorth(5, () -> {
-            Platform.runLater(() -> {
-                System.out.println("north!!!!!");
-                RocketController.getRocketControl().up();
-                getArrowsControl().buttonUpPressed();
-            });
+        button.onDown      (() -> System.out.println("Pressing the button"));
+        button.whilePressed(() -> System.out.println("Pressing"), 1000);
+        button.onUp        (() -> System.out.println("Stopped pressing."));
 
+// Wait for 15 seconds while handling events before exiting
 
-        });
-
-        joystick.whileSouth(5, () -> {
-            Platform.runLater(() -> {
-                System.out.println("south!!!!!");
-                RocketController.getRocketControl().down();
-                getArrowsControl().buttonDownPressed();
-            });
-        });
-
+// Unregister all event handlers to exit this application in a clean way
 
     }
-
-    private static ArrowsComponent getArrowsControl() {
-        return getGameWorld().getSingleton(ARROWS).getComponent(ArrowsComponent.class);
     }
-}
