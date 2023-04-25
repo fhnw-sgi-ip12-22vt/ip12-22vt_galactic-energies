@@ -18,7 +18,6 @@ public class AsteroidController {
     private int maxAsteroids = 5;
 
     public static void onAsteroidHit(GameEvent event) {
-        ("HIT");
         inc("asteroidsKilled", +1);
     }
 

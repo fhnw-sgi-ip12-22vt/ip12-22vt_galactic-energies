@@ -31,7 +31,6 @@ public class PowerController {
     public static void calcPower() {
 
         totalPower = totalPower + (currentPower / 3600);
-        (totalPower);
         text.setText("Current: " + (int) currentPower+ "W per Hour Total: " + df.format(totalPower)+ " Wh");
 
     }
