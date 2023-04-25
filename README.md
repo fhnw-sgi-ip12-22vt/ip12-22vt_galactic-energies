@@ -49,7 +49,12 @@ Das Betriebssystem wird nun auf die SD-Karte geladen.
 8. Stecken Sie nun die SD-Karte in den Raspberry Pi. 
 9. Folgen Sie der Installationanweisung.
 
+Alternativ können Sie auch das CrowPi Image herunterladen. Zur Installation können Sie auch das Imager-Tool von Raspberry Pi nutzen.
+https://github.com/Pi4J/pi4j-example-crowpi/releases
+
 Java wird mit der Vollversion des Betriebssystem installiert. Kontrollieren Sie welche Version installiert ist. Öffnen Sie ein Terminal und geben Sie java -version ein.
+
+
 
 Installation Git auf Entwickler-PC 
 
