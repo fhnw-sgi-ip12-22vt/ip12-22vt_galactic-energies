@@ -47,7 +47,6 @@ public  class MovementControllerJoyStick {
 
         joystick.whileNorth(5, () -> {
             Platform.runLater(() -> {
-                System.out.println("north!!!!!");
                 RocketController.getRocketControl().up();
                 getArrowsControl().buttonUpPressed();
             });
@@ -57,7 +56,6 @@ public  class MovementControllerJoyStick {
 
         joystick.whileSouth(5, () -> {
             Platform.runLater(() -> {
-                System.out.println("south!!!!!");
                 RocketController.getRocketControl().down();
                 getArrowsControl().buttonDownPressed();
             });

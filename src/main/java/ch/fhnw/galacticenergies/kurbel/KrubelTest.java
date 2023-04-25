@@ -12,7 +12,7 @@ import com.pi4j.plugin.raspberrypi.platform.RaspberryPiPlatform;
 
 public class KrubelTest {
     public static void main(String[] args) {
-        System.out.println("start");
+
         final var piGpio = PiGpio.newNativeInstance();
         final var pi4j = Pi4J.newContextBuilder()
                 .noAutoDetect()
@@ -30,7 +30,7 @@ public class KrubelTest {
                         LinuxFsI2CProvider.newInstance()
                 )
                 .build();
-        System.out.println("kurbel");
+
 
 
 
@@ -38,12 +38,6 @@ public class KrubelTest {
         k.writeConfigurationRegister();
         k.writeCalibrationRegister();
 
-        System.out.println(k.readCalibrationRegister());
-
-        while (1==1){
-            System.out.println(k.readPowerRegister());
-            System.out.println();
-            }
 
     }
 }

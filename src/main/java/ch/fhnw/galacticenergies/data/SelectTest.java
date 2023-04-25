@@ -21,7 +21,7 @@ public class SelectTest {
                     String name = rs.getString("devicename");
                     String lastName = rs.getString("power");
 
-                    System.out.println(id + name + lastName);
+                    (id + name + lastName);
                 }
                 // do something with the extracted data...
 

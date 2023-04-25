@@ -18,7 +18,7 @@ public class AsteroidController {
     private int maxAsteroids = 5;
 
     public static void onAsteroidHit(GameEvent event) {
-        System.out.println("HIT");
+        ("HIT");
         inc("asteroidsKilled", +1);
     }
 
