@@ -26,8 +26,6 @@ public class RocketComponent extends Component {
 
     private float speed = 0;
 
-    private float speedMultiplier = 1;
-
     private boolean canShoot = true;
     private double lastShot = 0;
 
@@ -41,7 +39,7 @@ public class RocketComponent extends Component {
 
     @Override
     public void onUpdate(double tpf) {
-        speed = Config.ROCKET_SPEED * (float) tpf * speedMultiplier;
+        speed = Config.ROCKET_SPEED * (float) tpf;
 
         velocity.mulLocal(SPEED_DECAY);
 
@@ -92,14 +90,6 @@ public class RocketComponent extends Component {
         lastShot = getGameTimer().getNow();
 
         spawn("rocketBullet", new SpawnData(0,0).put("owner", getEntity()));
-    }
-
-    public void setSpeedMultiplier(float speedMultiplier) {
-        this.speedMultiplier = speedMultiplier;
-    }
-
-    public float getSpeedMultiplier() {
-        return speedMultiplier;
     }
 
     public void onHit() {
