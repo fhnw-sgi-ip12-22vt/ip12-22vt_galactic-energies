@@ -18,10 +18,6 @@ import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.ARROWS;
 import static com.almasb.fxgl.dsl.FXGL.getGameWorld;
 
 public  class MovementControllerJoyStick {
-
-
-
-
     public static void movement() {
 
         final var piGpio = PiGpio.newNativeInstance();

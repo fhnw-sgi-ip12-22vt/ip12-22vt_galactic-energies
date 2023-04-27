@@ -1,6 +1,12 @@
 package ch.fhnw.galacticenergies.factories;
 
-import ch.fhnw.galacticenergies.components.*;
+import ch.fhnw.galacticenergies.components.ArrowsComponent;
+import ch.fhnw.galacticenergies.components.AsteroidComponent;
+import ch.fhnw.galacticenergies.components.BackgroundStarsViewComponent;
+import ch.fhnw.galacticenergies.components.CheckpointComponent;
+import ch.fhnw.galacticenergies.components.DashboardComponent;
+import ch.fhnw.galacticenergies.components.LifeComponent;
+import ch.fhnw.galacticenergies.components.RocketComponent;
 import com.almasb.fxgl.dsl.components.EffectComponent;
 import com.almasb.fxgl.dsl.components.OffscreenCleanComponent;
 import com.almasb.fxgl.entity.Entity;
@@ -16,13 +22,22 @@ import com.almasb.fxgl.texture.Texture;
 import javafx.geometry.Point2D;
 import javafx.geometry.Pos;
 import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 
 import java.util.Random;
 
-import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.*;
-import static com.almasb.fxgl.dsl.FXGL.*;
+import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.ARROWS;
+import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.ASTEROID;
+import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.BACKGROUND;
+import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.DASHBOARD;
+import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.LIFE;
+import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.PLANET;
+import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.ROCKET;
+import static com.almasb.fxgl.dsl.FXGL.entityBuilder;
+import static com.almasb.fxgl.dsl.FXGL.getAppCenter;
+import static com.almasb.fxgl.dsl.FXGL.getAppHeight;
+import static com.almasb.fxgl.dsl.FXGL.getAppWidth;
+import static com.almasb.fxgl.dsl.FXGL.getGameWorld;
+import static com.almasb.fxgl.dsl.FXGL.texture;
 
 public class GalacticEnergiesFactory implements EntityFactory {
 
@@ -84,6 +99,7 @@ public class GalacticEnergiesFactory implements EntityFactory {
     @Spawns("life")
     public Entity newLive(SpawnData data) {
         Texture textureLife = texture("heart.png");
+        textureLife.setPreserveRatio(true);
         textureLife.setFitWidth(20);
         textureLife.setFitHeight(20);
 

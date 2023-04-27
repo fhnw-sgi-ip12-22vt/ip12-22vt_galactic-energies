@@ -1,10 +1,15 @@
 package ch.fhnw.galacticenergies;
 
 import ch.fhnw.galacticenergies.components.ArrowsComponent;
-import ch.fhnw.galacticenergies.components.AsteroidComponent;
 import ch.fhnw.galacticenergies.components.DashboardComponent;
 import ch.fhnw.galacticenergies.components.LifeComponent;
-import ch.fhnw.galacticenergies.controllers.*;
+import ch.fhnw.galacticenergies.controllers.AsteroidController;
+import ch.fhnw.galacticenergies.controllers.ButtonController;
+import ch.fhnw.galacticenergies.controllers.LevelController;
+import ch.fhnw.galacticenergies.controllers.MovementControllerDEV;
+import ch.fhnw.galacticenergies.controllers.MovementControllerJoyStick;
+import ch.fhnw.galacticenergies.controllers.PowerController;
+import ch.fhnw.galacticenergies.controllers.ViewController;
 import ch.fhnw.galacticenergies.data.PowerInput;
 import ch.fhnw.galacticenergies.events.GameEvent;
 import ch.fhnw.galacticenergies.factories.GalacticEnergiesFactory;
@@ -21,17 +26,19 @@ import javafx.scene.paint.Color;
 import java.util.Map;
 import java.util.stream.IntStream;
 
-import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.*;
-import static com.almasb.fxgl.dsl.FXGL.*;
-import javafx.beans.property.ObjectProperty;
-import javafx.scene.input.KeyCode;
-import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
-import javafx.util.Duration;
+import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.ARROWS;
+import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.ASTEROID;
+import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.DASHBOARD;
+import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.LIFE;
+import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.ROCKET;
+import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.WALL;
+import static com.almasb.fxgl.dsl.FXGL.entityBuilder;
+import static com.almasb.fxgl.dsl.FXGL.getGameScene;
+import static com.almasb.fxgl.dsl.FXGL.getGameWorld;
+import static com.almasb.fxgl.dsl.FXGL.getSettings;
+import static com.almasb.fxgl.dsl.FXGL.geti;
+import static com.almasb.fxgl.dsl.FXGL.onEvent;
+import static com.almasb.fxgl.dsl.FXGL.spawn;
 
 public class View extends GameApplication {
 
@@ -50,7 +57,7 @@ public class View extends GameApplication {
         settings.setIntroEnabled(false);
         settings.setProfilingEnabled(false);
         settings.setManualResizeEnabled(true);
-        settings.setApplicationMode(ApplicationMode.DEVELOPER);
+        settings.setApplicationMode(ApplicationMode.RELEASE);
     }
 
     @Override
