@@ -17,7 +17,7 @@ import javafx.application.Platform;
 import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.ARROWS;
 import static com.almasb.fxgl.dsl.FXGL.getGameWorld;
 
-public  class MovementControllerJoyStick {
+public class MovementControllerJoyStick {
     public static void movement() {
 
         final var piGpio = PiGpio.newNativeInstance();
@@ -26,7 +26,7 @@ public  class MovementControllerJoyStick {
             .add(new RaspberryPiPlatform() {
                 @Override
                 protected String[] getProviders() {
-                    return new String[]{};
+                    return new String[] {};
                 }
             })
             .add(PiGpioDigitalInputProvider.newInstance(piGpio),

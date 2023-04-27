@@ -19,10 +19,10 @@ public class PowerController {
 
     private static double currentPower;
     private static double totalPower = 0;
-    private static int lastTimestamp = 0;
+    private static final int lastTimestamp = 0;
     private static Text text;
 
-    private static DecimalFormat df = new DecimalFormat("#.####");
+    private static final DecimalFormat df = new DecimalFormat("#.####");
 
     /**
      * Processes the ArrayLists that were created in PowerInput
@@ -31,7 +31,7 @@ public class PowerController {
     public static void calcPower() {
 
         totalPower = totalPower + (currentPower / 3600);
-        text.setText("Current: " + (int) currentPower+ "W per Hour Total: " + df.format(totalPower)+ " Wh");
+        text.setText("Current: " + (int) currentPower + "W per Hour Total: " + df.format(totalPower) + " Wh");
 
     }
 
@@ -60,7 +60,7 @@ public class PowerController {
      */
     public static void setCurrentPower(double currentPower) {
         PowerController.currentPower = currentPower;
-        SpeedController.setSpeed((int)currentPower);
+        SpeedController.setSpeed((int) currentPower);
         calcPower();
     }
 

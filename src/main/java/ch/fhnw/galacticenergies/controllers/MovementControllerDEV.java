@@ -2,18 +2,19 @@ package ch.fhnw.galacticenergies.controllers;
 
 import ch.fhnw.galacticenergies.components.ArrowsComponent;
 import ch.fhnw.galacticenergies.components.DashboardComponent;
-import ch.fhnw.galacticenergies.components.LifeComponent;
-import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.input.UserAction;
 import javafx.scene.input.KeyCode;
 
 import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.ARROWS;
 import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.DASHBOARD;
-import static com.almasb.fxgl.dsl.FXGL.*;
+import static com.almasb.fxgl.dsl.FXGL.getGameWorld;
+import static com.almasb.fxgl.dsl.FXGL.getInput;
+import static com.almasb.fxgl.dsl.FXGL.isReleaseMode;
+import static com.almasb.fxgl.dsl.FXGL.onKeyDown;
 
 public class MovementControllerDEV {
 
-    public MovementControllerDEV(){
+    public MovementControllerDEV() {
 
     }
 
@@ -57,6 +58,7 @@ public class MovementControllerDEV {
 
 
     }
+
     static DashboardComponent getDashboardControl() {
         return getGameWorld().getSingleton(DASHBOARD).getComponent(DashboardComponent.class);
     }

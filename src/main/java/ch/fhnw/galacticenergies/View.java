@@ -46,7 +46,9 @@ public class View extends GameApplication {
 
     private ViewController uiController;
 
-
+    public static void main(String[] args) {
+        launch(args);
+    }
 
     @Override
     protected void initSettings(GameSettings settings) {
@@ -72,10 +74,10 @@ public class View extends GameApplication {
     @Override
     protected void initInput() {
 
-        if(getSettings().getApplicationMode() == ApplicationMode.RELEASE){
+        if (getSettings().getApplicationMode() == ApplicationMode.RELEASE) {
             MovementControllerJoyStick.movement();
             ButtonController.movement();
-        }else{
+        } else {
             MovementControllerDEV.movement();
         }
 
@@ -90,7 +92,7 @@ public class View extends GameApplication {
         vars.put("totalEnergy", 0);
         vars.put("level", STARTING_LEVEL);
         vars.put("asteroidsKilled", 0);
-        vars.put("amountPlanet",1);
+        vars.put("amountPlanet", 1);
     }
 
     @Override
@@ -99,19 +101,18 @@ public class View extends GameApplication {
         getGameScene().getRoot().setCursor(Cursor.NONE);
 
         initBackground();
-        if(ApplicationMode.RELEASE == getSettings().getApplicationMode()){
+        if (ApplicationMode.RELEASE == getSettings().getApplicationMode()) {
             PowerInput.initPower();
         }
         PowerInput.powerLoop();
         PowerController.initText();
 
 
-
     }
 
     @Override
     protected void initPhysics() {
-       FXGL.getPhysicsWorld().addCollisionHandler(new CollisionHandler(ROCKET, ASTEROID) {
+        FXGL.getPhysicsWorld().addCollisionHandler(new CollisionHandler(ROCKET, ASTEROID) {
 
             // order of types is the same as passed into the constructor
             @Override
@@ -128,10 +129,10 @@ public class View extends GameApplication {
         spawn("background");
 
         entityBuilder()
-                .type(WALL)
-                .collidable()
-                .with(new IrremovableComponent())
-                .buildScreenBoundsAndAttach(40);
+            .type(WALL)
+            .collidable()
+            .with(new IrremovableComponent())
+            .buildScreenBoundsAndAttach(40);
 
     }
 
@@ -140,9 +141,9 @@ public class View extends GameApplication {
         spawn("dashboard");
         spawn("arrows");
         IntStream.range(0, geti("amountAsteroids"))
-                        .forEach( i -> spawn("asteroid"));
+            .forEach(i -> spawn("asteroid"));
         IntStream.range(0, geti("amountPlanet"))
-            .forEach( i -> spawn("planet"));
+            .forEach(i -> spawn("planet"));
         getArrowsControl().noButtonPressed();
 
         AsteroidController asteroidController = new AsteroidController();
@@ -155,13 +156,11 @@ public class View extends GameApplication {
         uiController = new ViewController(FXGL.getGameScene());
 
         IntStream.range(0, geti("lives"))
-                .forEach(i -> uiController.addLife());
+            .forEach(i -> uiController.addLife());
         spawn("asteroid");
 
 
     }
-
-
 
     private DashboardComponent getDashboardControl() {
 
@@ -174,9 +173,5 @@ public class View extends GameApplication {
 
     private LifeComponent getLifeComponent() {
         return getGameWorld().getSingleton(LIFE).getComponent(LifeComponent.class);
-    }
-
-    public static void main(String[] args) {
-        launch(args);
     }
 }

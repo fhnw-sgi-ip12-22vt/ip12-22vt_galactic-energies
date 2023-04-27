@@ -22,6 +22,7 @@ public class Kurbel {
 
     /**
      * Initialisation of the required Parameters
+     *
      * @param pi4j gives the Context
      */
     public Kurbel(Context pi4j) {
@@ -35,10 +36,9 @@ public class Kurbel {
 
 
     /**
-     *
-     * @param pi4j Context
-     * @param bus  Bus on which the device is connected
-     * @param device Device number
+     * @param pi4j     Context
+     * @param bus      Bus on which the device is connected
+     * @param device   Device number
      * @param deviceId DeviceId
      * @return
      */
@@ -64,6 +64,7 @@ public class Kurbel {
 
     /**
      * Reading the CalibrationRegister
+     *
      * @return CalibrationRegister output
      */
     public int readCalibrationRegister() {
@@ -72,6 +73,7 @@ public class Kurbel {
 
     /**
      * Reading the PowerRegister
+     *
      * @return PowerRegister content
      */
     public int readPowerRegister() {
