@@ -16,14 +16,20 @@ import static com.almasb.fxgl.dsl.FXGL.*;
 
 public class ViewController implements UIController {
 
-    private final List<Entity> lives = new ArrayList<>();
-
-    private final GameScene gameScene;
-
     private static boolean paused = false;
+    private final List<Entity> lives = new ArrayList<>();
+    private final GameScene gameScene;
 
     public ViewController(GameScene gameScene) {
         this.gameScene = gameScene;
+    }
+
+    public static boolean isPaused() {
+        return paused;
+    }
+
+    public static void setPaused(boolean paused) {
+        ViewController.paused = paused;
     }
 
     @Override
@@ -54,13 +60,5 @@ public class ViewController implements UIController {
         Node flash = new Rectangle(viewport.getWidth(), viewport.getHeight(), Color.rgb(190, 10, 15, 0.5));
         gameScene.addUINode(flash);
         runOnce(() -> gameScene.removeUINode(flash), Duration.seconds(1));
-    }
-
-    public static boolean isPaused() {
-        return paused;
-    }
-
-    public static void setPaused(boolean paused) {
-        ViewController.paused = paused;
     }
 }

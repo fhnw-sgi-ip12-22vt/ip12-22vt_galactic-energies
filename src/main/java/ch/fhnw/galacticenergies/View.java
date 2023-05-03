@@ -29,6 +29,10 @@ public class View extends GameApplication {
 
     private ViewController uiController;
 
+    public static void main(String[] args) {
+        launch(args);
+    }
+
     @Override
     protected void initSettings(GameSettings settings) {
         settings.setTitle("Galactic Energies");
@@ -137,7 +141,6 @@ public class View extends GameApplication {
         spawn("asteroid");
     }
 
-
     private DashboardComponent getDashboardControl() {
         return getGameWorld().getSingleton(DASHBOARD).getComponent(DashboardComponent.class);
     }
@@ -148,9 +151,5 @@ public class View extends GameApplication {
 
     private LifeComponent getLifeComponent() {
         return getGameWorld().getSingleton(LIFE).getComponent(LifeComponent.class);
-    }
-
-    public static void main(String[] args) {
-        launch(args);
     }
 }

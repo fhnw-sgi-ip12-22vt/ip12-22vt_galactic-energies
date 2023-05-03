@@ -11,11 +11,10 @@ import static com.almasb.fxgl.dsl.FXGL.texture;
  * @version 1.0
  */
 public class ArrowsComponent extends Component {
+    private static final double BUTTON_SIZE = 50;
     private final Texture textureUp = texture("dashboard/Pfeil Hoch.png");
     private final Texture textureDown = texture("dashboard/Pfeil Down.png");
     private final Texture textureNone = texture("dashboard/Pfeil Neutral.png");
-
-    private static final double BUTTON_SIZE = 50;
 
     /**
      * shows defined arrow button
@@ -29,6 +28,10 @@ public class ArrowsComponent extends Component {
 
         textureNone.setPreserveRatio(true);
         textureNone.setFitHeight(BUTTON_SIZE);
+    }
+
+    public static double getBUTTON_SIZE() {
+        return BUTTON_SIZE;
     }
 
     @Override
@@ -70,9 +73,5 @@ public class ArrowsComponent extends Component {
         //entity.getViewComponent().removeChild(textureUp);
 
         entity.getViewComponent().addChild(textureNone);
-    }
-
-    public static double getBUTTON_SIZE() {
-        return BUTTON_SIZE;
     }
 }

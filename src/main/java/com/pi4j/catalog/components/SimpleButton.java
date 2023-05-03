@@ -30,6 +30,7 @@ public class SimpleButton extends Component {
      * This will also automatically switch the pull resistance to PULL_UP
      */
     private final boolean inverted;
+    private final ExecutorService executor = Executors.newSingleThreadExecutor();
     /**
      * Runnable Code when button is pressed
      */
@@ -43,10 +44,6 @@ public class SimpleButton extends Component {
      */
     private long whilePressedDelay;
     /**
-     * Runnable Code when button is depressed
-     */
-    private Runnable onUp;
-    /**
      * what needs to be done while button is pressed (and whilePressed is != null)
      */
     private final Runnable whilePressedWorker = () -> {
@@ -57,7 +54,10 @@ public class SimpleButton extends Component {
             }
         }
     };
-    private final ExecutorService executor = Executors.newSingleThreadExecutor();
+    /**
+     * Runnable Code when button is depressed
+     */
+    private Runnable onUp;
 
     /**
      * Creates a new button component

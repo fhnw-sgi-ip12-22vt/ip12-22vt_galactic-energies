@@ -14,13 +14,12 @@ import static java.lang.Math.abs;
 import static java.lang.Math.signum;
 
 public class CheckpointComponent extends Component {
-    ArrayList<Texture> planetImages = new ArrayList<>();
     private static final int BALL_MIN_SPEED = 400;
-    PhysicsComponent physics;
-    private final Vec2 velocity = new Vec2();
     private static final float BOUNCE_FACTOR = 1.2f;
-
+    private final Vec2 velocity = new Vec2();
     private final float r1;
+    ArrayList<Texture> planetImages = new ArrayList<>();
+    PhysicsComponent physics;
     private float r2;
 
     public CheckpointComponent() {

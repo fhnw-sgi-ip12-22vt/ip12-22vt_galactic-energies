@@ -24,21 +24,14 @@ public class RocketComponent extends Component {
     private static final float SPEED_DECAY = 0.66f;
 
     private static final float BOUNCE_FACTOR = 0.2f;
-
-    private PhysicsComponent physics;
-
     private final MotionBlur blur = new MotionBlur();
-
+    private final Vec2 velocity = new Vec2();
+    private final Texture textureOnHit;
+    private PhysicsComponent physics;
     private float speed = 0;
-
     private float speedMultiplier = 1;
-
     private boolean canShoot = true;
     private double lastShot = 0;
-
-    private final Vec2 velocity = new Vec2();
-
-    private final Texture textureOnHit;
 
     public RocketComponent(Texture textureOnHit) {
         this.textureOnHit = textureOnHit;
@@ -100,12 +93,12 @@ public class RocketComponent extends Component {
         spawn("rocketBullet", new SpawnData(0, 0).put("owner", getEntity()));
     }
 
-    public void setSpeedMultiplier(float speedMultiplier) {
-        this.speedMultiplier = speedMultiplier;
-    }
-
     public float getSpeedMultiplier() {
         return speedMultiplier;
+    }
+
+    public void setSpeedMultiplier(float speedMultiplier) {
+        this.speedMultiplier = speedMultiplier;
     }
 
     public void onHit() {

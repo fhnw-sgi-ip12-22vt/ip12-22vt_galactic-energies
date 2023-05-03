@@ -8,8 +8,8 @@ import static com.almasb.fxgl.dsl.FXGL.*;
 
 public class AsteroidController {
 
-    private int asteroidAmount = 0;
     private final int maxAsteroids = 5;
+    private int asteroidAmount = 0;
 
     public static void onAsteroidHit(GameEvent event) {
         System.out.println("HIT");

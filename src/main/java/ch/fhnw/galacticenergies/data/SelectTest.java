@@ -7,6 +7,11 @@ import java.sql.ResultSet;
 public class SelectTest {
 
 
+    public static void main(String[] args) {
+        SelectTest s = new SelectTest();
+        s.selectStuff();
+    }
+
     public void selectStuff() {
         DBConnection c = new DBConnection();
         Connection conn = c.getConnection();
@@ -27,11 +32,6 @@ public class SelectTest {
         } catch (Exception e) {
             System.err.println(e);
         }
-    }
-
-    public static void main(String[] args) {
-        SelectTest s = new SelectTest();
-        s.selectStuff();
     }
 }
 

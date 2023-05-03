@@ -15,11 +15,10 @@ import static com.almasb.fxgl.dsl.FXGL.getGameScene;
 
 public class PowerController {
 
+    private static final int lastTimestamp = 0;
     private static double currentPower;
     private static double totalPower = 0;
-
     private static double savedPower = 0;
-    private static final int lastTimestamp = 0;
     private static Text text;
 
     /**
