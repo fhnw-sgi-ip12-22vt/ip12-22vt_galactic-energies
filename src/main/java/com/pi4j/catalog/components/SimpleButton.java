@@ -12,6 +12,7 @@ import java.util.concurrent.Executors;
 
 /**
  * Defines input of buttons
+ *
  * @version 1.0
  */
 public class SimpleButton extends Component {
@@ -117,9 +118,9 @@ public class SimpleButton extends Component {
      */
     public DigitalState getState() {
         return switch (digitalInput.state()) {
-            case HIGH -> inverted ? DigitalState.LOW  : DigitalState.HIGH;
-            case LOW  -> inverted ? DigitalState.HIGH : DigitalState.LOW;
-            default   -> DigitalState.UNKNOWN;
+            case HIGH -> inverted ? DigitalState.LOW : DigitalState.HIGH;
+            case LOW -> inverted ? DigitalState.HIGH : DigitalState.LOW;
+            default -> DigitalState.UNKNOWN;
         };
     }
 

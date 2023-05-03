@@ -7,6 +7,7 @@ import com.pi4j.io.gpio.digital.DigitalOutputConfig;
 
 /**
  * Defines the LED interaction
+ *
  * @version 1.0
  */
 public class SimpleLed extends Component {

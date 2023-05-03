@@ -30,20 +30,9 @@ public class KrubelTest {
                         LinuxFsI2CProvider.newInstance()
                 )
                 .build();
-        System.out.println("kurbel");
-
-
 
         Kurbel k = new Kurbel(pi4j);
         k.writeConfigurationRegister();
         k.writeCalibrationRegister();
-
-        System.out.println(k.readCalibrationRegister());
-
-        while (1==1){
-            System.out.println(k.readPowerRegister());
-            System.out.println();
-            }
-
     }
 }

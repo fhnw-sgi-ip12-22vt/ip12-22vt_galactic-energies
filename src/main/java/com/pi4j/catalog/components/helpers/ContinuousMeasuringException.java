@@ -1,6 +1,6 @@
 package com.pi4j.catalog.components.helpers;
 
-public class ContinuousMeasuringException extends RuntimeException{
+public class ContinuousMeasuringException extends RuntimeException {
 
     public ContinuousMeasuringException(String message) {
         super(message);

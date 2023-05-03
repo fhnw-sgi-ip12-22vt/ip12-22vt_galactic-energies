@@ -9,7 +9,9 @@ import java.util.stream.IntStream;
 import static com.almasb.fxgl.dsl.FXGL.image;
 import static com.almasb.fxgl.dsl.FXGL.texture;
 
-/** the dashboard shows the flying speed of the rocket
+/**
+ * the dashboard shows the flying speed of the rocket
+ *
  * @version 1.0
  */
 public class DashboardComponent extends Component {

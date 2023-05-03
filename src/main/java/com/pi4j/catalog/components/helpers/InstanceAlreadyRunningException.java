@@ -1,10 +1,11 @@
 package com.pi4j.catalog.components.helpers;
 
 public class InstanceAlreadyRunningException extends RuntimeException {
-	public InstanceAlreadyRunningException(String message) {
-		super(message);
-	}
-	public InstanceAlreadyRunningException(String message, Throwable cause) {
-		super(message, cause);
-	}
+    public InstanceAlreadyRunningException(String message) {
+        super(message);
+    }
+
+    public InstanceAlreadyRunningException(String message, Throwable cause) {
+        super(message, cause);
+    }
 }

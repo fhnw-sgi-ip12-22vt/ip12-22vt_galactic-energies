@@ -17,7 +17,9 @@ public class PowerController {
 
     private static double currentPower;
     private static double totalPower = 0;
-    private static int lastTimestamp = 0;
+
+    private static double savedPower = 0;
+    private static final int lastTimestamp = 0;
     private static Text text;
 
     /**
@@ -26,9 +28,7 @@ public class PowerController {
      */
     public static void calcPower() {
         totalPower = totalPower + (currentPower / 3.6);
-        System.out.println(totalPower);
-        text.setText("Current: " + (int) PowerController.getCurrentPower()+ "W per Hour Total: " + (int) PowerController.getTotalPower() + " Wh");
-
+        text.setText("Current: " + (int) PowerController.getCurrentPower() + "W per Hour, Total: " + (int) PowerController.getTotalPower() + " Wh, Saved:" + PowerController.getSavedPower() + " Wh");
     }
 
     public static void initText() {
@@ -56,7 +56,7 @@ public class PowerController {
      */
     public static void setCurrentPower(double currentPower) {
         PowerController.currentPower = currentPower;
-        SpeedController.setSpeed((int)currentPower);
+        SpeedController.setSpeed((int) currentPower);
         calcPower();
     }
 
@@ -64,10 +64,15 @@ public class PowerController {
      * @return return the total value of the power.
      */
     public static double getTotalPower() {
-
         return totalPower;
     }
 
+    public static void updateSavedPower() {
+        PowerController.savedPower += totalPower;
+    }
 
+    public static double getSavedPower() {
+        return savedPower;
+    }
 }
 

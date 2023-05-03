@@ -22,29 +22,29 @@ public class Kurbel {
 
     /**
      * Initialisation of the required Parameters
+     *
      * @param pi4j gives the Context
      */
     public Kurbel(Context pi4j) {
         i2c = pi4j.create(I2C.newConfigBuilder(pi4j)
-            .id("I2C-" + device + "@" + i2cBus)
-            .name(deviceName)
-            .bus(i2cBus)
-            .device(device)
-            .build());
+                .id("I2C-" + device + "@" + i2cBus)
+                .name(deviceName)
+                .bus(i2cBus)
+                .device(device)
+                .build());
     }
 
 
     /**
-     *
-     * @param pi4j Context
-     * @param bus  Bus on which the device is connected
-     * @param device Device number
+     * @param pi4j     Context
+     * @param bus      Bus on which the device is connected
+     * @param device   Device number
      * @param deviceId DeviceId
      * @return
      */
     private static I2CConfig buildI2CConfig(Context pi4j, int bus, int device, String deviceId) {
         return I2C.newConfigBuilder(pi4j).id("I2C-" + device + "@" + bus).name(deviceId).bus(bus).device(device)
-            .build();
+                .build();
     }
 
     /**
@@ -64,6 +64,7 @@ public class Kurbel {
 
     /**
      * Reading the CalibrationRegister
+     *
      * @return CalibrationRegister output
      */
     public int readCalibrationRegister() {
@@ -72,6 +73,7 @@ public class Kurbel {
 
     /**
      * Reading the PowerRegister
+     *
      * @return PowerRegister content
      */
     public int readPowerRegister() {
