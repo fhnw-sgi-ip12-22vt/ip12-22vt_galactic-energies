@@ -7,6 +7,7 @@ import com.pi4j.io.gpio.digital.DigitalOutputConfig;
 
 /**
  * Defines the LED interaction
+ *
  * @version 1.0
  */
 public class SimpleLed extends Component {
@@ -76,9 +77,9 @@ public class SimpleLed extends Component {
      */
     protected DigitalOutputConfig buildDigitalOutputConfig(Context pi4j, PIN address) {
         return DigitalOutput.newConfigBuilder(pi4j)
-                .id("BCM" + address)
-                .name("LED")
-                .address(address.getPin())
-                .build();
+            .id("BCM" + address)
+            .name("LED")
+            .address(address.getPin())
+            .build();
     }
 }

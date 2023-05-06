@@ -8,13 +8,16 @@ import com.almasb.fxgl.entity.SpawnData;
 import com.almasb.fxgl.entity.component.Component;
 import com.almasb.fxgl.physics.PhysicsComponent;
 import com.almasb.fxgl.texture.Texture;
-import javafx.scene.effect.Effect;
 import javafx.scene.effect.MotionBlur;
 import javafx.util.Duration;
 
-import static com.almasb.fxgl.dsl.FXGL.*;
+import static com.almasb.fxgl.dsl.FXGL.getAppHeight;
+import static com.almasb.fxgl.dsl.FXGL.getGameTimer;
+import static com.almasb.fxgl.dsl.FXGL.spawn;
 
-/** shows the flying rocket and its abilities
+/**
+ * shows the flying rocket and its abilities
+ *
  * @version 1.0
  */
 public class RocketComponent extends Component {
@@ -25,7 +28,7 @@ public class RocketComponent extends Component {
 
     private PhysicsComponent physics;
 
-    private MotionBlur blur = new MotionBlur();
+    private final MotionBlur blur = new MotionBlur();
 
     private float speed = 0;
 
@@ -34,9 +37,9 @@ public class RocketComponent extends Component {
     private boolean canShoot = true;
     private double lastShot = 0;
 
-    private Vec2 velocity = new Vec2();
+    private final Vec2 velocity = new Vec2();
 
-    private Texture textureOnHit;
+    private final Texture textureOnHit;
 
     public RocketComponent(Texture textureOnHit) {
         this.textureOnHit = textureOnHit;
@@ -49,9 +52,9 @@ public class RocketComponent extends Component {
         velocity.mulLocal(SPEED_DECAY);
 
         if (entity.getY() < 0) {
-            velocity.set(0, BOUNCE_FACTOR * (float) + entity.getY());
+            velocity.set(0, BOUNCE_FACTOR * (float) +entity.getY());
         } else if (entity.getBottomY() > getAppHeight()) {
-            velocity.set(0, BOUNCE_FACTOR * (float) + (entity.getBottomY() - getAppHeight()));
+            velocity.set(0, BOUNCE_FACTOR * (float) +(entity.getBottomY() - getAppHeight()));
         }
 
         if (!canShoot) {
@@ -73,8 +76,7 @@ public class RocketComponent extends Component {
         applyMoveEffects();
     }
 
-    private void applyMoveEffects()
-    {
+    private void applyMoveEffects() {
         entity.setScaleX(1.05);
         entity.setScaleY(1 / entity.getScaleY());
         blur.setRadius(3);
@@ -87,14 +89,15 @@ public class RocketComponent extends Component {
         entity.getViewComponent().getParent().setEffect(null);
     }
 
-    public void shoot()
-    {
-        if(!canShoot) return;
+    public void shoot() {
+        if (!canShoot) {
+            return;
+        }
 
         canShoot = false;
         lastShot = getGameTimer().getNow();
 
-        spawn("rocketBullet", new SpawnData(0,0).put("owner", getEntity()));
+        spawn("rocketBullet", new SpawnData(0, 0).put("owner", getEntity()));
     }
 
     public void setSpeedMultiplier(float speedMultiplier) {

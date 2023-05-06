@@ -15,7 +15,7 @@ import static com.almasb.fxgl.dsl.FXGL.run;
 
 /**
  * @Version 1.0
- *
+ * <p>
  * Initializes and moves the Background
  */
 
@@ -40,6 +40,7 @@ public class BackgroundStarsViewComponent extends ChildViewComponent {
 
     /**
      * On update all stars are moved
+     *
      * @param tpf Time per Frame
      */
     @Override
@@ -51,6 +52,7 @@ public class BackgroundStarsViewComponent extends ChildViewComponent {
 
     /**
      * Moves each Star to the left if the left border is reached the star is reset to the right borders
+     *
      * @param star current Star which is being moved
      */
     private void move(Circle star) {

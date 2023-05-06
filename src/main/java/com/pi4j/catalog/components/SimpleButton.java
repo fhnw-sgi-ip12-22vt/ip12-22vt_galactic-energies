@@ -12,6 +12,7 @@ import java.util.concurrent.Executors;
 
 /**
  * Defines input of buttons
+ *
  * @version 1.0
  */
 public class SimpleButton extends Component {
@@ -92,20 +93,20 @@ public class SimpleButton extends Component {
             logDebug("Button switched to '" + state + "'");
 
             switch (state) {
-                case HIGH -> {
-                    if (onDown != null) {
-                        onDown.run();
-                    }
-                    if (whilePressed != null) {
-                        executor.submit(whilePressedWorker);
-                    }
+            case HIGH -> {
+                if (onDown != null) {
+                    onDown.run();
                 }
-                case LOW -> {
-                    if (onUp != null) {
-                        onUp.run();
-                    }
+                if (whilePressed != null) {
+                    executor.submit(whilePressedWorker);
                 }
-                case UNKNOWN -> logError("Button is in State UNKNOWN");
+            }
+            case LOW -> {
+                if (onUp != null) {
+                    onUp.run();
+                }
+            }
+            case UNKNOWN -> logError("Button is in State UNKNOWN");
             }
         });
     }
@@ -117,9 +118,9 @@ public class SimpleButton extends Component {
      */
     public DigitalState getState() {
         return switch (digitalInput.state()) {
-            case HIGH -> inverted ? DigitalState.LOW  : DigitalState.HIGH;
-            case LOW  -> inverted ? DigitalState.HIGH : DigitalState.LOW;
-            default   -> DigitalState.UNKNOWN;
+            case HIGH -> inverted ? DigitalState.LOW : DigitalState.HIGH;
+            case LOW -> inverted ? DigitalState.HIGH : DigitalState.LOW;
+            default -> DigitalState.UNKNOWN;
         };
     }
 
@@ -161,10 +162,10 @@ public class SimpleButton extends Component {
      */
     private DigitalInputConfig buildDigitalInputConfig(Context pi4j, PIN address, boolean inverted, long debounce) {
         return DigitalInput.newConfigBuilder(pi4j).id("BCM" + address)
-                .name("Button #" + address)
-                .address(address.getPin())
-                .debounce(debounce).pull(inverted ? PullResistance.PULL_UP : PullResistance.PULL_DOWN)
-                .build();
+            .name("Button #" + address)
+            .address(address.getPin())
+            .debounce(debounce).pull(inverted ? PullResistance.PULL_UP : PullResistance.PULL_DOWN)
+            .build();
     }
 
 

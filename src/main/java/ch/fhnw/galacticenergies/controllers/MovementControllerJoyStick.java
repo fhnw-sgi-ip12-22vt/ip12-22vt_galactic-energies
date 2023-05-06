@@ -19,15 +19,13 @@ import static com.almasb.fxgl.dsl.FXGL.getGameWorld;
 
 /**
  * Defines the movement of the rocket with joystick
+ *
  * @version 1.0
  */
-public  class MovementControllerJoyStick {
+public class MovementControllerJoyStick {
 
 
-
-
-
-    public MovementControllerJoyStick(){
+    public MovementControllerJoyStick() {
 
     }
 
@@ -40,7 +38,7 @@ public  class MovementControllerJoyStick {
             .add(new RaspberryPiPlatform() {
                 @Override
                 protected String[] getProviders() {
-                    return new String[]{};
+                    return new String[] {};
                 }
             })
             .add(PiGpioDigitalInputProvider.newInstance(piGpio),
@@ -67,7 +65,6 @@ public  class MovementControllerJoyStick {
 
         joystick.whileSouth(5, () -> {
             Platform.runLater(() -> {
-                System.out.println("south!!!!!");
                 RocketController.getRocketControl().down();
                 getArrowsControl().buttonDownPressed();
             });

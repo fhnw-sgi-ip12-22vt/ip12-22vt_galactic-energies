@@ -2,6 +2,7 @@ package ch.fhnw.galacticenergies;
 
 /**
  * Setting for Speed of Rocket, Rocket Attack, Bullet Speed
+ *
  * @version 1.0
  */
 public final class Config {

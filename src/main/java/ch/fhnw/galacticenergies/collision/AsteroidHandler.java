@@ -3,7 +3,9 @@ package ch.fhnw.galacticenergies.collision;
 import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.physics.CollisionHandler;
 
-/** AsteroidHandler is defined in the class CollisionHandler
+/**
+ * AsteroidHandler is defined in the class CollisionHandler
+ *
  * @version 1.0
  */
 public class AsteroidHandler extends CollisionHandler {

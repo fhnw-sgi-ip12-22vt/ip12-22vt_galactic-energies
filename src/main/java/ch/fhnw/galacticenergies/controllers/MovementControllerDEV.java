@@ -7,15 +7,19 @@ import javafx.scene.input.KeyCode;
 
 import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.ARROWS;
 import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.DASHBOARD;
-import static com.almasb.fxgl.dsl.FXGL.*;
+import static com.almasb.fxgl.dsl.FXGL.getGameWorld;
+import static com.almasb.fxgl.dsl.FXGL.getInput;
+import static com.almasb.fxgl.dsl.FXGL.isReleaseMode;
+import static com.almasb.fxgl.dsl.FXGL.onKeyDown;
 
 /**
  * Defines the movement of the rocket with keys.
+ *
  * @version 1.0
  */
 public class MovementControllerDEV {
 
-    public MovementControllerDEV(){
+    public MovementControllerDEV() {
 
     }
 
@@ -51,20 +55,11 @@ public class MovementControllerDEV {
             }
         }, KeyCode.W);
 
-
-//        onKeyDown(KeyCode.K, "nextSpeed", () -> {
-//            if (geti("speed") == 12) return;
-//            System.out.println(geti("speed"));
-//            inc("speed", +1);
-//            RocketController.getRocketControl().setSpeedMultiplier(1 + (float) (geti("speed")) / 10);
-//            getDashboardControl().setSpeedImage(geti("speed"));
-//        });
         if (!isReleaseMode()) {
             onKeyDown(KeyCode.L, "Next Level", LevelController::nextLevel);
         }
-
-
     }
+
     static DashboardComponent getDashboardControl() {
         return getGameWorld().getSingleton(DASHBOARD).getComponent(DashboardComponent.class);
     }

@@ -1,18 +1,9 @@
 package ch.fhnw.galacticenergies.components;
 
-import ch.fhnw.galacticenergies.events.GameEvent;
-import com.almasb.fxgl.core.math.Vec2;
 import com.almasb.fxgl.entity.component.Component;
-import com.almasb.fxgl.physics.PhysicsComponent;
-import com.almasb.fxgl.texture.Texture;
 import javafx.geometry.Point2D;
 
-import java.util.ArrayList;
-import java.util.Random;
-
-import static com.almasb.fxgl.dsl.FXGL.*;
-import static java.lang.Math.abs;
-import static java.lang.Math.signum;
+import static com.almasb.fxgl.dsl.FXGL.getGameScene;
 
 
 public class AsteroidComponent extends Component {

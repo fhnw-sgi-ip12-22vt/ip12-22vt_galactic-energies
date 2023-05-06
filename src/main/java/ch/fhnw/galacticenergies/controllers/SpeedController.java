@@ -3,7 +3,7 @@ package ch.fhnw.galacticenergies.controllers;
 import static ch.fhnw.galacticenergies.controllers.MovementControllerDEV.getDashboardControl;
 
 public class SpeedController {
-    private static int speed =1;
+    private static int speed = 1;
 
     public static int getSpeed() {
         return speed;
@@ -11,8 +11,8 @@ public class SpeedController {
 
     public static void setSpeed(int newSpeed) {
 
-        speed = (newSpeed < 24)?(newSpeed/2) : 5;
-        System.out.println("speedy"+ speed);
+        speed = (newSpeed < 24) ? (newSpeed / 2) : 5;
+        System.out.println("speedy" + speed);
         RocketController.getRocketControl().setSpeedMultiplier(1 + (float) (speed) / 10);
         getDashboardControl().setSpeedImage(speed);
 
