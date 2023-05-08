@@ -62,7 +62,8 @@ public class MainMenu extends FXGLMenu {
         btnIntro.getStyleClass().add("main_menu_button");
         btnIntro.setOnAction(e -> IntroScene.start());
 
-        VBox buttonVBox = new VBox(5, btnPlay, btnLeaderboard, btnExit);
+        VBox buttonVBox = new VBox(5, btnPlay, btnLeaderboard, btnIntro, btnExit);
+        buttonVBox.getStyleClass().add("main_menu_VBox");
         buttonVBox.setPrefWidth(getAppWidth()); buttonVBox.setAlignment(Pos.BOTTOM_LEFT); buttonVBox.setTranslateY(getAppHeight() * 0.6);
         getContentRoot().getChildren().addAll(bg, titleHBox, buttonVBox);
 
