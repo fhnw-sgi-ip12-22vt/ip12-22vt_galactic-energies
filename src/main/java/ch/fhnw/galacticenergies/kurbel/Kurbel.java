@@ -27,11 +27,11 @@ public class Kurbel {
      */
     public Kurbel(Context pi4j) {
         i2c = pi4j.create(I2C.newConfigBuilder(pi4j)
-            .id("I2C-" + device + "@" + i2cBus)
-            .name(deviceName)
-            .bus(i2cBus)
-            .device(device)
-            .build());
+                .id("I2C-" + device + "@" + i2cBus)
+                .name(deviceName)
+                .bus(i2cBus)
+                .device(device)
+                .build());
     }
 
 
@@ -44,7 +44,7 @@ public class Kurbel {
      */
     private static I2CConfig buildI2CConfig(Context pi4j, int bus, int device, String deviceId) {
         return I2C.newConfigBuilder(pi4j).id("I2C-" + device + "@" + bus).name(deviceId).bus(bus).device(device)
-            .build();
+                .build();
     }
 
     /**
