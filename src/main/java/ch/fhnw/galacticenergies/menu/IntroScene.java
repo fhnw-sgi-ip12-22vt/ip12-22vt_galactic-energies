@@ -14,6 +14,7 @@ import javafx.geometry.Point2D;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
+import static com.almasb.fxgl.dsl.FXGL.getGameScene;
 import static com.almasb.fxgl.dsl.FXGLForKtKt.*;
 
 public final class IntroScene extends GameApplication {
@@ -39,15 +40,7 @@ public final class IntroScene extends GameApplication {
 
     @Override
     protected void initGame() {
-        Texture bgTexture = FXGL.texture("bg/SpaceBackground.jpg");
-        bgTexture.setFitWidth(getAppWidth());
-        bgTexture.setFitHeight(getAppHeight());
-
-        FXGLScene scene = getGameScene();
-      //  scene.set
-       // getGameScene().setBackgroundColor(Color.BLACK);
-
-
+        getGameScene().setBackgroundColor(Color.LIGHTGRAY);
 
     }
 

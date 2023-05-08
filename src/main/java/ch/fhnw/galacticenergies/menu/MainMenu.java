@@ -4,6 +4,7 @@ import com.almasb.fxgl.animation.Animation;
 import com.almasb.fxgl.animation.Interpolators;
 import com.almasb.fxgl.app.scene.FXGLMenu;
 import com.almasb.fxgl.app.scene.MenuType;
+import com.almasb.fxgl.core.Updatable;
 import com.almasb.fxgl.core.util.EmptyRunnable;
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.texture.Texture;
@@ -93,6 +94,8 @@ public class MainMenu extends FXGLMenu {
 
         animation.onUpdate(tpf);
     }
+
+
 }
 
 
