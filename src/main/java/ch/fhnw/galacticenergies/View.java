@@ -1,13 +1,13 @@
 package ch.fhnw.galacticenergies;
 
 import ch.fhnw.galacticenergies.components.ArrowsComponent;
-import ch.fhnw.galacticenergies.components.AsteroidComponent;
 import ch.fhnw.galacticenergies.components.DashboardComponent;
 import ch.fhnw.galacticenergies.components.LifeComponent;
 import ch.fhnw.galacticenergies.controllers.*;
 import ch.fhnw.galacticenergies.data.PowerInput;
 import ch.fhnw.galacticenergies.events.GameEvent;
 import ch.fhnw.galacticenergies.factories.GalacticEnergiesFactory;
+import ch.fhnw.galacticenergies.factories.LoadingSceneFactory;
 import com.almasb.fxgl.app.ApplicationMode;
 import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.app.GameSettings;
@@ -23,15 +23,6 @@ import java.util.stream.IntStream;
 
 import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.*;
 import static com.almasb.fxgl.dsl.FXGL.*;
-import javafx.beans.property.ObjectProperty;
-import javafx.scene.input.KeyCode;
-import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
-import javafx.util.Duration;
 
 public class View extends GameApplication {
 
@@ -45,12 +36,15 @@ public class View extends GameApplication {
     protected void initSettings(GameSettings settings) {
         settings.setTitle("Galactic Energies");
         settings.setVersion("0.2");
+        settings.getCSSList().add("ui.css");
         settings.setFullScreenAllowed(true);
         settings.setFullScreenFromStart(true);
         settings.setIntroEnabled(false);
+        settings.setMainMenuEnabled(true);
         settings.setProfilingEnabled(false);
         settings.setManualResizeEnabled(true);
         settings.setApplicationMode(ApplicationMode.DEVELOPER);
+        settings.setSceneFactory(new LoadingSceneFactory());
     }
 
     @Override
