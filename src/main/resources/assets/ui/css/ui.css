@@ -1,0 +1,16 @@
+.main_menu_button{
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-family: "Roboto Light";
+    -fx-font-weight: bold;
+    -fx-font-size: 25;
+
+}
+
+.main_menu_button:focused{
+    -fx-underline: true;
+}
+
+.main_menu_VBox {
+
+}

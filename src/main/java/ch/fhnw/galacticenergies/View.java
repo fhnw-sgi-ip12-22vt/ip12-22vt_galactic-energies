@@ -3,16 +3,12 @@ package ch.fhnw.galacticenergies;
 import ch.fhnw.galacticenergies.components.ArrowsComponent;
 import ch.fhnw.galacticenergies.components.DashboardComponent;
 import ch.fhnw.galacticenergies.components.LifeComponent;
-import ch.fhnw.galacticenergies.controllers.AsteroidController;
-import ch.fhnw.galacticenergies.controllers.ButtonController;
-import ch.fhnw.galacticenergies.controllers.LevelController;
-import ch.fhnw.galacticenergies.controllers.MovementControllerDEV;
-import ch.fhnw.galacticenergies.controllers.MovementControllerJoyStick;
-import ch.fhnw.galacticenergies.controllers.PowerController;
-import ch.fhnw.galacticenergies.controllers.ViewController;
+import ch.fhnw.galacticenergies.controllers.*;
 import ch.fhnw.galacticenergies.data.PowerInput;
 import ch.fhnw.galacticenergies.events.GameEvent;
 import ch.fhnw.galacticenergies.factories.GalacticEnergiesFactory;
+import ch.fhnw.galacticenergies.factories.LoadingSceneFactory;
+import ch.fhnw.galacticenergies.menu.IntroScene;
 import com.almasb.fxgl.app.ApplicationMode;
 import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.app.GameSettings;
@@ -26,19 +22,8 @@ import javafx.scene.paint.Color;
 import java.util.Map;
 import java.util.stream.IntStream;
 
-import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.ARROWS;
-import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.ASTEROID;
-import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.DASHBOARD;
-import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.LIFE;
-import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.ROCKET;
-import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.WALL;
-import static com.almasb.fxgl.dsl.FXGL.entityBuilder;
-import static com.almasb.fxgl.dsl.FXGL.getGameScene;
-import static com.almasb.fxgl.dsl.FXGL.getGameWorld;
-import static com.almasb.fxgl.dsl.FXGL.getSettings;
-import static com.almasb.fxgl.dsl.FXGL.geti;
-import static com.almasb.fxgl.dsl.FXGL.onEvent;
-import static com.almasb.fxgl.dsl.FXGL.spawn;
+import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.*;
+import static com.almasb.fxgl.dsl.FXGL.*;
 
 public class View extends GameApplication {
 
@@ -46,20 +31,21 @@ public class View extends GameApplication {
 
     private ViewController uiController;
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+
 
     @Override
     protected void initSettings(GameSettings settings) {
         settings.setTitle("Galactic Energies");
         settings.setVersion("0.2");
+        settings.getCSSList().add("ui.css");
         settings.setFullScreenAllowed(true);
         settings.setFullScreenFromStart(true);
         settings.setIntroEnabled(false);
+        settings.setMainMenuEnabled(true);
         settings.setProfilingEnabled(false);
         settings.setManualResizeEnabled(true);
-        settings.setApplicationMode(ApplicationMode.RELEASE);
+        settings.setApplicationMode(ApplicationMode.DEVELOPER);
+        settings.setSceneFactory(new LoadingSceneFactory());
     }
 
     @Override
@@ -74,10 +60,10 @@ public class View extends GameApplication {
     @Override
     protected void initInput() {
 
-        if (getSettings().getApplicationMode() == ApplicationMode.RELEASE) {
+        if(getSettings().getApplicationMode() == ApplicationMode.RELEASE){
             MovementControllerJoyStick.movement();
             ButtonController.movement();
-        } else {
+        }else{
             MovementControllerDEV.movement();
         }
 
@@ -92,27 +78,29 @@ public class View extends GameApplication {
         vars.put("totalEnergy", 0);
         vars.put("level", STARTING_LEVEL);
         vars.put("asteroidsKilled", 0);
-        vars.put("amountPlanet", 1);
+        vars.put("amountPlanet",1);
     }
 
     @Override
     protected void initGame() {
+
         getGameWorld().addEntityFactory(new GalacticEnergiesFactory());
         getGameScene().getRoot().setCursor(Cursor.NONE);
 
         initBackground();
-        if (ApplicationMode.RELEASE == getSettings().getApplicationMode()) {
+        if(ApplicationMode.RELEASE == getSettings().getApplicationMode()){
             PowerInput.initPower();
         }
         PowerInput.powerLoop();
         PowerController.initText();
 
 
+
     }
 
     @Override
     protected void initPhysics() {
-        FXGL.getPhysicsWorld().addCollisionHandler(new CollisionHandler(ROCKET, ASTEROID) {
+       FXGL.getPhysicsWorld().addCollisionHandler(new CollisionHandler(ROCKET, ASTEROID) {
 
             // order of types is the same as passed into the constructor
             @Override
@@ -129,10 +117,10 @@ public class View extends GameApplication {
         spawn("background");
 
         entityBuilder()
-            .type(WALL)
-            .collidable()
-            .with(new IrremovableComponent())
-            .buildScreenBoundsAndAttach(40);
+                .type(WALL)
+                .collidable()
+                .with(new IrremovableComponent())
+                .buildScreenBoundsAndAttach(40);
 
     }
 
@@ -141,9 +129,9 @@ public class View extends GameApplication {
         spawn("dashboard");
         spawn("arrows");
         IntStream.range(0, geti("amountAsteroids"))
-            .forEach(i -> spawn("asteroid"));
+                        .forEach( i -> spawn("asteroid"));
         IntStream.range(0, geti("amountPlanet"))
-            .forEach(i -> spawn("planet"));
+            .forEach( i -> spawn("planet"));
         getArrowsControl().noButtonPressed();
 
         AsteroidController asteroidController = new AsteroidController();
@@ -156,11 +144,13 @@ public class View extends GameApplication {
         uiController = new ViewController(FXGL.getGameScene());
 
         IntStream.range(0, geti("lives"))
-            .forEach(i -> uiController.addLife());
+                .forEach(i -> uiController.addLife());
         spawn("asteroid");
 
 
     }
+
+
 
     private DashboardComponent getDashboardControl() {
 
@@ -173,5 +163,9 @@ public class View extends GameApplication {
 
     private LifeComponent getLifeComponent() {
         return getGameWorld().getSingleton(LIFE).getComponent(LifeComponent.class);
+    }
+
+    public static void main(String[] args) {
+        launch(args);
     }
 }
