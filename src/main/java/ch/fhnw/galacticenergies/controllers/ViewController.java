@@ -54,10 +54,16 @@ public class ViewController implements UIController {
         Entity life = lives.get(lives.size() - 1);
         life.removeFromWorld();
         lives.remove(life);
-        if (lives.size() == 0) {
+        if(lives.size() == 0){
             //TODO
             //Gameover screen einfügen
+            System.out.println("Game Over");
+            return;
         }
+        Entity life = lives.get(lives.size() - 1);
+        life.removeFromWorld();
+        lives.remove(life);
+
 
         Viewport viewport = gameScene.getViewport();
 

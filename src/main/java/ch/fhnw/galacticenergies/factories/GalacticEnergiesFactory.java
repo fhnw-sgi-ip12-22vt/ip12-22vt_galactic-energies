@@ -2,17 +2,22 @@ package ch.fhnw.galacticenergies.factories;
 
 import ch.fhnw.galacticenergies.components.*;
 import com.almasb.fxgl.dsl.components.EffectComponent;
+import com.almasb.fxgl.dsl.components.OffscreenCleanComponent;
 import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.entity.EntityFactory;
 import com.almasb.fxgl.entity.SpawnData;
 import com.almasb.fxgl.entity.Spawns;
 import com.almasb.fxgl.entity.components.IrremovableComponent;
 import com.almasb.fxgl.physics.PhysicsComponent;
+import com.almasb.fxgl.physics.box2d.dynamics.BodyDef;
 import com.almasb.fxgl.physics.box2d.dynamics.BodyType;
+import com.almasb.fxgl.physics.box2d.dynamics.FixtureDef;
 import com.almasb.fxgl.texture.Texture;
 import javafx.geometry.Point2D;
 import javafx.geometry.Pos;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 import java.util.Random;
 
@@ -83,11 +88,11 @@ public class GalacticEnergiesFactory implements EntityFactory {
         textureLife.setFitHeight(20);
 
         return entityBuilder(data)
-                .type(LIFE)
-                .at(getAppWidth(), 10)
-                .view(textureLife)
-                .with(new LifeComponent())
-                .build();
+            .type(LIFE)
+            .at(getAppWidth(), 10)
+            .view(textureLife)
+            .with(new LifeComponent())
+            .build();
     }
 
     @Spawns("arrows")
@@ -96,11 +101,12 @@ public class GalacticEnergiesFactory implements EntityFactory {
         texture.setPreserveRatio(true);
         texture.setFitHeight(20);
         texture.setFitWidth(20);
+        System.out.println(texture.getFitWidth());
         return entityBuilder(data)
-                .type(ARROWS)
-                .at(getAppWidth() / 2 - texture.getFitWidth() / 1.5, getAppHeight() - texture.getHeight() / 2)
-                .with(new ArrowsComponent())
-                .build();
+            .type(ARROWS)
+            .at(getAppWidth() / 2 - texture.getFitWidth() / 1.5, getAppHeight() - texture.getHeight() / 2)
+            .with(new ArrowsComponent())
+            .build();
     }
 
     private DashboardComponent getDashboardControl() {
@@ -111,8 +117,10 @@ public class GalacticEnergiesFactory implements EntityFactory {
     public Entity newAsteroid(SpawnData data) {
         Random r = new Random();
         Texture texture = texture("asteroids/Enemy" + r.nextInt(1, 4) + ".png");
-        Point2D velocity = new Point2D(r.nextFloat(-100, -25),
-                r.nextFloat(1, 50));
+        texture.setScaleX(0.5);
+        texture.setScaleY(0.5);
+        Point2D velocity = new Point2D(r.nextFloat(-100, -75),
+            r.nextFloat(0, 25));
 
         AsteroidComponent asteroidComponent = new AsteroidComponent();
         asteroidComponent.setVelocity(velocity);
@@ -125,6 +133,7 @@ public class GalacticEnergiesFactory implements EntityFactory {
                 .scaleOrigin(0, 0)
                 .scale(0.25, 0.25)
                 .collidable()
+                .with(new OffscreenCleanComponent())
                 .buildAndAttach();
     }
 

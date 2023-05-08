@@ -1,6 +1,7 @@
 package ch.fhnw.galacticenergies;
 
 import ch.fhnw.galacticenergies.components.ArrowsComponent;
+import ch.fhnw.galacticenergies.components.AsteroidComponent;
 import ch.fhnw.galacticenergies.components.DashboardComponent;
 import ch.fhnw.galacticenergies.components.LifeComponent;
 import ch.fhnw.galacticenergies.controllers.*;
@@ -23,10 +24,23 @@ import java.util.stream.IntStream;
 
 import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.*;
 import static com.almasb.fxgl.dsl.FXGL.*;
+import javafx.beans.property.ObjectProperty;
+import javafx.scene.input.KeyCode;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.util.Duration;
 
 public class View extends GameApplication {
+
     private static final int STARTING_LEVEL = 1;
+
     private ViewController uiController;
+
+
 
     @Override
     protected void initSettings(GameSettings settings) {
@@ -124,25 +138,13 @@ public class View extends GameApplication {
         spawn("dashboard");
         spawn("arrows");
         IntStream.range(0, geti("amountAsteroids"))
-                .forEach(i -> spawn("asteroid"));
+                        .forEach( i -> spawn("asteroid"));
         IntStream.range(0, geti("amountPlanet"))
-                .forEach(i -> spawn("planet"));
+            .forEach( i -> spawn("planet"));
         getArrowsControl().noButtonPressed();
-        final int[] counter = {0};
-        final double[] level = {100, 200, 300};
-        getGameTimer().runAtInterval(() -> {
-            if (ViewController.isPaused()) return;
-            if (PowerController.getTotalPower() > level[0] && counter[0] == 0) {
-                CheckpointController.addCheckpoint();
-                counter[0]++;
-            } else if (PowerController.getTotalPower() > level[1] && counter[0] == 1) {
-                CheckpointController.addCheckpoint();
-                counter[0]++;
-            } else if (PowerController.getTotalPower() > level[2] && counter[0] == 2) {
-                CheckpointController.addCheckpoint();
-                counter[0]++;
-            }
-        }, Duration.seconds(1));
+
+        AsteroidController asteroidController = new AsteroidController();
+        asteroidController.init();
 
         getArrowsControl().noButtonPressed();
 
