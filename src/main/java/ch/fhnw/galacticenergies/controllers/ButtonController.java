@@ -40,8 +40,13 @@ public class ButtonController {
             )
             .build();
 
-        final var button = new SimpleButton(pi4j, PIN.PWM18, false);
 
+        final var button = new SimpleButton(pi4j, PIN.D26, false);
+
+
+        button.onDown      (() -> System.out.println("Pressing the button"));
+        button.whilePressed(() -> System.out.println("Pressing"), 1000);
+        button.onUp        (() -> System.out.println("Stopped pressing."));
 
     }
 }
