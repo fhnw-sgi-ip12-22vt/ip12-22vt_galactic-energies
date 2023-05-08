@@ -3,13 +3,7 @@ package ch.fhnw.galacticenergies;
 import ch.fhnw.galacticenergies.components.ArrowsComponent;
 import ch.fhnw.galacticenergies.components.DashboardComponent;
 import ch.fhnw.galacticenergies.components.LifeComponent;
-import ch.fhnw.galacticenergies.controllers.AsteroidController;
-import ch.fhnw.galacticenergies.controllers.CheckpointController;
-import ch.fhnw.galacticenergies.controllers.LevelController;
-import ch.fhnw.galacticenergies.controllers.MovementControllerDEV;
-import ch.fhnw.galacticenergies.controllers.MovementControllerJoyStick;
-import ch.fhnw.galacticenergies.controllers.PowerController;
-import ch.fhnw.galacticenergies.controllers.ViewController;
+import ch.fhnw.galacticenergies.controllers.*;
 import ch.fhnw.galacticenergies.data.PowerInput;
 import ch.fhnw.galacticenergies.events.GameEvent;
 import ch.fhnw.galacticenergies.factories.GalacticEnergiesFactory;
@@ -27,29 +21,12 @@ import javafx.util.Duration;
 import java.util.Map;
 import java.util.stream.IntStream;
 
-import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.ARROWS;
-import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.ASTEROID;
-import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.DASHBOARD;
-import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.LIFE;
-import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.PLANET;
-import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.ROCKET;
-import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.WALL;
-import static com.almasb.fxgl.dsl.FXGL.entityBuilder;
-import static com.almasb.fxgl.dsl.FXGL.getGameScene;
-import static com.almasb.fxgl.dsl.FXGL.getGameTimer;
-import static com.almasb.fxgl.dsl.FXGL.getGameWorld;
-import static com.almasb.fxgl.dsl.FXGL.getPhysicsWorld;
-import static com.almasb.fxgl.dsl.FXGL.getSettings;
-import static com.almasb.fxgl.dsl.FXGL.geti;
-import static com.almasb.fxgl.dsl.FXGL.onEvent;
-import static com.almasb.fxgl.dsl.FXGL.spawn;
+import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.*;
+import static com.almasb.fxgl.dsl.FXGL.*;
 
 public class View extends GameApplication {
-
     private static final int STARTING_LEVEL = 1;
-
     private ViewController uiController;
-
 
     @Override
     protected void initSettings(GameSettings settings) {
@@ -120,12 +97,12 @@ public class View extends GameApplication {
                 uiController.loseLife();
             }
         });
-
         // Checkpoint interaction
         getPhysicsWorld().addCollisionHandler(new CollisionHandler(ROCKET, PLANET) {
             @Override
             protected void onCollisionBegin(Entity ROCKET, Entity PLANET) {
-                uiController.setPaused(true);
+                PLANET.removeFromWorld();
+                ViewController.setPaused(true);
             }
         });
     }
@@ -135,10 +112,10 @@ public class View extends GameApplication {
         spawn("background");
 
         entityBuilder()
-            .type(WALL)
-            .collidable()
-            .with(new IrremovableComponent())
-            .buildScreenBoundsAndAttach(40);
+                .type(WALL)
+                .collidable()
+                .with(new IrremovableComponent())
+                .buildScreenBoundsAndAttach(40);
 
     }
 
@@ -147,14 +124,14 @@ public class View extends GameApplication {
         spawn("dashboard");
         spawn("arrows");
         IntStream.range(0, geti("amountAsteroids"))
-            .forEach(i -> spawn("asteroid"));
+                .forEach(i -> spawn("asteroid"));
         IntStream.range(0, geti("amountPlanet"))
-            .forEach(i -> spawn("planet"));
+                .forEach(i -> spawn("planet"));
         getArrowsControl().noButtonPressed();
         final int[] counter = {0};
         final double[] level = {100, 200, 300};
         getGameTimer().runAtInterval(() -> {
-            if (uiController.isPaused()) return;
+            if (ViewController.isPaused()) return;
             if (PowerController.getTotalPower() > level[0] && counter[0] == 0) {
                 CheckpointController.addCheckpoint();
                 counter[0]++;
@@ -167,9 +144,6 @@ public class View extends GameApplication {
             }
         }, Duration.seconds(1));
 
-        IntStream.range(0, geti("amountAsteroids"))
-            .forEach(i -> spawn("asteroid"));
-
         getArrowsControl().noButtonPressed();
 
         LevelController.setLevel(STARTING_LEVEL);
@@ -177,8 +151,7 @@ public class View extends GameApplication {
         uiController = new ViewController(FXGL.getGameScene());
 
         IntStream.range(0, geti("lives"))
-            .forEach(i -> uiController.addLife());
-        spawn("asteroid");
+                .forEach(i -> uiController.addLife());
 
     }
 

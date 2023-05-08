@@ -26,10 +26,8 @@ public class PowerController {
      */
     public static void calcPower() {
         totalPower = totalPower + (currentPower / 3.6);
-        System.out.println(totalPower);
         text.setText("Current: " + (int) PowerController.getCurrentPower() + "W per Hour Total: " +
             (int) PowerController.getTotalPower() + " Wh");
-
     }
 
     public static void initText() {

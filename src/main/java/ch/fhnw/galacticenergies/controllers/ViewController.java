@@ -28,7 +28,7 @@ public class ViewController implements UIController {
 
     private final GameScene gameScene;
 
-    private boolean paused = false;
+    private static boolean paused = false;
     public ViewController(GameScene gameScene) {
         this.gameScene = gameScene;
     }
@@ -68,11 +68,11 @@ public class ViewController implements UIController {
         runOnce(() -> gameScene.removeUINode(flash), Duration.seconds(1));
     }
 
-    public boolean isPaused() {
+    public static boolean isPaused() {
         return paused;
     }
 
-    public void setPaused(boolean paused) {
-        this.paused = paused;
+    public static void setPaused(boolean paused) {
+        paused = paused;
     }
 }
