@@ -8,6 +8,7 @@ import ch.fhnw.galacticenergies.data.PowerInput;
 import ch.fhnw.galacticenergies.events.GameEvent;
 import ch.fhnw.galacticenergies.factories.GalacticEnergiesFactory;
 import ch.fhnw.galacticenergies.factories.LoadingSceneFactory;
+import ch.fhnw.galacticenergies.menu.IntroScene;
 import com.almasb.fxgl.app.ApplicationMode;
 import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.app.GameSettings;
@@ -82,6 +83,7 @@ public class View extends GameApplication {
 
     @Override
     protected void initGame() {
+
         getGameWorld().addEntityFactory(new GalacticEnergiesFactory());
         getGameScene().getRoot().setCursor(Cursor.NONE);
 

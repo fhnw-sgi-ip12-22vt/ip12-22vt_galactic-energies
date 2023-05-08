@@ -1,9 +1,14 @@
 package ch.fhnw.galacticenergies.menu;
 
+import com.almasb.fxgl.animation.Animation;
+import com.almasb.fxgl.animation.Interpolators;
 import com.almasb.fxgl.app.scene.FXGLMenu;
 import com.almasb.fxgl.app.scene.MenuType;
+import com.almasb.fxgl.core.util.EmptyRunnable;
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.texture.Texture;
+import javafx.animation.FadeTransition;
+import javafx.geometry.Point2D;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -15,11 +20,18 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.util.Duration;
 
 import static com.almasb.fxgl.dsl.FXGLForKtKt.getAssetLoader;
 
+/**
+ * Creates the Main Menu
+ * @Version 1.0
+ */
 
 public class MainMenu extends FXGLMenu {
+
+    private Animation<?> animation;
     public MainMenu (MenuType type) {
         super(type);
 
@@ -46,41 +58,42 @@ public class MainMenu extends FXGLMenu {
         btnExit.getStyleClass().add("main_menu_button");
         btnExit.setOnAction(e -> fireExit());
 
+        Button btnIntro = new Button("Intro");
+        btnIntro.getStyleClass().add("main_menu_button");
+        btnIntro.setOnAction(e -> IntroScene.start());
+
         VBox buttonVBox = new VBox(5, btnPlay, btnLeaderboard, btnExit);
         buttonVBox.setPrefWidth(getAppWidth()); buttonVBox.setAlignment(Pos.BOTTOM_LEFT); buttonVBox.setTranslateY(getAppHeight() * 0.6);
         getContentRoot().getChildren().addAll(bg, titleHBox, buttonVBox);
 
-       // mainButton newGame = new mainButton("New Game", this::fireNewGame);
 
-       //getContentRoot().getChildren().addAll(createBackground(getAppWidth(),getAppHeight()));
+
+
+
+        animation = FXGL.animationBuilder()
+                .duration(Duration.seconds(0.66))
+                .interpolator(Interpolators.EXPONENTIAL.EASE_OUT())
+                .scale(getContentRoot())
+                .from(new Point2D(0, 0))
+                .to(new Point2D(1, 1))
+                .build();
 
     }
 
-
-
-    protected Node createBackground(double w, double h){
-        return FXGL.texture("bg/SpaceBackground.jpg",w,h);
+    @Override
+    public void onCreate() {
+        animation.setOnFinished(EmptyRunnable.INSTANCE);
+        animation.stop();
+        animation.start();
     }
 
-  /*  public static final class mainButton extends StackPane{
-        private String name;
-        private Runnable action;
+    @Override
+    protected void onUpdate(double tpf) {
 
-        public mainButton(String name, Runnable action){
-            this.action = action;
-            this.name = name;
-
-            setOnKeyPressed(e -> {
-                if (e.getCode() == KeyCode.ENTER){
-                    action.run();
-                }
-            });
-
-        }
-    }*/
-
-   //
+        animation.onUpdate(tpf);
+    }
 }
+
 
 
 
