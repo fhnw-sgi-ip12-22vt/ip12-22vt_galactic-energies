@@ -22,13 +22,24 @@ import java.util.Random;
 import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.*;
 import static com.almasb.fxgl.dsl.FXGL.*;
 
+/**
+ * define GalacticEnergiesFactory class that implements EntityFactory
+ */
 public class GalacticEnergiesFactory implements EntityFactory {
 
-
+    /**
+     * define constructor for GalacticEnergiesFactory class
+     */
     public GalacticEnergiesFactory () {
 
     }
 
+    /**
+     * define method for spawning background entities
+     *
+     * @param data
+     * @return
+     */
     @Spawns ("background")
     public Entity newBackground (SpawnData data) {
         return entityBuilder(data)
@@ -39,8 +50,15 @@ public class GalacticEnergiesFactory implements EntityFactory {
                 .build();
     }
 
+    /**
+     * define method for spawning rocket entities
+     *
+     * @param data
+     * @return
+     */
     @Spawns ("rocket")
     public Entity newRocket (SpawnData data) {
+        // create a new entity with specified components and properties
         PhysicsComponent physics = new PhysicsComponent();
         physics.setBodyType(BodyType.KINEMATIC);
 
@@ -59,6 +77,12 @@ public class GalacticEnergiesFactory implements EntityFactory {
                 .build();
     }
 
+    /**
+     * define method for spawning dashboard entities
+     *
+     * @param data
+     * @return
+     */
     @Spawns ("dashboard")
     public Entity newDashboard (SpawnData data) {
         Texture texture = texture("dashboard/Steuerboard Level 1.png");
@@ -78,7 +102,12 @@ public class GalacticEnergiesFactory implements EntityFactory {
                 .build();
     }
 
-
+    /**
+     * define method for spawning life entities
+     *
+     * @param data
+     * @return
+     */
     @Spawns ("life")
     public Entity newLive (SpawnData data) {
         Texture textureLife = texture("heart.png");

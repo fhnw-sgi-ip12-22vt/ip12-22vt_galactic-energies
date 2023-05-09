@@ -79,13 +79,6 @@ public class CheckpointComponent extends Component {
         physics.setBodyLinearVelocity(velocity);
     }
 
-//        public void hit() {
-//            entity.removeFromWorld();
-//
-//
-//            fire(new GameEvent(GameEvent.ASTEROID_GOT_HIT));
-//        }
-
     private void checkOffscreen () {
         if (getEntity().getBoundingBoxComponent().isOutside(getGameScene().getViewport().getVisibleArea())) {
             physics.overwritePosition(new Point2D(
