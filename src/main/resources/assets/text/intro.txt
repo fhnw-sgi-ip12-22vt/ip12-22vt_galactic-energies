@@ -1,0 +1,17 @@
+1.name = Rocket
+
+2.name = Asteroid
+
+3.name = Planet
+
+
+1.image = intro/Rocket.png
+1: Hi, I'm you're Spaceship
+1: helooooooooo
+
+2.image = intro/Enemy.png
+2: Hi, I'm you're enemy
+
+3.image = intro/planet.png
+3: planet
+

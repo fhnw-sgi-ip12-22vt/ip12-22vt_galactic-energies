@@ -1,7 +1,9 @@
 package ch.fhnw.galacticenergies.factories;
 
 import ch.fhnw.galacticenergies.components.*;
+import com.almasb.fxgl.animation.Interpolators;
 import com.almasb.fxgl.dsl.components.EffectComponent;
+import com.almasb.fxgl.dsl.components.ExpireCleanComponent;
 import com.almasb.fxgl.dsl.components.OffscreenCleanComponent;
 import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.entity.EntityFactory;
@@ -9,15 +11,14 @@ import com.almasb.fxgl.entity.SpawnData;
 import com.almasb.fxgl.entity.Spawns;
 import com.almasb.fxgl.entity.components.IrremovableComponent;
 import com.almasb.fxgl.physics.PhysicsComponent;
-import com.almasb.fxgl.physics.box2d.dynamics.BodyDef;
 import com.almasb.fxgl.physics.box2d.dynamics.BodyType;
-import com.almasb.fxgl.physics.box2d.dynamics.FixtureDef;
 import com.almasb.fxgl.texture.Texture;
 import javafx.geometry.Point2D;
 import javafx.geometry.Pos;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
+import javafx.util.Duration;
 
 import java.util.Random;
 
@@ -117,8 +118,6 @@ public class GalacticEnergiesFactory implements EntityFactory {
     public Entity newAsteroid(SpawnData data) {
         Random r = new Random();
         Texture texture = texture("asteroids/Enemy" + r.nextInt(1, 4) + ".png");
-        texture.setScaleX(0.5);
-        texture.setScaleY(0.5);
         Point2D velocity = new Point2D(r.nextFloat(-100, -75),
             r.nextFloat(0, 25));
 
@@ -131,19 +130,16 @@ public class GalacticEnergiesFactory implements EntityFactory {
                 .viewWithBBox(texture)
                 .with(asteroidComponent)
                 .scaleOrigin(0, 0)
-                .scale(0.25, 0.25)
+                .scale(0.5, 0.5)
                 .collidable()
                 .with(new OffscreenCleanComponent())
-                .buildAndAttach();
+                .build();
     }
 
     @Spawns("planet")
     public Entity newPlanet(SpawnData data) {
         Random r = new Random();
         Texture texture = texture("planet/planet" + r.nextInt(1, 9) + ".png");
-        System.out.println(r.nextInt(1, 4));
-        texture.setScaleX(0.5);
-        texture.setScaleY(0.5);
         Point2D velocity = new Point2D(r.nextFloat(-100, -25),
                 r.nextFloat(1, 50));
 
@@ -155,36 +151,29 @@ public class GalacticEnergiesFactory implements EntityFactory {
                 .at(getAppWidth() - texture.getFitWidth(), r.nextFloat(0, getAppHeight()))
                 .viewWithBBox(texture)
                 .with(checkpointComponent)
+                .scaleOrigin(0, 0)
+                .scale(0.5, 0.5)
                 .collidable()
-                .buildAndAttach();
-
-
-//        texture.setPreserveRatio(true);
-//        texture.setFitWidth(texture.getHeight());
-//
-//        PhysicsComponent physics = new PhysicsComponent();
-//        physics.setBodyType(BodyType.DYNAMIC);
-//        physics.setFixtureDef(new FixtureDef().restitution(1f).density(0.03f));
-//
-//        var bd = new BodyDef();
-//        bd.setType(BodyType.DYNAMIC);
-//        bd.setFixedRotation(true);
-//
-//        physics.setBodyDef(bd);
-//
-//        Random random = new Random();
-//
-//        return entityBuilder(data)
-//            .type(PLANET)
-//            .at(getAppWidth() - texture.getFitWidth(), random.nextFloat(0, getAppHeight()))
-//            .viewWithBBox(texture)
-//            .collidable()
-//            .with(physics)
-//            .with(new CheckpointComponent())
-//            .with(new OffscreenCleanComponent())
-//            .scaleOrigin(0, 0)
-//            .scale(0.5, 0.5)
-//            .build();
+                .build();
     }
 
+    @Spawns("engergyInformation")
+    public Entity newEnergyInformation(SpawnData data) {
+        Text levelText = getUIFactoryService().newText("Level " + geti("level"), Color.AQUAMARINE, 44);
+
+        Entity levelInfo = entityBuilder()
+                .view(levelText)
+                .with(new ExpireCleanComponent(Duration.seconds(2)))
+                .build();
+
+        animationBuilder()
+                .interpolator(Interpolators.BOUNCE.EASE_OUT())
+                .duration(Duration.seconds(2 - 0.1))
+                .translate(levelInfo)
+                .from(new Point2D(getAppWidth() / 2 - levelText.getLayoutBounds().getWidth() / 2, 0))
+                .to(new Point2D(getAppWidth() / 2 - levelText.getLayoutBounds().getWidth() / 2, getAppHeight() / 2))
+                .build();
+
+        return levelInfo;
+    }
 }

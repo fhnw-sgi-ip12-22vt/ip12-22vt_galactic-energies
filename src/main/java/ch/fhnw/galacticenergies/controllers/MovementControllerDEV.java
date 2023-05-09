@@ -1,5 +1,6 @@
 package ch.fhnw.galacticenergies.controllers;
 
+import ch.fhnw.galacticenergies.View;
 import ch.fhnw.galacticenergies.components.ArrowsComponent;
 import ch.fhnw.galacticenergies.components.DashboardComponent;
 import com.almasb.fxgl.input.UserAction;
@@ -7,10 +8,7 @@ import javafx.scene.input.KeyCode;
 
 import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.ARROWS;
 import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.DASHBOARD;
-import static com.almasb.fxgl.dsl.FXGL.getGameWorld;
-import static com.almasb.fxgl.dsl.FXGL.getInput;
-import static com.almasb.fxgl.dsl.FXGL.isReleaseMode;
-import static com.almasb.fxgl.dsl.FXGL.onKeyDown;
+import static com.almasb.fxgl.dsl.FXGL.*;
 
 /**
  * Defines the movement of the rocket with keys.
@@ -30,6 +28,8 @@ public class MovementControllerDEV {
         getInput().addAction(new UserAction("Move Down") {
             @Override
             protected void onAction() {
+                if(ViewController.isPaused()) return;
+
                 RocketController.getRocketControl().down();
                 getArrowsControl().buttonDownPressed();
             }
@@ -44,6 +44,8 @@ public class MovementControllerDEV {
         getInput().addAction(new UserAction("Move Up") {
             @Override
             protected void onAction() {
+                if(ViewController.isPaused()) return;
+
                 RocketController.getRocketControl().up();
                 getArrowsControl().buttonUpPressed();
             }
@@ -56,7 +58,7 @@ public class MovementControllerDEV {
         }, KeyCode.W);
 
         if (!isReleaseMode()) {
-            onKeyDown(KeyCode.L, "Next Level", LevelController::nextLevel);
+            onKeyDown(KeyCode.L, "Next Level", View.levelController::nextLevel);
         }
     }
 

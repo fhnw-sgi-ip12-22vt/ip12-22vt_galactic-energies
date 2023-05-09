@@ -25,6 +25,8 @@ public class PowerController {
      * Calculates the totalPower that was generated and stores it in totalPower
      */
     public static void calcPower() {
+        if(ViewController.isPaused()) return;
+
         totalPower = totalPower + (currentPower / 3.6);
         text.setText("Current: " + (int) PowerController.getCurrentPower() + "W per Hour Total: " +
             (int) PowerController.getTotalPower() + " Wh");

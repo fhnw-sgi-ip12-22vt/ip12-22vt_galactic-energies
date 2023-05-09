@@ -1,10 +1,13 @@
 package ch.fhnw.galacticenergies.controllers;
 
-import static com.almasb.fxgl.dsl.FXGL.getDialogService;
-import static com.almasb.fxgl.dsl.FXGL.getGameController;
-import static com.almasb.fxgl.dsl.FXGL.geti;
-import static com.almasb.fxgl.dsl.FXGL.inc;
-import static com.almasb.fxgl.dsl.FXGL.spawn;
+import com.almasb.fxgl.animation.Interpolators;
+import javafx.geometry.Point2D;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
+import javafx.util.Duration;
+
+import static com.almasb.fxgl.dsl.FXGL.*;
 
 /**
  * Defines the level of the current game
@@ -15,10 +18,12 @@ public class LevelController {
 
     private static final int MAX_LEVEL = 10;
 
+    private Text uiTextLevel;
+
     /**
      * Show the next level in the game
      */
-    public static void nextLevel() {
+    public void nextLevel() {
         inc("level", +1);
         var levelNum = geti("level");
 
@@ -26,10 +31,53 @@ public class LevelController {
             getDialogService().showMessageBox("GAME END", getGameController()::exit);
             return;
         }
-        setLevel(levelNum);
+
+        uiTextLevel.setVisible(false);
+
+        inc("level", +1);
+
+        Text textLevel = getUIFactoryService().newText("Level " + geti("level"), Color.WHITE, 22);
+        textLevel.setEffect(new DropShadow(7, Color.BLACK));
+        textLevel.setOpacity(0);
+
+        centerText(textLevel);
+        textLevel.setTranslateY(250);
+
+        addUINode(textLevel);
+
+        animationBuilder()
+                .interpolator(Interpolators.SMOOTH.EASE_OUT())
+                .duration(Duration.seconds(1.66))
+                .onFinished(() -> {
+                    animationBuilder()
+                            .duration(Duration.seconds(1.66))
+                            .interpolator(Interpolators.EXPONENTIAL.EASE_IN())
+                            .onFinished(() -> {
+                                removeUINode(textLevel);
+                                uiTextLevel.setVisible(true);
+                            })
+                            .translate(textLevel)
+                            .from(new Point2D(textLevel.getTranslateX(), textLevel.getTranslateY()))
+                            .to(new Point2D(330, 540))
+                            .build();
+                })
+                .fadeIn(textLevel)
+                .build();
+    }
+
+    public static void playInCutscene(Runnable onFinished) {
+
     }
 
     public static void setLevel(int level) {
         spawn("rocket");
+    }
+
+    public Text getUiTextLevel() {
+        return uiTextLevel;
+    }
+
+    public void setUiTextLevel(Text uiTextLevel) {
+        this.uiTextLevel = uiTextLevel;
     }
 }

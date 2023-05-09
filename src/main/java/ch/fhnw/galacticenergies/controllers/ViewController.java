@@ -12,9 +12,7 @@ import javafx.util.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.almasb.fxgl.dsl.FXGL.getAppWidth;
-import static com.almasb.fxgl.dsl.FXGL.runOnce;
-import static com.almasb.fxgl.dsl.FXGL.spawn;
+import static com.almasb.fxgl.dsl.FXGL.*;
 
 /**
  * Defines all visuals of the game
@@ -51,19 +49,16 @@ public class ViewController implements UIController {
      */
     public void loseLife() {
 
-        Entity life = lives.get(lives.size() - 1);
-        life.removeFromWorld();
-        lives.remove(life);
         if(lives.size() == 0){
             //TODO
             //Gameover screen einfügen
             System.out.println("Game Over");
             return;
         }
+
         Entity life = lives.get(lives.size() - 1);
         life.removeFromWorld();
         lives.remove(life);
-
 
         Viewport viewport = gameScene.getViewport();
 
@@ -79,6 +74,6 @@ public class ViewController implements UIController {
     }
 
     public static void setPaused(boolean paused) {
-        paused = paused;
+        ViewController.paused = paused;
     }
 }
