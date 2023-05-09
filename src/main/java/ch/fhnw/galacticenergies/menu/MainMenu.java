@@ -149,7 +149,7 @@ public class MainMenu extends FXGLMenu {
     }
 
     /**
-     * Method to create the"ALL Time
+     * Method to create the "ALL Time" power label
      */
     public void createAllTime() {
         Label allTime = new Label();
