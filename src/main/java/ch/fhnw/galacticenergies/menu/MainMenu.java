@@ -43,7 +43,7 @@ public class MainMenu extends FXGLMenu {
 
     private static DecimalFormat df = new DecimalFormat("#.####");
 
-    public MainMenu(MenuType type) {
+    public MainMenu (MenuType type) {
         super(type);
 
         // Add background texture, set its fit width and height to app width and height respectively
@@ -59,7 +59,8 @@ public class MainMenu extends FXGLMenu {
         // Create HBox for title, set its width to the app width, align to center and position it on Y axis
         HBox titleHBox = new HBox(title);
         titleHBox.setPrefWidth(getAppWidth());
-        titleHBox.setAlignment(Pos.CENTER); titleHBox.setTranslateY(50);
+        titleHBox.setAlignment(Pos.CENTER);
+        titleHBox.setTranslateY(50);
 
         // Create Play button, add custom style class, and set its on-click action to fireNewGame()
         Button btnPlay = new Button("Play");
@@ -104,7 +105,7 @@ public class MainMenu extends FXGLMenu {
      * It sets up the animation and stops it, then starts it again
      */
     @Override
-    public void onCreate() {
+    public void onCreate () {
         animation.setOnFinished(EmptyRunnable.INSTANCE);
         animation.stop();
         animation.start();
@@ -120,7 +121,7 @@ public class MainMenu extends FXGLMenu {
      * @param tpf
      */
     @Override
-    protected void onUpdate(double tpf) {
+    protected void onUpdate (double tpf) {
         getContentRoot().getChildren().removeAll(leaderboard, allTime);
         createLeaderboard();
         createAllTime();
@@ -132,7 +133,7 @@ public class MainMenu extends FXGLMenu {
     /**
      * Create leaderboard label with styling and positioning
      */
-    public void createLeaderboard() {
+    public void createLeaderboard () {
 
         Label leaderboard = new Label();
         leaderboard.getStyleClass().add("leaderboard");
@@ -174,7 +175,7 @@ public class MainMenu extends FXGLMenu {
     /**
      * Method to create the "ALL Time" power label
      */
-    public void createAllTime() {
+    public void createAllTime () {
         Label allTime = new Label();
         allTime.getStyleClass().add("leaderboard");
         allTime.setWrapText(true);
