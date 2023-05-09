@@ -12,10 +12,14 @@ import javafx.geometry.Point2D;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 import java.sql.Connection;
@@ -38,6 +42,7 @@ public class MainMenu extends FXGLMenu {
     private static Label leaderboard;
 
     private static Label allTime;
+
 
     private int id = 1;
 
@@ -75,7 +80,7 @@ public class MainMenu extends FXGLMenu {
         // Create Intro button, add custom style class, and set its on-click action to start IntroScene
         Button btnIntro = new Button("Intro");
         btnIntro.getStyleClass().add("main_menu_button");
-        btnIntro.setOnAction(e -> IntroScene.start());
+        btnIntro.setOnAction(e -> createIntro());
 
 
         // Creates a VBox to hold the menu buttons, sets its properties and adds it to the content root
@@ -110,6 +115,11 @@ public class MainMenu extends FXGLMenu {
         animation.start();
         id = (int) (Math.random() * (14 - 1)) + 1;
 
+        getContentRoot().getChildren().removeAll(leaderboard, allTime);
+        createLeaderboard();
+        createAllTime();
+        getContentRoot().getChildren().addAll(leaderboard, allTime);
+
 
         // getContentRoot().getChildren().add(createLeaderboard());
     }
@@ -121,10 +131,7 @@ public class MainMenu extends FXGLMenu {
      */
     @Override
     protected void onUpdate(double tpf) {
-        getContentRoot().getChildren().removeAll(leaderboard, allTime);
-        createLeaderboard();
-        createAllTime();
-        getContentRoot().getChildren().addAll(leaderboard, allTime);
+
 
         animation.onUpdate(tpf);
     }
@@ -194,8 +201,6 @@ public class MainMenu extends FXGLMenu {
 
         // Try-catch block for SQL query and result set
         try {
-            int id = 1;
-
             ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM totalpower");
             ResultSet rs2 = conn.createStatement().executeQuery("SELECT * FROM energydata WHERE idenergydata =" + id);
 
@@ -224,6 +229,30 @@ public class MainMenu extends FXGLMenu {
         // Set the text of the label to the result string and store the label as a member variable
         allTime.setText(result);
         this.allTime = allTime;
+    }
+
+    public void createIntro() {
+        GridPane rocketIntro = new GridPane();
+        rocketIntro.getStyleClass().add("leaderboard");
+        rocketIntro.setLayoutX(getAppWidth() * 0.3);
+        rocketIntro.setLayoutY(getAppHeight() * 0.25);
+
+
+        Image imageRocket = new Image("file:intro/Rocket.png");
+        Text textRocket = new Text("Hi I'm a rocket");
+
+        // rocketIntro.getChildren().addAll(new ImageView(imageRocket),textRocket);
+
+        getContentRoot().getChildren().removeAll(allTime, leaderboard);
+        rocketIntro.addRow(1, new ImageView(imageRocket), textRocket);
+        getContentRoot().getChildren().add(rocketIntro);
+
+
+        String result = "";
+
+        // Set the text of the label to the result string and store the label as a member variable
+
+
     }
 
 }

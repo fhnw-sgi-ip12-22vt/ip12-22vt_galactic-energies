@@ -39,7 +39,7 @@ public class CutsceneTest extends GameApplication {
         getGameScene().setBackgroundColor(Color.LIGHTGRAY);
     }
 
-    public static void main(String[] args) {
+    public static void test(String[] args) {
         launch(args);
 
     }
