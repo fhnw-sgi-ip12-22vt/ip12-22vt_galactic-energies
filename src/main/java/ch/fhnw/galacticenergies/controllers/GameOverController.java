@@ -10,9 +10,10 @@ import static com.almasb.fxgl.dsl.FXGL.showConfirm;
 
 public class GameOverController {
 
-    public static void showGameOver(){
+    public static void showGameOver () {
 
-        showConfirm("Game Over! You're Score was:  "+ (int)PowerController.getTotalPower()+" Restart?", yes -> {
+
+        showConfirm("Game Over! You're Score was:  " + (int) PowerController.getTotalPower() + " Restart?", yes -> {
             writeHighscore();
             if (yes) {
                 FXGL.getGameController().startNewGame();
@@ -23,7 +24,7 @@ public class GameOverController {
 
     }
 
-    public static void writeHighscore(){
+    public static void writeHighscore () {
         DBConnection c = new DBConnection();
         Connection conn = c.getConnection();
 

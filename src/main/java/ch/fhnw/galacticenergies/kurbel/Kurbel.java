@@ -22,35 +22,35 @@ public class Kurbel {
 
     /**
      * Initialisation of the required Parameters
+     *
      * @param pi4j gives the Context
      */
-    public Kurbel(Context pi4j) {
+    public Kurbel (Context pi4j) {
         i2c = pi4j.create(I2C.newConfigBuilder(pi4j)
-            .id("I2C-" + device + "@" + i2cBus)
-            .name(deviceName)
-            .bus(i2cBus)
-            .device(device)
-            .build());
+                .id("I2C-" + device + "@" + i2cBus)
+                .name(deviceName)
+                .bus(i2cBus)
+                .device(device)
+                .build());
     }
 
 
     /**
-     *
-     * @param pi4j Context
-     * @param bus  Bus on which the device is connected
-     * @param device Device number
+     * @param pi4j     Context
+     * @param bus      Bus on which the device is connected
+     * @param device   Device number
      * @param deviceId DeviceId
      * @return
      */
-    private static I2CConfig buildI2CConfig(Context pi4j, int bus, int device, String deviceId) {
+    private static I2CConfig buildI2CConfig (Context pi4j, int bus, int device, String deviceId) {
         return I2C.newConfigBuilder(pi4j).id("I2C-" + device + "@" + bus).name(deviceId).bus(bus).device(device)
-            .build();
+                .build();
     }
 
     /**
      * Calibration of ConfigurationRegister
      */
-    public void writeConfigurationRegister() {
+    public void writeConfigurationRegister () {
         i2c.writeRegisterWord(CONFIGURATION_REGISTER, 295);
     }
 
@@ -58,23 +58,25 @@ public class Kurbel {
      * Calibration of the CalibrationRegister based on previous calculations
      */
 
-    public void writeCalibrationRegister() {
+    public void writeCalibrationRegister () {
         i2c.writeRegisterWord(CALIBRATION_REGISTER, 17420);
     }
 
     /**
      * Reading the CalibrationRegister
+     *
      * @return CalibrationRegister output
      */
-    public int readCalibrationRegister() {
+    public int readCalibrationRegister () {
         return i2c.readRegisterWord(CALIBRATION_REGISTER);
     }
 
     /**
      * Reading the PowerRegister
+     *
      * @return PowerRegister content
      */
-    public int readPowerRegister() {
+    public int readPowerRegister () {
         return i2c.readRegisterWord(POWER_REGISTER);
     }
 
@@ -105,7 +107,7 @@ public class Kurbel {
          *
          * @param address device address on I2C
          */
-        ADDRESS(int address) {
+        ADDRESS (int address) {
             this.address = address;
         }
 
@@ -114,7 +116,7 @@ public class Kurbel {
          *
          * @return Returns the address form the device
          */
-        public int getAddress() {
+        public int getAddress () {
             return address;
         }
     }

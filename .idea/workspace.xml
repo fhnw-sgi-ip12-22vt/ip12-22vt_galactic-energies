@@ -7,11 +7,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab62d768-cc0c-4eeb-a13d-050241538dc9" name="Changes" comment="Development mode added for movement &#10;created MovementControllerDEV&#10;created MovementControllerJoyStick">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/menu/LeaderboardWindow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ui/css/ui.css_2.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/menu/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/menu/MainMenu.java" afterDir="false" />
+    <list default="true" id="ab62d768-cc0c-4eeb-a13d-050241538dc9" name="Changes" comment="comments added and style checked">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/CheckpointComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/CheckpointComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/factories/GalacticEnergiesFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/factories/GalacticEnergiesFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,27 +55,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;f04-5-spiel-starten&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Rinor/IdeaProjects/galactic-energies&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.CommitDialog&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "f04-5-spiel-starten",
+    "last_opened_file_path": "C:/Users/Rinor/IdeaProjects/galactic-energies",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Global Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.sourceCode.Java",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\andre\IdeaProjects\galactic-energies\src\main\resources\assets\textures\bg" />
@@ -103,7 +103,7 @@
       <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.LeaderboardWindow">
+  <component name="RunManager" selected="Application.View">
     <configuration name="Ex" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ch.fhnw.galacticenergies.views.Ex" />
       <module name="galactic-energies" />
@@ -202,8 +202,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.LeaderboardWindow" />
         <item itemvalue="Application.View" />
+        <item itemvalue="Application.LeaderboardWindow" />
         <item itemvalue="JUnit.PlayerTest" />
         <item itemvalue="Application.GameView" />
         <item itemvalue="Application.Ex" />
@@ -230,6 +230,7 @@
       <workItem from="1673612742877" duration="67000" />
       <workItem from="1674031135737" duration="3355000" />
       <workItem from="1683616254754" duration="4014000" />
+      <workItem from="1683632088041" duration="4650000" />
     </task>
     <task id="LOCAL-00001" summary="javafx example">
       <created>1669187662688</created>
@@ -329,7 +330,21 @@
       <option name="project" value="LOCAL" />
       <updated>1677663844801</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Comments added">
+      <created>1683632168263</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1683632168263</updated>
+    </task>
+    <task id="LOCAL-00016" summary="comments added and style checked">
+      <created>1683637464003</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1683637464003</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -398,7 +413,9 @@
     <MESSAGE value="Arrows fixed, Asteroids auskommentiert" />
     <MESSAGE value="Kurbel test" />
     <MESSAGE value="Development mode added for movement &#10;created MovementControllerDEV&#10;created MovementControllerJoyStick" />
-    <option name="LAST_COMMIT_MESSAGE" value="Development mode added for movement &#10;created MovementControllerDEV&#10;created MovementControllerJoyStick" />
+    <MESSAGE value="Comments added" />
+    <MESSAGE value="comments added and style checked" />
+    <option name="LAST_COMMIT_MESSAGE" value="comments added and style checked" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -410,6 +427,11 @@
           <properties class="java.lang.IllegalArgumentException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/collision/AsteroidHandler.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
