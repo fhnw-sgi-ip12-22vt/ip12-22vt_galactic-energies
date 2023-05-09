@@ -37,6 +37,10 @@ public class MainMenu extends FXGLMenu {
     private Animation<?> animation;
     private static Label leaderboard;
 
+    private static Label allTime;
+
+    private int id = 1;
+
     private static DecimalFormat df = new DecimalFormat("#.####");
 
     public MainMenu(MenuType type) {
@@ -92,14 +96,18 @@ public class MainMenu extends FXGLMenu {
         animation.setOnFinished(EmptyRunnable.INSTANCE);
         animation.stop();
         animation.start();
+        id = (int) (Math.random() * (14 - 1)) + 1;
+
+
         // getContentRoot().getChildren().add(createLeaderboard());
     }
 
     @Override
     protected void onUpdate(double tpf) {
-        getContentRoot().getChildren().remove(leaderboard);
+        getContentRoot().getChildren().removeAll(leaderboard, allTime);
         createLeaderboard();
-        getContentRoot().getChildren().add(leaderboard);
+        createAllTime();
+        getContentRoot().getChildren().addAll(leaderboard, allTime);
 
         animation.onUpdate(tpf);
     }
@@ -109,13 +117,13 @@ public class MainMenu extends FXGLMenu {
         Label leaderboard = new Label();
         leaderboard.getStyleClass().add("leaderboard");
         leaderboard.setWrapText(true);
-        leaderboard.setLayoutX(getAppWidth() / 2);
+        leaderboard.setLayoutX(getAppWidth() * 0.3);
         leaderboard.setLayoutY(getAppHeight() * 0.25);
 
         DBConnection c = new DBConnection();
         Connection conn = c.getConnection();
 
-        String result = "Leaderboard: \n";
+        String result = "Leaderboard \nDate:             Score: \n";
 
         try {
 
@@ -138,6 +146,56 @@ public class MainMenu extends FXGLMenu {
         leaderboard.setText(result);
         this.leaderboard = leaderboard;
 
+    }
+
+    /**
+     * Method to create the"ALL Time
+     */
+    public void createAllTime() {
+        Label allTime = new Label();
+        allTime.getStyleClass().add("leaderboard");
+        allTime.setWrapText(true);
+        allTime.setLayoutX(getAppWidth() * 0.3);
+        allTime.setLayoutY(getAppHeight() * 0.75);
+
+        // Establish a connection to the database
+        DBConnection c = new DBConnection();
+        Connection conn = c.getConnection();
+
+        String result = "All Time Power: ";
+
+        double totalpower = 0;
+        String deviceName = "";
+        int devicePower = 0;
+
+        try {
+            int id = 1;
+
+            ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM totalpower");
+            ResultSet rs2 = conn.createStatement().executeQuery("SELECT * FROM energydata WHERE idenergydata =" + id);
+
+
+            while (rs.next()) {
+                totalpower = totalpower + rs.getDouble("producedpower");
+            }
+            result = result + df.format(totalpower) + " Wh \n";
+
+            while (rs2.next()) {
+                deviceName = (rs2.getString("devicename"));
+                devicePower = rs2.getInt("power");
+            }
+            result = result + "This equals to the Usage of a " + deviceName + " for: " + df.format(totalpower / devicePower) + "h";
+
+            conn.close();
+
+        } catch (SQLException e) {
+            System.err.println(e);
+            throw new RuntimeException(e);
+        }
+
+
+        allTime.setText(result);
+        this.allTime = allTime;
     }
 
 }
