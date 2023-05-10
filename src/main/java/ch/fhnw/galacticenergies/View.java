@@ -1,21 +1,25 @@
 package ch.fhnw.galacticenergies;
 
 import ch.fhnw.galacticenergies.components.ArrowsComponent;
-import ch.fhnw.galacticenergies.components.AsteroidComponent;
 import ch.fhnw.galacticenergies.components.DashboardComponent;
 import ch.fhnw.galacticenergies.components.LifeComponent;
 import ch.fhnw.galacticenergies.controllers.*;
 import ch.fhnw.galacticenergies.data.PowerInput;
 import ch.fhnw.galacticenergies.events.GameEvent;
 import ch.fhnw.galacticenergies.factories.GalacticEnergiesFactory;
+import ch.fhnw.galacticenergies.factories.LoadingSceneFactory;
+import ch.fhnw.galacticenergies.menu.IntroScene;
 import com.almasb.fxgl.app.ApplicationMode;
 import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.app.GameSettings;
+import com.almasb.fxgl.core.util.InputPredicates;
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.entity.components.IrremovableComponent;
+import com.almasb.fxgl.input.UserAction;
 import com.almasb.fxgl.physics.CollisionHandler;
 import javafx.scene.Cursor;
+import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 
 import java.util.Map;
@@ -23,15 +27,6 @@ import java.util.stream.IntStream;
 
 import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.*;
 import static com.almasb.fxgl.dsl.FXGL.*;
-import javafx.beans.property.ObjectProperty;
-import javafx.scene.input.KeyCode;
-import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
-import javafx.util.Duration;
 
 public class View extends GameApplication {
 
@@ -45,12 +40,15 @@ public class View extends GameApplication {
     protected void initSettings(GameSettings settings) {
         settings.setTitle("Galactic Energies");
         settings.setVersion("0.2");
+        settings.getCSSList().add("ui.css");
         settings.setFullScreenAllowed(true);
         settings.setFullScreenFromStart(true);
         settings.setIntroEnabled(false);
+        settings.setMainMenuEnabled(true);
         settings.setProfilingEnabled(false);
         settings.setManualResizeEnabled(true);
         settings.setApplicationMode(ApplicationMode.DEVELOPER);
+        settings.setSceneFactory(new LoadingSceneFactory());
     }
 
     @Override
@@ -67,9 +65,19 @@ public class View extends GameApplication {
 
         if(getSettings().getApplicationMode() == ApplicationMode.RELEASE){
             MovementControllerJoyStick.movement();
+            ButtonController.movement();
         }else{
             MovementControllerDEV.movement();
         }
+
+        getInput().addAction(new UserAction("Dialog") {
+            @Override
+            protected void onActionBegin() {
+                // 1. get display service and use one of the show* methods
+                // this shows a dialog that only takes alphanumerical characters as input
+                getDialogService().showMessageBox("GAME END", getGameController()::exit);
+            }
+        }, KeyCode.F);
 
     }
 
@@ -87,6 +95,7 @@ public class View extends GameApplication {
 
     @Override
     protected void initGame() {
+
         getGameWorld().addEntityFactory(new GalacticEnergiesFactory());
         getGameScene().getRoot().setCursor(Cursor.NONE);
 

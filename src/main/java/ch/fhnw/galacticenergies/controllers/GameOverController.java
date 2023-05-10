@@ -6,6 +6,7 @@ import static javafx.application.Platform.exit;
 import ch.fhnw.galacticenergies.View;
 import com.almasb.fxgl.app.GameApplication;
 
+import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.*;
 import com.almasb.fxgl.entity.components.CollidableComponent;
 import com.almasb.fxgl.particle.ParticleComponent;
@@ -20,9 +21,9 @@ public class GameOverController {
     public static void showGameOver(){
         showConfirm("Game Over! You're Score was:  "+ (int)PowerController.getTotalPower()+" Restart?", yes -> {
             if (yes) {
-                //TODO restart game
+                FXGL.getGameController().startNewGame();
             } else {
-                exit();
+                FXGL.getGameController().gotoMainMenu();
             }
         });
 

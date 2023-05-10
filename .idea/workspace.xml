@@ -7,20 +7,69 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab62d768-cc0c-4eeb-a13d-050241538dc9" name="Changes" comment="Development mode added for movement &#10;created MovementControllerDEV&#10;created MovementControllerJoyStick">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/planet/planet1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/planet/planet2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/planet/planet3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/planet/planet4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/planet/planet5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/planet/planet6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/planet/planet7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/planet/planet8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/planet/planet9.png" afterDir="false" />
+    <list default="true" id="ab62d768-cc0c-4eeb-a13d-050241538dc9" name="Changes" comment="Button implementiert">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/controllers/ButtonController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/factories/LoadingSceneFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/menu/CutsceneTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/menu/IntroScene.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/menu/MainMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/text/intro.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/intro/Enemy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/intro/Rocket.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/intro/planet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/ui/css/ui.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/ArrowsComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/ArrowsComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/AsteroidComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/AsteroidComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/BackgroundStarsViewComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/BackgroundStarsViewComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/CheckpointComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/CheckpointComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/LifeComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/LifeComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/RocketComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/components/RocketComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/controllers/AsteroidController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/controllers/AsteroidController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/controllers/GameOverController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/controllers/GameOverController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/controllers/LevelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/controllers/LevelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/controllers/MovementControllerDEV.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/controllers/MovementControllerDEV.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/controllers/MovementControllerJoyStick.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/controllers/MovementControllerJoyStick.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/controllers/PowerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/controllers/PowerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/controllers/RocketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/controllers/RocketController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/controllers/SpeedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/controllers/SpeedController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/controllers/ViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/controllers/ViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/data/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/data/DBConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/data/PowerInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/data/PowerInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/data/SelectTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/data/SelectTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/events/GameEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/events/GameEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/factories/GalacticEnergiesFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/factories/GalacticEnergiesFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/kurbel/KrubelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/kurbel/KrubelTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/kurbel/Kurbel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/kurbel/Kurbel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/kurbel/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/fhnw/galacticenergies/kurbel/main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/textures/Rakete.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ch/fhnw/galacticenergies/images/Arrow1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ch/fhnw/galacticenergies/images/Arrow2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ch/fhnw/galacticenergies/images/Arrow3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ch/fhnw/galacticenergies/images/Dashboard Hoch.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ch/fhnw/galacticenergies/images/Rocket.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ch/fhnw/galacticenergies/images/SpaceBackground2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ch/fhnw/galacticenergies/images/SpaceMoving.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ch/fhnw/galacticenergies/images/SpaceMoving2.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ch/fhnw/galacticenergies/images/SpaceVideo.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ch/fhnw/galacticenergies/images/Spaceship.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ch/fhnw/galacticenergies/images/SteuerboardLevel1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ch/fhnw/galacticenergies/images/SteuerboardLevel10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ch/fhnw/galacticenergies/images/SteuerboardLevel11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ch/fhnw/galacticenergies/images/SteuerboardLevel12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ch/fhnw/galacticenergies/images/SteuerboardLevel13.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ch/fhnw/galacticenergies/images/SteuerboardLevel2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ch/fhnw/galacticenergies/images/SteuerboardLevel3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ch/fhnw/galacticenergies/images/SteuerboardLevel4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ch/fhnw/galacticenergies/images/SteuerboardLevel5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ch/fhnw/galacticenergies/images/SteuerboardLevel6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ch/fhnw/galacticenergies/images/SteuerboardLevel7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ch/fhnw/galacticenergies/images/SteuerboardLevel8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ch/fhnw/galacticenergies/images/SteuerboardLevel9.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +106,13 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="enabledProfiles">
+      <list>
+        <option value="remote-run" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectId" id="2HwDqpfYp4iYyx1lQoknE3dZvTQ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -65,26 +121,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Rinor/IdeaProjects/galactic-energies&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "Merging 79-f03-3-highscores-f03-5-nameseingabe",
+    "last_opened_file_path": "C:/Users/Rinor/IdeaProjects/galactic-energies",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\andre\IdeaProjects\galactic-energies\src\main\resources\assets\textures\bg" />
@@ -111,7 +168,7 @@
       <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager" selected="Maven.galactic-energies [install]">
+  <component name="RunManager" selected="Application.View">
     <configuration name="Ex" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ch.fhnw.galacticenergies.views.Ex" />
       <module name="galactic-energies" />
@@ -336,13 +393,40 @@
       <option name="project" value="LOCAL" />
       <updated>1677663844801</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Button implementiert">
+      <created>1683550199586</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1683550199586</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/FXGL_Hardware" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/master" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="7b4ba2be-9fda-4f43-881f-b92043787a2a">
@@ -369,26 +453,6 @@
         </entry>
       </map>
     </option>
-    <option name="RECENT_FILTERS">
-      <map>
-        <entry key="Branch">
-          <value>
-            <list>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="origin/FXGL_Hardware" />
-                </option>
-              </RecentGroup>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="origin/master" />
-                </option>
-              </RecentGroup>
-            </list>
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="javafx example" />
@@ -405,7 +469,8 @@
     <MESSAGE value="Arrows fixed, Asteroids auskommentiert" />
     <MESSAGE value="Kurbel test" />
     <MESSAGE value="Development mode added for movement &#10;created MovementControllerDEV&#10;created MovementControllerJoyStick" />
-    <option name="LAST_COMMIT_MESSAGE" value="Development mode added for movement &#10;created MovementControllerDEV&#10;created MovementControllerJoyStick" />
+    <MESSAGE value="Button implementiert" />
+    <option name="LAST_COMMIT_MESSAGE" value="Button implementiert" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
