@@ -153,7 +153,7 @@ public class MainMenu extends FXGLMenu {
         DBConnection c = new DBConnection();
         Connection conn = c.getConnection();
 
-        String result = "Leaderboard \nDate:             Score: \n";
+        String result = "Leaderboard All Time \nDate:             Score: \n";
 
         // Retrieve top 5 rows of total power production from the database and format them as a string
         try {
@@ -195,7 +195,7 @@ public class MainMenu extends FXGLMenu {
         DBConnection c = new DBConnection();
         Connection conn = c.getConnection();
 
-        String result = "Leaderboard \nDate:             Score: \n";
+        String result = "Leaderboard Today \nDate:             Score: \n";
 
         // Retrieve top 5 rows of total power production from the database and format them as a string
         try {
@@ -260,7 +260,7 @@ public class MainMenu extends FXGLMenu {
                 devicePower = rs2.getInt("power");
             }
             // Calculate the usage time for the device based on the total produced power and device power
-            result = result + "This equals to the Usage of a " + deviceName + " for: " + df.format(totalpower / devicePower) + "h";
+            result = result + "You could use a " + deviceName + " for: " + df.format(totalpower / devicePower) + "h";
 
             // Close the connection
             conn.close();

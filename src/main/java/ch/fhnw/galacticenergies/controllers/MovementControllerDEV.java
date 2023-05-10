@@ -46,9 +46,6 @@ public class MovementControllerDEV {
         }, KeyCode.UP);
 
 
-        onKeyDown(KeyCode.K, "kill", () -> {
-            GameOverController.showGameOver();
-        });
         if (!isReleaseMode()) {
             onKeyDown(KeyCode.L, "Next Level", LevelController :: nextLevel);
         }

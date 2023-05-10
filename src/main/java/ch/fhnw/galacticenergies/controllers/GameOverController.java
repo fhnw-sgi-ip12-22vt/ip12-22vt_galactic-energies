@@ -1,26 +1,52 @@
 package ch.fhnw.galacticenergies.controllers;
 
 import ch.fhnw.galacticenergies.data.DBConnection;
-import com.almasb.fxgl.dsl.FXGL;
+import com.almasb.fxgl.animation.Interpolators;
+import javafx.geometry.Point2D;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
+import javafx.util.Duration;
 
 import java.sql.*;
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 
-import static com.almasb.fxgl.dsl.FXGL.showConfirm;
+import static com.almasb.fxgl.dsl.FXGL.*;
+
 
 public class GameOverController {
 
-    public static void showGameOver () {
+    private static DecimalFormat df = new DecimalFormat("#.####");
 
-
-        showConfirm("Game Over! You're Score was:  " + (int) PowerController.getTotalPower() + " Restart?", yes -> {
-            writeHighscore();
-            if (yes) {
-                FXGL.getGameController().startNewGame();
-            } else {
-                FXGL.getGameController().gotoMainMenu();
-            }
-        });
+    public static void showGameOver() {
+        String score = df.format(PowerController.getTotalPower());
+        Text textLevel = getUIFactoryService().newText("Game Over \n" + "You're Score was: " + score + " Wh", Color.WHITE, 22);
+        textLevel.setEffect(new DropShadow(7, Color.BLACK));
+        textLevel.setOpacity(0);
+        centerText(textLevel);
+        textLevel.setTranslateY(250);
+        addUINode(textLevel);
+        animationBuilder()
+                .interpolator(Interpolators.SMOOTH.EASE_OUT())
+                .duration(Duration.seconds(3))
+                .onFinished(() -> {
+                    animationBuilder()
+                            .duration(Duration.seconds(3))
+                            .interpolator(Interpolators.EXPONENTIAL.EASE_IN())
+                            .onFinished(() -> {
+                                removeUINode(textLevel);
+                                writeHighscore();
+                                PowerController.setTotalPower(0);
+                                getGameController().gotoMainMenu();
+                            })
+                            .translate(textLevel)
+                            .from(new Point2D(textLevel.getTranslateX(), textLevel.getTranslateY()))
+                            .to(new Point2D(330, 540))
+                            .buildAndPlay();
+                })
+                .fadeIn(textLevel)
+                .buildAndPlay();
 
     }
 

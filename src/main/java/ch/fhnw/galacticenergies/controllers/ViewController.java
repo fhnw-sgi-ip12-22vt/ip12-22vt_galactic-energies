@@ -20,6 +20,7 @@ public class ViewController implements UIController {
 
     private final GameScene gameScene;
 
+
     public ViewController (GameScene gameScene) {
         this.gameScene = gameScene;
     }
@@ -37,7 +38,9 @@ public class ViewController implements UIController {
 
     public void loseLife () {
         if (lives.size() == 1) {
+
             GameOverController.showGameOver();
+            return;
         }
         Entity life = lives.get(lives.size() - 1);
         life.removeFromWorld();
