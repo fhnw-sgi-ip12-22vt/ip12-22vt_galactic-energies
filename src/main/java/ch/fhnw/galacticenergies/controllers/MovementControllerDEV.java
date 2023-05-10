@@ -7,28 +7,25 @@ import javafx.scene.input.KeyCode;
 
 import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.ARROWS;
 import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.DASHBOARD;
-import static com.almasb.fxgl.dsl.FXGL.getGameWorld;
-import static com.almasb.fxgl.dsl.FXGL.getInput;
-import static com.almasb.fxgl.dsl.FXGL.isReleaseMode;
-import static com.almasb.fxgl.dsl.FXGL.onKeyDown;
+import static com.almasb.fxgl.dsl.FXGL.*;
 
 public class MovementControllerDEV {
 
-    public MovementControllerDEV() {
+    public MovementControllerDEV () {
 
     }
 
 
-    public static void movement() {
+    public static void movement () {
         getInput().addAction(new UserAction("Move Down") {
             @Override
-            protected void onAction() {
+            protected void onAction () {
                 RocketController.getRocketControl().down();
                 getArrowsControl().buttonDownPressed();
             }
 
             @Override
-            protected void onActionEnd() {
+            protected void onActionEnd () {
                 RocketController.getRocketControl().stop();
                 getArrowsControl().noButtonPressed();
             }
@@ -36,13 +33,13 @@ public class MovementControllerDEV {
 
         getInput().addAction(new UserAction("Move Up") {
             @Override
-            protected void onAction() {
+            protected void onAction () {
                 RocketController.getRocketControl().up();
                 getArrowsControl().buttonUpPressed();
             }
 
             @Override
-            protected void onActionEnd() {
+            protected void onActionEnd () {
                 RocketController.getRocketControl().stop();
                 getArrowsControl().noButtonPressed();
             }
@@ -53,17 +50,17 @@ public class MovementControllerDEV {
             GameOverController.showGameOver();
         });
         if (!isReleaseMode()) {
-            onKeyDown(KeyCode.L, "Next Level", LevelController::nextLevel);
+            onKeyDown(KeyCode.L, "Next Level", LevelController :: nextLevel);
         }
 
 
     }
 
-    static DashboardComponent getDashboardControl() {
+    static DashboardComponent getDashboardControl () {
         return getGameWorld().getSingleton(DASHBOARD).getComponent(DashboardComponent.class);
     }
 
-    private static ArrowsComponent getArrowsControl() {
+    private static ArrowsComponent getArrowsControl () {
         return getGameWorld().getSingleton(ARROWS).getComponent(ArrowsComponent.class);
     }
 }

@@ -15,7 +15,7 @@ import static com.almasb.fxgl.dsl.FXGL.getGameWorld;
 
 public class RocketController {
 
-    public static RocketComponent getRocketControl() {
+    public static RocketComponent getRocketControl () {
         return getGameWorld().getSingleton(ROCKET).getComponent(RocketComponent.class);
     }
 

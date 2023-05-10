@@ -11,16 +11,16 @@ public class AsteroidComponent extends Component {
     private Point2D velocity = new Point2D(0, 0);
 
     @Override
-    public void onUpdate(double tpf) {
+    public void onUpdate (double tpf) {
         entity.translate(velocity.multiply(tpf));
         checkBorders();
     }
 
-    public void setVelocity(Point2D velocity) {
+    public void setVelocity (Point2D velocity) {
         this.velocity = velocity;
     }
 
-    private void checkBorders() {
+    private void checkBorders () {
         double x = entity.getX();
         double y = entity.getY();
         double width = entity.getWidth();
@@ -42,11 +42,11 @@ public class AsteroidComponent extends Component {
         }
     }
 
-    private double getAppWidth() {
+    private double getAppWidth () {
         return getGameScene().getAppWidth();
     }
 
-    private double getAppHeight() {
+    private double getAppHeight () {
         return getGameScene().getAppHeight();
     }
 }

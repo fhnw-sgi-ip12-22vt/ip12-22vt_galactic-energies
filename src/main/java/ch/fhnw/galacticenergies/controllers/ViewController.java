@@ -12,9 +12,7 @@ import javafx.util.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.almasb.fxgl.dsl.FXGL.getAppWidth;
-import static com.almasb.fxgl.dsl.FXGL.runOnce;
-import static com.almasb.fxgl.dsl.FXGL.spawn;
+import static com.almasb.fxgl.dsl.FXGL.*;
 
 public class ViewController implements UIController {
 
@@ -22,22 +20,22 @@ public class ViewController implements UIController {
 
     private final GameScene gameScene;
 
-    public ViewController(GameScene gameScene) {
+    public ViewController (GameScene gameScene) {
         this.gameScene = gameScene;
     }
 
     @Override
-    public void init() {
+    public void init () {
 
     }
 
-    public void addLife() {
+    public void addLife () {
         Entity life = spawn("life");
         lives.add(life);
         life.setX(getAppWidth() - lives.size() * 30);
     }
 
-    public void loseLife() {
+    public void loseLife () {
         if (lives.size() == 1) {
             GameOverController.showGameOver();
         }

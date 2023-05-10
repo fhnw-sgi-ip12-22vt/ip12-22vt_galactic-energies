@@ -18,38 +18,44 @@ import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.ARROWS;
 import static com.almasb.fxgl.dsl.FXGL.getGameWorld;
 
 public class MovementControllerJoyStick {
-    public static void movement() {
+
+
+    public static void movement () {
 
         final var piGpio = PiGpio.newNativeInstance();
         final var pi4j = Pi4J.newContextBuilder()
-            .noAutoDetect()
-            .add(new RaspberryPiPlatform() {
-                @Override
-                protected String[] getProviders() {
-                    return new String[] {};
-                }
-            })
-            .add(PiGpioDigitalInputProvider.newInstance(piGpio),
-                PiGpioDigitalOutputProvider.newInstance(piGpio),
-                PiGpioPwmProvider.newInstance(piGpio),
-                PiGpioSerialProvider.newInstance(piGpio),
-                PiGpioSpiProvider.newInstance(piGpio),
-                LinuxFsI2CProvider.newInstance()
-            )
-            .build();
+                .noAutoDetect()
+                .add(new RaspberryPiPlatform() {
+                    @Override
+                    protected String[] getProviders () {
+                        return new String[] {};
+                    }
+                })
+                .add(PiGpioDigitalInputProvider.newInstance(piGpio),
+                        PiGpioDigitalOutputProvider.newInstance(piGpio),
+                        PiGpioPwmProvider.newInstance(piGpio),
+                        PiGpioSerialProvider.newInstance(piGpio),
+                        PiGpioSpiProvider.newInstance(piGpio),
+                        LinuxFsI2CProvider.newInstance()
+                )
+                .build();
 
         final var joystick = new Joystick(pi4j, PIN.D5, PIN.D6, PIN.PWM13, PIN.PWM19, PIN.D26);
 
 
         joystick.whileNorth(5, () -> {
             Platform.runLater(() -> {
+                System.out.println("north!!!!!");
                 RocketController.getRocketControl().up();
                 getArrowsControl().buttonUpPressed();
             });
+
+
         });
 
         joystick.whileSouth(5, () -> {
             Platform.runLater(() -> {
+                System.out.println("south!!!!!");
                 RocketController.getRocketControl().down();
                 getArrowsControl().buttonDownPressed();
             });
@@ -58,7 +64,7 @@ public class MovementControllerJoyStick {
 
     }
 
-    private static ArrowsComponent getArrowsControl() {
+    private static ArrowsComponent getArrowsControl () {
         return getGameWorld().getSingleton(ARROWS).getComponent(ArrowsComponent.class);
     }
 }
