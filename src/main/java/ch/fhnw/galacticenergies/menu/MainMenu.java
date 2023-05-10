@@ -115,7 +115,7 @@ public class MainMenu extends FXGLMenu {
         animation.setOnFinished(EmptyRunnable.INSTANCE);
         animation.stop();
         animation.start();
-        id = (int) (Math.random() * (14 - 1)) + 1;
+        id = (int) (Math.random() * (31 - 15)) + 15;
 
         getContentRoot().getChildren().removeAll(leaderboardAllTime, leaderboardToday, allTime);
         createLeaderboardAllTime();
