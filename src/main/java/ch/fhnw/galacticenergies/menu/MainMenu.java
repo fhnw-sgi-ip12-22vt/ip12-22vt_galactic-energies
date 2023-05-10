@@ -27,6 +27,7 @@ import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
+import java.time.LocalDate;
 
 import static com.almasb.fxgl.dsl.FXGLForKtKt.getAssetLoader;
 
@@ -39,7 +40,8 @@ import static com.almasb.fxgl.dsl.FXGLForKtKt.getAssetLoader;
 public class MainMenu extends FXGLMenu {
 
     private Animation<?> animation;
-    private static Label leaderboard;
+    private static Label leaderboardAllTime;
+    private static Label leaderboardToday;
 
     private static Label allTime;
 
@@ -115,10 +117,11 @@ public class MainMenu extends FXGLMenu {
         animation.start();
         id = (int) (Math.random() * (14 - 1)) + 1;
 
-        getContentRoot().getChildren().removeAll(leaderboard, allTime);
-        createLeaderboard();
+        getContentRoot().getChildren().removeAll(leaderboardAllTime, leaderboardToday, allTime);
+        createLeaderboardAllTime();
+        createLeaderboardToday();
         createAllTime();
-        getContentRoot().getChildren().addAll(leaderboard, allTime);
+        getContentRoot().getChildren().addAll(leaderboardAllTime, leaderboardToday, allTime);
 
 
         // getContentRoot().getChildren().add(createLeaderboard());
@@ -132,19 +135,18 @@ public class MainMenu extends FXGLMenu {
     @Override
     protected void onUpdate(double tpf) {
 
-
         animation.onUpdate(tpf);
     }
 
     /**
      * Create leaderboard label with styling and positioning
      */
-    public void createLeaderboard() {
+    public void createLeaderboardAllTime() {
 
         Label leaderboard = new Label();
         leaderboard.getStyleClass().add("leaderboard");
         leaderboard.setWrapText(true);
-        leaderboard.setLayoutX(getAppWidth() * 0.3);
+        leaderboard.setLayoutX(getAppWidth() * 0.2);
         leaderboard.setLayoutY(getAppHeight() * 0.25);
 
         // Establish a connection to the database
@@ -174,7 +176,49 @@ public class MainMenu extends FXGLMenu {
         }
 
         leaderboard.setText(result);
-        this.leaderboard = leaderboard;
+        this.leaderboardAllTime = leaderboard;
+
+    }
+
+    /**
+     * Create leaderboard label with styling and positioning
+     */
+    public void createLeaderboardToday() {
+
+        Label leaderboard = new Label();
+        leaderboard.getStyleClass().add("leaderboard");
+        leaderboard.setWrapText(true);
+        leaderboard.setLayoutX(getAppWidth() * 0.55);
+        leaderboard.setLayoutY(getAppHeight() * 0.25);
+
+        // Establish a connection to the database
+        DBConnection c = new DBConnection();
+        Connection conn = c.getConnection();
+
+        String result = "Leaderboard \nDate:             Score: \n";
+
+        // Retrieve top 5 rows of total power production from the database and format them as a string
+        try {
+            System.out.println(Date.valueOf(LocalDate.now()));
+            ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM totalpower WHERE date = curdate() ORDER BY producedpower DESC LIMIT 5");
+
+            while (rs.next()) {
+                Date date = rs.getDate("date");
+                Double power = rs.getDouble("producedpower");
+
+                result = result + date + "   " + df.format(power) + "  Wh \n";
+            }
+
+            conn.close();
+
+            // Catch any SQL exceptions, print error message and rethrow as RuntimeException
+        } catch (SQLException e) {
+            System.err.println(e);
+            throw new RuntimeException(e);
+        }
+
+        leaderboard.setText(result);
+        this.leaderboardToday = leaderboard;
 
     }
 
@@ -185,7 +229,7 @@ public class MainMenu extends FXGLMenu {
         Label allTime = new Label();
         allTime.getStyleClass().add("leaderboard");
         allTime.setWrapText(true);
-        allTime.setLayoutX(getAppWidth() * 0.3);
+        allTime.setLayoutX(getAppWidth() * 0.2);
         allTime.setLayoutY(getAppHeight() * 0.75);
 
         // Establish a connection to the database
@@ -243,7 +287,7 @@ public class MainMenu extends FXGLMenu {
 
         // rocketIntro.getChildren().addAll(new ImageView(imageRocket),textRocket);
 
-        getContentRoot().getChildren().removeAll(allTime, leaderboard);
+        getContentRoot().getChildren().removeAll(allTime, leaderboardAllTime);
         rocketIntro.addRow(1, new ImageView(imageRocket), textRocket);
         getContentRoot().getChildren().add(rocketIntro);
 
