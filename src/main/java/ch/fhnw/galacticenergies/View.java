@@ -44,7 +44,7 @@ public class View extends GameApplication {
         settings.setMainMenuEnabled(true);
         settings.setProfilingEnabled(false);
         settings.setManualResizeEnabled(true);
-        settings.setApplicationMode(ApplicationMode.DEVELOPER);
+        settings.setApplicationMode(ApplicationMode.RELEASE);
         settings.setSceneFactory(new LoadingSceneFactory());
     }
 

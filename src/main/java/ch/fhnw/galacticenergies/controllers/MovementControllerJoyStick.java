@@ -46,8 +46,6 @@ public class MovementControllerJoyStick {
                 RocketController.getRocketControl().up();
                 getArrowsControl().buttonUpPressed();
             });
-
-
         });
 
         joystick.whileSouth(5, () -> {
