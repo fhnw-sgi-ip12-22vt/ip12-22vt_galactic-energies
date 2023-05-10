@@ -30,22 +30,10 @@ public class View extends GameApplication {
 
     private ViewController uiController;
 
-    /**
-     * The main method that launches the application
-     *
-     * @param args
-     */
-    public static void main (String[] args) {
-        launch(args);
-    }
 
-    /**
-     * Initializes the game settings
-     *
-     * @param settings
-     */
+
     @Override
-    protected void initSettings (GameSettings settings) {
+    protected void initSettings(GameSettings settings) {
         settings.setTitle("Galactic Energies");
         settings.setVersion("0.2");
         settings.getCSSList().add("ui.css");
@@ -55,44 +43,28 @@ public class View extends GameApplication {
         settings.setMainMenuEnabled(true);
         settings.setProfilingEnabled(false);
         settings.setManualResizeEnabled(true);
-        settings.setApplicationMode(ApplicationMode.DEVELOPER);
+        settings.setApplicationMode(ApplicationMode.RELEASE);
         settings.setSceneFactory(new LoadingSceneFactory());
     }
 
-    /*
-     * Sets the global music and sound volume and registers an event handler
-     */
     @Override
-    protected void onPreInit () {
+    protected void onPreInit() {
         getSettings().setGlobalMusicVolume(0.5);
         getSettings().setGlobalSoundVolume(0.5);
 
 
-        onEvent(GameEvent.ASTEROID_GOT_HIT, AsteroidController :: onAsteroidHit);
+        onEvent(GameEvent.ASTEROID_GOT_HIT, AsteroidController::onAsteroidHit);
     }
 
-    /**
-     * Initializes the input
-     */
     @Override
-    protected void initInput () {
+    protected void initInput() {
 
-        if (getSettings().getApplicationMode() == ApplicationMode.RELEASE) {
-            MovementControllerJoyStick.movement();
-            ButtonController.movement();
-        } else {
-            MovementControllerDEV.movement();
-        }
+        MovementControllerDEV.movement();
 
     }
 
-    /**
-     * Initializes game variables
-     *
-     * @param vars
-     */
     @Override
-    protected void initGameVars (Map<String, Object> vars) {
+    protected void initGameVars(Map<String, Object> vars) {
         vars.put("lives", 5);
         vars.put("speed", 0);
         vars.put("amountAsteroids", 5);
@@ -100,38 +72,33 @@ public class View extends GameApplication {
         vars.put("totalEnergy", 0);
         vars.put("level", STARTING_LEVEL);
         vars.put("asteroidsKilled", 0);
-        vars.put("amountPlanet", 1);
+        vars.put("amountPlanet",1);
     }
 
-    /**
-     * Initializes the game world, scene and entities
-     */
     @Override
-    protected void initGame () {
+    protected void initGame() {
 
         getGameWorld().addEntityFactory(new GalacticEnergiesFactory());
         getGameScene().getRoot().setCursor(Cursor.NONE);
 
         initBackground();
-        if (ApplicationMode.RELEASE == getSettings().getApplicationMode()) {
+        if(ApplicationMode.RELEASE == getSettings().getApplicationMode()){
             PowerInput.initPower();
         }
         PowerInput.powerLoop();
         PowerController.initText();
 
 
+
     }
 
-    /**
-     * Adds collision handler for rocket and asteroid entities
-     */
     @Override
-    protected void initPhysics () {
-        FXGL.getPhysicsWorld().addCollisionHandler(new CollisionHandler(ROCKET, ASTEROID) {
+    protected void initPhysics() {
+       FXGL.getPhysicsWorld().addCollisionHandler(new CollisionHandler(ROCKET, ASTEROID) {
 
             // order of types is the same as passed into the constructor
             @Override
-            protected void onCollisionBegin (Entity ROCKET, Entity ASTEROID) {
+            protected void onCollisionBegin(Entity ROCKET, Entity ASTEROID) {
                 ASTEROID.removeFromWorld();
                 uiController.loseLife();
 
@@ -139,12 +106,7 @@ public class View extends GameApplication {
         });
     }
 
-    /**
-     * Set the background color to black and spawn a background entity
-     * Create and attach wall entities around the screen bounds with a thickness of 40 pixels
-     */
-
-    private void initBackground () {
+    private void initBackground() {
         getGameScene().setBackgroundColor(Color.BLACK);
         spawn("background");
 
@@ -156,17 +118,14 @@ public class View extends GameApplication {
 
     }
 
-    /**
-     * Initializes user interface
-     */
     @Override
-    protected void initUI () {
+    protected void initUI() {
         spawn("dashboard");
         spawn("arrows");
         IntStream.range(0, geti("amountAsteroids"))
-                .forEach(i -> spawn("asteroid"));
+                        .forEach( i -> spawn("asteroid"));
         IntStream.range(0, geti("amountPlanet"))
-                .forEach(i -> spawn("planet"));
+            .forEach( i -> spawn("planet"));
         getArrowsControl().noButtonPressed();
 
         AsteroidController asteroidController = new AsteroidController();
@@ -185,31 +144,22 @@ public class View extends GameApplication {
 
     }
 
-    /**
-     * Returns the DashboardComponent from the singleton object created by the DASHBOARD key
-     *
-     * @return
-     */
-    private DashboardComponent getDashboardControl () {
+
+
+    private DashboardComponent getDashboardControl() {
 
         return getGameWorld().getSingleton(DASHBOARD).getComponent(DashboardComponent.class);
     }
 
-    /**
-     * Returns the ArrowsComponent from the singleton object created by the ARROWS key
-     *
-     * @return
-     */
-    private ArrowsComponent getArrowsControl () {
+    private ArrowsComponent getArrowsControl() {
         return getGameWorld().getSingleton(ARROWS).getComponent(ArrowsComponent.class);
     }
 
-    /**
-     * Returns the LifeComponent from the singleton object created by the LIFE key
-     *
-     * @return
-     */
-    private LifeComponent getLifeComponent () {
+    private LifeComponent getLifeComponent() {
         return getGameWorld().getSingleton(LIFE).getComponent(LifeComponent.class);
+    }
+
+    public static void main(String[] args) {
+        launch(args);
     }
 }

@@ -29,7 +29,7 @@ public class MovementControllerDEV {
                 RocketController.getRocketControl().stop();
                 getArrowsControl().noButtonPressed();
             }
-        }, KeyCode.S);
+        }, KeyCode.DOWN);
 
         getInput().addAction(new UserAction("Move Up") {
             @Override
@@ -43,7 +43,7 @@ public class MovementControllerDEV {
                 RocketController.getRocketControl().stop();
                 getArrowsControl().noButtonPressed();
             }
-        }, KeyCode.W);
+        }, KeyCode.UP);
 
 
         onKeyDown(KeyCode.K, "kill", () -> {
