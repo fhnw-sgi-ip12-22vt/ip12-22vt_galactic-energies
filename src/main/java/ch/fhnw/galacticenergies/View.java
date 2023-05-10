@@ -76,13 +76,7 @@ public class View extends GameApplication {
      */
     @Override
     protected void initInput () {
-
-        if (getSettings().getApplicationMode() == ApplicationMode.RELEASE) {
-            MovementControllerJoyStick.movement();
-            ButtonController.movement();
-        } else {
-            MovementControllerDEV.movement();
-        }
+        MovementControllerDEV.movement();
 
     }
 
