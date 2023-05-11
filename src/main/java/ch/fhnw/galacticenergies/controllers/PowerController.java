@@ -31,12 +31,12 @@ public class PowerController {
     public static void calcPower() {
         if(ViewController.isPaused()) return;
 
-        totalPower = totalPower + (currentPower / 3.6);
-        text.setText("Current: " + (int) PowerController.getCurrentPower() + "W per Hour Total: " +
-            (int) PowerController.getTotalPower() + " Wh");
+        totalPower = totalPower + (currentPower / 3600);
+        text.setText("Current: " + (int) currentPower + "W per Hour Total: " + df.format(totalPower) + " Wh");
+
     }
 
-    public static void initText() {
+    public static void initText () {
         text = new Text("Current: " + 0 + "W per Hour Total: " + 0.0000 + " Wh");
         text.setTranslateX(10);
         text.setTranslateY(30);
@@ -44,6 +44,7 @@ public class PowerController {
         text.setFill(Color.WHITE);
         getGameScene().addUINode(text);
     }
+
 
     /**
      * Getter for currentPower
