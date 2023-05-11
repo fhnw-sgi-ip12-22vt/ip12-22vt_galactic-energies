@@ -13,6 +13,9 @@ import static com.almasb.fxgl.dsl.FXGL.*;
 import static java.lang.Math.abs;
 import static java.lang.Math.signum;
 
+import static com.almasb.fxgl.dsl.FXGL.getGameScene;
+import static com.almasb.fxgl.dsl.FXGL.texture;
+
 public class CheckpointComponent extends Component {
     private static final int BALL_MIN_SPEED = 400;
     private static final float BOUNCE_FACTOR = 1.2f;
@@ -22,7 +25,7 @@ public class CheckpointComponent extends Component {
     private float r1;
     private float r2;
 
-    public CheckpointComponent () {
+    public CheckpointComponent() {
 
         for (int i = 1; i < 10; i++) {
             planetImages.add(texture("planet/planet" + i + ".png"));

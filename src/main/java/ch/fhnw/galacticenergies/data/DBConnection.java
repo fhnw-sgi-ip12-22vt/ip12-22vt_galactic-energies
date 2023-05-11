@@ -19,7 +19,6 @@ public class DBConnection {
 
         } catch (SQLException e) {
             // handle the exception
-            System.out.println(" Error");
             System.err.println(e);
         }
         return conn;

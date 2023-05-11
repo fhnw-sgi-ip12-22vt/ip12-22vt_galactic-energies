@@ -14,5 +14,3 @@
 
 3.image = intro/planet.png
 3: planet
-
-

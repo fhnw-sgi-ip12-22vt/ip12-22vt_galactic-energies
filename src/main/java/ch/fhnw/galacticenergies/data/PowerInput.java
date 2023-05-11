@@ -29,14 +29,14 @@ public class PowerInput {
     /**
      * initializes Pi4j providers & configurates the required registers
      */
-    public static void initPower () {
+    public static void initPower() {
         final var piGpio = PiGpio.newNativeInstance();
         final var pi4j = Pi4J.newContextBuilder()
                 .noAutoDetect()
                 .add(new RaspberryPiPlatform() {
                     @Override
-                    protected String[] getProviders () {
-                        return new String[] {};
+                    protected String[] getProviders() {
+                        return new String[]{};
                     }
                 })
                 .add(PiGpioDigitalInputProvider.newInstance(piGpio),
@@ -56,16 +56,14 @@ public class PowerInput {
     /**
      * Loop in which the Power currently measured by the INA219 is read and transferred to the PowerController
      */
-    public static void powerLoop () {
+    public static void powerLoop() {
         getGameTimer().runAtInterval(() -> {
-
-                    if (ApplicationMode.RELEASE == getSettings().getApplicationMode()) {
-                        PowerController.setCurrentPower(k.readPowerRegister());
-                    } else {
-                        PowerController.setCurrentPower(26);
-                    }
-                }
-                , Duration.seconds(1));
+            if (ApplicationMode.RELEASE == getSettings().getApplicationMode()) {
+                PowerController.setCurrentPower(k.readPowerRegister());
+            } else {
+                PowerController.setCurrentPower(26);
+            }
+        }, Duration.seconds(1));
     }
 }
 

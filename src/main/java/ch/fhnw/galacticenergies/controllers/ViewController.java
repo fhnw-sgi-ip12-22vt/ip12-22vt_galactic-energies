@@ -14,31 +14,40 @@ import java.util.List;
 
 import static com.almasb.fxgl.dsl.FXGL.*;
 
+/**
+ * Defines all visuals of the game
+ *
+ * @version 1.0
+ */
+
 public class ViewController implements UIController {
 
     private final List<Entity> lives = new ArrayList<>();
-
     private final GameScene gameScene;
+    private static boolean paused = false;
 
-
-    public ViewController (GameScene gameScene) {
+    public ViewController(GameScene gameScene) {
         this.gameScene = gameScene;
     }
 
     @Override
-    public void init () {
-
+    public void init() {
     }
 
-    public void addLife () {
+    /**
+     * Adds a life to the life-dashboard
+     */
+    public void addLife() {
         Entity life = spawn("life");
         lives.add(life);
         life.setX(getAppWidth() - lives.size() * 30);
     }
 
-    public void loseLife () {
-        if (lives.size() == 1) {
-
+    /**
+     * Removes a life on the life-dashboard
+     */
+    public void loseLife() {
+        if(lives.size() == 1){
             GameOverController.showGameOver();
             return;
         }
@@ -46,15 +55,17 @@ public class ViewController implements UIController {
         life.removeFromWorld();
         lives.remove(life);
 
-
         Viewport viewport = gameScene.getViewport();
-
         Node flash = new Rectangle(viewport.getWidth(), viewport.getHeight(), Color.rgb(190, 10, 15, 0.5));
-
         gameScene.addUINode(flash);
-
         runOnce(() -> gameScene.removeUINode(flash), Duration.seconds(1));
     }
 
+    public static boolean isPaused() {
+        return paused;
+    }
 
+    public static void setPaused(boolean paused) {
+        ViewController.paused = paused;
+    }
 }

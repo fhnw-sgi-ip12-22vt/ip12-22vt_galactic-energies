@@ -11,15 +11,14 @@ import com.pi4j.plugin.pigpio.provider.spi.PiGpioSpiProvider;
 import com.pi4j.plugin.raspberrypi.platform.RaspberryPiPlatform;
 
 public class KrubelTest {
-    public static void main (String[] args) {
-        System.out.println("start");
+    public static void main(String[] args) {
         final var piGpio = PiGpio.newNativeInstance();
         final var pi4j = Pi4J.newContextBuilder()
                 .noAutoDetect()
                 .add(new RaspberryPiPlatform() {
                     @Override
-                    protected String[] getProviders () {
-                        return new String[] {};
+                    protected String[] getProviders() {
+                        return new String[]{};
                     }
                 })
                 .add(PiGpioDigitalInputProvider.newInstance(piGpio),
@@ -30,19 +29,9 @@ public class KrubelTest {
                         LinuxFsI2CProvider.newInstance()
                 )
                 .build();
-        System.out.println("kurbel");
-
 
         Kurbel k = new Kurbel(pi4j);
         k.writeConfigurationRegister();
         k.writeCalibrationRegister();
-
-        System.out.println(k.readCalibrationRegister());
-
-        while (1 == 1) {
-            System.out.println(k.readPowerRegister());
-            System.out.println();
-        }
-
     }
 }

@@ -42,11 +42,6 @@ public class ButtonController {
 
         final var button = new SimpleButton(pi4j, PIN.PWM18, false);
 
-
-        button.onDown(() -> System.out.println("Pressing the button"));
-        button.whilePressed(() -> System.out.println("Pressing"), 1000);
-        button.onUp(() -> System.out.println("Stopped pressing."));
-
 // Wait for 15 seconds while handling events before exiting
 
 // Unregister all event handlers to exit this application in a clean way

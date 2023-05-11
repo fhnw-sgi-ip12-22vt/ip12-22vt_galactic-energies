@@ -66,7 +66,8 @@ public class MainMenu extends FXGLMenu {
         // Create HBox for title, set its width to the app width, align to center and position it on Y axis
         HBox titleHBox = new HBox(title);
         titleHBox.setPrefWidth(getAppWidth());
-        titleHBox.setAlignment(Pos.CENTER); titleHBox.setTranslateY(50);
+        titleHBox.setAlignment(Pos.CENTER);
+        titleHBox.setTranslateY(50);
 
         // Create Play button, add custom style class, and set its on-click action to fireNewGame()
         Button btnPlay = new Button("Play");
@@ -134,7 +135,6 @@ public class MainMenu extends FXGLMenu {
      */
     @Override
     protected void onUpdate(double tpf) {
-
         animation.onUpdate(tpf);
     }
 
@@ -199,7 +199,6 @@ public class MainMenu extends FXGLMenu {
 
         // Retrieve top 5 rows of total power production from the database and format them as a string
         try {
-            System.out.println(Date.valueOf(LocalDate.now()));
             ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM totalpower WHERE date = curdate() ORDER BY producedpower DESC LIMIT 5");
 
             while (rs.next()) {
@@ -300,7 +299,3 @@ public class MainMenu extends FXGLMenu {
     }
 
 }
-
-
-
-
