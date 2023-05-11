@@ -10,6 +10,7 @@ import ch.fhnw.galacticenergies.factories.GalacticEnergiesFactory;
 import com.almasb.fxgl.app.ApplicationMode;
 import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.app.GameSettings;
+import com.almasb.fxgl.core.concurrent.Executor;
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.entity.components.IrremovableComponent;
@@ -18,6 +19,10 @@ import javafx.scene.Cursor;
 import javafx.scene.paint.Color;
 
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.logging.Level;
 import java.util.stream.IntStream;
 
 import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.*;
@@ -29,7 +34,6 @@ public class View extends GameApplication {
 
     private ViewController uiController;
     public static LevelController levelController = new LevelController();
-
     public static AsteroidController asteroidController = new AsteroidController();
 
     @Override
@@ -89,7 +93,7 @@ public class View extends GameApplication {
         PowerController.initText();
 
         levelController.setUiTextLevel(getUIFactoryService().newText("", Color.WHITE, 22));
-        levelController.nextLevel();
+        //levelController.nextLevel();
 
     }
 
@@ -107,33 +111,23 @@ public class View extends GameApplication {
         getPhysicsWorld().addCollisionHandler(new CollisionHandler(ROCKET, PLANET) {
             @Override
             protected void onCollisionBegin(Entity ROCKET, Entity PLANET) {
+                ViewController.setPaused(true);
                 PLANET.removeFromWorld();
                 asteroidController.removeAllAsteroids();
-                ViewController.setPaused(true);
-
-                playInCutscene(() -> {
-                    spawn("LevelInfo");
-                });
-
-                //ViewController.setPaused(false);
+                levelController.nextLevel();
             }
         });
     }
-
-    private void playInCutscene(Runnable onFinished) {
-        LevelController.playInCutscene(onFinished);
-    }
-
 
     private void initBackground() {
         getGameScene().setBackgroundColor(Color.BLACK);
         spawn("background");
 
         entityBuilder()
-                .type(WALL)
-                .collidable()
-                .with(new IrremovableComponent())
-                .buildScreenBoundsAndAttach(40);
+            .type(WALL)
+            .collidable()
+            .with(new IrremovableComponent())
+            .buildScreenBoundsAndAttach(40);
 
     }
 
@@ -142,9 +136,9 @@ public class View extends GameApplication {
         spawn("dashboard");
         spawn("arrows");
         IntStream.range(0, geti("amountAsteroids"))
-                .forEach(i -> spawn("asteroid"));
+            .forEach(i -> spawn("asteroid"));
         IntStream.range(0, geti("amountPlanet"))
-                .forEach(i -> spawn("planet"));
+            .forEach(i -> spawn("planet"));
         getArrowsControl().noButtonPressed();
 
         asteroidController.init();
@@ -156,7 +150,7 @@ public class View extends GameApplication {
         uiController = new ViewController(FXGL.getGameScene());
 
         IntStream.range(0, geti("lives"))
-                .forEach(i -> uiController.addLife());
+            .forEach(i -> uiController.addLife());
 
     }
 

@@ -34,8 +34,6 @@ public class LevelController {
 
         uiTextLevel.setVisible(false);
 
-        inc("level", +1);
-
         Text textLevel = getUIFactoryService().newText("Level " + geti("level"), Color.WHITE, 22);
         textLevel.setEffect(new DropShadow(7, Color.BLACK));
         textLevel.setOpacity(0);
@@ -46,27 +44,24 @@ public class LevelController {
         addUINode(textLevel);
 
         animationBuilder()
-                .interpolator(Interpolators.SMOOTH.EASE_OUT())
-                .duration(Duration.seconds(1.66))
-                .onFinished(() -> {
-                    animationBuilder()
-                            .duration(Duration.seconds(1.66))
-                            .interpolator(Interpolators.EXPONENTIAL.EASE_IN())
-                            .onFinished(() -> {
-                                removeUINode(textLevel);
-                                uiTextLevel.setVisible(true);
-                            })
-                            .translate(textLevel)
-                            .from(new Point2D(textLevel.getTranslateX(), textLevel.getTranslateY()))
-                            .to(new Point2D(330, 540))
-                            .build();
-                })
-                .fadeIn(textLevel)
-                .build();
-    }
-
-    public static void playInCutscene(Runnable onFinished) {
-
+            .interpolator(Interpolators.SMOOTH.EASE_OUT())
+            .duration(Duration.seconds(1.66))
+            .onFinished(() -> {
+                animationBuilder()
+                    .duration(Duration.seconds(1.66))
+                    .interpolator(Interpolators.EXPONENTIAL.EASE_IN())
+                    .onFinished(() -> {
+                        removeUINode(textLevel);
+                        uiTextLevel.setVisible(true);
+                        ViewController.setPaused(false);
+                    })
+                    .translate(textLevel)
+                    .from(new Point2D(textLevel.getTranslateX(), textLevel.getTranslateY()))
+                    .to(new Point2D(330, 540))
+                    .buildAndPlay();
+            })
+            .fadeIn(textLevel)
+            .buildAndPlay();
     }
 
     public static void setLevel(int level) {
