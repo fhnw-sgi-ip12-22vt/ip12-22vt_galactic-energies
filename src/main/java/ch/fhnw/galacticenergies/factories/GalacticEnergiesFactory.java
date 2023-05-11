@@ -125,7 +125,6 @@ public class GalacticEnergiesFactory implements EntityFactory {
         texture.setPreserveRatio(true);
         texture.setFitHeight(20);
         texture.setFitWidth(20);
-        System.out.println(texture.getFitWidth());
         return entityBuilder(data)
                 .type(ARROWS)
                 .at(getAppWidth() / 2 - texture.getFitWidth() / 1.5, getAppHeight() - texture.getHeight() / 2)
@@ -141,7 +140,6 @@ public class GalacticEnergiesFactory implements EntityFactory {
     public Entity newAsteroid(SpawnData data) {
         Random r = new Random();
         Texture texture = texture("asteroids/Enemy" + r.nextInt(1, 4) + ".png");
-        System.out.println(r.nextInt(1, 4));
         texture.setScaleX(0.5);
         texture.setScaleY(0.5);
         Point2D velocity = new Point2D(r.nextFloat(-100, -75),

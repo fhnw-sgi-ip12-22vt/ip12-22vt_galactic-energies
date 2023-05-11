@@ -23,8 +23,6 @@ public class SelectTest {
                 long id = rs.getLong("idenergydata");
                 String name = rs.getString("devicename");
                 String lastName = rs.getString("power");
-
-                System.out.println(id + name + lastName);
             }
             // do something with the extracted data...
 

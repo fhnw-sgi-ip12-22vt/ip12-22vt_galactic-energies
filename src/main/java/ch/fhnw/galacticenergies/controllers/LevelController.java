@@ -1,5 +1,7 @@
 package ch.fhnw.galacticenergies.controllers;
 
+import ch.fhnw.galacticenergies.components.AsteroidComponent;
+import ch.fhnw.galacticenergies.components.CheckpointComponent;
 import ch.fhnw.galacticenergies.data.DBConnection;
 import com.almasb.fxgl.animation.Interpolators;
 import javafx.geometry.Point2D;
@@ -88,14 +90,12 @@ public class LevelController {
             conn = c.getConnection();
 
             double totalPower = PowerController.getTotalPower();
-            System.out.println("ABS");
             PreparedStatement stmt = conn.prepareStatement("SELECT * FROM energydata ORDER BY ABS(power - ?) LIMIT 1");
             stmt.setInt(1, (int) totalPower);
             ResultSet rs = stmt.executeQuery();
             rs.next();
             int power = rs.getInt("power");
             String deviceName = rs.getString("devicename");
-            System.out.println(power);
             checkpointText = "You could use a " + deviceName + " for: " + df.format(totalPower / power) + "h";
         } catch (Exception e) {
             e.printStackTrace();
@@ -108,4 +108,8 @@ public class LevelController {
         }
         return checkpointText;
     }
+    public void removeAllCheckpoints() {
+        getGameWorld().removeEntities(getGameWorld().getEntitiesByComponent(CheckpointComponent.class));
+    }
+
 }
