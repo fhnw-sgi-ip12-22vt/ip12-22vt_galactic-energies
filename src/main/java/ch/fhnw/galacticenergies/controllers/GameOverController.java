@@ -1,5 +1,6 @@
 package ch.fhnw.galacticenergies.controllers;
 
+import ch.fhnw.galacticenergies.View;
 import ch.fhnw.galacticenergies.data.DBConnection;
 import com.almasb.fxgl.animation.Interpolators;
 import javafx.geometry.Point2D;
@@ -20,6 +21,10 @@ public class GameOverController {
     private static DecimalFormat df = new DecimalFormat("#.####");
 
     public static void showGameOver() {
+        ViewController.setPaused(true);
+        View.asteroidController.removeAllAsteroids();
+        View.levelController.removeAllCheckpoints();
+
         String score = df.format(PowerController.getTotalPower());
         Text textLevel = getUIFactoryService().newText("Game Over \n" + "You're Score was: " + score + " Wh", Color.WHITE, 22);
         textLevel.setEffect(new DropShadow(7, Color.BLACK));

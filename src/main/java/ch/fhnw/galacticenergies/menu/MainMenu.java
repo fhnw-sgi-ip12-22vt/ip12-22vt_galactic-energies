@@ -199,7 +199,6 @@ public class MainMenu extends FXGLMenu {
 
         // Retrieve top 5 rows of total power production from the database and format them as a string
         try {
-            System.out.println(Date.valueOf(LocalDate.now()));
             ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM totalpower WHERE date = curdate() ORDER BY producedpower DESC LIMIT 5");
 
             while (rs.next()) {

@@ -1,5 +1,6 @@
 package ch.fhnw.galacticenergies.controllers;
 
+import ch.fhnw.galacticenergies.components.AsteroidComponent;
 import ch.fhnw.galacticenergies.enums.GalacticEnergiesType;
 import ch.fhnw.galacticenergies.events.GameEvent;
 import javafx.util.Duration;
