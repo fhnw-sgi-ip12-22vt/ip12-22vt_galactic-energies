@@ -7,6 +7,7 @@ import ch.fhnw.galacticenergies.controllers.*;
 import ch.fhnw.galacticenergies.data.PowerInput;
 import ch.fhnw.galacticenergies.events.GameEvent;
 import ch.fhnw.galacticenergies.factories.GalacticEnergiesFactory;
+import ch.fhnw.galacticenergies.factories.LoadingSceneFactory;
 import com.almasb.fxgl.app.ApplicationMode;
 import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.app.GameSettings;
@@ -35,12 +36,15 @@ public class View extends GameApplication {
     protected void initSettings(GameSettings settings) {
         settings.setTitle("Galactic Energies");
         settings.setVersion("0.2");
+        settings.getCSSList().add("ui.css");
         settings.setFullScreenAllowed(true);
         settings.setFullScreenFromStart(true);
         settings.setIntroEnabled(false);
+        settings.setMainMenuEnabled(true);
         settings.setProfilingEnabled(false);
         settings.setManualResizeEnabled(true);
-        settings.setApplicationMode(ApplicationMode.DEVELOPER);
+        settings.setApplicationMode(ApplicationMode.RELEASE);
+        settings.setSceneFactory(new LoadingSceneFactory());
     }
 
     @Override
@@ -54,13 +58,7 @@ public class View extends GameApplication {
 
     @Override
     protected void initInput() {
-
-        if (getSettings().getApplicationMode() == ApplicationMode.RELEASE) {
-            MovementControllerJoyStick.movement();
-        } else {
-            MovementControllerDEV.movement();
-        }
-
+        MovementControllerDEV.movement();
     }
 
     @Override
@@ -87,9 +85,6 @@ public class View extends GameApplication {
         PowerInput.powerLoop();
         PowerController.initText();
 
-        levelController.setUiTextLevel(getUIFactoryService().newText("", Color.WHITE, 22));
-        //levelController.nextLevel();
-
     }
 
     @Override
@@ -102,6 +97,7 @@ public class View extends GameApplication {
                 uiController.loseLife();
             }
         });
+
         // Checkpoint interaction
         getPhysicsWorld().addCollisionHandler(new CollisionHandler(ROCKET, PLANET) {
             @Override
@@ -131,8 +127,6 @@ public class View extends GameApplication {
         spawn("dashboard");
         spawn("arrows");
         spawn("rocket");
-        IntStream.range(0, geti("amountAsteroids"))
-            .forEach(i -> spawn("asteroid"));
         IntStream.range(0, geti("amountPlanet"))
             .forEach(i -> spawn("planet"));
         getArrowsControl().noButtonPressed();
@@ -147,7 +141,6 @@ public class View extends GameApplication {
             .forEach(i -> uiController.addLife());
 
     }
-
 
     private DashboardComponent getDashboardControl() {
         return getGameWorld().getSingleton(DASHBOARD).getComponent(DashboardComponent.class);

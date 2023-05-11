@@ -17,10 +17,6 @@ import static com.almasb.fxgl.dsl.FXGL.*;
  */
 public class MovementControllerDEV {
 
-    public MovementControllerDEV() {
-
-    }
-
     /**
      * Moves rocket up and down with a key.
      */
@@ -39,7 +35,7 @@ public class MovementControllerDEV {
                 RocketController.getRocketControl().stop();
                 getArrowsControl().noButtonPressed();
             }
-        }, KeyCode.S);
+        }, KeyCode.DOWN);
 
         getInput().addAction(new UserAction("Move Up") {
             @Override
@@ -55,14 +51,14 @@ public class MovementControllerDEV {
                 RocketController.getRocketControl().stop();
                 getArrowsControl().noButtonPressed();
             }
-        }, KeyCode.W);
+        }, KeyCode.UP);
 
         if (!isReleaseMode()) {
             onKeyDown(KeyCode.L, "Next Level", View.levelController::nextLevel);
         }
     }
 
-    static DashboardComponent getDashboardControl() {
+    static DashboardComponent getDashboardControl () {
         return getGameWorld().getSingleton(DASHBOARD).getComponent(DashboardComponent.class);
     }
 

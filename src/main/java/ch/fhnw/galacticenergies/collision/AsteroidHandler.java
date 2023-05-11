@@ -9,12 +9,12 @@ import com.almasb.fxgl.physics.CollisionHandler;
  * @version 1.0
  */
 public class AsteroidHandler extends CollisionHandler {
-    public AsteroidHandler(Object a, Object b) {
+    public AsteroidHandler (Object a, Object b) {
         super(a, b);
     }
 
     @Override
-    protected void onCollisionBegin(Entity asteroid, Entity player) {
+    protected void onCollisionBegin (Entity asteroid, Entity player) {
 
     }
 }

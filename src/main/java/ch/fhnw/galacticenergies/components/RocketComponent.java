@@ -8,18 +8,12 @@ import com.almasb.fxgl.entity.SpawnData;
 import com.almasb.fxgl.entity.component.Component;
 import com.almasb.fxgl.physics.PhysicsComponent;
 import com.almasb.fxgl.texture.Texture;
+import javafx.scene.effect.Effect;
 import javafx.scene.effect.MotionBlur;
 import javafx.util.Duration;
 
-import static com.almasb.fxgl.dsl.FXGL.getAppHeight;
-import static com.almasb.fxgl.dsl.FXGL.getGameTimer;
-import static com.almasb.fxgl.dsl.FXGL.spawn;
+import static com.almasb.fxgl.dsl.FXGL.*;
 
-/**
- * shows the flying rocket and its abilities
- *
- * @version 1.0
- */
 public class RocketComponent extends Component {
 
     private static final float SPEED_DECAY = 0.66f;
@@ -52,9 +46,9 @@ public class RocketComponent extends Component {
         velocity.mulLocal(SPEED_DECAY);
 
         if (entity.getY() < 0) {
-            velocity.set(0, BOUNCE_FACTOR * (float) +entity.getY());
+            velocity.set(0, BOUNCE_FACTOR * (float) + entity.getY());
         } else if (entity.getBottomY() > getAppHeight()) {
-            velocity.set(0, BOUNCE_FACTOR * (float) +(entity.getBottomY() - getAppHeight()));
+            velocity.set(0, BOUNCE_FACTOR * (float) + (entity.getBottomY() - getAppHeight()));
         }
 
         if (!canShoot) {
@@ -90,9 +84,7 @@ public class RocketComponent extends Component {
     }
 
     public void shoot() {
-        if (!canShoot) {
-            return;
-        }
+        if (!canShoot) return;
 
         canShoot = false;
         lastShot = getGameTimer().getNow();

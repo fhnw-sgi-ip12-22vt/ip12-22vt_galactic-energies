@@ -19,7 +19,7 @@ public class DashboardComponent extends Component {
 
     private Texture currentImage = new Texture(image("dashboard/Steuerboard Level 1.png"));
 
-    public DashboardComponent() {
+    public DashboardComponent () {
         IntStream.rangeClosed(1, 13).forEach(i -> {
             Texture t = texture("dashboard/Steuerboard Level " + i + ".png");
             t.setPreserveRatio(true);
@@ -30,11 +30,11 @@ public class DashboardComponent extends Component {
     }
 
     @Override
-    public void onUpdate(double tpf) {
+    public void onUpdate (double tpf) {
 
     }
 
-    public void setSpeedImage(int i) {
+    public void setSpeedImage (int i) {
         entity.getViewComponent().removeChild(currentImage);
 
         entity.getViewComponent().addChild(images.get(i));

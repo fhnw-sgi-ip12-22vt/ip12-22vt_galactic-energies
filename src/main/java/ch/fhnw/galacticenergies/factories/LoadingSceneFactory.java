@@ -20,4 +20,3 @@ public class LoadingSceneFactory extends SceneFactory {
         return new MainMenu(MenuType.MAIN_MENU);
     }
 }
-

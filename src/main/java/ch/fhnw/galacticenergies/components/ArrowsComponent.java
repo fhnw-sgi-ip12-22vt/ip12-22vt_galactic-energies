@@ -1,6 +1,7 @@
 package ch.fhnw.galacticenergies.components;
 
 import com.almasb.fxgl.entity.component.Component;
+import com.almasb.fxgl.entity.component.Required;
 import com.almasb.fxgl.texture.Texture;
 
 import static com.almasb.fxgl.dsl.FXGL.texture;
@@ -31,8 +32,8 @@ public class ArrowsComponent extends Component {
         textureNone.setFitHeight(BUTTON_SIZE);
     }
 
-    @Override
 
+    @Override
     public void onUpdate(double tpf) {
 
     }
@@ -41,9 +42,7 @@ public class ArrowsComponent extends Component {
      * This method shows how the up arrow behaves when the corresponding button is pressed
      */
     public void buttonUpPressed() {
-        if (entity.getViewComponent().getChildren().contains(textureUp)) {
-            return;
-        }
+        if (entity.getViewComponent().getChildren().contains(textureUp)) return;
 
         //entity.getViewComponent().removeChild(textureNone);
         entity.getViewComponent().removeChild(textureNone);

@@ -5,6 +5,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
+import java.text.DecimalFormat;
+
 import static com.almasb.fxgl.dsl.FXGL.getGameScene;
 
 /**
@@ -17,8 +19,10 @@ public class PowerController {
 
     private static double currentPower;
     private static double totalPower = 0;
-    private static final int lastTimestamp = 0;
+    private static int lastTimestamp = 0;
     private static Text text;
+
+    private static DecimalFormat df = new DecimalFormat("#.####");
 
     /**
      * Processes the ArrayLists that were created in PowerInput
@@ -33,7 +37,7 @@ public class PowerController {
     }
 
     public static void initText() {
-        text = new Text("Current: " + 0 + "W per Hour Total: " + 0 + " Wh");
+        text = new Text("Current: " + 0 + "W per Hour Total: " + 0.0000 + " Wh");
         text.setTranslateX(10);
         text.setTranslateY(30);
         text.setFont(Font.font(30));
@@ -69,6 +73,8 @@ public class PowerController {
         return totalPower;
     }
 
-
+    public static void setTotalPower(double totalPowerNew) {
+        totalPower = totalPowerNew;
+    }
 }
 

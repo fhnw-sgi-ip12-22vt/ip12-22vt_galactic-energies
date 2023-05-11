@@ -10,7 +10,6 @@ import javafx.event.EventType;
  */
 public class GameEvent extends Event {
 
-
     public static final EventType<GameEvent> ANY =
         new EventType<>(Event.ANY, "GAME_EVENT");
 

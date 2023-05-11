@@ -1,7 +1,6 @@
 package ch.fhnw.galacticenergies.components;
 
 import ch.fhnw.galacticenergies.controllers.SpeedController;
-import ch.fhnw.galacticenergies.controllers.ViewController;
 import com.almasb.fxgl.dsl.components.view.ChildViewComponent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -13,7 +12,6 @@ import static com.almasb.fxgl.dsl.FXGL.*;
 
 /**
  * @Version 1.0
- * <p>
  * Initializes and moves the Background
  */
 
@@ -44,7 +42,6 @@ public class BackgroundStarsViewComponent extends ChildViewComponent {
     @Override
     public void onUpdate(double tpf) {
         for (Circle star : stars) {
-            if (ViewController.isPaused()) return;
             move(star);
         }
     }
