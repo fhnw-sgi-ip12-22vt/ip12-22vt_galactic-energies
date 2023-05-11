@@ -103,7 +103,7 @@
       <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager" selected="Maven.galactic-energies [install]">
+  <component name="RunManager" selected="Application.View">
     <configuration name="Ex" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ch.fhnw.galacticenergies.views.Ex" />
       <module name="galactic-energies" />
@@ -202,8 +202,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.LeaderboardWindow" />
         <item itemvalue="Application.View" />
+        <item itemvalue="Application.LeaderboardWindow" />
         <item itemvalue="JUnit.PlayerTest" />
         <item itemvalue="Application.GameView" />
         <item itemvalue="Application.Ex" />
