@@ -11,11 +11,9 @@ import static com.almasb.fxgl.dsl.FXGL.getGameWorld;
  * @version 1.0
  * implements requirements: F01A05
  */
-
-
 public class RocketController {
 
-    public static RocketComponent getRocketControl () {
+    public static RocketComponent getRocketControl() {
         return getGameWorld().getSingleton(ROCKET).getComponent(RocketComponent.class);
     }
 

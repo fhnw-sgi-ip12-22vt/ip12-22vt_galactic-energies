@@ -22,15 +22,12 @@ import java.util.Random;
 import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.*;
 import static com.almasb.fxgl.dsl.FXGL.*;
 
-/**
- * define GalacticEnergiesFactory class that implements EntityFactory
- */
 public class GalacticEnergiesFactory implements EntityFactory {
 
     /**
      * define constructor for GalacticEnergiesFactory class
      */
-    public GalacticEnergiesFactory () {
+    public GalacticEnergiesFactory() {
 
     }
 
@@ -40,8 +37,8 @@ public class GalacticEnergiesFactory implements EntityFactory {
      * @param data
      * @return
      */
-    @Spawns ("background")
-    public Entity newBackground (SpawnData data) {
+    @Spawns("background")
+    public Entity newBackground(SpawnData data) {
         return entityBuilder(data)
                 .type(BACKGROUND)
                 .with(new IrremovableComponent())
@@ -56,8 +53,8 @@ public class GalacticEnergiesFactory implements EntityFactory {
      * @param data
      * @return
      */
-    @Spawns ("rocket")
-    public Entity newRocket (SpawnData data) {
+    @Spawns("rocket")
+    public Entity newRocket(SpawnData data) {
         // create a new entity with specified components and properties
         PhysicsComponent physics = new PhysicsComponent();
         physics.setBodyType(BodyType.KINEMATIC);
@@ -83,8 +80,8 @@ public class GalacticEnergiesFactory implements EntityFactory {
      * @param data
      * @return
      */
-    @Spawns ("dashboard")
-    public Entity newDashboard (SpawnData data) {
+    @Spawns("dashboard")
+    public Entity newDashboard(SpawnData data) {
         Texture texture = texture("dashboard/Steuerboard Level 1.png");
         texture.setPreserveRatio(true);
         texture.setFitHeight(100);
@@ -108,8 +105,8 @@ public class GalacticEnergiesFactory implements EntityFactory {
      * @param data
      * @return
      */
-    @Spawns ("life")
-    public Entity newLive (SpawnData data) {
+    @Spawns("life")
+    public Entity newLive(SpawnData data) {
         Texture textureLife = texture("heart.png");
         textureLife.setFitWidth(20);
         textureLife.setFitHeight(20);
@@ -122,13 +119,12 @@ public class GalacticEnergiesFactory implements EntityFactory {
                 .build();
     }
 
-    @Spawns ("arrows")
-    public Entity newArrows (SpawnData data) {
+    @Spawns("arrows")
+    public Entity newArrows(SpawnData data) {
         Texture texture = texture("dashboard/Pfeil Neutral.png");
         texture.setPreserveRatio(true);
         texture.setFitHeight(20);
         texture.setFitWidth(20);
-        System.out.println(texture.getFitWidth());
         return entityBuilder(data)
                 .type(ARROWS)
                 .at(getAppWidth() / 2 - texture.getFitWidth() / 1.5, getAppHeight() - texture.getHeight() / 2)
@@ -136,15 +132,14 @@ public class GalacticEnergiesFactory implements EntityFactory {
                 .build();
     }
 
-    private DashboardComponent getDashboardControl () {
+    private DashboardComponent getDashboardControl() {
         return getGameWorld().getSingleton(DASHBOARD).getComponent(DashboardComponent.class);
     }
 
-    @Spawns ("asteroid")
-    public Entity newAsteroid (SpawnData data) {
+    @Spawns("asteroid")
+    public Entity newAsteroid(SpawnData data) {
         Random r = new Random();
         Texture texture = texture("asteroids/Enemy" + r.nextInt(1, 4) + ".png");
-        System.out.println(r.nextInt(1, 4));
         texture.setScaleX(0.5);
         texture.setScaleY(0.5);
         Point2D velocity = new Point2D(r.nextFloat(-100, -75),
@@ -155,16 +150,18 @@ public class GalacticEnergiesFactory implements EntityFactory {
 
         return entityBuilder(data)
                 .type(ASTEROID)
-                .at(getAppWidth() - texture.getFitWidth(), r.nextFloat(0, getAppHeight()))
-                .collidable()
+                .at(getAppWidth() + texture.getFitWidth(), r.nextFloat(0, getAppHeight()))
                 .viewWithBBox(texture)
                 .with(asteroidComponent)
+                .scaleOrigin(0, 0)
+                .scale(0.5, 0.5)
+                .collidable()
                 .with(new OffscreenCleanComponent())
-                .buildAndAttach();
+                .build();
     }
 
-    @Spawns ("planet")
-    public Entity newPlanet (SpawnData data) {
+    @Spawns("planet")
+    public Entity newPlanet(SpawnData data) {
         Random r = new Random();
         Texture texture = texture("planet/planet" + r.nextInt(1, 9) + ".png");
         texture.setPreserveRatio(true);

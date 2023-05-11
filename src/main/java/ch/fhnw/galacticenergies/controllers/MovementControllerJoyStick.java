@@ -17,18 +17,22 @@ import javafx.application.Platform;
 import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.ARROWS;
 import static com.almasb.fxgl.dsl.FXGL.getGameWorld;
 
+/**
+ * Defines the movement of the rocket with joystick
+ *
+ * @version 1.0
+ */
 public class MovementControllerJoyStick {
 
-
-    public static void movement () {
+    public static void movement() {
 
         final var piGpio = PiGpio.newNativeInstance();
         final var pi4j = Pi4J.newContextBuilder()
                 .noAutoDetect()
                 .add(new RaspberryPiPlatform() {
                     @Override
-                    protected String[] getProviders () {
-                        return new String[] {};
+                    protected String[] getProviders() {
+                        return new String[]{};
                     }
                 })
                 .add(PiGpioDigitalInputProvider.newInstance(piGpio),
@@ -45,7 +49,6 @@ public class MovementControllerJoyStick {
 
         joystick.whileNorth(5, () -> {
             Platform.runLater(() -> {
-                System.out.println("north!!!!!");
                 RocketController.getRocketControl().up();
                 getArrowsControl().buttonUpPressed();
             });
@@ -55,7 +58,6 @@ public class MovementControllerJoyStick {
 
         joystick.whileSouth(5, () -> {
             Platform.runLater(() -> {
-                System.out.println("south!!!!!");
                 RocketController.getRocketControl().down();
                 getArrowsControl().buttonDownPressed();
             });
@@ -64,7 +66,7 @@ public class MovementControllerJoyStick {
 
     }
 
-    private static ArrowsComponent getArrowsControl () {
+    private static ArrowsComponent getArrowsControl() {
         return getGameWorld().getSingleton(ARROWS).getComponent(ArrowsComponent.class);
     }
 }

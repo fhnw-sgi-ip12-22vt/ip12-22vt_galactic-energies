@@ -10,8 +10,10 @@ import java.util.List;
 
 /**
  * Implementation of a joystick using 5 GPIO up, left, down, right and push  with Pi4J
+ *
+ * @version 1.0
  */
-public class Joystick extends Component{
+public class Joystick extends Component {
 
     /**
      * Default debounce time in microseconds
@@ -46,18 +48,18 @@ public class Joystick extends Component{
     /**
      * Creates a new joystick component with 5 custom GPIO address, a joystick with push button.
      *
-     * @param pi4j     Pi4J context
-     * @param addrNorth  GPIO address of button up
+     * @param pi4j      Pi4J context
+     * @param addrNorth GPIO address of button up
      * @param addrWest  GPIO address of button left
-     * @param addrSouth  GPIO address of button down
+     * @param addrSouth GPIO address of button down
      * @param addrEast  GPIO address of button right
      * @param addrPush  GPIO address of button push
      */
-    public Joystick (Context pi4j, PIN addrNorth, PIN addrEast, PIN addrSouth, PIN addrWest, PIN addrPush){
+    public Joystick(Context pi4j, PIN addrNorth, PIN addrEast, PIN addrSouth, PIN addrWest, PIN addrPush) {
         bNorth = new SimpleButton(pi4j, addrNorth, false, DEFAULT_DEBOUNCE);
-        bWest  = new SimpleButton(pi4j, addrWest,  false, DEFAULT_DEBOUNCE);
+        bWest = new SimpleButton(pi4j, addrWest, false, DEFAULT_DEBOUNCE);
         bSouth = new SimpleButton(pi4j, addrSouth, false, DEFAULT_DEBOUNCE);
-        bEast  = new SimpleButton(pi4j, addrEast,  false, DEFAULT_DEBOUNCE);
+        bEast = new SimpleButton(pi4j, addrEast, false, DEFAULT_DEBOUNCE);
         //joystick with push button
         bPush = new SimpleButton(pi4j, addrPush, false, DEFAULT_DEBOUNCE);
         pushIsPresent = true;
@@ -66,18 +68,18 @@ public class Joystick extends Component{
     /**
      * Creates a new joystick component with 4 custom GPIO address, so no push button.
      *
-     * @param pi4j     Pi4J context
-     * @param addrNorth  GPIO address of button up
+     * @param pi4j      Pi4J context
+     * @param addrNorth GPIO address of button up
      * @param addrWest  GPIO address of button left
-     * @param addrSouth  GPIO address of button down
+     * @param addrSouth GPIO address of button down
      * @param addrEast  GPIO address of button right
      */
-    public Joystick (Context pi4j, PIN addrNorth, PIN addrEast, PIN addrSouth, PIN addrWest){
+    public Joystick(Context pi4j, PIN addrNorth, PIN addrEast, PIN addrSouth, PIN addrWest) {
         bNorth = new SimpleButton(pi4j, addrNorth, false, DEFAULT_DEBOUNCE);
-        bWest  = new SimpleButton(pi4j,  addrWest,  false, DEFAULT_DEBOUNCE);
+        bWest = new SimpleButton(pi4j, addrWest, false, DEFAULT_DEBOUNCE);
         bSouth = new SimpleButton(pi4j, addrSouth, false, DEFAULT_DEBOUNCE);
-        bEast  = new SimpleButton(pi4j,  addrEast,  false, DEFAULT_DEBOUNCE);
-        bPush  = null;
+        bEast = new SimpleButton(pi4j, addrEast, false, DEFAULT_DEBOUNCE);
+        bPush = null;
         //joystick without push button
         pushIsPresent = false;
     }
@@ -87,7 +89,7 @@ public class Joystick extends Component{
      *
      * @return a list of button states
      */
-    public List<DigitalState> getStates(){
+    public List<DigitalState> getStates() {
 
         List<DigitalState> buttonStates = new ArrayList<>();
 
@@ -96,7 +98,7 @@ public class Joystick extends Component{
         buttonStates.add(bSouth.getState());
         buttonStates.add(bWest.getState());
         //only if joystick has a push button
-        if (pushIsPresent){
+        if (pushIsPresent) {
             buttonStates.add(bPush.getState());
         }
         return buttonStates;
@@ -107,39 +109,43 @@ public class Joystick extends Component{
      *
      * @return Current button state
      */
-    public DigitalState getStateNorth (){
+    public DigitalState getStateNorth() {
         return bNorth.getState();
     }
+
     /**
      * Returns the current state of the button left
      *
      * @return Current button state
      */
-    public DigitalState getStateWest (){
+    public DigitalState getStateWest() {
         return bWest.getState();
     }
+
     /**
      * Returns the current state of the button down
      *
      * @return Current button state
      */
-    public DigitalState getStateSouth (){
+    public DigitalState getStateSouth() {
         return bSouth.getState();
     }
+
     /**
      * Returns the current state of the button right
      *
      * @return Current button state
      */
-    public DigitalState getStateEast (){
+    public DigitalState getStateEast() {
         return bEast.getState();
     }
+
     /**
      * Returns the current state of the button push
      *
      * @return Current button state
      */
-    public DigitalState getStatePush (){
+    public DigitalState getStatePush() {
         return pushIsPresent ? bPush.getState() : DigitalState.UNKNOWN;
     }
 
@@ -148,56 +154,72 @@ public class Joystick extends Component{
      *
      * @return True if button is pressed
      */
-    public boolean buttonNorthIsDown() {return bNorth.isDown();}
+    public boolean buttonNorthIsDown() {
+        return bNorth.isDown();
+    }
 
     /**
      * Checks if button north is currently depressed (= NOT pressed)
      *
      * @return True if button is depressed
      */
-    public boolean buttonNorthIsUp() {return bNorth.isUp();}
+    public boolean buttonNorthIsUp() {
+        return bNorth.isUp();
+    }
 
     /**
      * Checks if button west is currently pressed
      *
      * @return True if button is pressed
      */
-    public boolean buttonWestIsDown() {return bWest.isDown();}
+    public boolean buttonWestIsDown() {
+        return bWest.isDown();
+    }
 
     /**
      * Checks if button west is currently depressed (= NOT pressed)
      *
      * @return True if button is depressed
      */
-    public boolean buttonWestIsUp() {return bWest.isUp();}
+    public boolean buttonWestIsUp() {
+        return bWest.isUp();
+    }
 
     /**
      * Checks if button south is currently pressed
      *
      * @return True if button is pressed
      */
-    public boolean buttonSouthIsDown() {return bSouth.isDown();}
+    public boolean buttonSouthIsDown() {
+        return bSouth.isDown();
+    }
 
     /**
      * Checks if button south is currently depressed (= NOT pressed)
      *
      * @return True if button is depressed
      */
-    public boolean buttonSouthIsUp() {return bSouth.isUp();}
+    public boolean buttonSouthIsUp() {
+        return bSouth.isUp();
+    }
 
     /**
      * Checks if button east is currently pressed
      *
      * @return True if button is pressed
      */
-    public boolean buttonEastIsDown() {return bEast.isDown();}
+    public boolean buttonEastIsDown() {
+        return bEast.isDown();
+    }
 
     /**
      * Checks if button east is currently depressed (= NOT pressed)
      *
      * @return True if button is depressed
      */
-    public boolean buttonEastIsUp() {return bEast.isUp();}
+    public boolean buttonEastIsUp() {
+        return bEast.isUp();
+    }
 
     /**
      * Checks if button push is currently pressed
@@ -205,7 +227,8 @@ public class Joystick extends Component{
      * @return True if button is pressed, False if button is not pressed or button does not exist
      */
     public boolean buttonPushIsDown() {
-        return pushIsPresent && bPush.isDown();}
+        return pushIsPresent && bPush.isDown();
+    }
 
     /**
      * Checks if button push is currently depressed (= NOT pressed)
@@ -213,7 +236,8 @@ public class Joystick extends Component{
      * @return True if button is depressed, False if button is pressed od button does not exits
      */
     public boolean buttonPushIsUp() {
-        return pushIsPresent && bPush.isUp();}
+        return pushIsPresent && bPush.isUp();
+    }
 
 
     /**
@@ -237,6 +261,7 @@ public class Joystick extends Component{
     public void whileNorth(long millis, Runnable method) {
         bNorth.whilePressed(method, millis);
     }
+
     /**
      * Sets or disables the handler for the onDown event.
      * This event gets triggered whenever the button is pressed.
@@ -258,6 +283,7 @@ public class Joystick extends Component{
     public void whileWest(long millis, Runnable method) {
         bWest.whilePressed(method, millis);
     }
+
     /**
      * Sets or disables the handler for the onDown event.
      * This event gets triggered whenever the button is pressed.
@@ -279,6 +305,7 @@ public class Joystick extends Component{
     public void whileSouth(long millis, Runnable method) {
         bSouth.whilePressed(method, millis);
     }
+
     /**
      * Sets or disables the handler for the onDown event.
      * This event gets triggered whenever the button is pressed.
@@ -309,12 +336,13 @@ public class Joystick extends Component{
      * @param handler Event handler to call or null to disable
      */
     public void onPushDown(Runnable handler) {
-        if (pushIsPresent){
-            bPush.onDown(handler);}
-        else{
+        if (pushIsPresent) {
+            bPush.onDown(handler);
+        } else {
             logError("No runnable on pushDown");
         }
     }
+
     /**
      * Sets or disables the handler for the onUp event.
      * This event gets triggered whenever the button is no longer pressed.
@@ -323,12 +351,13 @@ public class Joystick extends Component{
      * @param method Event handler to call or null to disable
      */
     public void onPushUp(Runnable method) {
-        if (pushIsPresent){
+        if (pushIsPresent) {
             bPush.onUp(method);
-        }else{
+        } else {
             logError("No runnable on pushUp.");
         }
     }
+
     /**
      * Sets or disables the handler for the whilePressed event.
      * This event gets triggered whenever the button is pressed.
@@ -337,9 +366,9 @@ public class Joystick extends Component{
      * @param method Event handler to call or null to disable
      */
     public void pushWhilePushed(long millis, Runnable method) {
-        if(pushIsPresent){
+        if (pushIsPresent) {
             bPush.whilePressed(method, millis);
-        }else{
+        } else {
             //throw error
             logError("No runnable on buttonPushWhilePressed.");
         }
@@ -351,35 +380,43 @@ public class Joystick extends Component{
      *
      * @return Returns the Pi4J DigitalInput associated with this component.
      */
-    public DigitalInput getDigitalInputButtonNorth(){return bNorth.getDigitalInput();}
+    public DigitalInput getDigitalInputButtonNorth() {
+        return bNorth.getDigitalInput();
+    }
 
     /**
      * Returns the Pi4J DigitalInput associated with this component.
      *
      * @return Returns the Pi4J DigitalInput associated with this component.
      */
-    public DigitalInput getDigitalInputButtonWest(){return bWest.getDigitalInput();}
+    public DigitalInput getDigitalInputButtonWest() {
+        return bWest.getDigitalInput();
+    }
 
     /**
      * Returns the Pi4J DigitalInput associated with this component.
      *
      * @return Returns the Pi4J DigitalInput associated with this component.
      */
-    public DigitalInput getDigitalInputButtonSouth(){return bSouth.getDigitalInput();}
+    public DigitalInput getDigitalInputButtonSouth() {
+        return bSouth.getDigitalInput();
+    }
 
     /**
      * Returns the Pi4J DigitalInput associated with this component.
      *
      * @return Returns the Pi4J DigitalInput associated with this component.
      */
-    public DigitalInput getDigitalInputButtonEast(){return bEast.getDigitalInput();}
+    public DigitalInput getDigitalInputButtonEast() {
+        return bEast.getDigitalInput();
+    }
 
     /**
      * Returns the Pi4J DigitalInput associated with this component.
      *
      * @return Returns the Pi4J DigitalInput associated with this component.
      */
-    public DigitalInput getDigitalInputButtonPush(){
+    public DigitalInput getDigitalInputButtonPush() {
         return pushIsPresent ? bPush.getDigitalInput() : null;
     }
 
@@ -387,93 +424,103 @@ public class Joystick extends Component{
      * disables all the handlers for every button and each
      * onUp, onDown and WhilePressed Events
      */
-    public void deRegisterAll(){
+    public void deRegisterAll() {
         bNorth.deRegisterAll();
         bWest.deRegisterAll();
         bSouth.deRegisterAll();
         bEast.deRegisterAll();
-        if(pushIsPresent){
+        if (pushIsPresent) {
             bPush.deRegisterAll();
         }
     }
 
     /**
      * Returns the methode for OnDown
+     *
      * @return Runnable onDown
      */
-    public Runnable getOnNorth(){
+    public Runnable getOnNorth() {
         return bNorth.getOnDown();
     }
 
     /**
      * Returns the methode for OnDown
+     *
      * @return Runnable onDown
      */
-    public Runnable getOnEast(){
+    public Runnable getOnEast() {
         return bEast.getOnDown();
     }
 
     /**
      * Returns the methode for OnDown
+     *
      * @return Runnable onDown
      */
-    public Runnable getOnSouth(){
+    public Runnable getOnSouth() {
         return bSouth.getOnDown();
     }
 
     /**
      * Returns the methode for OnDown
+     *
      * @return Runnable onDown
      */
-    public Runnable getOnWest(){
+    public Runnable getOnWest() {
         return bWest.getOnDown();
     }
 
     /**
      * Returns the methode for OnDown
+     *
      * @return Runnable onDown
      */
-    public Runnable getOnPush(){
-        return pushIsPresent? bPush.getOnDown() : null;
+    public Runnable getOnPush() {
+        return pushIsPresent ? bPush.getOnDown() : null;
     }
 
     /**
      * Returns the methode for whilePressed
+     *
      * @return Runnable whilePressed
      */
-    public Runnable getWhileNorth(){
+    public Runnable getWhileNorth() {
         return bNorth.getWhilePressed();
     }
 
     /**
      * Returns the methode for whilePressed
+     *
      * @return Runnable whilePressed
      */
-    public Runnable getWhileEast(){
+    public Runnable getWhileEast() {
         return bEast.getWhilePressed();
     }
 
     /**
      * Returns the methode for whilePressed
+     *
      * @return Runnable whilePressed
      */
-    public Runnable getWhileSouth(){
+    public Runnable getWhileSouth() {
         return bSouth.getWhilePressed();
     }
 
     /**
      * Returns the methode for whilePressed
+     *
      * @return Runnable whilePressed
      */
-    public Runnable getWhileWest(){
+    public Runnable getWhileWest() {
         return bWest.getWhilePressed();
     }
 
     /**
      * Returns the methode for whilePressed
+     *
      * @return Runnable whilePressed
      */
-    public Runnable getWhilePush(){
-        return pushIsPresent? bPush.getWhilePressed() : null;
+    public Runnable getWhilePush() {
+        return pushIsPresent ? bPush.getWhilePressed() : null;
     }
 }

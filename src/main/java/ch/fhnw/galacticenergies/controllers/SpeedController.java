@@ -5,13 +5,14 @@ import static ch.fhnw.galacticenergies.controllers.MovementControllerDEV.getDash
 public class SpeedController {
     private static int speed = 1;
 
-    public static int getSpeed () {
+    public static int getSpeed() {
         return speed;
     }
 
-    public static void setSpeed (int newSpeed) {
+    public static void setSpeed(int newSpeed) {
 
-        speed = (newSpeed < 24) ? (newSpeed / 2) : 12;
+        speed = (newSpeed < 24) ? (newSpeed / 2) : 5;
+        RocketController.getRocketControl().setSpeedMultiplier(1 + (float) (speed) / 10);
         getDashboardControl().setSpeedImage(speed);
 
     }

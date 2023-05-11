@@ -29,8 +29,8 @@ public class View extends GameApplication {
     private static final int STARTING_LEVEL = 1;
 
     private ViewController uiController;
-
-
+    public static LevelController levelController = new LevelController();
+    public static AsteroidController asteroidController = new AsteroidController();
 
     @Override
     protected void initSettings(GameSettings settings) {
@@ -43,7 +43,7 @@ public class View extends GameApplication {
         settings.setMainMenuEnabled(true);
         settings.setProfilingEnabled(false);
         settings.setManualResizeEnabled(true);
-        settings.setApplicationMode(ApplicationMode.RELEASE);
+        settings.setApplicationMode(ApplicationMode.DEVELOPER);
         settings.setSceneFactory(new LoadingSceneFactory());
     }
 
@@ -58,9 +58,7 @@ public class View extends GameApplication {
 
     @Override
     protected void initInput() {
-
         MovementControllerDEV.movement();
-
     }
 
     @Override
@@ -72,36 +70,43 @@ public class View extends GameApplication {
         vars.put("totalEnergy", 0);
         vars.put("level", STARTING_LEVEL);
         vars.put("asteroidsKilled", 0);
-        vars.put("amountPlanet",1);
+        vars.put("amountPlanet", 1);
     }
 
     @Override
     protected void initGame() {
-
         getGameWorld().addEntityFactory(new GalacticEnergiesFactory());
         getGameScene().getRoot().setCursor(Cursor.NONE);
 
         initBackground();
-        if(ApplicationMode.RELEASE == getSettings().getApplicationMode()){
+        if (ApplicationMode.RELEASE == getSettings().getApplicationMode()) {
             PowerInput.initPower();
         }
         PowerInput.powerLoop();
         PowerController.initText();
 
-
-
+        levelController.setUiTextLevel(getUIFactoryService().newText("", Color.WHITE, 22));
     }
 
     @Override
     protected void initPhysics() {
-       FXGL.getPhysicsWorld().addCollisionHandler(new CollisionHandler(ROCKET, ASTEROID) {
-
+        getPhysicsWorld().addCollisionHandler(new CollisionHandler(ROCKET, ASTEROID) {
             // order of types is the same as passed into the constructor
             @Override
             protected void onCollisionBegin(Entity ROCKET, Entity ASTEROID) {
                 ASTEROID.removeFromWorld();
                 uiController.loseLife();
+            }
+        });
 
+        // Checkpoint interaction
+        getPhysicsWorld().addCollisionHandler(new CollisionHandler(ROCKET, PLANET) {
+            @Override
+            protected void onCollisionBegin(Entity ROCKET, Entity PLANET) {
+                ViewController.setPaused(true);
+                PLANET.removeFromWorld();
+                asteroidController.removeAllAsteroids();
+                levelController.nextLevel();
             }
         });
     }
@@ -111,10 +116,10 @@ public class View extends GameApplication {
         spawn("background");
 
         entityBuilder()
-                .type(WALL)
-                .collidable()
-                .with(new IrremovableComponent())
-                .buildScreenBoundsAndAttach(40);
+            .type(WALL)
+            .collidable()
+            .with(new IrremovableComponent())
+            .buildScreenBoundsAndAttach(40);
 
     }
 
@@ -122,32 +127,23 @@ public class View extends GameApplication {
     protected void initUI() {
         spawn("dashboard");
         spawn("arrows");
-        IntStream.range(0, geti("amountAsteroids"))
-                        .forEach( i -> spawn("asteroid"));
+        spawn("rocket");
         IntStream.range(0, geti("amountPlanet"))
-            .forEach( i -> spawn("planet"));
+            .forEach(i -> spawn("planet"));
         getArrowsControl().noButtonPressed();
 
-        AsteroidController asteroidController = new AsteroidController();
         asteroidController.init();
 
         getArrowsControl().noButtonPressed();
 
-        LevelController.setLevel(STARTING_LEVEL);
-
         uiController = new ViewController(FXGL.getGameScene());
 
         IntStream.range(0, geti("lives"))
-                .forEach(i -> uiController.addLife());
-        spawn("asteroid");
-
+            .forEach(i -> uiController.addLife());
 
     }
 
-
-
     private DashboardComponent getDashboardControl() {
-
         return getGameWorld().getSingleton(DASHBOARD).getComponent(DashboardComponent.class);
     }
 
