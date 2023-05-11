@@ -10,7 +10,6 @@ import ch.fhnw.galacticenergies.factories.GalacticEnergiesFactory;
 import com.almasb.fxgl.app.ApplicationMode;
 import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.app.GameSettings;
-import com.almasb.fxgl.core.concurrent.Executor;
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.entity.components.IrremovableComponent;
@@ -19,10 +18,6 @@ import javafx.scene.Cursor;
 import javafx.scene.paint.Color;
 
 import java.util.Map;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.logging.Level;
 import java.util.stream.IntStream;
 
 import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.*;
@@ -135,6 +130,7 @@ public class View extends GameApplication {
     protected void initUI() {
         spawn("dashboard");
         spawn("arrows");
+        spawn("rocket");
         IntStream.range(0, geti("amountAsteroids"))
             .forEach(i -> spawn("asteroid"));
         IntStream.range(0, geti("amountPlanet"))
@@ -144,8 +140,6 @@ public class View extends GameApplication {
         asteroidController.init();
 
         getArrowsControl().noButtonPressed();
-
-        LevelController.setLevel(STARTING_LEVEL);
 
         uiController = new ViewController(FXGL.getGameScene());
 

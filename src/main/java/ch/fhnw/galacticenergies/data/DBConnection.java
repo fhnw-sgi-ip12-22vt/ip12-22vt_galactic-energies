@@ -10,7 +10,7 @@ public class DBConnection {
     public Connection getConnection() {
 
 
-        String connectionUrl = "jdbc:mysql://10.175.17.64:3306/galacticenergies?serverTimezone=UTC";
+        String connectionUrl = "jdbc:mysql://localhost:3306/galacticenergies?serverTimezone=UTC";
 
         try {
 

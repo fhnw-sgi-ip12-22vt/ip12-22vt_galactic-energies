@@ -126,7 +126,7 @@ public class GalacticEnergiesFactory implements EntityFactory {
 
         return entityBuilder(data)
                 .type(ASTEROID)
-                .at(getAppWidth() - texture.getFitWidth(), r.nextFloat(0, getAppHeight()))
+                .at(getAppWidth() + texture.getFitWidth(), r.nextFloat(0, getAppHeight()))
                 .viewWithBBox(texture)
                 .with(asteroidComponent)
                 .scaleOrigin(0, 0)
