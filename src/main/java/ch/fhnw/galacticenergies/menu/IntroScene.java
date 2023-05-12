@@ -13,11 +13,8 @@ public final class IntroScene extends GameApplication {
 
     public static void start(){
         var lines = getAssetLoader().loadText("intro.txt");
-
         var cutscene = new Cutscene(lines);
-
-
-        getCutsceneService().startCutscene(cutscene);
+        getCutsceneService().startCutscene(cutscene, MainMenu::enableButtons);
     }
 
 
@@ -33,7 +30,5 @@ public final class IntroScene extends GameApplication {
     @Override
     protected void initGame() {
         getGameScene().setBackgroundColor(Color.LIGHTGRAY);
-
     }
-
 }

@@ -19,7 +19,6 @@ public class PowerController {
 
     private static double currentPower;
     private static double totalPower = 0;
-    private static int lastTimestamp = 0;
     private static Text text;
 
     private static DecimalFormat df = new DecimalFormat("#.####");
