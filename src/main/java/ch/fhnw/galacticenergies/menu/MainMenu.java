@@ -47,7 +47,7 @@ public class MainMenu extends FXGLMenu {
 
     static Button btnPlay = new Button("Play");
     static Button btnIntro = new Button("Intro");
-    static Button btnExit = new Button("Exit");
+
 
 
     private int id = 1;
@@ -78,11 +78,6 @@ public class MainMenu extends FXGLMenu {
         // fireNewGame() clears the Scene and calls initGame(), to spawn all entities.
         btnPlay.setOnAction(e -> fireNewGame());
 
-        // Create Exit button, add custom style class, and set its on-click action to fireExit()
-
-        btnExit.getStyleClass().add("main_menu_button");
-        btnExit.setOnAction(e -> fireExit());
-
         // Create Intro button, add custom style class, and set its on-click action to start IntroScene
         btnIntro.getStyleClass().add("main_menu_button");
         btnIntro.setOnAction(e -> {
@@ -92,7 +87,7 @@ public class MainMenu extends FXGLMenu {
 
 
         // Creates a VBox to hold the menu buttons, sets its properties and adds it to the content root
-        VBox buttonVBox = new VBox(5, btnPlay, btnIntro, btnExit);
+        VBox buttonVBox = new VBox(5, btnPlay, btnIntro);
         buttonVBox.getStyleClass().add("main_menu_VBox");
         buttonVBox.setPrefWidth(getAppWidth());
         buttonVBox.setAlignment(Pos.BOTTOM_LEFT);
@@ -282,12 +277,10 @@ public class MainMenu extends FXGLMenu {
     public static void enableButtons() {
         btnIntro.disableProperty().set(false);
         btnPlay.disableProperty().set(false);
-        btnExit.disableProperty().set(false);
     }
     public void disableButtons() {
         btnIntro.disableProperty().set(true);
         btnPlay.disableProperty().set(true);
-        btnExit.disableProperty().set(true);
     }
 
 }
