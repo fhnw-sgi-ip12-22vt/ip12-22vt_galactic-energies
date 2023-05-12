@@ -14,8 +14,6 @@
 //Controllboard cutscene
 5.name = Controllboard
 
-//Energyboard cutscene
-6.name = Energyboard
 
 //loads rocket image from intro package
 2.image = intro/Rocket.png
@@ -29,8 +27,7 @@
 //loads controllboard image from intro package
 5.image = intro/Steuerboard.PNG
 
-//loads energyboard image from intro package
-6.image = intro/Energyboard.PNG
+
 
 //Introduction text
 1: You safely landed in the Energy Galaxy. Get ready to explore the cosmos and collect energy to reach new High Scores. Make breaks on planets to store your points and fly away from the meteroites that will make you crash. Learn about the value of your recuperated energy and understand which role electricity plays in your daily life.
@@ -45,7 +42,6 @@
 4: The planets in the Galaxy are your checkpoints. You need to stop on them to safe your collected energy and rest during the flight.
 
 //Controllboard text
-5: This is your spaceship cockpit. Here you see all information about your speed that you generate with the hand crank
+5: This is your spaceship cockpit. Here you see all information about your speed. You can speed up by turning the hand crank.
 
-//Energyboard text
-6: Here you can see how much energy you have already created by flying through the energy.
+
