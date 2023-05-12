@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Testing of the Database
- * @Version 1.0
+ * @version 1.0
  */
 public class dbTest {
     Connection conn;
