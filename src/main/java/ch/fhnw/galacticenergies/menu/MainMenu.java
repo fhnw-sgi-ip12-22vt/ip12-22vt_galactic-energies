@@ -258,8 +258,9 @@ public class MainMenu extends FXGLMenu {
                 deviceName = (rs2.getString("devicename"));
                 devicePower = rs2.getInt("power");
             }
+            double timeToUse = totalpower / devicePower;
             // Calculate the usage time for the device based on the total produced power and device power
-            result = result + "You could use a " + deviceName + " for: " + df.format(totalpower / devicePower) + "h";
+            result = result + "You could use a " + deviceName + " for: " + (int)(timeToUse) + "h " + df.format((timeToUse - (int)timeToUse)*60) + " min";
 
             // Close the connection
             conn.close();
