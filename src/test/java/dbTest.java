@@ -9,15 +9,26 @@ import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Testing of the Database
+ * @Version 1.0
+ */
 public class dbTest {
     Connection conn;
 
+    /**
+     * Setup of the DB connection
+     */
     @BeforeEach
     public void init(){
         DBConnection c = new DBConnection();
         conn = c.getConnection();
     }
 
+    /**
+     * Testing the Edge cases and a default case of the EnergyData table
+     * @throws SQLException in case of an error
+     */
     @Test
     public void testEnergydata() throws SQLException {
         ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM energydata WHERE idenergydata = 15");
@@ -39,6 +50,10 @@ public class dbTest {
 
     }
 
+    /**
+     * Testing of the totalpower table
+     * @throws SQLException in case of an Error
+     */
     @Test
     public void testTotalpower() throws SQLException {
         double power = 1000;
