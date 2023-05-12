@@ -15,8 +15,6 @@ public class DBConnection {
         try {
 
             conn = DriverManager.getConnection(connectionUrl, "galacticenergies", "galacticenergies");
-
-
         } catch (SQLException e) {
             // handle the exception
             System.err.println(e);

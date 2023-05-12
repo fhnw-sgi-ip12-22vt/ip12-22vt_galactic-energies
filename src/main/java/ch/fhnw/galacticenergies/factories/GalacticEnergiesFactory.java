@@ -153,7 +153,6 @@ public class GalacticEnergiesFactory implements EntityFactory {
                 .at(getAppWidth() + texture.getFitWidth(), r.nextFloat(0, getAppHeight()))
                 .viewWithBBox(texture)
                 .with(asteroidComponent)
-                .scaleOrigin(0, 0)
                 .scale(0.5, 0.5)
                 .collidable()
                 .with(new OffscreenCleanComponent())
@@ -167,28 +166,22 @@ public class GalacticEnergiesFactory implements EntityFactory {
         texture.setPreserveRatio(true);
         texture.setFitWidth(texture.getHeight());
 
-        PhysicsComponent physics = new PhysicsComponent();
-        physics.setBodyType(BodyType.DYNAMIC);
-        physics.setFixtureDef(new FixtureDef().restitution(1f).density(0.03f));
-
-        var bd = new BodyDef();
-        bd.setType(BodyType.DYNAMIC);
-        bd.setFixedRotation(true);
-
-        physics.setBodyDef(bd);
-
         Random random = new Random();
+
+        Point2D velocity = new Point2D(r.nextFloat(-100, -75),
+            r.nextFloat(0, 25));
+
+        CheckpointComponent checkpointComponent = new CheckpointComponent();
+        checkpointComponent.setVelocity(velocity);
 
         return entityBuilder(data)
                 .type(PLANET)
-                .at(getAppWidth() - texture.getFitWidth(), random.nextFloat(0, getAppHeight()))
+                .at(getAppWidth() + texture.getFitWidth(), random.nextFloat(0, getAppHeight()))
                 .viewWithBBox(texture)
                 .collidable()
-                .with(physics)
-                .with(new CheckpointComponent())
+                .with(checkpointComponent)
                 .with(new OffscreenCleanComponent())
-                .scaleOrigin(0, 0)
-                .scale(0.5, 0.5)
+                .scale(0.25, 0.25)
                 .build();
     }
 

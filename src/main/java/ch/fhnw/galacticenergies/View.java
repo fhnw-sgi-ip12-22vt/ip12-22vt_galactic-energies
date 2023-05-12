@@ -17,6 +17,7 @@ import com.almasb.fxgl.entity.components.IrremovableComponent;
 import com.almasb.fxgl.physics.CollisionHandler;
 import javafx.scene.Cursor;
 import javafx.scene.paint.Color;
+import javafx.util.Duration;
 
 import java.util.Map;
 import java.util.stream.IntStream;
@@ -31,6 +32,7 @@ public class View extends GameApplication {
     private ViewController uiController;
     public static LevelController levelController = new LevelController();
     public static AsteroidController asteroidController = new AsteroidController();
+    public static CheckpointController checkpointController = new CheckpointController();
 
     @Override
     protected void initSettings(GameSettings settings) {
@@ -51,9 +53,6 @@ public class View extends GameApplication {
     protected void onPreInit() {
         getSettings().setGlobalMusicVolume(0.5);
         getSettings().setGlobalSoundVolume(0.5);
-
-
-        onEvent(GameEvent.ASTEROID_GOT_HIT, AsteroidController::onAsteroidHit);
     }
 
     @Override
@@ -94,8 +93,15 @@ public class View extends GameApplication {
             // order of types is the same as passed into the constructor
             @Override
             protected void onCollisionBegin(Entity ROCKET, Entity ASTEROID) {
-                ASTEROID.removeFromWorld();
+                ViewController.setPaused(true);
+                asteroidController.removeAllAsteroids();
+                checkpointController.removeCheckpoint();
                 uiController.loseLife();
+                levelController.resetToLastCheckpoint();
+                RocketController.getRocketControl().getEntity().setY(getAppHeight() / 2);
+                getGameTimer().runOnceAfter(() -> {
+                    ViewController.setPaused(false);
+                }, Duration.seconds(1));
             }
         });
 
@@ -128,8 +134,6 @@ public class View extends GameApplication {
         spawn("dashboard");
         spawn("arrows");
         spawn("rocket");
-        IntStream.range(0, geti("amountPlanet"))
-            .forEach(i -> spawn("planet"));
         getArrowsControl().noButtonPressed();
 
         asteroidController.init();

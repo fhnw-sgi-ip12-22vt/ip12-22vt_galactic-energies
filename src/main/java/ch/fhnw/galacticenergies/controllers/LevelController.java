@@ -1,5 +1,6 @@
 package ch.fhnw.galacticenergies.controllers;
 
+import ch.fhnw.galacticenergies.View;
 import ch.fhnw.galacticenergies.components.AsteroidComponent;
 import ch.fhnw.galacticenergies.components.CheckpointComponent;
 import ch.fhnw.galacticenergies.data.DBConnection;
@@ -28,11 +29,15 @@ public class LevelController {
 
     private Text uiTextLevel;
 
+    private double savedPower = 0;
+
     /**
      * Show the next level in the game
      */
     public void nextLevel() {
         inc("level", +1);
+        savedPower = PowerController.getTotalPower();
+        View.asteroidController.increaseMaxAsteroids();
         var levelNum = geti("level");
 
         if (levelNum > MAX_LEVEL) {
@@ -112,4 +117,7 @@ public class LevelController {
         getGameWorld().removeEntities(getGameWorld().getEntitiesByComponent(CheckpointComponent.class));
     }
 
+    public void resetToLastCheckpoint() {
+        PowerController.setTotalPower(savedPower);
+    }
 }

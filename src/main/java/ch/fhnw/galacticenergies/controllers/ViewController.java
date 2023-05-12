@@ -47,6 +47,7 @@ public class ViewController implements UIController {
      * Removes a life on the life-dashboard
      */
     public void loseLife() {
+
         if(lives.size() == 1){
             GameOverController.showGameOver();
             return;
