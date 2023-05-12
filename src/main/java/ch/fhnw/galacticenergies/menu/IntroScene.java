@@ -11,6 +11,9 @@ import static com.almasb.fxgl.dsl.FXGLForKtKt.getCutsceneService;
 
 public final class IntroScene extends GameApplication {
 
+    /*
+    *
+    */
     public static void start(){
         var lines = getAssetLoader().loadText("intro.txt");
         var cutscene = new Cutscene(lines);
