@@ -35,6 +35,10 @@ public class PowerController {
 
     }
 
+    public static void setText(){
+
+    }
+
     public static void initText () {
         text = new Text("Current: " + 0 + "W per Hour Total: " + 0.0000 + " Wh");
         text.setTranslateX(10);

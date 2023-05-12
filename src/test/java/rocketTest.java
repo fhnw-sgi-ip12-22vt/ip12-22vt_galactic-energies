@@ -1,40 +1,48 @@
 import ch.fhnw.galacticenergies.components.RocketComponent;
-import ch.fhnw.galacticenergies.controllers.RocketController;
-import com.almasb.fxgl.app.services.FXGLAssetLoaderService;
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.Entity;
-import com.almasb.fxgl.entity.GameWorld;
 import com.almasb.fxgl.physics.PhysicsComponent;
 import com.almasb.fxgl.physics.PhysicsWorld;
 import com.almasb.fxgl.physics.box2d.dynamics.BodyType;
-import com.almasb.fxgl.texture.Texture;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 
-import java.util.Optional;
+
 
 import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.ROCKET;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
-import static com.almasb.fxgl.dsl.FXGL.*;
 
+
+/**
+ * Testing of the rocket
+ * @version 1.0
+ */
 public class rocketTest {
 
-
-
+    /**
+     * Mock injection
+     */
     @InjectMocks
     private RocketComponent rocketComponent = new RocketComponent(null);
 
+
+    /**
+     * Setting static AppHeight to 100
+     */
     @BeforeEach
     void setUpDSLMock() {
         MockedStatic<FXGL> fxgl = Mockito.mockStatic(FXGL.class);
         fxgl.when(FXGL::getAppHeight).thenReturn(100);
     }
 
+    /**
+     * Testing of the Movement functions of the Rocket
+     * up: Y gets smaller
+     * down: Y gets bigger
+     */
     @Test
     public void testRocketMovement(){
         PhysicsComponent physics = new PhysicsComponent();
