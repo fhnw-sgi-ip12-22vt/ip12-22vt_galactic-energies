@@ -24,7 +24,7 @@ public class RocketComponent extends Component {
 
     private final MotionBlur blur = new MotionBlur();
 
-    private float speed = 0;
+    private float speed = 1;
 
     private float speedMultiplier = 1;
 
@@ -42,7 +42,6 @@ public class RocketComponent extends Component {
     @Override
     public void onUpdate(double tpf) {
         speed = Config.ROCKET_SPEED * (float) tpf * speedMultiplier;
-
         velocity.mulLocal(SPEED_DECAY);
 
         if (entity.getY() < 0) {

@@ -45,6 +45,10 @@ public class MainMenu extends FXGLMenu {
 
     private static Label allTime;
 
+    static Button btnPlay = new Button("Play");
+    static Button btnIntro = new Button("Intro");
+
+
 
     private int id = 1;
 
@@ -70,24 +74,20 @@ public class MainMenu extends FXGLMenu {
         titleHBox.setTranslateY(50);
 
         // Create Play button, add custom style class, and set its on-click action to fireNewGame()
-        Button btnPlay = new Button("Play");
         btnPlay.getStyleClass().add("main_menu_button");
         // fireNewGame() clears the Scene and calls initGame(), to spawn all entities.
         btnPlay.setOnAction(e -> fireNewGame());
 
-        // Create Exit button, add custom style class, and set its on-click action to fireExit()
-        Button btnExit = new Button("Exit");
-        btnExit.getStyleClass().add("main_menu_button");
-        btnExit.setOnAction(e -> fireExit());
-
         // Create Intro button, add custom style class, and set its on-click action to start IntroScene
-        Button btnIntro = new Button("Intro");
         btnIntro.getStyleClass().add("main_menu_button");
-        btnIntro.setOnAction(e -> createIntro());
+        btnIntro.setOnAction(e -> {
+            disableButtons();
+            IntroScene.start();
+        });
 
 
         // Creates a VBox to hold the menu buttons, sets its properties and adds it to the content root
-        VBox buttonVBox = new VBox(5, btnPlay, btnIntro, btnExit);
+        VBox buttonVBox = new VBox(5, btnPlay, btnIntro);
         buttonVBox.getStyleClass().add("main_menu_VBox");
         buttonVBox.setPrefWidth(getAppWidth());
         buttonVBox.setAlignment(Pos.BOTTOM_LEFT);
@@ -258,8 +258,9 @@ public class MainMenu extends FXGLMenu {
                 deviceName = (rs2.getString("devicename"));
                 devicePower = rs2.getInt("power");
             }
+            double timeToUse = totalpower / devicePower;
             // Calculate the usage time for the device based on the total produced power and device power
-            result = result + "You could use a " + deviceName + " for: " + df.format(totalpower / devicePower) + "h";
+            result = result + "You could use a " + deviceName + " for: " + (int)(timeToUse) + "h " + df.format((timeToUse - (int)timeToUse)*60) + " min";
 
             // Close the connection
             conn.close();
@@ -274,28 +275,13 @@ public class MainMenu extends FXGLMenu {
         this.allTime = allTime;
     }
 
-    public void createIntro() {
-        GridPane rocketIntro = new GridPane();
-        rocketIntro.getStyleClass().add("leaderboard");
-        rocketIntro.setLayoutX(getAppWidth() * 0.3);
-        rocketIntro.setLayoutY(getAppHeight() * 0.25);
-
-
-        Image imageRocket = new Image("file:intro/Rocket.png");
-        Text textRocket = new Text("Hi I'm a rocket");
-
-        // rocketIntro.getChildren().addAll(new ImageView(imageRocket),textRocket);
-
-        getContentRoot().getChildren().removeAll(allTime, leaderboardAllTime);
-        rocketIntro.addRow(1, new ImageView(imageRocket), textRocket);
-        getContentRoot().getChildren().add(rocketIntro);
-
-
-        String result = "";
-
-        // Set the text of the label to the result string and store the label as a member variable
-
-
+    public static void enableButtons() {
+        btnIntro.disableProperty().set(false);
+        btnPlay.disableProperty().set(false);
+    }
+    public void disableButtons() {
+        btnIntro.disableProperty().set(true);
+        btnPlay.disableProperty().set(true);
     }
 
 }

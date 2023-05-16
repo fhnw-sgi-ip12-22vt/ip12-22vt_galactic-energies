@@ -15,7 +15,10 @@ import com.almasb.fxgl.physics.box2d.dynamics.FixtureDef;
 import com.almasb.fxgl.texture.Texture;
 import javafx.geometry.Point2D;
 import javafx.geometry.Pos;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 import java.util.Random;
 
@@ -107,14 +110,18 @@ public class GalacticEnergiesFactory implements EntityFactory {
      */
     @Spawns("life")
     public Entity newLive(SpawnData data) {
-        Texture textureLife = texture("heart.png");
-        textureLife.setFitWidth(20);
-        textureLife.setFitHeight(20);
+//        Texture textureLife = texture("heart.png");
+//        textureLife.setFitWidth(20);
+//        textureLife.setFitHeight(20);
+        Rectangle live = new Rectangle();
+        live.setWidth(20);
+        live.setHeight(10);
+        live.setFill(Color.WHITE);
 
         return entityBuilder(data)
                 .type(LIFE)
                 .at(getAppWidth(), 10)
-                .view(textureLife)
+                .view(live)
                 .with(new LifeComponent())
                 .build();
     }
