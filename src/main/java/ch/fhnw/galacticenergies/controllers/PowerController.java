@@ -1,6 +1,7 @@
 package ch.fhnw.galacticenergies.controllers;
 
 
+import ch.fhnw.galacticenergies.View;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -30,10 +31,9 @@ public class PowerController {
      */
     public static void calcPower() {
         if(ViewController.isPaused()) return;
-
         totalPower = totalPower + (currentPower / 3600);
+        View.checkpointController.checkCreation(totalPower);
         text.setText("Current: " + (int) currentPower + "W per Hour Total: " + df.format(totalPower) + " Wh");
-
     }
 
     public static void initText () {
@@ -70,7 +70,6 @@ public class PowerController {
      * @return return the total value of the power.
      */
     public static double getTotalPower() {
-
         return totalPower;
     }
 
