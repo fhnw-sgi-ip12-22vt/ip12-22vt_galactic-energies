@@ -1,26 +1,22 @@
 package ch.fhnw.galacticenergies.components;
 
-import com.almasb.fxgl.core.math.Vec2;
 import com.almasb.fxgl.entity.component.Component;
-import com.almasb.fxgl.physics.PhysicsComponent;
 import com.almasb.fxgl.texture.Texture;
 import javafx.geometry.Point2D;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-import static com.almasb.fxgl.dsl.FXGL.*;
-import static java.lang.Math.abs;
-import static java.lang.Math.signum;
-
-import static com.almasb.fxgl.dsl.FXGL.getGameScene;
+import static com.almasb.fxgl.dsl.FXGL.getAppHeight;
+import static com.almasb.fxgl.dsl.FXGL.getAppWidth;
+import static com.almasb.fxgl.dsl.FXGL.spawn;
 import static com.almasb.fxgl.dsl.FXGL.texture;
 
 public class CheckpointComponent extends Component {
     ArrayList<Texture> planetImages = new ArrayList<>();
     private Point2D velocity = new Point2D(0, 0);
-    private float r1;
-    private float r2;
+    private final float r1;
+    private final float r2;
 
     public CheckpointComponent() {
 
@@ -33,7 +29,7 @@ public class CheckpointComponent extends Component {
     }
 
     @Override
-    public void onUpdate (double tpf) {
+    public void onUpdate(double tpf) {
         entity.translate(velocity.multiply(tpf));
         checkBorders();
 
@@ -43,11 +39,11 @@ public class CheckpointComponent extends Component {
         }
     }
 
-    public void setVelocity (Point2D velocity) {
+    public void setVelocity(Point2D velocity) {
         this.velocity = velocity;
     }
 
-    private void checkBorders () {
+    private void checkBorders() {
         double x = entity.getX();
         double y = entity.getY();
         double width = entity.getWidth();

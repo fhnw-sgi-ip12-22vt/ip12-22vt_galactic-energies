@@ -10,14 +10,13 @@ import org.mockito.InjectMocks;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 
-
-
 import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.ROCKET;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 /**
  * Testing of the rocket
+ *
  * @version 1.0
  */
 public class rocketTest {
@@ -44,7 +43,7 @@ public class rocketTest {
      * down: Y gets bigger
      */
     @Test
-    public void testRocketMovement(){
+    public void testRocketMovement() {
         PhysicsComponent physics = new PhysicsComponent();
         physics.setBodyType(BodyType.KINEMATIC);
 

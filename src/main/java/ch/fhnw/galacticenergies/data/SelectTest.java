@@ -6,12 +6,12 @@ import java.sql.ResultSet;
 
 public class SelectTest {
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         SelectTest s = new SelectTest();
         s.selectStuff();
     }
 
-    public void selectStuff () {
+    public void selectStuff() {
         DBConnection c = new DBConnection();
         Connection conn = c.getConnection();
         String sqlSelectAllPersons = "SELECT * FROM energydata";

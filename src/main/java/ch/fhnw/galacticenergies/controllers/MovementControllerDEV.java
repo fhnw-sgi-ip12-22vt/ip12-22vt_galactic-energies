@@ -8,7 +8,10 @@ import javafx.scene.input.KeyCode;
 
 import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.ARROWS;
 import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.DASHBOARD;
-import static com.almasb.fxgl.dsl.FXGL.*;
+import static com.almasb.fxgl.dsl.FXGL.getGameWorld;
+import static com.almasb.fxgl.dsl.FXGL.getInput;
+import static com.almasb.fxgl.dsl.FXGL.isReleaseMode;
+import static com.almasb.fxgl.dsl.FXGL.onKeyDown;
 
 /**
  * Defines the movement of the rocket with keys.
@@ -24,7 +27,9 @@ public class MovementControllerDEV {
         getInput().addAction(new UserAction("Move Down") {
             @Override
             protected void onAction() {
-                if(ViewController.isPaused()) return;
+                if (ViewController.isPaused()) {
+                    return;
+                }
 
                 RocketController.getRocketControl().down();
                 getArrowsControl().buttonDownPressed();
@@ -40,7 +45,9 @@ public class MovementControllerDEV {
         getInput().addAction(new UserAction("Move Up") {
             @Override
             protected void onAction() {
-                if(ViewController.isPaused()) return;
+                if (ViewController.isPaused()) {
+                    return;
+                }
 
                 RocketController.getRocketControl().up();
                 getArrowsControl().buttonUpPressed();
@@ -58,7 +65,7 @@ public class MovementControllerDEV {
         }
     }
 
-    static DashboardComponent getDashboardControl () {
+    static DashboardComponent getDashboardControl() {
         return getGameWorld().getSingleton(DASHBOARD).getComponent(DashboardComponent.class);
     }
 

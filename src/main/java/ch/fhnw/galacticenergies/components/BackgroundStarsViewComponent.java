@@ -9,7 +9,10 @@ import javafx.util.Duration;
 
 import java.util.ArrayList;
 
-import static com.almasb.fxgl.dsl.FXGL.*;
+import static com.almasb.fxgl.dsl.FXGL.getAppHeight;
+import static com.almasb.fxgl.dsl.FXGL.getAppWidth;
+import static com.almasb.fxgl.dsl.FXGL.random;
+import static com.almasb.fxgl.dsl.FXGL.run;
 
 /**
  * @Version 1.0
@@ -42,7 +45,9 @@ public class BackgroundStarsViewComponent extends ChildViewComponent {
      */
     @Override
     public void onUpdate(double tpf) {
-        if (ViewController.isPaused()) return;
+        if (ViewController.isPaused()) {
+            return;
+        }
         for (Circle star : stars) {
             move(star);
         }

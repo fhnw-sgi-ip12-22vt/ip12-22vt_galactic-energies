@@ -12,14 +12,10 @@ import javafx.geometry.Point2D;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 import java.sql.Connection;
@@ -27,7 +23,6 @@ import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
-import java.time.LocalDate;
 
 import static com.almasb.fxgl.dsl.FXGLForKtKt.getAssetLoader;
 
@@ -39,20 +34,14 @@ import static com.almasb.fxgl.dsl.FXGLForKtKt.getAssetLoader;
 
 public class MainMenu extends FXGLMenu {
 
-    private Animation<?> animation;
-    private static Label leaderboardAllTime;
-    private static Label leaderboardToday;
-
-    private static Label allTime;
-
     static Button btnPlay = new Button("Play");
     static Button btnIntro = new Button("Intro");
-
-
-
+    private static Label leaderboardAllTime;
+    private static Label leaderboardToday;
+    private static Label allTime;
+    private static final DecimalFormat df = new DecimalFormat("#.####");
+    private final Animation<?> animation;
     private int id = 1;
-
-    private static DecimalFormat df = new DecimalFormat("#.####");
 
     public MainMenu(MenuType type) {
         super(type);
@@ -98,13 +87,18 @@ public class MainMenu extends FXGLMenu {
          * Update method for the HighScoresScene, removes and recreates the hiscores display and updates animation.
          */
         animation = FXGL.animationBuilder()
-                .duration(Duration.seconds(0.66))
-                .interpolator(Interpolators.EXPONENTIAL.EASE_OUT())
-                .scale(getContentRoot())
-                .from(new Point2D(0, 0))
-                .to(new Point2D(1, 1))
-                .build();
+            .duration(Duration.seconds(0.66))
+            .interpolator(Interpolators.EXPONENTIAL.EASE_OUT())
+            .scale(getContentRoot())
+            .from(new Point2D(0, 0))
+            .to(new Point2D(1, 1))
+            .build();
 
+    }
+
+    public static void enableButtons() {
+        btnIntro.disableProperty().set(false);
+        btnPlay.disableProperty().set(false);
     }
 
     /**
@@ -158,7 +152,8 @@ public class MainMenu extends FXGLMenu {
         // Retrieve top 5 rows of total power production from the database and format them as a string
         try {
 
-            ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM totalpower ORDER BY producedpower DESC LIMIT 5");
+            ResultSet rs =
+                conn.createStatement().executeQuery("SELECT * FROM totalpower ORDER BY producedpower DESC LIMIT 5");
 
             while (rs.next()) {
                 Date date = rs.getDate("date");
@@ -176,7 +171,7 @@ public class MainMenu extends FXGLMenu {
         }
 
         leaderboard.setText(result);
-        this.leaderboardAllTime = leaderboard;
+        leaderboardAllTime = leaderboard;
 
     }
 
@@ -199,7 +194,8 @@ public class MainMenu extends FXGLMenu {
 
         // Retrieve top 5 rows of total power production from the database and format them as a string
         try {
-            ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM totalpower WHERE date = curdate() ORDER BY producedpower DESC LIMIT 5");
+            ResultSet rs = conn.createStatement()
+                .executeQuery("SELECT * FROM totalpower WHERE date = curdate() ORDER BY producedpower DESC LIMIT 5");
 
             while (rs.next()) {
                 Date date = rs.getDate("date");
@@ -217,7 +213,7 @@ public class MainMenu extends FXGLMenu {
         }
 
         leaderboard.setText(result);
-        this.leaderboardToday = leaderboard;
+        leaderboardToday = leaderboard;
 
     }
 
@@ -260,7 +256,9 @@ public class MainMenu extends FXGLMenu {
             }
             double timeToUse = totalpower / devicePower;
             // Calculate the usage time for the device based on the total produced power and device power
-            result = result + "You could use a " + deviceName + " for: " + (int)(timeToUse) + "h " + df.format((timeToUse - (int)timeToUse)*60) + " min";
+            result =
+                result + deviceName + ": " + (int) (timeToUse) + "h " + df.format((timeToUse - (int) timeToUse) * 60) +
+                    " min";
 
             // Close the connection
             conn.close();
@@ -272,13 +270,9 @@ public class MainMenu extends FXGLMenu {
 
         // Set the text of the label to the result string and store the label as a member variable
         allTime.setText(result);
-        this.allTime = allTime;
+        MainMenu.allTime = allTime;
     }
 
-    public static void enableButtons() {
-        btnIntro.disableProperty().set(false);
-        btnPlay.disableProperty().set(false);
-    }
     public void disableButtons() {
         btnIntro.disableProperty().set(true);
         btnPlay.disableProperty().set(true);

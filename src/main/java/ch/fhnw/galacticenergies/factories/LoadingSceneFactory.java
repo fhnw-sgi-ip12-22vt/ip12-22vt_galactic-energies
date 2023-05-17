@@ -16,7 +16,7 @@ public class LoadingSceneFactory extends SceneFactory {
      * @return the newly created main menu
      */
     @Override
-    public FXGLMenu newMainMenu () {
+    public FXGLMenu newMainMenu() {
         return new MainMenu(MenuType.MAIN_MENU);
     }
 }

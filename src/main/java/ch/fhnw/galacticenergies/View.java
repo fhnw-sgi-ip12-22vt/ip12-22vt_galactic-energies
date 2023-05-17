@@ -3,9 +3,14 @@ package ch.fhnw.galacticenergies;
 import ch.fhnw.galacticenergies.components.ArrowsComponent;
 import ch.fhnw.galacticenergies.components.DashboardComponent;
 import ch.fhnw.galacticenergies.components.LifeComponent;
-import ch.fhnw.galacticenergies.controllers.*;
+import ch.fhnw.galacticenergies.controllers.AsteroidController;
+import ch.fhnw.galacticenergies.controllers.CheckpointController;
+import ch.fhnw.galacticenergies.controllers.LevelController;
+import ch.fhnw.galacticenergies.controllers.MovementControllerDEV;
+import ch.fhnw.galacticenergies.controllers.PowerController;
+import ch.fhnw.galacticenergies.controllers.RocketController;
+import ch.fhnw.galacticenergies.controllers.ViewController;
 import ch.fhnw.galacticenergies.data.PowerInput;
-import ch.fhnw.galacticenergies.events.GameEvent;
 import ch.fhnw.galacticenergies.factories.GalacticEnergiesFactory;
 import ch.fhnw.galacticenergies.factories.LoadingSceneFactory;
 import com.almasb.fxgl.app.ApplicationMode;
@@ -22,17 +27,35 @@ import javafx.util.Duration;
 import java.util.Map;
 import java.util.stream.IntStream;
 
-import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.*;
-import static com.almasb.fxgl.dsl.FXGL.*;
+import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.ARROWS;
+import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.ASTEROID;
+import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.DASHBOARD;
+import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.LIFE;
+import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.PLANET;
+import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.ROCKET;
+import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.WALL;
+import static com.almasb.fxgl.dsl.FXGL.entityBuilder;
+import static com.almasb.fxgl.dsl.FXGL.getAppHeight;
+import static com.almasb.fxgl.dsl.FXGL.getGameScene;
+import static com.almasb.fxgl.dsl.FXGL.getGameTimer;
+import static com.almasb.fxgl.dsl.FXGL.getGameWorld;
+import static com.almasb.fxgl.dsl.FXGL.getPhysicsWorld;
+import static com.almasb.fxgl.dsl.FXGL.getSettings;
+import static com.almasb.fxgl.dsl.FXGL.getUIFactoryService;
+import static com.almasb.fxgl.dsl.FXGL.geti;
+import static com.almasb.fxgl.dsl.FXGL.spawn;
 
 public class View extends GameApplication {
 
     private static final int STARTING_LEVEL = 1;
-
-    private ViewController uiController;
     public static LevelController levelController = new LevelController();
     public static AsteroidController asteroidController = new AsteroidController();
     public static CheckpointController checkpointController = new CheckpointController();
+    private ViewController uiController;
+
+    public static void main(String[] args) {
+        launch(args);
+    }
 
     @Override
     protected void initSettings(GameSettings settings) {
@@ -47,6 +70,8 @@ public class View extends GameApplication {
         settings.setManualResizeEnabled(true);
         settings.setApplicationMode(ApplicationMode.DEVELOPER);
         settings.setSceneFactory(new LoadingSceneFactory());
+
+        settings.setTicksPerSecond(60);
     }
 
     @Override
@@ -157,9 +182,5 @@ public class View extends GameApplication {
 
     private LifeComponent getLifeComponent() {
         return getGameWorld().getSingleton(LIFE).getComponent(LifeComponent.class);
-    }
-
-    public static void main(String[] args) {
-        launch(args);
     }
 }

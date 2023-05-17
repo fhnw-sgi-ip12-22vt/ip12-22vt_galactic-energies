@@ -1,7 +1,6 @@
 package ch.fhnw.galacticenergies.controllers;
 
 import ch.fhnw.galacticenergies.View;
-import ch.fhnw.galacticenergies.components.AsteroidComponent;
 import ch.fhnw.galacticenergies.components.CheckpointComponent;
 import ch.fhnw.galacticenergies.data.DBConnection;
 import com.almasb.fxgl.animation.Interpolators;
@@ -16,7 +15,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.DecimalFormat;
 
-import static com.almasb.fxgl.dsl.FXGL.*;
+import static com.almasb.fxgl.dsl.FXGL.addUINode;
+import static com.almasb.fxgl.dsl.FXGL.animationBuilder;
+import static com.almasb.fxgl.dsl.FXGL.centerText;
+import static com.almasb.fxgl.dsl.FXGL.getDialogService;
+import static com.almasb.fxgl.dsl.FXGL.getGameController;
+import static com.almasb.fxgl.dsl.FXGL.getGameWorld;
+import static com.almasb.fxgl.dsl.FXGL.getUIFactoryService;
+import static com.almasb.fxgl.dsl.FXGL.geti;
+import static com.almasb.fxgl.dsl.FXGL.inc;
+import static com.almasb.fxgl.dsl.FXGL.removeUINode;
 
 /**
  * Defines the level of the current game
@@ -56,24 +64,24 @@ public class LevelController {
         addUINode(textLevel);
 
         animationBuilder()
-                .interpolator(Interpolators.SMOOTH.EASE_OUT())
-                .duration(Duration.seconds(10))
-                .onFinished(() -> {
-                    animationBuilder()
-                            .duration(Duration.seconds(0.5))
-                            .interpolator(Interpolators.LINEAR.EASE_IN())
-                            .onFinished(() -> {
-                                removeUINode(textLevel);
-                                uiTextLevel.setVisible(true);
-                                ViewController.setPaused(false);
-                            })
-                            .translate(textLevel)
-                            .from(new Point2D(textLevel.getTranslateX(), textLevel.getTranslateY()))
-                            .to(new Point2D(330, 540))
-                            .buildAndPlay();
-                })
-                .fadeIn(textLevel)
-                .buildAndPlay();
+            .interpolator(Interpolators.SMOOTH.EASE_OUT())
+            .duration(Duration.seconds(10))
+            .onFinished(() -> {
+                animationBuilder()
+                    .duration(Duration.seconds(0.5))
+                    .interpolator(Interpolators.LINEAR.EASE_IN())
+                    .onFinished(() -> {
+                        removeUINode(textLevel);
+                        uiTextLevel.setVisible(true);
+                        ViewController.setPaused(false);
+                    })
+                    .translate(textLevel)
+                    .from(new Point2D(textLevel.getTranslateX(), textLevel.getTranslateY()))
+                    .to(new Point2D(330, 540))
+                    .buildAndPlay();
+            })
+            .fadeIn(textLevel)
+            .buildAndPlay();
     }
 
     public Text getUiTextLevel() {
@@ -113,6 +121,7 @@ public class LevelController {
         }
         return checkpointText;
     }
+
     public void removeAllCheckpoints() {
         getGameWorld().removeEntities(getGameWorld().getEntitiesByComponent(CheckpointComponent.class));
     }

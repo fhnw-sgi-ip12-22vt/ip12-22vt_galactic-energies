@@ -1,6 +1,12 @@
 package ch.fhnw.galacticenergies.factories;
 
-import ch.fhnw.galacticenergies.components.*;
+import ch.fhnw.galacticenergies.components.ArrowsComponent;
+import ch.fhnw.galacticenergies.components.AsteroidComponent;
+import ch.fhnw.galacticenergies.components.BackgroundStarsViewComponent;
+import ch.fhnw.galacticenergies.components.CheckpointComponent;
+import ch.fhnw.galacticenergies.components.DashboardComponent;
+import ch.fhnw.galacticenergies.components.LifeComponent;
+import ch.fhnw.galacticenergies.components.RocketComponent;
 import com.almasb.fxgl.dsl.components.EffectComponent;
 import com.almasb.fxgl.dsl.components.OffscreenCleanComponent;
 import com.almasb.fxgl.entity.Entity;
@@ -9,21 +15,29 @@ import com.almasb.fxgl.entity.SpawnData;
 import com.almasb.fxgl.entity.Spawns;
 import com.almasb.fxgl.entity.components.IrremovableComponent;
 import com.almasb.fxgl.physics.PhysicsComponent;
-import com.almasb.fxgl.physics.box2d.dynamics.BodyDef;
 import com.almasb.fxgl.physics.box2d.dynamics.BodyType;
-import com.almasb.fxgl.physics.box2d.dynamics.FixtureDef;
 import com.almasb.fxgl.texture.Texture;
 import javafx.geometry.Point2D;
 import javafx.geometry.Pos;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 import java.util.Random;
 
-import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.*;
-import static com.almasb.fxgl.dsl.FXGL.*;
+import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.ARROWS;
+import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.ASTEROID;
+import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.BACKGROUND;
+import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.DASHBOARD;
+import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.LIFE;
+import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.PLANET;
+import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.ROCKET;
+import static com.almasb.fxgl.dsl.FXGL.entityBuilder;
+import static com.almasb.fxgl.dsl.FXGL.getAppCenter;
+import static com.almasb.fxgl.dsl.FXGL.getAppHeight;
+import static com.almasb.fxgl.dsl.FXGL.getAppWidth;
+import static com.almasb.fxgl.dsl.FXGL.getGameWorld;
+import static com.almasb.fxgl.dsl.FXGL.texture;
 
 public class GalacticEnergiesFactory implements EntityFactory {
 
@@ -43,11 +57,11 @@ public class GalacticEnergiesFactory implements EntityFactory {
     @Spawns("background")
     public Entity newBackground(SpawnData data) {
         return entityBuilder(data)
-                .type(BACKGROUND)
-                .with(new IrremovableComponent())
-                .with(new BackgroundStarsViewComponent(
-                ))
-                .build();
+            .type(BACKGROUND)
+            .with(new IrremovableComponent())
+            .with(new BackgroundStarsViewComponent(
+            ))
+            .build();
     }
 
     /**
@@ -67,14 +81,14 @@ public class GalacticEnergiesFactory implements EntityFactory {
         texture.setFitWidth(70);
 
         return entityBuilder(data)
-                .type(ROCKET)
-                .at(10, getAppHeight() / 2 - (texture.getFitHeight() / 2))
-                .viewWithBBox(texture)
-                .collidable()
-                .with(physics)
-                .with(new EffectComponent())
-                .with(new RocketComponent(texture("bat_hit.png")))
-                .build();
+            .type(ROCKET)
+            .at(10, getAppHeight() / 2 - (texture.getFitHeight() / 2))
+            .viewWithBBox(texture)
+            .collidable()
+            .with(physics)
+            .with(new EffectComponent())
+            .with(new RocketComponent(texture("bat_hit.png")))
+            .build();
     }
 
     /**
@@ -95,11 +109,11 @@ public class GalacticEnergiesFactory implements EntityFactory {
         StackPane.setAlignment(texture, Pos.BOTTOM_CENTER);
 
         return entityBuilder(data)
-                .type(DASHBOARD)
-                .at(getAppCenter().getY(), getAppCenter().getX() + texture.getFitHeight())
-                .view(s)
-                .with(new DashboardComponent())
-                .build();
+            .type(DASHBOARD)
+            .at(getAppCenter().getY(), getAppCenter().getX() + texture.getFitHeight())
+            .view(s)
+            .with(new DashboardComponent())
+            .build();
     }
 
     /**
@@ -119,11 +133,11 @@ public class GalacticEnergiesFactory implements EntityFactory {
         live.setFill(Color.WHITE);
 
         return entityBuilder(data)
-                .type(LIFE)
-                .at(getAppWidth(), 10)
-                .view(live)
-                .with(new LifeComponent())
-                .build();
+            .type(LIFE)
+            .at(getAppWidth(), 10)
+            .view(live)
+            .with(new LifeComponent())
+            .build();
     }
 
     @Spawns("arrows")
@@ -133,10 +147,10 @@ public class GalacticEnergiesFactory implements EntityFactory {
         texture.setFitHeight(20);
         texture.setFitWidth(20);
         return entityBuilder(data)
-                .type(ARROWS)
-                .at(getAppWidth() / 2 - texture.getFitWidth() / 1.5, getAppHeight() - texture.getHeight() / 2)
-                .with(new ArrowsComponent())
-                .build();
+            .type(ARROWS)
+            .at(getAppWidth() / 2 - texture.getFitWidth() / 1.5, getAppHeight() - texture.getHeight() / 2)
+            .with(new ArrowsComponent())
+            .build();
     }
 
     private DashboardComponent getDashboardControl() {
@@ -150,20 +164,20 @@ public class GalacticEnergiesFactory implements EntityFactory {
         texture.setScaleX(0.5);
         texture.setScaleY(0.5);
         Point2D velocity = new Point2D(r.nextFloat(-100, -75),
-                r.nextFloat(0, 25));
+            r.nextFloat(0, 25));
 
         AsteroidComponent asteroidComponent = new AsteroidComponent();
         asteroidComponent.setVelocity(velocity);
 
         return entityBuilder(data)
-                .type(ASTEROID)
-                .at(getAppWidth() + texture.getFitWidth(), r.nextFloat(0, getAppHeight()))
-                .viewWithBBox(texture)
-                .with(asteroidComponent)
-                .scale(0.5, 0.5)
-                .collidable()
-                .with(new OffscreenCleanComponent())
-                .build();
+            .type(ASTEROID)
+            .at(getAppWidth() + texture.getFitWidth(), r.nextFloat(0, getAppHeight()))
+            .viewWithBBox(texture)
+            .with(asteroidComponent)
+            .scale(0.5, 0.5)
+            .collidable()
+            .with(new OffscreenCleanComponent())
+            .build();
     }
 
     @Spawns("planet")
@@ -182,14 +196,14 @@ public class GalacticEnergiesFactory implements EntityFactory {
         checkpointComponent.setVelocity(velocity);
 
         return entityBuilder(data)
-                .type(PLANET)
-                .at(getAppWidth() + texture.getFitWidth(), random.nextFloat(0, getAppHeight()))
-                .viewWithBBox(texture)
-                .collidable()
-                .with(checkpointComponent)
-                .with(new OffscreenCleanComponent())
-                .scale(0.25, 0.25)
-                .build();
+            .type(PLANET)
+            .at(getAppWidth() + texture.getFitWidth(), random.nextFloat(0, getAppHeight()))
+            .viewWithBBox(texture)
+            .collidable()
+            .with(checkpointComponent)
+            .with(new OffscreenCleanComponent())
+            .scale(0.25, 0.25)
+            .build();
     }
 
 }

@@ -8,32 +8,26 @@ import com.almasb.fxgl.entity.SpawnData;
 import com.almasb.fxgl.entity.component.Component;
 import com.almasb.fxgl.physics.PhysicsComponent;
 import com.almasb.fxgl.texture.Texture;
-import javafx.scene.effect.Effect;
 import javafx.scene.effect.MotionBlur;
 import javafx.util.Duration;
 
-import static com.almasb.fxgl.dsl.FXGL.*;
+import static com.almasb.fxgl.dsl.FXGL.getAppHeight;
+import static com.almasb.fxgl.dsl.FXGL.getGameTimer;
+import static com.almasb.fxgl.dsl.FXGL.spawn;
 
 public class RocketComponent extends Component {
 
     private static final float SPEED_DECAY = 0.66f;
 
     private static final float BOUNCE_FACTOR = 0.2f;
-
-    private PhysicsComponent physics;
-
     private final MotionBlur blur = new MotionBlur();
-
+    private final Vec2 velocity = new Vec2();
+    private final Texture textureOnHit;
+    private PhysicsComponent physics;
     private float speed = 1;
-
     private float speedMultiplier = 1;
-
     private boolean canShoot = true;
     private double lastShot = 0;
-
-    private final Vec2 velocity = new Vec2();
-
-    private final Texture textureOnHit;
 
     public RocketComponent(Texture textureOnHit) {
         this.textureOnHit = textureOnHit;
@@ -45,9 +39,9 @@ public class RocketComponent extends Component {
         velocity.mulLocal(SPEED_DECAY);
 
         if (entity.getY() < 0) {
-            velocity.set(0, BOUNCE_FACTOR * (float) + entity.getY());
+            velocity.set(0, BOUNCE_FACTOR * (float) +entity.getY());
         } else if (entity.getBottomY() > getAppHeight()) {
-            velocity.set(0, BOUNCE_FACTOR * (float) + (entity.getBottomY() - getAppHeight()));
+            velocity.set(0, BOUNCE_FACTOR * (float) +(entity.getBottomY() - getAppHeight()));
         }
 
         if (!canShoot) {
@@ -83,7 +77,9 @@ public class RocketComponent extends Component {
     }
 
     public void shoot() {
-        if (!canShoot) return;
+        if (!canShoot) {
+            return;
+        }
 
         canShoot = false;
         lastShot = getGameTimer().getNow();
@@ -91,12 +87,12 @@ public class RocketComponent extends Component {
         spawn("rocketBullet", new SpawnData(0, 0).put("owner", getEntity()));
     }
 
-    public void setSpeedMultiplier(float speedMultiplier) {
-        this.speedMultiplier = speedMultiplier;
-    }
-
     public float getSpeedMultiplier() {
         return speedMultiplier;
+    }
+
+    public void setSpeedMultiplier(float speedMultiplier) {
+        this.speedMultiplier = speedMultiplier;
     }
 
     public void onHit() {
