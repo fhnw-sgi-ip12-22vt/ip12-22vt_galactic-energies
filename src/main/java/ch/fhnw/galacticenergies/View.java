@@ -64,7 +64,6 @@ public class View extends GameApplication {
     protected void initGameVars(Map<String, Object> vars) {
         vars.put("lives", 5);
         vars.put("speed", 0);
-        vars.put("amountAsteroids", 5);
         vars.put("currentEnergy", 0);
         vars.put("totalEnergy", 0);
         vars.put("level", STARTING_LEVEL);
@@ -76,8 +75,9 @@ public class View extends GameApplication {
     protected void initGame() {
         getGameWorld().addEntityFactory(new GalacticEnergiesFactory());
         getGameScene().getRoot().setCursor(Cursor.NONE);
-
+        asteroidController.setMaxAsteroids(5);
         initBackground();
+
         if (ApplicationMode.RELEASE == getSettings().getApplicationMode()) {
             PowerInput.initPower();
         }

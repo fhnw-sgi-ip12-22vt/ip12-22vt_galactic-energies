@@ -1,5 +1,6 @@
 package ch.fhnw.galacticenergies.controllers;
 
+import ch.fhnw.galacticenergies.View;
 import com.almasb.fxgl.app.scene.GameScene;
 import com.almasb.fxgl.app.scene.Viewport;
 import com.almasb.fxgl.entity.Entity;
@@ -55,6 +56,9 @@ public class ViewController implements UIController {
         Entity life = lives.get(lives.size() - 1);
         life.removeFromWorld();
         lives.remove(life);
+
+        View.checkpointController.removeUnreachedIntervals();
+        RocketController.reset();
 
         Viewport viewport = gameScene.getViewport();
         Node flash = new Rectangle(viewport.getWidth(), viewport.getHeight(), Color.rgb(190, 10, 15, 0.5));

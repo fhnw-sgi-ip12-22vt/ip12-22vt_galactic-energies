@@ -28,4 +28,8 @@ public class AsteroidController {
     public void increaseMaxAsteroids() {
         maxAsteroids += 1;
     }
+
+    public void setMaxAsteroids(int maxAsteroids) {
+        this.maxAsteroids = maxAsteroids;
+    }
 }

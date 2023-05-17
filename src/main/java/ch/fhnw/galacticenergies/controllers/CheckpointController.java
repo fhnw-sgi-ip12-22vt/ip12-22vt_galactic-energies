@@ -1,5 +1,6 @@
 package ch.fhnw.galacticenergies.controllers;
 
+import ch.fhnw.galacticenergies.View;
 import com.almasb.fxgl.entity.Entity;
 
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ public class CheckpointController {
     private HashSet<Double> intervals = new HashSet<Double>();
 
     public void addCheckpoint() {
+        removeCheckpoint();
         planet = spawn("planet");
     }
 
@@ -27,14 +29,26 @@ public class CheckpointController {
         if (ViewController.isPaused()) {
             return;
         }
-        if (power < 0.2) {
+        if (power < 0.3) {
             return;
         }
+        double interval = Math.floor(power * (10.0/3.0)) / (10.0/3.0);
 
-        double interval = Math.ceil(power * 5.0) / 5.0;
         if (!intervals.contains(interval)) {
             addCheckpoint();
-            intervals.add(interval);
+            addToInterval(interval);
         }
+    }
+
+    public void addToInterval(double interval) {
+        intervals.add(interval);
+    }
+
+    public void removeFromInterval(double interval) {
+        intervals.remove(interval);
+    }
+
+    public void removeUnreachedIntervals() {
+        intervals.removeIf(i -> i > View.levelController.getSavedPower());
     }
 }

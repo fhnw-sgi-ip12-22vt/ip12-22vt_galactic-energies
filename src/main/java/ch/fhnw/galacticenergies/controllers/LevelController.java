@@ -56,24 +56,25 @@ public class LevelController {
         addUINode(textLevel);
 
         animationBuilder()
-                .interpolator(Interpolators.SMOOTH.EASE_OUT())
-                .duration(Duration.seconds(10))
-                .onFinished(() -> {
-                    animationBuilder()
-                            .duration(Duration.seconds(0.5))
-                            .interpolator(Interpolators.LINEAR.EASE_IN())
-                            .onFinished(() -> {
-                                removeUINode(textLevel);
-                                uiTextLevel.setVisible(true);
-                                ViewController.setPaused(false);
-                            })
-                            .translate(textLevel)
-                            .from(new Point2D(textLevel.getTranslateX(), textLevel.getTranslateY()))
-                            .to(new Point2D(330, 540))
-                            .buildAndPlay();
-                })
-                .fadeIn(textLevel)
-                .buildAndPlay();
+
+            .interpolator(Interpolators.SMOOTH.EASE_OUT())
+            .duration(Duration.seconds(10))
+            .onFinished(() -> {
+                animationBuilder()
+                    .duration(Duration.seconds(0.5))
+                    .interpolator(Interpolators.LINEAR.EASE_IN())
+                    .onFinished(() -> {
+                        removeUINode(textLevel);
+                        uiTextLevel.setVisible(true);
+                        ViewController.setPaused(false);
+                    })
+                    .translate(textLevel)
+                    .from(new Point2D(textLevel.getTranslateX(), textLevel.getTranslateY()))
+                    .to(new Point2D(330, 540))
+                    .buildAndPlay();
+            })
+            .fadeIn(textLevel)
+            .buildAndPlay();
     }
 
     public Text getUiTextLevel() {
@@ -92,10 +93,13 @@ public class LevelController {
 
         try {
             c = new DBConnection();
+
+
             conn = c.getConnection();
 
             double totalPower = PowerController.getTotalPower();
-            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM energydata ORDER BY ABS(power - ?) LIMIT 1");
+            PreparedStatement stmt =
+                conn.prepareStatement("SELECT * FROM energydata ORDER BY ABS(power - ? * 100) LIMIT 1");
             stmt.setInt(1, (int) totalPower);
             ResultSet rs = stmt.executeQuery();
             rs.next();
@@ -113,11 +117,16 @@ public class LevelController {
         }
         return checkpointText;
     }
+
     public void removeAllCheckpoints() {
         getGameWorld().removeEntities(getGameWorld().getEntitiesByComponent(CheckpointComponent.class));
     }
 
     public void resetToLastCheckpoint() {
         PowerController.setTotalPower(savedPower);
+    }
+
+    public double getSavedPower() {
+        return savedPower;
     }
 }
