@@ -152,7 +152,7 @@ public class GalacticEnergiesFactory implements EntityFactory {
         texture.setFitWidth(20);
         return entityBuilder(data)
             .type(ARROWS)
-            .at(getAppWidth() / 2 - texture.getFitWidth() / 1.5, getAppHeight() - texture.getHeight() / 2)
+            .at(getAppWidth() / 2 - texture.getFitWidth() / 1.5, getAppHeight() - texture.getHeight() / 2.5)
             .with(new ArrowsComponent())
             .build();
     }
