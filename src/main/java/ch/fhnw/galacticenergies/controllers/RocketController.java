@@ -17,4 +17,7 @@ public class RocketController {
         return getGameWorld().getSingleton(ROCKET).getComponent(RocketComponent.class);
     }
 
+    public static void reset() {
+        getRocketControl().getEntity().setY(0);
+    }
 }
