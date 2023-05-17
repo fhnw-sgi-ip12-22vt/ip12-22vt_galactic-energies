@@ -20,23 +20,28 @@ public class PowerController {
 
     private static double currentPower;
     private static double totalPower = 0;
-    private static int lastTimestamp = 0;
     private static Text text;
 
-    private static DecimalFormat df = new DecimalFormat("#.####");
+    private static final DecimalFormat df = new DecimalFormat("#.####");
 
     /**
      * Processes the ArrayLists that were created in PowerInput
      * Calculates the totalPower that was generated and stores it in totalPower
      */
     public static void calcPower() {
-        if(ViewController.isPaused()) return;
+        if (ViewController.isPaused()) {
+            return;
+        }
         totalPower = totalPower + (currentPower / 3600);
         View.checkpointController.checkCreation(totalPower);
         text.setText("Current: " + (int) currentPower + "W per Hour Total: " + df.format(totalPower) + " Wh");
     }
 
-    public static void initText () {
+    public static void setText() {
+
+    }
+
+    public static void initText() {
         text = new Text("Current: " + 0 + "W per Hour Total: " + 0.0000 + " Wh");
         text.setTranslateX(10);
         text.setTranslateY(30);

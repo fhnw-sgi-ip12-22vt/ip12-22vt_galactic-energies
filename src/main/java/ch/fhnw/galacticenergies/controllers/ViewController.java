@@ -13,7 +13,9 @@ import javafx.util.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.almasb.fxgl.dsl.FXGL.*;
+import static com.almasb.fxgl.dsl.FXGL.getAppWidth;
+import static com.almasb.fxgl.dsl.FXGL.runOnce;
+import static com.almasb.fxgl.dsl.FXGL.spawn;
 
 /**
  * Defines all visuals of the game
@@ -23,12 +25,20 @@ import static com.almasb.fxgl.dsl.FXGL.*;
 
 public class ViewController implements UIController {
 
+    private static boolean paused = false;
     private final List<Entity> lives = new ArrayList<>();
     private final GameScene gameScene;
-    private static boolean paused = false;
 
     public ViewController(GameScene gameScene) {
         this.gameScene = gameScene;
+    }
+
+    public static boolean isPaused() {
+        return paused;
+    }
+
+    public static void setPaused(boolean paused) {
+        ViewController.paused = paused;
     }
 
     @Override
@@ -49,7 +59,7 @@ public class ViewController implements UIController {
      */
     public void loseLife() {
 
-        if(lives.size() == 1){
+        if (lives.size() == 1) {
             GameOverController.showGameOver();
             return;
         }
@@ -64,13 +74,5 @@ public class ViewController implements UIController {
         Node flash = new Rectangle(viewport.getWidth(), viewport.getHeight(), Color.rgb(190, 10, 15, 0.5));
         gameScene.addUINode(flash);
         runOnce(() -> gameScene.removeUINode(flash), Duration.seconds(1));
-    }
-
-    public static boolean isPaused() {
-        return paused;
-    }
-
-    public static void setPaused(boolean paused) {
-        ViewController.paused = paused;
     }
 }

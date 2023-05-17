@@ -5,22 +5,35 @@ import javafx.geometry.Point2D;
 
 import static com.almasb.fxgl.dsl.FXGL.getGameScene;
 
-
+/**
+ * The class AsteroidComponent implements the Asteroids
+ * @version 1.0
+ */
 public class AsteroidComponent extends Component {
 
     private Point2D velocity = new Point2D(0, 0);
 
+    /**
+     * Define what happens on each update
+     * @param tpf TickPerFrame
+     */
     @Override
-    public void onUpdate (double tpf) {
+    public void onUpdate(double tpf) {
         entity.translate(velocity.multiply(tpf));
         checkBorders();
     }
 
-    public void setVelocity (Point2D velocity) {
+    /**
+     * @param velocity defines the Asteroids velocity
+     */
+    public void setVelocity(Point2D velocity) {
         this.velocity = velocity;
     }
 
-    private void checkBorders () {
+    /**
+     * Check if the Asteroid is within the bounds of the game, if not remove it and respawn a new Asteroid
+     */
+    private void checkBorders() {
         double x = entity.getX();
         double y = entity.getY();
         double width = entity.getWidth();
@@ -42,11 +55,19 @@ public class AsteroidComponent extends Component {
         }
     }
 
-    private double getAppWidth () {
+    /**
+     *
+     * @return the AppWidth
+     */
+    private double getAppWidth() {
         return getGameScene().getAppWidth();
     }
 
-    private double getAppHeight () {
+    /**
+     *
+     * @return the AppHeight
+     */
+    private double getAppHeight() {
         return getGameScene().getAppHeight();
     }
 }

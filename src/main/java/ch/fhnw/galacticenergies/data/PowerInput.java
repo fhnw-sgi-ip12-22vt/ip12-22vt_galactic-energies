@@ -32,21 +32,21 @@ public class PowerInput {
     public static void initPower() {
         final var piGpio = PiGpio.newNativeInstance();
         final var pi4j = Pi4J.newContextBuilder()
-                .noAutoDetect()
-                .add(new RaspberryPiPlatform() {
-                    @Override
-                    protected String[] getProviders() {
-                        return new String[]{};
-                    }
-                })
-                .add(PiGpioDigitalInputProvider.newInstance(piGpio),
-                        PiGpioDigitalOutputProvider.newInstance(piGpio),
-                        PiGpioPwmProvider.newInstance(piGpio),
-                        PiGpioSerialProvider.newInstance(piGpio),
-                        PiGpioSpiProvider.newInstance(piGpio),
-                        LinuxFsI2CProvider.newInstance()
-                )
-                .build();
+            .noAutoDetect()
+            .add(new RaspberryPiPlatform() {
+                @Override
+                protected String[] getProviders() {
+                    return new String[] {};
+                }
+            })
+            .add(PiGpioDigitalInputProvider.newInstance(piGpio),
+                PiGpioDigitalOutputProvider.newInstance(piGpio),
+                PiGpioPwmProvider.newInstance(piGpio),
+                PiGpioSerialProvider.newInstance(piGpio),
+                PiGpioSpiProvider.newInstance(piGpio),
+                LinuxFsI2CProvider.newInstance()
+            )
+            .build();
 
         k = new Kurbel(pi4j);
         k.writeConfigurationRegister();

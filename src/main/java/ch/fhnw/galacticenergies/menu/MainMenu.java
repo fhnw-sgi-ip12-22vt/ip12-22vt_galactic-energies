@@ -12,14 +12,10 @@ import javafx.geometry.Point2D;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 import java.sql.Connection;
@@ -27,7 +23,6 @@ import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
-import java.time.LocalDate;
 
 import static com.almasb.fxgl.dsl.FXGLForKtKt.getAssetLoader;
 
@@ -39,16 +34,14 @@ import static com.almasb.fxgl.dsl.FXGLForKtKt.getAssetLoader;
 
 public class MainMenu extends FXGLMenu {
 
-    private Animation<?> animation;
+    static Button btnPlay = new Button("Play");
+    static Button btnIntro = new Button("Intro");
     private static Label leaderboardAllTime;
     private static Label leaderboardToday;
-
     private static Label allTime;
-
-
+    private static final DecimalFormat df = new DecimalFormat("#.####");
+    private final Animation<?> animation;
     private int id = 1;
-
-    private static DecimalFormat df = new DecimalFormat("#.####");
 
     public MainMenu(MenuType type) {
         super(type);
@@ -70,24 +63,20 @@ public class MainMenu extends FXGLMenu {
         titleHBox.setTranslateY(50);
 
         // Create Play button, add custom style class, and set its on-click action to fireNewGame()
-        Button btnPlay = new Button("Play");
         btnPlay.getStyleClass().add("main_menu_button");
         // fireNewGame() clears the Scene and calls initGame(), to spawn all entities.
         btnPlay.setOnAction(e -> fireNewGame());
 
-        // Create Exit button, add custom style class, and set its on-click action to fireExit()
-        Button btnExit = new Button("Exit");
-        btnExit.getStyleClass().add("main_menu_button");
-        btnExit.setOnAction(e -> fireExit());
-
         // Create Intro button, add custom style class, and set its on-click action to start IntroScene
-        Button btnIntro = new Button("Intro");
         btnIntro.getStyleClass().add("main_menu_button");
-        btnIntro.setOnAction(e -> createIntro());
+        btnIntro.setOnAction(e -> {
+            disableButtons();
+            IntroScene.start();
+        });
 
 
         // Creates a VBox to hold the menu buttons, sets its properties and adds it to the content root
-        VBox buttonVBox = new VBox(5, btnPlay, btnIntro, btnExit);
+        VBox buttonVBox = new VBox(5, btnPlay, btnIntro);
         buttonVBox.getStyleClass().add("main_menu_VBox");
         buttonVBox.setPrefWidth(getAppWidth());
         buttonVBox.setAlignment(Pos.BOTTOM_LEFT);
@@ -98,13 +87,18 @@ public class MainMenu extends FXGLMenu {
          * Update method for the HighScoresScene, removes and recreates the hiscores display and updates animation.
          */
         animation = FXGL.animationBuilder()
-                .duration(Duration.seconds(0.66))
-                .interpolator(Interpolators.EXPONENTIAL.EASE_OUT())
-                .scale(getContentRoot())
-                .from(new Point2D(0, 0))
-                .to(new Point2D(1, 1))
-                .build();
+            .duration(Duration.seconds(0.66))
+            .interpolator(Interpolators.EXPONENTIAL.EASE_OUT())
+            .scale(getContentRoot())
+            .from(new Point2D(0, 0))
+            .to(new Point2D(1, 1))
+            .build();
 
+    }
+
+    public static void enableButtons() {
+        btnIntro.disableProperty().set(false);
+        btnPlay.disableProperty().set(false);
     }
 
     /**
@@ -158,7 +152,8 @@ public class MainMenu extends FXGLMenu {
         // Retrieve top 5 rows of total power production from the database and format them as a string
         try {
 
-            ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM totalpower ORDER BY producedpower DESC LIMIT 5");
+            ResultSet rs =
+                conn.createStatement().executeQuery("SELECT * FROM totalpower ORDER BY producedpower DESC LIMIT 5");
 
             while (rs.next()) {
                 Date date = rs.getDate("date");
@@ -176,7 +171,7 @@ public class MainMenu extends FXGLMenu {
         }
 
         leaderboard.setText(result);
-        this.leaderboardAllTime = leaderboard;
+        leaderboardAllTime = leaderboard;
 
     }
 
@@ -199,7 +194,8 @@ public class MainMenu extends FXGLMenu {
 
         // Retrieve top 5 rows of total power production from the database and format them as a string
         try {
-            ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM totalpower WHERE date = curdate() ORDER BY producedpower DESC LIMIT 5");
+            ResultSet rs = conn.createStatement()
+                .executeQuery("SELECT * FROM totalpower WHERE date = curdate() ORDER BY producedpower DESC LIMIT 5");
 
             while (rs.next()) {
                 Date date = rs.getDate("date");
@@ -217,7 +213,7 @@ public class MainMenu extends FXGLMenu {
         }
 
         leaderboard.setText(result);
-        this.leaderboardToday = leaderboard;
+        leaderboardToday = leaderboard;
 
     }
 
@@ -258,8 +254,11 @@ public class MainMenu extends FXGLMenu {
                 deviceName = (rs2.getString("devicename"));
                 devicePower = rs2.getInt("power");
             }
+            double timeToUse = totalpower / devicePower;
             // Calculate the usage time for the device based on the total produced power and device power
-            result = result + "You could use a " + deviceName + " for: " + df.format(totalpower / devicePower) + "h";
+            result =
+                result + deviceName + ": " + (int) (timeToUse) + "h " + df.format((timeToUse - (int) timeToUse) * 60) +
+                    " min";
 
             // Close the connection
             conn.close();
@@ -271,31 +270,12 @@ public class MainMenu extends FXGLMenu {
 
         // Set the text of the label to the result string and store the label as a member variable
         allTime.setText(result);
-        this.allTime = allTime;
+        MainMenu.allTime = allTime;
     }
 
-    public void createIntro() {
-        GridPane rocketIntro = new GridPane();
-        rocketIntro.getStyleClass().add("leaderboard");
-        rocketIntro.setLayoutX(getAppWidth() * 0.3);
-        rocketIntro.setLayoutY(getAppHeight() * 0.25);
-
-
-        Image imageRocket = new Image("file:intro/Rocket.png");
-        Text textRocket = new Text("Hi I'm a rocket");
-
-        // rocketIntro.getChildren().addAll(new ImageView(imageRocket),textRocket);
-
-        getContentRoot().getChildren().removeAll(allTime, leaderboardAllTime);
-        rocketIntro.addRow(1, new ImageView(imageRocket), textRocket);
-        getContentRoot().getChildren().add(rocketIntro);
-
-
-        String result = "";
-
-        // Set the text of the label to the result string and store the label as a member variable
-
-
+    public void disableButtons() {
+        btnIntro.disableProperty().set(true);
+        btnPlay.disableProperty().set(true);
     }
 
 }

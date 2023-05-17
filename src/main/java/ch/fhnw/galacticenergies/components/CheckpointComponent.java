@@ -3,26 +3,30 @@ package ch.fhnw.galacticenergies.components;
 import ch.fhnw.galacticenergies.View;
 import com.almasb.fxgl.core.math.Vec2;
 import com.almasb.fxgl.entity.component.Component;
-import com.almasb.fxgl.physics.PhysicsComponent;
 import com.almasb.fxgl.texture.Texture;
 import javafx.geometry.Point2D;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-import static com.almasb.fxgl.dsl.FXGL.*;
-import static java.lang.Math.abs;
-import static java.lang.Math.signum;
-
-import static com.almasb.fxgl.dsl.FXGL.getGameScene;
+import static com.almasb.fxgl.dsl.FXGL.getAppHeight;
+import static com.almasb.fxgl.dsl.FXGL.getAppWidth;
+import static com.almasb.fxgl.dsl.FXGL.spawn;
 import static com.almasb.fxgl.dsl.FXGL.texture;
 
+/**
+ * The class CheckpointComponent implements the Checkpoints
+ * @version 1.0
+ */
 public class CheckpointComponent extends Component {
     ArrayList<Texture> planetImages = new ArrayList<>();
     private Point2D velocity = new Point2D(0, 0);
-    private float r1;
-    private float r2;
+    private final float r1;
+    private final float r2;
 
+    /**
+     * Constructor of a Checkpoint
+     */
     public CheckpointComponent() {
 
         for (int i = 1; i < 10; i++) {
@@ -33,8 +37,12 @@ public class CheckpointComponent extends Component {
         r2 = random.nextFloat(-2, 2);
     }
 
+    /**
+     * Define what happens on each update
+     * @param tpf TickPerFrame
+     */
     @Override
-    public void onUpdate (double tpf) {
+    public void onUpdate(double tpf) {
         entity.translate(velocity.multiply(tpf));
         checkBorders();
 
@@ -44,11 +52,18 @@ public class CheckpointComponent extends Component {
         }
     }
 
-    public void setVelocity (Point2D velocity) {
+    /**
+     * @param velocity defines the Checkpoints velocity
+     */
+    public void setVelocity(Point2D velocity) {
         this.velocity = velocity;
     }
 
-    private void checkBorders () {
+
+    /**
+     * Check if the Checkpoint is within the bounds of the game, if not remove it and respawn a new Checkpoint
+     */
+    private void checkBorders() {
         double x = entity.getX();
         double y = entity.getY();
         double width = entity.getWidth();

@@ -7,6 +7,7 @@ import com.almasb.fxgl.app.scene.SceneFactory;
 
 /**
  * A factory for creating the loading scene in the game
+ * @version 1.0
  */
 public class LoadingSceneFactory extends SceneFactory {
 
@@ -16,7 +17,7 @@ public class LoadingSceneFactory extends SceneFactory {
      * @return the newly created main menu
      */
     @Override
-    public FXGLMenu newMainMenu () {
+    public FXGLMenu newMainMenu() {
         return new MainMenu(MenuType.MAIN_MENU);
     }
 }
