@@ -1,5 +1,6 @@
 package ch.fhnw.galacticenergies.components;
 
+import ch.fhnw.galacticenergies.View;
 import com.almasb.fxgl.core.math.Vec2;
 import com.almasb.fxgl.entity.component.Component;
 import com.almasb.fxgl.physics.PhysicsComponent;
@@ -37,9 +38,9 @@ public class CheckpointComponent extends Component {
         entity.translate(velocity.multiply(tpf));
         checkBorders();
 
-        if (entity.getX() < 10) {
+        if (entity.getX() < 0 - entity.getWidth()) {
             entity.removeFromWorld();
-            spawn("planet");
+            View.checkpointController.addCheckpoint();
         }
     }
 
