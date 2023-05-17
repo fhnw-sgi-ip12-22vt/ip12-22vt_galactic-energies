@@ -18,7 +18,7 @@ import static com.almasb.fxgl.dsl.FXGL.onKeyDown;
  *
  * @version 1.0
  */
-public class MovementControllerDEV {
+public class MovementController {
 
     /**
      * Moves rocket up and down with a key.

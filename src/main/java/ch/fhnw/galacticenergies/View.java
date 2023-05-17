@@ -6,7 +6,7 @@ import ch.fhnw.galacticenergies.components.LifeComponent;
 import ch.fhnw.galacticenergies.controllers.AsteroidController;
 import ch.fhnw.galacticenergies.controllers.CheckpointController;
 import ch.fhnw.galacticenergies.controllers.LevelController;
-import ch.fhnw.galacticenergies.controllers.MovementControllerDEV;
+import ch.fhnw.galacticenergies.controllers.MovementController;
 import ch.fhnw.galacticenergies.controllers.PowerController;
 import ch.fhnw.galacticenergies.controllers.RocketController;
 import ch.fhnw.galacticenergies.controllers.ViewController;
@@ -45,6 +45,9 @@ import static com.almasb.fxgl.dsl.FXGL.getUIFactoryService;
 import static com.almasb.fxgl.dsl.FXGL.geti;
 import static com.almasb.fxgl.dsl.FXGL.spawn;
 
+/**
+ * Main Class which starts the Game and initializes the required settings
+ */
 public class View extends GameApplication {
 
     private static final int STARTING_LEVEL = 1;
@@ -82,7 +85,7 @@ public class View extends GameApplication {
 
     @Override
     protected void initInput() {
-        MovementControllerDEV.movement();
+        MovementController.movement();
     }
 
     @Override

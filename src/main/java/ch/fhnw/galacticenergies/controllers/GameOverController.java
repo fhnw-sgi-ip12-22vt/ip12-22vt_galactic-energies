@@ -23,11 +23,17 @@ import static com.almasb.fxgl.dsl.FXGL.getGameController;
 import static com.almasb.fxgl.dsl.FXGL.getUIFactoryService;
 import static com.almasb.fxgl.dsl.FXGL.removeUINode;
 
-
+/**
+ * Defines the actions on GameOver
+ * @version 1.0
+ */
 public class GameOverController {
 
     private static final DecimalFormat df = new DecimalFormat("#.####");
 
+    /**
+     * show the GameOver animation
+     */
     public static void showGameOver() {
         ViewController.setPaused(true);
         View.asteroidController.removeAllAsteroids();
@@ -65,6 +71,9 @@ public class GameOverController {
 
     }
 
+    /**
+     * Write the Highscores into the Database
+     */
     public static void writeHighscore() {
         DBConnection c = new DBConnection();
         Connection conn = c.getConnection();

@@ -7,6 +7,7 @@ import com.almasb.fxgl.app.scene.SceneFactory;
 
 /**
  * A factory for creating the loading scene in the game
+ * @version 1.0
  */
 public class LoadingSceneFactory extends SceneFactory {
 

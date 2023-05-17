@@ -15,6 +15,10 @@ import static com.almasb.fxgl.dsl.FXGL.getAppHeight;
 import static com.almasb.fxgl.dsl.FXGL.getGameTimer;
 import static com.almasb.fxgl.dsl.FXGL.spawn;
 
+/**
+ * The class RocketComponent implements the Rocket
+ * @version 1.0
+ */
 public class RocketComponent extends Component {
 
     private static final float SPEED_DECAY = 0.66f;
@@ -33,6 +37,10 @@ public class RocketComponent extends Component {
         this.textureOnHit = textureOnHit;
     }
 
+    /**
+     * Define what happens on each update
+     * @param tpf TickPerFrame
+     */
     @Override
     public void onUpdate(double tpf) {
         speed = Config.ROCKET_SPEED * (float) tpf * speedMultiplier;
@@ -53,16 +61,24 @@ public class RocketComponent extends Component {
         physics.setBodyLinearVelocity(velocity);
     }
 
+    /**
+     * Move the Rocket down
+     */
     public void up() {
         velocity.set(0, speed);
         applyMoveEffects();
     }
-
+    /**
+     * Move the Rocket up
+     */
     public void down() {
         velocity.set(0, -speed);
         applyMoveEffects();
     }
 
+    /**
+     * Apply the move effect
+     */
     private void applyMoveEffects() {
         entity.setScaleX(1.05);
         entity.setScaleY(1 / entity.getScaleY());
@@ -70,35 +86,19 @@ public class RocketComponent extends Component {
         entity.getViewComponent().getParent().setEffect(blur);
     }
 
+    /**
+     * Stop the Rocket
+     */
     public void stop() {
         entity.setScaleX(1);
         entity.setScaleY(1);
         entity.getViewComponent().getParent().setEffect(null);
     }
 
-    public void shoot() {
-        if (!canShoot) {
-            return;
-        }
 
-        canShoot = false;
-        lastShot = getGameTimer().getNow();
-
-        spawn("rocketBullet", new SpawnData(0, 0).put("owner", getEntity()));
-    }
-
-    public float getSpeedMultiplier() {
-        return speedMultiplier;
-    }
-
-    public void setSpeedMultiplier(float speedMultiplier) {
-        this.speedMultiplier = speedMultiplier;
-    }
-
-    public void onHit() {
-        entity.getComponent(EffectComponent.class).startEffect(new HitEffect());
-    }
-
+    /**
+     * Show a Hit effect
+     */
     public class HitEffect extends com.almasb.fxgl.dsl.components.Effect {
 
         public HitEffect() {

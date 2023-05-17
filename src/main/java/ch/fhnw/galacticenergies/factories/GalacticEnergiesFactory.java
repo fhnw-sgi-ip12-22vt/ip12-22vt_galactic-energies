@@ -39,6 +39,10 @@ import static com.almasb.fxgl.dsl.FXGL.getAppWidth;
 import static com.almasb.fxgl.dsl.FXGL.getGameWorld;
 import static com.almasb.fxgl.dsl.FXGL.texture;
 
+/**
+ * Game Factory which spawns all the Elements used in the game
+ * @version 1.0
+ */
 public class GalacticEnergiesFactory implements EntityFactory {
 
     /**
