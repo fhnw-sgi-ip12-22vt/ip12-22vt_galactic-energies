@@ -48,13 +48,11 @@ public class rocketTest {
         PhysicsComponent physics = new PhysicsComponent();
         physics.setBodyType(BodyType.KINEMATIC);
 
-
         Entity rocket = new Entity();
         rocket.setType(ROCKET);
 
         rocket.addComponent(physics);
         rocket.addComponent(rocketComponent);
-
 
         PhysicsWorld physicsWorld = new PhysicsWorld(100, 10);
         physicsWorld.setGravity(0, 0);

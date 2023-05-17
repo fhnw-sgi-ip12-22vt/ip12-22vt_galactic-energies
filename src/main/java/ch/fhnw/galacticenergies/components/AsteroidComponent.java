@@ -3,8 +3,8 @@ package ch.fhnw.galacticenergies.components;
 import com.almasb.fxgl.entity.component.Component;
 import javafx.geometry.Point2D;
 
-import static com.almasb.fxgl.dsl.FXGL.getGameScene;
-
+import static com.almasb.fxgl.dsl.FXGL.getAppHeight;
+import static com.almasb.fxgl.dsl.FXGL.getAppWidth;
 
 public class AsteroidComponent extends Component {
 
@@ -40,13 +40,5 @@ public class AsteroidComponent extends Component {
             velocity = new Point2D(velocity.getX(), -velocity.getY());
             entity.setY(getAppHeight() - height);
         }
-    }
-
-    private double getAppWidth () {
-        return getGameScene().getAppWidth();
-    }
-
-    private double getAppHeight () {
-        return getGameScene().getAppHeight();
     }
 }
