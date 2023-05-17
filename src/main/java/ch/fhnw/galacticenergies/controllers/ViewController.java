@@ -62,13 +62,13 @@ public class ViewController implements UIController {
         if (lives.size() == 1) {
             GameOverController.showGameOver();
             return;
+        } else {
+            View.checkpointController.removeUnreachedIntervals();
+            RocketController.reset();
         }
         Entity life = lives.get(lives.size() - 1);
         life.removeFromWorld();
         lives.remove(life);
-
-        View.checkpointController.removeUnreachedIntervals();
-        RocketController.reset();
 
         Viewport viewport = gameScene.getViewport();
         Node flash = new Rectangle(viewport.getWidth(), viewport.getHeight(), Color.rgb(190, 10, 15, 0.5));

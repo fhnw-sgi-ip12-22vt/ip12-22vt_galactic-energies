@@ -1,6 +1,7 @@
 package ch.fhnw.galacticenergies.components;
 
 import ch.fhnw.galacticenergies.Config;
+import ch.fhnw.galacticenergies.controllers.SpeedController;
 import com.almasb.fxgl.core.math.Vec2;
 import com.almasb.fxgl.dsl.components.EffectComponent;
 import com.almasb.fxgl.entity.Entity;
@@ -65,6 +66,9 @@ public class RocketComponent extends Component {
      * Move the Rocket down
      */
     public void up() {
+        if(SpeedController.getSpeed() < 1){
+            return;
+        }
         velocity.set(0, speed);
         applyMoveEffects();
     }
@@ -72,6 +76,9 @@ public class RocketComponent extends Component {
      * Move the Rocket up
      */
     public void down() {
+        if(SpeedController.getSpeed() < 1){
+            return;
+        }
         velocity.set(0, -speed);
         applyMoveEffects();
     }

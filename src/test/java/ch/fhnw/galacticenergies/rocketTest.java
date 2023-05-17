@@ -1,3 +1,5 @@
+package ch.fhnw.galacticenergies;
+
 import ch.fhnw.galacticenergies.components.RocketComponent;
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.Entity;
@@ -61,6 +63,7 @@ public class rocketTest {
         physicsWorld.onEntityAdded(rocket);
 
         double before = rocket.getY();
+        System.out.println(before);
         rocket.getComponent(RocketComponent.class).down();
         rocketComponent.onUpdate(1.0);
         physicsWorld.onUpdate(1.0);

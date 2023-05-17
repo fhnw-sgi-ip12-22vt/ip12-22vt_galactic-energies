@@ -112,8 +112,9 @@ public class LevelController {
             ResultSet rs = stmt.executeQuery();
             rs.next();
             int power = rs.getInt("power");
+            double timeToUse = totalPower/power;
             String deviceName = rs.getString("devicename");
-            checkpointText = "You could use a " + deviceName + " for: " + df.format(totalPower / power) + "h";
+            checkpointText = deviceName + ": " + (int) (timeToUse) + "h " + df.format((timeToUse - (int) timeToUse) * 60) + "min";
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

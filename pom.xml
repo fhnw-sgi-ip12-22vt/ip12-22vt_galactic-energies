@@ -24,7 +24,7 @@
 
         <pi4j.version>2.2.1</pi4j.version>
         <!-- Raspberry Remote Deployment -->
-        <example.remote.host>10.175.11.137</example.remote.host>
+        <example.remote.host>10.175.23.48</example.remote.host>
         <example.remote.port>22</example.remote.port>
         <example.remote.username>pi</example.remote.username>
         <example.remote.password>picade</example.remote.password>
@@ -67,7 +67,6 @@
             <artifactId>pi4j-plugin-pigpio</artifactId>
             <version>${pi4j.version}</version>
         </dependency>
-
         <!-- Pi4J Mock Platform -->
         <dependency>
             <groupId>com.pi4j</groupId>

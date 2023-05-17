@@ -1,3 +1,5 @@
+package ch.fhnw.galacticenergies;
+
 import ch.fhnw.galacticenergies.data.DBConnection;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
