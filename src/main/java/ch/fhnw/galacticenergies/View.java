@@ -71,7 +71,7 @@ public class View extends GameApplication {
         settings.setMainMenuEnabled(true);
         settings.setProfilingEnabled(false);
         settings.setManualResizeEnabled(true);
-        settings.setApplicationMode(ApplicationMode.RELEASE);
+        settings.setApplicationMode(ApplicationMode.DEVELOPER);
         settings.setSceneFactory(new LoadingSceneFactory());
 
         settings.setTicksPerSecond(60);
@@ -124,12 +124,9 @@ public class View extends GameApplication {
                 ViewController.setPaused(true);
                 asteroidController.removeAllAsteroids();
                 checkpointController.removeCheckpoint();
-                uiController.loseLife();
-                levelController.resetToLastCheckpoint();
                 RocketController.getRocketControl().getEntity().setY(getAppHeight() / 2);
-                getGameTimer().runOnceAfter(() -> {
-                    ViewController.setPaused(false);
-                }, Duration.seconds(1));
+                uiController.loseLife();
+
             }
         });
 

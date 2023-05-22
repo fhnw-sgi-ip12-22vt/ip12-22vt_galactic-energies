@@ -59,7 +59,6 @@ public class GameOverController {
                         writeHighscore();
                         PowerController.setTotalPower(0);
                         getGameController().gotoMainMenu();
-                        ViewController.setPaused(false);
                     })
                     .translate(textLevel)
                     .from(new Point2D(textLevel.getTranslateX(), textLevel.getTranslateY()))

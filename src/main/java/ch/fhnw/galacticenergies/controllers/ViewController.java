@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.almasb.fxgl.dsl.FXGL.getAppWidth;
+import static com.almasb.fxgl.dsl.FXGL.getGameTimer;
 import static com.almasb.fxgl.dsl.FXGL.runOnce;
 import static com.almasb.fxgl.dsl.FXGL.spawn;
 
@@ -64,7 +65,11 @@ public class ViewController implements UIController {
             return;
         } else {
             View.checkpointController.removeUnreachedIntervals();
+            View.levelController.resetToLastCheckpoint();
             RocketController.reset();
+            getGameTimer().runOnceAfter(() -> {
+                ViewController.setPaused(false);
+            }, Duration.seconds(1));
         }
         Entity life = lives.get(lives.size() - 1);
         life.removeFromWorld();
