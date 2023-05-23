@@ -25,8 +25,7 @@
 4.image = intro/planet.png
 
 //loads controlboard image from intro package
-5.image = intro/Steuerboard.PNG
-
+//5.image = intro/Steuerboard.PNG
 
 
 //Introduction text
@@ -42,6 +41,6 @@
 4: The planets in the galaxy are your checkpoints. You must collect them to conserve your energy and rest during the flight.
 
 //Controlboard text
-5: This is the cockpit of your spaceship. Here you can see all the information about your speed. You can increase your speed by turning the hand crank.
+5: The control-board is located at the bottom-center of your Screen. Here you can see all the information about your speed. You can increase your speed by turning the hand crank.
 
 
