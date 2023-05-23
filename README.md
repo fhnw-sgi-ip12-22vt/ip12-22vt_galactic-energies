@@ -103,10 +103,14 @@ Die Ip-Adresse muss im pom.xml file hinterlegt werden
                 <plugins>
 ```
 
-## Anleitung für Anpassungen am System 
+### Anleitung für Anpassungen am System 
 
 Die Anleitung für Anpassungen am System ist im SAD unter folgendem Link zu finden: [Anleitung für Anpassungen am System](https://gitlab.fhnw.ch/ip12-22vt/ip12-22vt_digitaleralltag/docu/-/blob/main/software(sad)/Anleitung%20für%20Anpassungen%20am%20System.adoc)
 
+### Deployment-Anleitung 
+
+Die Anleitung für das Deployment finden sie unter folgendem Link: [Deployment-Anleitung.](https://gitlab.fhnw.ch/ip12-22vt/ip12-22vt_digitaleralltag/docu/-/blob/main/software(sad)/src/07.1_DeploymentInstrucions.adoc)
+Sie beinhaltet zudem Anweisungen für die Neugenerierung des Systems aus Quell- und Konfigurationsdateien.
 ## Dateiliste
 
 
