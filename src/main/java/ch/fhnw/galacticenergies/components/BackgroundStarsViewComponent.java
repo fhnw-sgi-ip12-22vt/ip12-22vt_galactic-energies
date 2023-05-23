@@ -1,6 +1,7 @@
 package ch.fhnw.galacticenergies.components;
 
 import ch.fhnw.galacticenergies.controllers.SpeedController;
+import ch.fhnw.galacticenergies.controllers.ViewController;
 import com.almasb.fxgl.dsl.components.view.ChildViewComponent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -14,8 +15,7 @@ import static com.almasb.fxgl.dsl.FXGL.random;
 import static com.almasb.fxgl.dsl.FXGL.run;
 
 /**
- * @Version 1.0
- *
+ * @version 1.0
  * Initializes and moves the Background
  */
 
@@ -40,10 +40,14 @@ public class BackgroundStarsViewComponent extends ChildViewComponent {
 
     /**
      * On update all stars are moved
+     *
      * @param tpf Time per Frame
      */
     @Override
     public void onUpdate(double tpf) {
+        if (ViewController.isPaused()) {
+            return;
+        }
         for (Circle star : stars) {
             move(star);
         }
@@ -51,10 +55,10 @@ public class BackgroundStarsViewComponent extends ChildViewComponent {
 
     /**
      * Moves each Star to the left if the left border is reached the star is reset to the right borders
+     *
      * @param star current Star which is being moved
      */
     private void move(Circle star) {
-
         star.setCenterX(star.getCenterX() - 0.341562 * SpeedController.getSpeed());
         if (star.getCenterX() <= 0) {
             star.setCenterX(getAppWidth());

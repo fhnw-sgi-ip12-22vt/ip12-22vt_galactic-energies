@@ -1,0 +1,46 @@
+
+//Introduces into the game
+1.name = Introduction
+
+//Rocket cutscene
+2.name = Rocket
+
+//Enemy cutscene
+3.name = Enemy
+
+//Planet cutscene
+4.name = Planet
+
+//Controlboard cutscene
+5.name = Controlboard
+
+
+//loads rocket image from intro package
+2.image = intro/Rocket.png
+
+//loads enemy image from intro package
+3.image = intro/Enemy.png
+
+//loads planet image from intro package
+4.image = intro/planet.png
+
+//loads controlboard image from intro package
+//5.image = intro/Steuerboard.PNG
+
+
+//Introduction text
+1: You have landed safely in the Energy Galaxy. Get ready to explore the cosmos and collect energy to set new high scores. Make stops on planets to save your points and fly away from the asteroids that will crash you. Learn the value of your generated energy and understand the role electricity plays in your daily life.
+
+//Rocket text
+2: This is your spaceship. You can steer it with your joystick on the game board up and down to reach planets and dodge asteroids.
+
+//Enemy text
+3: There are asteroids in the galaxy that are your enemies and stand in the way of your mission. If they hit you, you will lose one of your five lives. Better be quick and fly away from them!
+
+//Planet text
+4: The planets in the galaxy are your checkpoints. You must collect them to conserve your energy and rest during the flight.
+
+//Controlboard text
+5: The control-board is located at the bottom-center of your Screen. Here you can see all the information about your speed. You can increase your speed by turning the hand crank.
+
+

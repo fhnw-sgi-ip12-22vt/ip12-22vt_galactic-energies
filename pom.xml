@@ -18,14 +18,16 @@
 
         <ant-jsch.version>1.10.9</ant-jsch.version>
 
+        <mockito.version>5.3.1</mockito.version>
+
         <java.version>17</java.version>
 
         <pi4j.version>2.2.1</pi4j.version>
         <!-- Raspberry Remote Deployment -->
-        <example.remote.host>10.175.1.150</example.remote.host>
+        <example.remote.host>10.175.23.48</example.remote.host>
         <example.remote.port>22</example.remote.port>
         <example.remote.username>pi</example.remote.username>
-        <example.remote.password>crowpi</example.remote.password>
+        <example.remote.password>picade</example.remote.password>
         <example.remote.target>/home/pi/deployment</example.remote.target>
         <example.remote.jvmOptions/>
 
@@ -65,7 +67,6 @@
             <artifactId>pi4j-plugin-pigpio</artifactId>
             <version>${pi4j.version}</version>
         </dependency>
-
         <!-- Pi4J Mock Platform -->
         <dependency>
             <groupId>com.pi4j</groupId>
@@ -84,6 +85,13 @@
             <groupId>com.github.almasb</groupId>
             <artifactId>fxgl</artifactId>
             <version>17.1</version>
+        </dependency>
+        <!-- Mockito -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>${mockito.version}</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>

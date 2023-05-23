@@ -8,23 +8,24 @@ import com.pi4j.io.i2c.I2CConfig;
 /**
  * Initiating current meter & defining read and write operations.
  *
- * @Version 1.0
+ * @version 1.0
  */
 public class Kurbel {
 
     private static final int CONFIGURATION_REGISTER = 0x00;
     private static final int CALIBRATION_REGISTER = 0x05;
     private static final int POWER_REGISTER = 0x03;
-    private final int i2cBus = 0x01;
-    private final int device = 0x40;
-    private final String deviceName = "Kurbel";
     private final I2C i2c;
 
     /**
      * Initialisation of the required Parameters
+     *
      * @param pi4j gives the Context
      */
     public Kurbel(Context pi4j) {
+        int i2cBus = 0x01;
+        int device = 0x40;
+        String deviceName = "Kurbel";
         i2c = pi4j.create(I2C.newConfigBuilder(pi4j)
             .id("I2C-" + device + "@" + i2cBus)
             .name(deviceName)
@@ -35,10 +36,9 @@ public class Kurbel {
 
 
     /**
-     *
-     * @param pi4j Context
-     * @param bus  Bus on which the device is connected
-     * @param device Device number
+     * @param pi4j     Context
+     * @param bus      Bus on which the device is connected
+     * @param device   Device number
      * @param deviceId DeviceId
      * @return
      */
@@ -64,6 +64,7 @@ public class Kurbel {
 
     /**
      * Reading the CalibrationRegister
+     *
      * @return CalibrationRegister output
      */
     public int readCalibrationRegister() {
@@ -72,12 +73,14 @@ public class Kurbel {
 
     /**
      * Reading the PowerRegister
+     *
      * @return PowerRegister content
      */
     public int readPowerRegister() {
         return i2c.readRegisterWord(POWER_REGISTER);
     }
 
+    @SuppressWarnings("unused")
     public enum ADDRESS {
         /**
          * Device address if pin is connected to GND

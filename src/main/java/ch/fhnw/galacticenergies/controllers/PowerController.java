@@ -1,6 +1,7 @@
 package ch.fhnw.galacticenergies.controllers;
 
 
+import ch.fhnw.galacticenergies.View;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -19,21 +20,21 @@ public class PowerController {
 
     private static double currentPower;
     private static double totalPower = 0;
-    private static int lastTimestamp = 0;
     private static Text text;
 
-    private static DecimalFormat df = new DecimalFormat("#.####");
+    private static final DecimalFormat df = new DecimalFormat("#.####");
 
     /**
      * Processes the ArrayLists that were created in PowerInput
      * Calculates the totalPower that was generated and stores it in totalPower
      */
     public static void calcPower() {
-
+        if (ViewController.isPaused()) {
+            return;
+        }
         totalPower = totalPower + (currentPower / 3600);
-        System.out.println(totalPower);
-        text.setText("Current: " + (int) currentPower+ "W per Hour Total: " + df.format(totalPower)+ " Wh");
-
+        View.checkpointController.checkCreation(totalPower);
+        text.setText("Current: " + (int) currentPower + "W per Hour Total: " + df.format(totalPower) + " Wh");
     }
 
     public static void initText() {
@@ -46,22 +47,13 @@ public class PowerController {
     }
 
     /**
-     * Getter for currentPower
-     *
-     * @return currentPower
-     */
-    public static double getCurrentPower() {
-        return currentPower;
-    }
-
-    /**
      * Set the currentPower
      *
      * @param currentPower
      */
     public static void setCurrentPower(double currentPower) {
         PowerController.currentPower = currentPower;
-        SpeedController.setSpeed((int)currentPower);
+        SpeedController.setSpeed((int) currentPower);
         calcPower();
     }
 
@@ -69,10 +61,11 @@ public class PowerController {
      * @return return the total value of the power.
      */
     public static double getTotalPower() {
-
         return totalPower;
     }
 
-
+    public static void setTotalPower(double totalPowerNew) {
+        totalPower = totalPowerNew;
+    }
 }
 

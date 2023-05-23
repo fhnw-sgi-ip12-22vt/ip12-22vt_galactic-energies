@@ -1,0 +1,21 @@
+.main_menu_button{
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-family: "Roboto Light";
+    -fx-font-weight: bold;
+    -fx-font-size: 25;
+
+}
+
+.main_menu_button:focused{
+    -fx-underline: true;
+}
+
+.leaderboard {
+    -fx-background-color: rgba(0, 0, 0, .7);
+    -fx-padding: 10;
+    -fx-background-radius: 20 20 20 20;
+    -fx-text-fill: white;
+    -fx-font-family: "Roboto Light";
+    -fx-font-size: 20;
+}

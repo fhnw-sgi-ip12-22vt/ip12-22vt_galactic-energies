@@ -9,9 +9,7 @@ import com.almasb.fxgl.entity.SpawnData;
 import com.almasb.fxgl.entity.Spawns;
 import com.almasb.fxgl.entity.components.IrremovableComponent;
 import com.almasb.fxgl.physics.PhysicsComponent;
-import com.almasb.fxgl.physics.box2d.dynamics.BodyDef;
 import com.almasb.fxgl.physics.box2d.dynamics.BodyType;
-import com.almasb.fxgl.physics.box2d.dynamics.FixtureDef;
 import com.almasb.fxgl.texture.Texture;
 import javafx.geometry.Point2D;
 import javafx.geometry.Pos;
@@ -24,25 +22,46 @@ import java.util.Random;
 import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.*;
 import static com.almasb.fxgl.dsl.FXGL.*;
 
+/**
+ * Game Factory which spawns all the Elements used in the game
+ *
+ * @version 1.0
+ */
+@SuppressWarnings("unused")
 public class GalacticEnergiesFactory implements EntityFactory {
 
-
+    /**
+     * define constructor for GalacticEnergiesFactory class
+     */
     public GalacticEnergiesFactory() {
 
     }
 
+    /**
+     * define method for spawning background entities
+     *
+     * @param data
+     * @return
+     */
     @Spawns("background")
     public Entity newBackground(SpawnData data) {
         return entityBuilder(data)
-            .type(BACKGROUND)
-            .with(new IrremovableComponent())
-            .with(new BackgroundStarsViewComponent(
-            ))
-            .build();
+                .type(BACKGROUND)
+                .with(new IrremovableComponent())
+                .with(new BackgroundStarsViewComponent(
+                ))
+                .build();
     }
 
+    /**
+     * define method for spawning rocket entities
+     *
+     * @param data
+     * @return
+     */
     @Spawns("rocket")
     public Entity newRocket(SpawnData data) {
+        // create a new entity with specified components and properties
         PhysicsComponent physics = new PhysicsComponent();
         physics.setBodyType(BodyType.KINEMATIC);
 
@@ -51,16 +70,22 @@ public class GalacticEnergiesFactory implements EntityFactory {
         texture.setFitWidth(70);
 
         return entityBuilder(data)
-            .type(ROCKET)
-            .at(10, getAppHeight() / 2 - (texture.getFitHeight() / 2))
-            .viewWithBBox(texture)
-            .collidable()
-            .with(physics)
-            .with(new EffectComponent())
-            .with(new RocketComponent(texture("bat_hit.png")))
-            .build();
+                .type(ROCKET)
+                .at(10, (double) getAppHeight() / 2 - (texture.getFitHeight() / 2))
+                .viewWithBBox(texture)
+                .collidable()
+                .with(physics)
+                .with(new EffectComponent())
+                .with(new RocketComponent(texture("bat_hit.png")))
+                .build();
     }
 
+    /**
+     * define method for spawning dashboard entities
+     *
+     * @param data
+     * @return
+     */
     @Spawns("dashboard")
     public Entity newDashboard(SpawnData data) {
         Texture texture = texture("dashboard/Steuerboard Level 1.png");
@@ -73,26 +98,31 @@ public class GalacticEnergiesFactory implements EntityFactory {
         StackPane.setAlignment(texture, Pos.BOTTOM_CENTER);
 
         return entityBuilder(data)
-            .type(DASHBOARD)
-            .at(getAppCenter().getY(), getAppCenter().getX() + texture.getFitHeight())
-            .view(s)
-            .with(new DashboardComponent())
-            .build();
+                .type(DASHBOARD)
+                .at(getAppCenter().getY(), getAppCenter().getX() + texture.getFitHeight())
+                .view(s)
+                .with(new DashboardComponent())
+                .build();
     }
 
-
+    /**
+     * define method for spawning life entities
+     *
+     * @param data
+     * @return
+     */
     @Spawns("life")
     public Entity newLive(SpawnData data) {
-        Texture textureLife = texture("heart.png");
-        textureLife.setFitWidth(20);
-        textureLife.setFitHeight(20);
+        Rectangle live = new Rectangle();
+        live.setWidth(20);
+        live.setHeight(10);
+        live.setFill(Color.WHITE);
 
         return entityBuilder(data)
-            .type(LIFE)
-            .at(getAppWidth(), 10)
-            .view(textureLife)
-            .with(new LifeComponent())
-            .build();
+                .type(LIFE)
+                .at(getAppWidth(), 10)
+                .view(live)
+                .build();
     }
 
     @Spawns("arrows")
@@ -101,39 +131,33 @@ public class GalacticEnergiesFactory implements EntityFactory {
         texture.setPreserveRatio(true);
         texture.setFitHeight(20);
         texture.setFitWidth(20);
-        System.out.println(texture.getFitWidth());
         return entityBuilder(data)
-            .type(ARROWS)
-            .at(getAppWidth() / 2 - texture.getFitWidth() / 1.5, getAppHeight() - texture.getHeight() / 2)
-            .with(new ArrowsComponent())
-            .build();
-    }
-
-    private DashboardComponent getDashboardControl() {
-        return getGameWorld().getSingleton(DASHBOARD).getComponent(DashboardComponent.class);
+                .type(ARROWS)
+                .at((double) getAppWidth() / 2 - texture.getFitWidth() / 1.5, getAppHeight() - texture.getHeight() / 2.5)
+                .with(new ArrowsComponent())
+                .build();
     }
 
     @Spawns("asteroid")
     public Entity newAsteroid(SpawnData data) {
         Random r = new Random();
         Texture texture = texture("asteroids/Enemy" + r.nextInt(1, 4) + ".png");
-        System.out.println(r.nextInt(1, 4));
-        texture.setScaleX(0.5);
-        texture.setScaleY(0.5);
         Point2D velocity = new Point2D(r.nextFloat(-100, -75),
-            r.nextFloat(0, 25));
+                r.nextFloat(0, 25));
 
         AsteroidComponent asteroidComponent = new AsteroidComponent();
         asteroidComponent.setVelocity(velocity);
 
         return entityBuilder(data)
-            .type(ASTEROID)
-            .at(getAppWidth() - texture.getFitWidth(), r.nextFloat(0, getAppHeight()))
-            .collidable()
-            .viewWithBBox(texture)
-            .with(asteroidComponent)
-            .with(new OffscreenCleanComponent())
-            .buildAndAttach();
+                .type(ASTEROID)
+                .at(getAppWidth() + texture.getFitWidth(), r.nextFloat(0, getAppHeight()))
+                .viewWithBBox(texture)
+                .with(asteroidComponent)
+                .scaleOrigin(0, 0)
+                .scale(0.5, 0.5)
+                .collidable()
+                .with(new OffscreenCleanComponent())
+                .build();
     }
 
     @Spawns("planet")
@@ -143,29 +167,23 @@ public class GalacticEnergiesFactory implements EntityFactory {
         texture.setPreserveRatio(true);
         texture.setFitWidth(texture.getHeight());
 
-        PhysicsComponent physics = new PhysicsComponent();
-        physics.setBodyType(BodyType.DYNAMIC);
-        physics.setFixtureDef(new FixtureDef().restitution(1f).density(0.03f));
-
-        var bd = new BodyDef();
-        bd.setType(BodyType.DYNAMIC);
-        bd.setFixedRotation(true);
-
-        physics.setBodyDef(bd);
-
         Random random = new Random();
 
+        Point2D velocity = new Point2D(r.nextFloat(-100, -75),
+                r.nextFloat(0, 25));
+
+        CheckpointComponent checkpointComponent = new CheckpointComponent();
+        checkpointComponent.setVelocity(velocity);
+
         return entityBuilder(data)
-            .type(PLANET)
-            .at(getAppWidth() - texture.getFitWidth(), random.nextFloat(0, getAppHeight()))
-            .viewWithBBox(texture)
-            .collidable()
-            .with(physics)
-            .with(new CheckpointComponent())
-            .with(new OffscreenCleanComponent())
-            .scaleOrigin(0, 0)
-            .scale(0.5, 0.5)
-            .build();
+                .type(PLANET)
+                .at(getAppWidth() + texture.getFitWidth(), random.nextFloat(0, getAppHeight()))
+                .viewWithBBox(texture)
+                .collidable()
+                .with(checkpointComponent)
+                .with(new OffscreenCleanComponent())
+                .scale(0.25, 0.25)
+                .build();
     }
 
 }

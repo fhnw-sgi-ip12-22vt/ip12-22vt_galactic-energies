@@ -1,27 +1,27 @@
 package ch.fhnw.galacticenergies.data;
 
-import javax.sql.DataSource;
-import java.sql.*;
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ * Creates the Connection to the SQL Database
+ * @version 1.0
+ */
+@SuppressWarnings("SpellCheckingInspection")
 public class DBConnection {
     private Connection conn;
 
     public Connection getConnection() {
 
 
-        String connectionUrl = "jdbc:mysql://10.175.17.64:3306/galacticenergies?serverTimezone=UTC";
+        String connectionUrl = "jdbc:mysql://localhost:3306/galacticenergies?serverTimezone=UTC";
 
         try {
 
             conn = DriverManager.getConnection(connectionUrl, "galacticenergies", "galacticenergies");
+        } catch (SQLException ignored) {
 
-
-        } catch (SQLException e) {
-            // handle the exception
-            System.out.println(" Error");
-            System.err.println(e);
         }
         return conn;
     }
