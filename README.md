@@ -1,4 +1,3 @@
-
 Das Projekt Digitaler Alltag verfolgt das Ziel durch eine spielerische Weise Kindern und Jugendlichen ein Strombewusstsein zu vermitteln. Dabei greift das Projektteam auf eine Arcade-Spiel zurück, welches eine angepasste Form von den bekannten Spiele " Space Invaders" sein sollte. Durch die Hardware-Komponente in Form einer Kurbel wird der Spieler animiert Strom zu erzeugen und durch die im Spiel erreichten Checkpoints zu erfahren wie viel Strom mit der Kurbel bis zu diesem Punkt erzeugt wurde und welche Alltagsgegenstände für wie lange damit betrieben oder geladen werden können.
 
 ## Komponenten
@@ -106,7 +105,7 @@ Die Ip-Adresse muss im pom.xml file hinterlegt werden
 
 ## Anleitung für Anpassungen am System 
 
-Die Anleitung für Anpassungen am System ist im SAD unter folgendem Link zu finden. https://gitlab.fhnw.ch/ip12-22vt/ip12-22vt_digitaleralltag/docu/-/blob/main/software(sad)/Anleitung%20für%20Anpassungen%20am%20System.adoc[Anleitung für Anpassungen am System]
+Die Anleitung für Anpassungen am System ist im SAD unter folgendem Link zu finden: [Anleitung für Anpassungen am System](https://gitlab.fhnw.ch/ip12-22vt/ip12-22vt_digitaleralltag/docu/-/blob/main/software(sad)/Anleitung%20für%20Anpassungen%20am%20System.adoc)
 
 ## Dateiliste
 
