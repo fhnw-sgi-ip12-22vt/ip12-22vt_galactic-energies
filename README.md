@@ -112,8 +112,6 @@ Die Anleitung für Anpassungen am System ist im SAD unter folgendem Link zu find
 Die Anleitung für das Deployment finden sie unter folgendem Link: [Deployment-Anleitung.](https://gitlab.fhnw.ch/ip12-22vt/ip12-22vt_digitaleralltag/docu/-/blob/main/software(sad)/src/07.1_DeploymentInstrucions.adoc)
 Sie beinhaltet zudem Anweisungen für die Neugenerierung des Systems aus Quell- und Konfigurationsdateien.
 ## Dateiliste
-
-
 ### Klassen
 
 
@@ -122,6 +120,18 @@ Sie beinhaltet zudem Anweisungen für die Neugenerierung des Systems aus Quell- 
 ## Bekannte Bugs
 
 ## Danksagung und Credits
+
+Wir möchten uns herzlich bei Ihnen für Ihr Interesse an unserem Projekt bedanken. Diese Readme-Datei dient dazu, Ihnen einen Überblick über unser Projekt zu geben und Ihnen bei der Verwendung und dem Verständnis unserer Software zu helfen.
+
+Unser Entwicklerteam hat hart daran gearbeitet, um dieses Projekt zu realisieren, und wir sind stolz auf das Ergebnis, das wir erreicht haben. Doch wir möchten betonen, dass dieses Projekt ohne die Unterstützung und Hilfe von vielen Menschen nicht möglich gewesen wäre.
+
+Zuallererst möchten wir uns bei unseren Dozierenden bedanken. Ihre fachkundige Anleitung, Ihre wertvollen Ratschläge und Ihre Bereitschaft, uns bei unseren Fragen zu unterstützen, haben uns enorm geholfen. Sie haben uns ermutigt, unsere Fähigkeiten weiterzuentwickeln und neue Wege zu erkunden. Ohne Ihre Unterstützung wären wir nicht in der Lage gewesen, dieses Projekt erfolgreich abzuschließen.
+
+Ein besonderer Dank geht auch an das Pi4J-Team. Die von Ihnen entwickelte Plattform und die bereitgestellten Werkzeuge waren von unschätzbarem Wert für die Umsetzung unseres Projekts. Ihre fortlaufende Weiterentwicklung von Pi4J hat uns die Möglichkeit gegeben, die volle Leistungsfähigkeit der zugrunde liegenden Hardware auszuschöpfen und unsere Ideen in die Tat umzusetzen.
+
+Darüber hinaus möchten wir uns bei all den Menschen bedanken, die uns bei der Testphase unterstützt und wertvolles Feedback gegeben haben. Ihre konstruktiven Anmerkungen haben dazu beigetragen, unser Projekt zu verbessern und uns auf mögliche Fehler oder Schwachstellen aufmerksam zu machen.
+
+Vielen herzlichen Dank!
 
 ## Kontaktinformationen:
 Jan Rudolf 
