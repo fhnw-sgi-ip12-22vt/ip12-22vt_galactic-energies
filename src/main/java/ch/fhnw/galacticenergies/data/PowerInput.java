@@ -23,11 +23,12 @@ import static com.almasb.fxgl.dsl.FXGLForKtKt.getGameTimer;
  * @version 1.0
  */
 
+@SuppressWarnings("GrazieInspection")
 public class PowerInput {
     private static Kurbel k;
 
     /**
-     * initializes Pi4j providers & configurates the required registers
+     * initializes Pi4j providers & configures the required registers
      */
     public static void initPower() {
         final var piGpio = PiGpio.newNativeInstance();

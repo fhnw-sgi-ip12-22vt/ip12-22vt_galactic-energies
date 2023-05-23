@@ -18,11 +18,8 @@ import java.text.DecimalFormat;
 import static com.almasb.fxgl.dsl.FXGL.addUINode;
 import static com.almasb.fxgl.dsl.FXGL.animationBuilder;
 import static com.almasb.fxgl.dsl.FXGL.centerText;
-import static com.almasb.fxgl.dsl.FXGL.getDialogService;
-import static com.almasb.fxgl.dsl.FXGL.getGameController;
 import static com.almasb.fxgl.dsl.FXGL.getGameWorld;
 import static com.almasb.fxgl.dsl.FXGL.getUIFactoryService;
-import static com.almasb.fxgl.dsl.FXGL.geti;
 import static com.almasb.fxgl.dsl.FXGL.inc;
 import static com.almasb.fxgl.dsl.FXGL.removeUINode;
 
@@ -31,10 +28,8 @@ import static com.almasb.fxgl.dsl.FXGL.removeUINode;
  *
  * @version 1.0
  */
+@SuppressWarnings("SpellCheckingInspection")
 public class LevelController {
-
-    private static final int MAX_LEVEL = 10;
-
     private Text uiTextLevel;
 
     private double savedPower = 0;
@@ -46,12 +41,6 @@ public class LevelController {
         inc("level", +1);
         savedPower = PowerController.getTotalPower();
         View.asteroidController.increaseMaxAsteroids();
-        var levelNum = geti("level");
-
-        if (levelNum > MAX_LEVEL) {
-            getDialogService().showMessageBox("GAME END", getGameController()::exit);
-            return;
-        }
 
         uiTextLevel.setVisible(false);
         Text textLevel = getUIFactoryService().newText(getCheckpointText(), Color.WHITE, 22);
@@ -67,26 +56,20 @@ public class LevelController {
 
             .interpolator(Interpolators.SMOOTH.EASE_OUT())
             .duration(Duration.seconds(10))
-            .onFinished(() -> {
-                animationBuilder()
-                    .duration(Duration.seconds(0.5))
-                    .interpolator(Interpolators.LINEAR.EASE_IN())
-                    .onFinished(() -> {
-                        removeUINode(textLevel);
-                        uiTextLevel.setVisible(true);
-                        ViewController.setPaused(false);
-                    })
-                    .translate(textLevel)
-                    .from(new Point2D(textLevel.getTranslateX(), textLevel.getTranslateY()))
-                    .to(new Point2D(330, 540))
-                    .buildAndPlay();
-            })
+            .onFinished(() -> animationBuilder()
+                .duration(Duration.seconds(0.5))
+                .interpolator(Interpolators.LINEAR.EASE_IN())
+                .onFinished(() -> {
+                    removeUINode(textLevel);
+                    uiTextLevel.setVisible(true);
+                    ViewController.setPaused(false);
+                })
+                .translate(textLevel)
+                .from(new Point2D(textLevel.getTranslateX(), textLevel.getTranslateY()))
+                .to(new Point2D(330, 540))
+                .buildAndPlay())
             .fadeIn(textLevel)
             .buildAndPlay();
-    }
-
-    public Text getUiTextLevel() {
-        return uiTextLevel;
     }
 
     public void setUiTextLevel(Text uiTextLevel) {

@@ -50,21 +50,19 @@ public class GameOverController {
         animationBuilder()
             .interpolator(Interpolators.SMOOTH.EASE_OUT())
             .duration(Duration.seconds(3))
-            .onFinished(() -> {
-                animationBuilder()
-                    .duration(Duration.seconds(3))
-                    .interpolator(Interpolators.EXPONENTIAL.EASE_IN())
-                    .onFinished(() -> {
-                        removeUINode(textLevel);
-                        writeHighscore();
-                        PowerController.setTotalPower(0);
-                        getGameController().gotoMainMenu();
-                    })
-                    .translate(textLevel)
-                    .from(new Point2D(textLevel.getTranslateX(), textLevel.getTranslateY()))
-                    .to(new Point2D(330, 540))
-                    .buildAndPlay();
-            })
+            .onFinished(() -> animationBuilder()
+                .duration(Duration.seconds(3))
+                .interpolator(Interpolators.EXPONENTIAL.EASE_IN())
+                .onFinished(() -> {
+                    removeUINode(textLevel);
+                    writeHighscore();
+                    PowerController.setTotalPower(0);
+                    getGameController().gotoMainMenu();
+                })
+                .translate(textLevel)
+                .from(new Point2D(textLevel.getTranslateX(), textLevel.getTranslateY()))
+                .to(new Point2D(330, 540))
+                .buildAndPlay())
             .fadeIn(textLevel)
             .buildAndPlay();
 
@@ -86,7 +84,6 @@ public class GameOverController {
 
 
         } catch (SQLException e) {
-            System.err.println(e);
             throw new RuntimeException(e);
         }
     }

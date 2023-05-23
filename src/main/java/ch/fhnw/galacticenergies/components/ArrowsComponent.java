@@ -6,7 +6,7 @@ import com.almasb.fxgl.texture.Texture;
 import static com.almasb.fxgl.dsl.FXGL.texture;
 
 /**
- * The class ArrowComponent implements arrow's which show the flight direction of the rocket
+ * The class ArrowComponent implements arrows which show the flight direction of the rocket
  *
  * @version 1.0
  */
@@ -28,10 +28,6 @@ public class ArrowsComponent extends Component {
 
         textureNone.setPreserveRatio(true);
         textureNone.setFitHeight(BUTTON_SIZE);
-    }
-
-    public static double getBUTTON_SIZE() {
-        return BUTTON_SIZE;
     }
 
     @Override
@@ -74,8 +70,6 @@ public class ArrowsComponent extends Component {
         if (entity.getViewComponent().getChildren().contains(textureNone)) {
             return;
         }
-        //entity.getViewComponent().removeChild(textureDown);
-        //entity.getViewComponent().removeChild(textureUp);
 
         entity.getViewComponent().addChild(textureNone);
     }

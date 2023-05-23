@@ -13,7 +13,7 @@ import static com.almasb.fxgl.dsl.FXGL.spawn;
  */
 public class CheckpointController {
     private Entity planet;
-    private HashSet<Double> intervals = new HashSet<Double>();
+    private final HashSet<Double> intervals = new HashSet<>();
 
     public void addCheckpoint() {
         removeCheckpoint();
@@ -48,10 +48,6 @@ public class CheckpointController {
 
     public void addToInterval(double interval) {
         intervals.add(interval);
-    }
-
-    public void removeFromInterval(double interval) {
-        intervals.remove(interval);
     }
 
     public void removeUnreachedIntervals() {

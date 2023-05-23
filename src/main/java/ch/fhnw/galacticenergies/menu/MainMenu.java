@@ -32,10 +32,11 @@ import static com.almasb.fxgl.dsl.FXGLForKtKt.getAssetLoader;
  * @Version 1.0
  */
 
+@SuppressWarnings("SpellCheckingInspection")
 public class MainMenu extends FXGLMenu {
 
-    static Button btnPlay = new Button("Play");
-    static Button btnIntro = new Button("Intro");
+    static final Button btnPlay = new Button("Play");
+    static final Button btnIntro = new Button("Intro");
     private static Label leaderboardAllTime;
     private static Label leaderboardToday;
     private static Label allTime;
@@ -74,7 +75,6 @@ public class MainMenu extends FXGLMenu {
             IntroScene.start();
         });
 
-
         // Creates a VBox to hold the menu buttons, sets its properties and adds it to the content root
         VBox buttonVBox = new VBox(5, btnPlay, btnIntro);
         buttonVBox.getStyleClass().add("main_menu_VBox");
@@ -83,9 +83,7 @@ public class MainMenu extends FXGLMenu {
         buttonVBox.setTranslateY(getAppHeight() * 0.6);
         getContentRoot().getChildren().addAll(bg, titleHBox, buttonVBox);
 
-        /**
-         * Update method for the HighScoresScene, removes and recreates the hiscores display and updates animation.
-         */
+        //Update method for the HighScoresScene, removes and recreates the highscores display and updates animation.
         animation = FXGL.animationBuilder()
             .duration(Duration.seconds(0.66))
             .interpolator(Interpolators.EXPONENTIAL.EASE_OUT())
@@ -123,7 +121,7 @@ public class MainMenu extends FXGLMenu {
     }
 
     /**
-     * Update method for the HighScoresScene, removes and recreates the hiscores display and updates animation.
+     * Update method for the HighScoresScene, removes and recreates the highscores display and updates animation.
      *
      * @param tpf
      */
@@ -147,7 +145,7 @@ public class MainMenu extends FXGLMenu {
         DBConnection c = new DBConnection();
         Connection conn = c.getConnection();
 
-        String result = "Leaderboard All Time \nDate:             Score: \n";
+        StringBuilder result = new StringBuilder("Leaderboard All Time \nDate:             Score: \n");
 
         // Retrieve top 5 rows of total power production from the database and format them as a string
         try {
@@ -159,18 +157,17 @@ public class MainMenu extends FXGLMenu {
                 Date date = rs.getDate("date");
                 Double power = rs.getDouble("producedpower");
 
-                result = result + date + "   " + df.format(power) + "  Wh \n";
+                result.append(date).append("   ").append(df.format(power)).append("  Wh \n");
             }
 
             conn.close();
 
             // Catch any SQL exceptions, print error message and rethrow as RuntimeException
         } catch (SQLException e) {
-            System.err.println(e);
             throw new RuntimeException(e);
         }
 
-        leaderboard.setText(result);
+        leaderboard.setText(result.toString());
         leaderboardAllTime = leaderboard;
 
     }
@@ -190,7 +187,7 @@ public class MainMenu extends FXGLMenu {
         DBConnection c = new DBConnection();
         Connection conn = c.getConnection();
 
-        String result = "Leaderboard Today \nDate:             Score: \n";
+        StringBuilder result = new StringBuilder("Leaderboard Today \nDate:             Score: \n");
 
         // Retrieve top 5 rows of total power production from the database and format them as a string
         try {
@@ -201,18 +198,17 @@ public class MainMenu extends FXGLMenu {
                 Date date = rs.getDate("date");
                 Double power = rs.getDouble("producedpower");
 
-                result = result + date + "   " + df.format(power) + "  Wh \n";
+                result.append(date).append("   ").append(df.format(power)).append("  Wh \n");
             }
 
             conn.close();
 
             // Catch any SQL exceptions, print error message and rethrow as RuntimeException
         } catch (SQLException e) {
-            System.err.println(e);
             throw new RuntimeException(e);
         }
 
-        leaderboard.setText(result);
+        leaderboard.setText(result.toString());
         leaderboardToday = leaderboard;
 
     }
@@ -264,7 +260,6 @@ public class MainMenu extends FXGLMenu {
             conn.close();
 
         } catch (SQLException e) {
-            System.err.println(e);
             throw new RuntimeException(e);
         }
 

@@ -15,7 +15,7 @@ import static com.almasb.fxgl.dsl.FXGL.random;
 import static com.almasb.fxgl.dsl.FXGL.run;
 
 /**
- * @Version 1.0
+ * @version 1.0
  * Initializes and moves the Background
  */
 

@@ -37,10 +37,6 @@ public class PowerController {
         text.setText("Current: " + (int) currentPower + "W per Hour Total: " + df.format(totalPower) + " Wh");
     }
 
-    public static void setText() {
-
-    }
-
     public static void initText() {
         text = new Text("Current: " + 0 + "W per Hour Total: " + 0.0000 + " Wh");
         text.setTranslateX(10);
@@ -48,16 +44,6 @@ public class PowerController {
         text.setFont(Font.font(30));
         text.setFill(Color.WHITE);
         getGameScene().addUINode(text);
-    }
-
-
-    /**
-     * Getter for currentPower
-     *
-     * @return currentPower
-     */
-    public static double getCurrentPower() {
-        return currentPower;
     }
 
     /**

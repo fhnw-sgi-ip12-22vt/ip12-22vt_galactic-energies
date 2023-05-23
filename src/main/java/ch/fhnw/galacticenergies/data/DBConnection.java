@@ -8,6 +8,7 @@ import java.sql.SQLException;
  * Creates the Connection to the SQL Database
  * @version 1.0
  */
+@SuppressWarnings("SpellCheckingInspection")
 public class DBConnection {
     private Connection conn;
 
@@ -19,9 +20,8 @@ public class DBConnection {
         try {
 
             conn = DriverManager.getConnection(connectionUrl, "galacticenergies", "galacticenergies");
-        } catch (SQLException e) {
-            // handle the exception
-            System.err.println(e);
+        } catch (SQLException ignored) {
+
         }
         return conn;
     }

@@ -67,9 +67,7 @@ public class ViewController implements UIController {
             View.checkpointController.removeUnreachedIntervals();
             View.levelController.resetToLastCheckpoint();
             RocketController.reset();
-            getGameTimer().runOnceAfter(() -> {
-                ViewController.setPaused(false);
-            }, Duration.seconds(1));
+            getGameTimer().runOnceAfter(() -> ViewController.setPaused(false), Duration.seconds(1));
         }
         Entity life = lives.get(lives.size() - 1);
         life.removeFromWorld();

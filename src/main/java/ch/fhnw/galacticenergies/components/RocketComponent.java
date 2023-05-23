@@ -3,9 +3,7 @@ package ch.fhnw.galacticenergies.components;
 import ch.fhnw.galacticenergies.Config;
 import ch.fhnw.galacticenergies.controllers.SpeedController;
 import com.almasb.fxgl.core.math.Vec2;
-import com.almasb.fxgl.dsl.components.EffectComponent;
 import com.almasb.fxgl.entity.Entity;
-import com.almasb.fxgl.entity.SpawnData;
 import com.almasb.fxgl.entity.component.Component;
 import com.almasb.fxgl.physics.PhysicsComponent;
 import com.almasb.fxgl.texture.Texture;
@@ -14,12 +12,12 @@ import javafx.util.Duration;
 
 import static com.almasb.fxgl.dsl.FXGL.getAppHeight;
 import static com.almasb.fxgl.dsl.FXGL.getGameTimer;
-import static com.almasb.fxgl.dsl.FXGL.spawn;
 
 /**
  * The class RocketComponent implements the Rocket
  * @version 1.0
  */
+@SuppressWarnings("unused")
 public class RocketComponent extends Component {
 
     private static final float SPEED_DECAY = 0.66f;
@@ -30,9 +28,7 @@ public class RocketComponent extends Component {
     private final Texture textureOnHit;
     private PhysicsComponent physics;
     private float speed = 1;
-    private float speedMultiplier = 1;
     private boolean canShoot = true;
-    private double lastShot = 0;
 
     public RocketComponent(Texture textureOnHit) {
         this.textureOnHit = textureOnHit;
@@ -44,16 +40,18 @@ public class RocketComponent extends Component {
      */
     @Override
     public void onUpdate(double tpf) {
+        float speedMultiplier = 1;
         speed = Config.ROCKET_SPEED * (float) tpf * speedMultiplier;
         velocity.mulLocal(SPEED_DECAY);
 
         if (entity.getY() < 0) {
-            velocity.set(0, BOUNCE_FACTOR * (float) +entity.getY());
+            velocity.set(0, BOUNCE_FACTOR * (float) entity.getY());
         } else if (entity.getBottomY() > getAppHeight()) {
-            velocity.set(0, BOUNCE_FACTOR * (float) +(entity.getBottomY() - getAppHeight()));
+            velocity.set(0, BOUNCE_FACTOR * (float) (entity.getBottomY() - getAppHeight()));
         }
 
         if (!canShoot) {
+            double lastShot = 0;
             if ((getGameTimer().getNow() - lastShot) >= 1.0 / Config.ROCKET_ATTACK_SPEED) {
                 canShoot = true;
             }

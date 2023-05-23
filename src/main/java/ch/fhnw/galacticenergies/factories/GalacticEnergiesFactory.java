@@ -27,6 +27,7 @@ import static com.almasb.fxgl.dsl.FXGL.*;
  *
  * @version 1.0
  */
+@SuppressWarnings("unused")
 public class GalacticEnergiesFactory implements EntityFactory {
 
     /**
@@ -70,7 +71,7 @@ public class GalacticEnergiesFactory implements EntityFactory {
 
         return entityBuilder(data)
                 .type(ROCKET)
-                .at(10, getAppHeight() / 2 - (texture.getFitHeight() / 2))
+                .at(10, (double) getAppHeight() / 2 - (texture.getFitHeight() / 2))
                 .viewWithBBox(texture)
                 .collidable()
                 .with(physics)
@@ -112,9 +113,6 @@ public class GalacticEnergiesFactory implements EntityFactory {
      */
     @Spawns("life")
     public Entity newLive(SpawnData data) {
-//        Texture textureLife = texture("heart.png");
-//        textureLife.setFitWidth(20);
-//        textureLife.setFitHeight(20);
         Rectangle live = new Rectangle();
         live.setWidth(20);
         live.setHeight(10);
@@ -124,7 +122,6 @@ public class GalacticEnergiesFactory implements EntityFactory {
                 .type(LIFE)
                 .at(getAppWidth(), 10)
                 .view(live)
-                .with(new LifeComponent())
                 .build();
     }
 
@@ -136,13 +133,9 @@ public class GalacticEnergiesFactory implements EntityFactory {
         texture.setFitWidth(20);
         return entityBuilder(data)
                 .type(ARROWS)
-                .at(getAppWidth() / 2 - texture.getFitWidth() / 1.5, getAppHeight() - texture.getHeight() / 2.5)
+                .at((double) getAppWidth() / 2 - texture.getFitWidth() / 1.5, getAppHeight() - texture.getHeight() / 2.5)
                 .with(new ArrowsComponent())
                 .build();
-    }
-
-    private DashboardComponent getDashboardControl() {
-        return getGameWorld().getSingleton(DASHBOARD).getComponent(DashboardComponent.class);
     }
 
     @Spawns("asteroid")

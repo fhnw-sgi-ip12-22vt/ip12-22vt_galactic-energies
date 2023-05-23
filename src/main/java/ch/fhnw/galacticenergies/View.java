@@ -1,8 +1,6 @@
 package ch.fhnw.galacticenergies;
 
 import ch.fhnw.galacticenergies.components.ArrowsComponent;
-import ch.fhnw.galacticenergies.components.DashboardComponent;
-import ch.fhnw.galacticenergies.components.LifeComponent;
 import ch.fhnw.galacticenergies.controllers.AsteroidController;
 import ch.fhnw.galacticenergies.controllers.CheckpointController;
 import ch.fhnw.galacticenergies.controllers.LevelController;
@@ -22,22 +20,18 @@ import com.almasb.fxgl.entity.components.IrremovableComponent;
 import com.almasb.fxgl.physics.CollisionHandler;
 import javafx.scene.Cursor;
 import javafx.scene.paint.Color;
-import javafx.util.Duration;
 
 import java.util.Map;
 import java.util.stream.IntStream;
 
 import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.ARROWS;
 import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.ASTEROID;
-import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.DASHBOARD;
-import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.LIFE;
 import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.PLANET;
 import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.ROCKET;
 import static ch.fhnw.galacticenergies.enums.GalacticEnergiesType.WALL;
 import static com.almasb.fxgl.dsl.FXGL.entityBuilder;
 import static com.almasb.fxgl.dsl.FXGL.getAppHeight;
 import static com.almasb.fxgl.dsl.FXGL.getGameScene;
-import static com.almasb.fxgl.dsl.FXGL.getGameTimer;
 import static com.almasb.fxgl.dsl.FXGL.getGameWorld;
 import static com.almasb.fxgl.dsl.FXGL.getPhysicsWorld;
 import static com.almasb.fxgl.dsl.FXGL.getSettings;
@@ -51,9 +45,9 @@ import static com.almasb.fxgl.dsl.FXGL.spawn;
 public class View extends GameApplication {
 
     private static final int STARTING_LEVEL = 1;
-    public static LevelController levelController = new LevelController();
-    public static AsteroidController asteroidController = new AsteroidController();
-    public static CheckpointController checkpointController = new CheckpointController();
+    public static final LevelController levelController = new LevelController();
+    public static final AsteroidController asteroidController = new AsteroidController();
+    public static final CheckpointController checkpointController = new CheckpointController();
     private ViewController uiController;
 
     public static void main(String[] args) {
@@ -124,7 +118,7 @@ public class View extends GameApplication {
                 ViewController.setPaused(true);
                 asteroidController.removeAllAsteroids();
                 checkpointController.removeCheckpoint();
-                RocketController.getRocketControl().getEntity().setY(getAppHeight() / 2);
+                RocketController.getRocketControl().getEntity().setY((double) getAppHeight() / 2);
                 uiController.loseLife();
 
             }
@@ -172,15 +166,7 @@ public class View extends GameApplication {
 
     }
 
-    private DashboardComponent getDashboardControl() {
-        return getGameWorld().getSingleton(DASHBOARD).getComponent(DashboardComponent.class);
-    }
-
     private ArrowsComponent getArrowsControl() {
         return getGameWorld().getSingleton(ARROWS).getComponent(ArrowsComponent.class);
-    }
-
-    private LifeComponent getLifeComponent() {
-        return getGameWorld().getSingleton(LIFE).getComponent(LifeComponent.class);
     }
 }
