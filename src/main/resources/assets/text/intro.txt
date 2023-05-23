@@ -11,8 +11,8 @@
 //Planet cutscene
 4.name = Planet
 
-//Controllboard cutscene
-5.name = Controllboard
+//Controlboard cutscene
+5.name = Controlboard
 
 
 //loads rocket image from intro package
@@ -24,24 +24,24 @@
 //loads planet image from intro package
 4.image = intro/planet.png
 
-//loads controllboard image from intro package
+//loads controlboard image from intro package
 5.image = intro/Steuerboard.PNG
 
 
 
 //Introduction text
-1: You safely landed in the Energy Galaxy. Get ready to explore the cosmos and collect energy to reach new High Scores. Make breaks on planets to store your points and fly away from the meteroites that will make you crash. Learn about the value of your recuperated energy and understand which role electricity plays in your daily life.
+1: You have landed safely in the Energy Galaxy. Get ready to explore the cosmos and collect energy to set new high scores. Make stops on planets to save your points and fly away from the asteroids that will crash you. Learn the value of your generated energy and understand the role electricity plays in your daily life.
 
 //Rocket text
-2: This is your spaceship. You can steer it with your joystick on the game board up and down to reach planets and dodge meteorites.
+2: This is your spaceship. You can steer it with your joystick on the game board up and down to reach planets and dodge asteroids.
 
 //Enemy text
-3: There are meteorites in the galaxy that don’t mean well to you. If you get hit by them you will lose one out of five lifes. Better be fast and fly away from them!
+3: There are asteroids in the galaxy that are your enemies and stand in the way of your mission. If they hit you, you will lose one of your five lives. Better be quick and fly away from them!
 
 //Planet text
-4: The planets in the Galaxy are your checkpoints. You need collect them to safe your collected energy and rest during the flight.
+4: The planets in the galaxy are your checkpoints. You must collect them to conserve your energy and rest during the flight.
 
-//Controllboard text
-5: This is your spaceship cockpit. Here you see all information about your speed. You can speed up by turning the hand crank.
+//Controlboard text
+5: This is the cockpit of your spaceship. Here you can see all the information about your speed. You can increase your speed by turning the hand crank.
 
 
