@@ -113,7 +113,61 @@ Die Anleitung für das Deployment finden sie unter folgendem Link: [Deployment-A
 Sie beinhaltet zudem Anweisungen für die Neugenerierung des Systems aus Quell- und Konfigurationsdateien.
 ## Dateiliste
 ### Klassen
+***collision***
 
+    AseroidHandler 
+
+***components***
+
+    ArrowsComponent
+    AsteroidComponent
+    BackgroundStarsViewComponent
+    CheckpointComponent
+    DashboardComponent
+    LifeComponent
+    RocketComponent
+
+***controllers***
+
+    AsteroidController
+    CheckpointController
+    GameOverController
+    MovementController
+    PowerController
+    RocketController
+    SpeedController
+    ViewController
+
+***data***
+
+    DBConnection
+    PowerInput
+
+***enums***
+
+    GalacticEnergiesType
+
+***events***
+
+    GameEvent
+
+***factories***
+
+    GalacticEnergiesFactory
+    LoadingSceneFactory
+
+***kurbel***
+
+    Kurbel
+
+***menu***
+
+    IntroScene
+    MainMenu
+
+***Config***
+
+***View***
 
 ## Fehlerbehebung
 
