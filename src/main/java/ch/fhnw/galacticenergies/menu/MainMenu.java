@@ -37,10 +37,10 @@ public class MainMenu extends FXGLMenu {
 
     static final Button btnPlay = new Button("Play");
     static final Button btnIntro = new Button("Intro");
+    private static final DecimalFormat df = new DecimalFormat("#.####");
     private static Label leaderboardAllTime;
     private static Label leaderboardToday;
     private static Label allTime;
-    private static final DecimalFormat df = new DecimalFormat("#.####");
     private final Animation<?> animation;
     private int id = 1;
 
@@ -250,11 +250,28 @@ public class MainMenu extends FXGLMenu {
                 deviceName = (rs2.getString("devicename"));
                 devicePower = rs2.getInt("power");
             }
-            double timeToUse = totalpower / devicePower;
+
             // Calculate the usage time for the device based on the total produced power and device power
-            result =
-                result + deviceName + ": " + (int) (timeToUse) + "h " + df.format((timeToUse - (int) timeToUse) * 60) +
-                    " min";
+            double timeToUse = totalpower / devicePower;
+
+            int hours = (int) timeToUse;
+            timeToUse -= hours;
+            int minutes = (int) (timeToUse * 60);
+            timeToUse -= (double) minutes / 60;
+            int seconds = (int) (timeToUse * 3600);
+
+            result = result + deviceName + ": ";
+
+            if (hours > 0) {
+                result = result + hours + "h ";
+            }
+            if (minutes > 0) {
+                result = result + minutes + "min ";
+            }
+            if (hours == 0) {
+                result = result + seconds + "s";
+            }
+
 
             // Close the connection
             conn.close();

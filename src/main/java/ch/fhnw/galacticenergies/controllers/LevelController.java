@@ -77,27 +77,49 @@ public class LevelController {
     }
 
     public String getCheckpointText() {
-        String checkpointText = "";
+        StringBuilder checkpointText = new StringBuilder();
         DBConnection c;
         Connection conn = null;
         DecimalFormat df = new DecimalFormat("#.####");
 
         try {
             c = new DBConnection();
-
-
             conn = c.getConnection();
 
             double totalPower = PowerController.getTotalPower();
             PreparedStatement stmt =
-                conn.prepareStatement("SELECT * FROM energydata ORDER BY ABS(power - ? * 100) LIMIT 1");
-            stmt.setInt(1, (int) totalPower);
+                conn.prepareStatement("SELECT * FROM energydata ORDER BY ABS(power - ? * 100) LIMIT 2");
+            stmt.setDouble(1, totalPower);
             ResultSet rs = stmt.executeQuery();
-            rs.next();
-            int power = rs.getInt("power");
-            double timeToUse = totalPower/power;
-            String deviceName = rs.getString("devicename");
-            checkpointText = deviceName + ": " + (int) (timeToUse) + "h " + df.format((timeToUse - (int) timeToUse) * 60) + "min";
+            while (rs.next()) {
+                if (checkpointText.toString() != "") {
+                    checkpointText.append("\n");
+                }
+                int power = rs.getInt("power");
+                double timeToUse = totalPower/power;
+                String deviceName = rs.getString("devicename");
+                checkpointText.append(deviceName).append(": ");
+
+                int hours = (int) timeToUse;
+                timeToUse -= hours;
+                int minutes = (int) (timeToUse * 60);
+                timeToUse -= (double) minutes / 60;
+                int seconds = (int) (timeToUse * 3600);
+
+                if (hours > 0) {
+                    checkpointText.append(hours).append("h ");
+                }
+                if (minutes > 0) {
+                    checkpointText.append(minutes).append("min ");
+                }
+                if (hours == 0) {
+                    checkpointText.append(seconds).append("s");
+                }
+            }
+
+
+
+
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -107,7 +129,7 @@ public class LevelController {
             } catch (Exception ignored) {
             }
         }
-        return checkpointText;
+        return checkpointText.toString();
     }
 
     public void removeAllCheckpoints() {
@@ -120,5 +142,9 @@ public class LevelController {
 
     public double getSavedPower() {
         return savedPower;
+    }
+
+    public void setSavedPower(double savedPower) {
+        this.savedPower = savedPower;
     }
 }
