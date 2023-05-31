@@ -53,6 +53,7 @@ https://github.com/Pi4J/pi4j-example-crowpi/releases
 
 Java wird mit der Vollversion des Betriebssystem installiert. Kontrollieren Sie welche Version installiert ist. Öffnen Sie ein Terminal und geben Sie java -version ein.
 
+Password Raspberry Pi: picade
 
 
 ### Installation Git auf Entwickler-PC 
