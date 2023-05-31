@@ -56,7 +56,7 @@ Whitebox _ch.fhnw.galacticenergies_
 ****
 
 
-Für eine genauere Einsicht in das Spiel System steht das Klassendiagramm zur Verfügung: https://gitlab.fhnw.ch/ip12-22vt/ip12-22vt_digitaleralltag/docu/-/blob/main/software(sad)/src/Klassendiagramm.pdf[Klassendiagramm]
+Für eine genauere Einsicht in das Spiel System steht das Klassendiagramm zur Verfügung: https://github.com/fhnw-sgi-ip12-22vt/ip12-22vt_galactic-energies/blob/master/Dokumentation%20SAD/software(sad)/src/Klassendiagramm.pdf[Klassendiagramm]
 
 
 
