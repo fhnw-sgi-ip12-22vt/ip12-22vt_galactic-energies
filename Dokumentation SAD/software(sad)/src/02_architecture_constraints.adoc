@@ -12,16 +12,16 @@
 
 
 |Bedingungen |Erläuterungen 
-| Kurbel | Durch die Kurbel soll Strom erzeugt werden, welcher vom Strommesser gemessen werden kann. Zudem ist die Kurbel verantwortlich für die Fluggeschwindigkeit der Rakete https://gitlab.fhnw.ch/ip12-22vt/ip12-22vt_digitaleralltag/docu/-/blob/main/software(sad)/Hardwarebeschreibung.adoc[Hardwarebeschreibung]
-| Strommesser INA219 | Der Strommesser misst den erzeugten Strom der Kurbel und gibt in der Datenbank Weiterführende https://gitlab.fhnw.ch/ip12-22vt/ip12-22vt_digitaleralltag/docu/-/blob/main/software(sad)/Hardwarebeschreibung.adoc[Hardwarebeschreibung]
-| Button | Durch den Butten können eingaben gemacht werden um das Spiel zu Starten oder zu beenden https://gitlab.fhnw.ch/ip12-22vt/ip12-22vt_digitaleralltag/docu/-/blob/main/software(sad)/Hardwarebeschreibung.adoc[Hardwarebeschreibung]
-| Joystick | Der Joystick ist für die Menuauswahl und für die Steuerung der Rakete verantwotlich https://gitlab.fhnw.ch/ip12-22vt/ip12-22vt_digitaleralltag/docu/-/blob/main/software(sad)/Hardwarebeschreibung.adoc[Hardwarebeschreibung]
+| Kurbel | Durch die Kurbel soll Strom erzeugt werden, welcher vom Strommesser gemessen werden kann. Zudem ist die Kurbel verantwortlich für die Fluggeschwindigkeit der Rakete. https://github.com/fhnw-sgi-ip12-22vt/ip12-22vt_galactic-energies/blob/master/Dokumentation%20SAD/software(sad)/Hardwarebeschreibung.adoc[Hardwarebeschreibung]
+| Strommesser INA219 | Der Strommesser misst den erzeugten Strom der Kurbel und gibt in der Datenbank https://github.com/fhnw-sgi-ip12-22vt/ip12-22vt_galactic-energies/blob/master/Dokumentation%20SAD/software(sad)/Hardwarebeschreibung.adoc[Hardwarebeschreibung]
+| Button | Durch den Butten können eingaben gemacht werden um das Spiel zu Starten oder zu beenden https://github.com/fhnw-sgi-ip12-22vt/ip12-22vt_galactic-energies/blob/master/Dokumentation%20SAD/software(sad)/Hardwarebeschreibung.adoc[Hardwarebeschreibung]
+| Joystick | Der Joystick ist für die Menuauswahl und für die Steuerung der Rakete verantwotlich https://github.com/fhnw-sgi-ip12-22vt/ip12-22vt_galactic-energies/blob/master/Dokumentation%20SAD/software(sad)/Hardwarebeschreibung.adoc[Hardwarebeschreibung]
 | Programmiersprache | Java 17
 | FXGL | Die FXGL Library beinhaltet Funktionen welche für die Entwicklung des Spiels benötigt werden 
 | Pi4J | Die Pi4J Library beinhaltet Funktionen welche für die Entwicklung des Spiels benötigt werden
 | MariaDB | MariaDB Datenbank 10.5. Java Database Connectivity(JDBC). Wird vom System für lesenden und schreibenden Zugriff verwendet.
 | Kompatibilität | Es muss auf der Linux-Distribution Raspberry Pi OS lauffähig sein. Debian Version 11
-| Raspberry Pi 4 Model B | Das Spiel muss mit dem Raspberry Pi 4 Model B kompatibel sein https://gitlab.fhnw.ch/ip12-22vt/ip12-22vt_digitaleralltag/docu/-/blob/main/software(sad)/Hardwarebeschreibung.adoc[Hardwarebeschreibung]
+| Raspberry Pi 4 Model B | Das Spiel muss mit dem Raspberry Pi 4 Model B kompatibel sein https://github.com/fhnw-sgi-ip12-22vt/ip12-22vt_galactic-energies/blob/master/Dokumentation%20SAD/software(sad)/Hardwarebeschreibung.adoc[Hardwarebeschreibung]
 | Bildschirm | Das Spiel muss visuell dargestellt werden können
 | USB-C oder HDMI Kabel | Um den Raspberry Pi an einen Bildschirm anschliessen zu können braucht es ein HDMI Kabel mit Micro-HDMI-Adapter oder wenn möglich ein USB-C Kabel
 | Strom | Der Raspberry Pi muss während des Spielens mit Strom versorgt sein 
