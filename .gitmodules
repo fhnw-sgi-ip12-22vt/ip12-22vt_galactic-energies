@@ -1,0 +1,3 @@
+[submodule "docu"]
+	path = docu
+	url = git@gitlab.fhnw.ch:ip12-22vt/ip12-22vt_digitaleralltag/docu.git
