@@ -83,7 +83,7 @@ Falls es noch nicht installiert ist können Sie die Installations-Datei hier her
 
 
 
-Herunterladen Git-Repository https://gitlab.fhnw.ch/ip12-22vt/ip12-22vt_digitaleralltag/galactic-energies
+Herunterladen Git-Repository https://github.com/fhnw-sgi-ip12-22vt/ip12-22vt_galactic-energies.git
 
 Verbindung Entwickler-PC mit Raspberry Pi durch IP-Adresse vom Raspberry Pi 
 
@@ -105,11 +105,11 @@ Die Ip-Adresse muss im pom.xml file hinterlegt werden
 
 ### Anleitung für Anpassungen am System 
 
-Die Anleitung für Anpassungen am System ist im SAD unter folgendem Link zu finden: [Anleitung für Anpassungen am System](https://gitlab.fhnw.ch/ip12-22vt/ip12-22vt_digitaleralltag/docu/-/blob/main/software(sad)/Anleitung%20für%20Anpassungen%20am%20System.adoc)
+Die Anleitung für Anpassungen am System ist im SAD unter folgendem Link zu finden: [Anleitung für Anpassungen am System](https://github.com/fhnw-sgi-ip12-22vt/ip12-22vt_galactic-energies/blob/master/Dokumentation%20SAD/software(sad)/Anleitung%20für%20Anpassungen%20am%20System.adoc)
 
 ### Deployment-Anleitung 
 
-Die Anleitung für das Deployment finden sie unter folgendem Link: [Deployment-Anleitung.](https://gitlab.fhnw.ch/ip12-22vt/ip12-22vt_digitaleralltag/docu/-/blob/main/software(sad)/src/07.1_DeploymentInstrucions.adoc)
+Die Anleitung für das Deployment finden sie unter folgendem Link: [Deployment-Anleitung.](https://github.com/fhnw-sgi-ip12-22vt/ip12-22vt_galactic-energies/blob/master/Dokumentation%20SAD/software(sad)/07.1_DeploymentInstrucions.adoc)
 Sie beinhaltet zudem Anweisungen für die Neugenerierung des Systems aus Quell- und Konfigurationsdateien.
 ## Dateiliste
 ### Klassen
