@@ -24,10 +24,12 @@ Die Hardwarekomponenten sind im SAD unter [Hardwarebeschreibung](https://gitlab.
 
 **Materialliste:**
 
-- Raspberry Pi,
+- Raspberry Pi 4 Model B
 - Micro SD card, minimally 16Gb b
 - PC (oder anderer Raspberry Pi) mit einem SD-Kartensteckplatz (eventuell benötigen Sie einen SD-Kartenadapter)
 - Stromversorgung (5V, 2 or 3A)
+
+Der Respberry Pi wird ohne installiertes OS geliefert. Dies muss manuell installiert werden. 
 
 Auf der SD-Karte wird das Betriebssystem gespeichert. Auf der Raspberry Pi-Website finden Sie auf der Download-Seite das Imager-Tool. Wählen Sie die Version für Ihren Computer aus, laden Sie sie herunter und installieren Sie sie.
 https://www.raspberrypi.com/software/
