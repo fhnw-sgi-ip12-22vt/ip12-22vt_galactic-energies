@@ -12,7 +12,7 @@ Weitere Informationen zu den Produktzielen finden Sie in der Produktvision:
 https://github.com/fhnw-sgi-ip12-22vt/ip12-22vt_galactic-energies/blob/master/Dokumentation%20SAD/software(sad)/Produktvision.pdf[Produktvision]
 
 Eine Detailierte Beschreibung der Anforderungen und die Use-Case Diagramme sind in den Requirements zu finden: 
-https://gitlab.fhnw.ch/ip12-22vt/ip12-22vt_digitaleralltag/docu/-/blob/main/software(sad)/Requirements.pdf[Requirements]
+https://github.com/fhnw-sgi-ip12-22vt/ip12-22vt_galactic-energies/blob/master/Dokumentation%20SAD/software(sad)/Requirements.pdf[Requirements]
 
 ****
 
@@ -39,5 +39,5 @@ https://gitlab.fhnw.ch/ip12-22vt/ip12-22vt_digitaleralltag/docu/-/blob/main/soft
 [role="arc42help"]
 ****
 
-Genauere Informationen sind beim Stakeholder Management zu finden: https://gitlab.fhnw.ch/ip12-22vt/ip12-22vt_digitaleralltag/docu/-/blob/main/software(sad)/Stakeholdermanagement.pdf[Stakeholder Management]
+Genauere Informationen sind beim Stakeholder Management zu finden: https://github.com/fhnw-sgi-ip12-22vt/ip12-22vt_galactic-energies/blob/master/Dokumentation%20SAD/software(sad)/Stakeholdermanagement.pdf[Stakeholder Management]
 ****
