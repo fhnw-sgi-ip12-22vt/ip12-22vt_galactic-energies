@@ -4,7 +4,7 @@ Das Projekt Digitaler Alltag verfolgt das Ziel durch eine spielerische Weise Kin
 
 ## Hardwarekomponenten
 
-Die Hardwarekomponenten sind im SAD unter [Hardwarebeschreibung](https://gitlab.fhnw.ch/ip12-22vt/ip12-22vt_digitaleralltag/docu/-/blob/main/software(sad)/Hardwarebeschreibung.adoc)  dokumentiert. Das Dokument dient auch als Anleitung für Wartungen am Spiel.
+Die Hardwarekomponenten sind im SAD unter [Hardwarebeschreibung](https://github.com/fhnw-sgi-ip12-22vt/ip12-22vt_galactic-energies/blob/master/Dokumentation%20SAD/software(sad)/Hardwarebeschreibung.adoc)  dokumentiert. Das Dokument dient auch als Anleitung für Wartungen am Spiel.
 
 
 ## Systeminformationen
