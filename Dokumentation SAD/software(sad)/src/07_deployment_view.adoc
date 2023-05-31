@@ -1,0 +1,12 @@
+[[section-deployment-view]]
+== Verteilungssicht
+
+[role="arc42help"]
+****
+
+
+
+Das Ganze System wird auf einem Raspberry pi ausgeführt. Dieser bildet den einzigen Node auf der Verteilungssicht.
+
+****
+

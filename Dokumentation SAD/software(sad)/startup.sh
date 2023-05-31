@@ -1,0 +1,1 @@
+sudo -E java --module-path /opt/javafx-sdk/lib:/home/pi/deployment --add-modules javafx.controls -Dglass.platform=gtk --module ch.fhnw.galacticenergies/ch.fhnw.galacticenergies.View

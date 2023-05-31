@@ -1,0 +1,88 @@
+## Neues Element im Spiel Galactic Energies hinzufügen:
+
+1. Erstellen Sie als Erstes eine Entity des Elementes in der Enums Klasse GalacticEnergiesTypes im Package enums.
+2. Erstellen Sie eine Component Klasse vom neuen Entitätstyp im Package components
+3. Erstellen Sie eine Controller Klasse vom neuen Entitätstyp im Package controllers
+4. Erzeugen Sie mit @Spawns den neuen Entitätstyp in der Klasse GalacticEnergiesFactory im Package enums.
+
+Aufwand: ca. 3h
+
+
+
+
+## Anzahl der Leben im Spiel verändern:
+
+1. Begeben Sie sich als Erstes zur Package galacticenergies.
+2. In der erwähnten Package wählen Sie die Klasse View.
+3. In dieser Klasse befindet sich die Methode initGameVars welche eine leere Map als Parameter entgegennihmt und Spielobjekte enifügt.
+4. Mit dem Befehl nameDerMap.put("lives", 6) werden sechs Leben ins Spiel hinzugefügt und somit erscheinen danach auch sechs weisse Balken im Spiel.
+
+Aufwand: ca. 10min
+ 
+
+## Das Bild der UI ändern (z.B. Rakete):
+
+  **Bild einfügen:**
+
+1. Begeben Sie sich in die Package fhnw.
+2. In dieser Package navigiern Sie folgendermassen: resources>assets>textures
+3. In diesem Beispiel ändern wir das Bild der Rakete
+4. Fügen Sie nun ein Bild ihrer Wahl ein per Drag and Drop.
+
+ **Bild Wechseln:**
+
+1. Im Package galacticenergies ins Package factories navigieren,
+2. Dort befindet sich die Klasse GalacticEnergiesFactory.
+3. In dieser Klasse suchen Sie nun die Methode newRocket.
+4. In dieser Methode setzen Sie nun den folgenden Befehl um: 
+Texture texture = texture("Den Namen des gewünschten Bildes"); 
+
+Aufwand: ca. 1h
+
+
+
+## Beschreibung der wichtigsten Klassen
+
+**Component:**
+
+Die Klasse ArrowsComponent enthält Methoden, die das Verhalten von Pfeilen steuern, die die Flugrichtung der Rakete anzeigen. Wenn Sie Änderungen vornehmen möchten, können Sie die Methoden buttonUpPressed(), buttonDownPressed() und noButtonPressed() anpassen, um das Verhalten der Pfeile entsprechend zu ändern. Zum Beispiel könnten Sie die Größe oder Farbe der Pfeile ändern oder eine neue Methode hinzufügen, um ein anderes Verhalten hinzuzufügen. Beachten Sie jedoch, dass die Änderungen abhängig von der Verwendung der ArrowsComponent-Komponente im restlichen Code Auswirkungen haben könnten.
+
+Die AsteroidComponent-Klasse ist verantwortlich für die Steuerung der Bewegung von Asteroiden in einem Spiel. Um Änderungen vorzunehmen, können Sie die onUpdate()-Methode anpassen, um die Logik zu ändern, die die Bewegung der Asteroiden beeinflusst. Zum Beispiel könnten Sie eine neue Art von Bewegung hinzufügen oder die Geschwindigkeit, mit der sich die Asteroiden bewegen, anpassen. Beachten Sie jedoch, dass die Änderungen abhängig von der Verwendung der AsteroidComponent-Komponente im restlichen Code Auswirkungen haben könnten.
+
+In der Klasse "BackgroundStarsViewComponent" können Anpassungen gemacht werden. Insbesondere können die Eigenschaften der Sterne, wie ihre Anzahl, ihre Farbe und Größe sowie ihre Bewegungsgeschwindigkeit und Richtung, verändert werden. Auch die Art und Weise, wie sie initialisiert und aktualisiert werden, kann angepasst werden.
+
+Die Klasse "CheckpointComponent" ist dafür verantwortlich, das Verhalten und die Bewegung von Planeten im Spiel zu definieren. Durch das Anpassen der Geschwindigkeit mit der Methode "setVelocity(Point2D velocity)" kann die Bewegung der Planeten verändert werden. Die Methode "checkBorders()" sorgt dafür, dass die Planeten innerhalb des Spielfeldes bleiben, indem sie die Position und die Geschwindigkeit der Planeten anpasst, wenn sie an den Rändern des Spielfeldes ankommen. Die Methode "getAppWidth()" und "getAppHeight()" ermöglichen den Zugriff auf die Breite und Höhe des Spielfeldes und können verwendet werden, um die Bewegung der Planeten anzupassen. Durch das Anpassen des "r1" und "r2" Werts im Konstruktor kann die Größe und Form der Planeten verändert werden. Außerdem kann die Liste "planetImages" angepasst werden, um verschiedene Texturen für die Planeten hinzuzufügen.
+
+Die Klasse "DashboardComponent" bietet Methoden an, um das Dashboard des Spiels anzupassen. Mit der Methode "setSpeedImage(int i)" kann das Bild des Dashboards für die Geschwindigkeit aktualisiert werden. Die Methode entfernt das aktuelle Bild aus der Ansichtskomponente der Entität und fügt das neue Bild hinzu, das durch den Index "i" in der Liste "images" ausgewählt wird. Die Liste "images" enthält eine Reihe von Bildern, die für das Dashboard verwendet werden können. Durch die Verwendung der "setSpeedImage(int i)" Methode können Anpassungen am Dashboard vorgenommen werden, indem das angezeigte Bild geändert wird, z.B. durch das Hinzufügen oder Entfernen von Informationen oder durch Ändern der Ästhetik des Dashboards.
+
+Die Klasse "RocketComponent" erweitert die Klasse "Component" und bietet verschiedene Methoden und Eigenschaften, die die Bewegung und das Verhalten einer Rakete im Spiel steuern. Die Konstanten "SPEED_DECAY" und "BOUNCE_FACTOR" steuern die Geschwindigkeit der Rakete und das Verhalten beim Aufprall. Die Eigenschaften "physics", "blur", "speed", "speedMultiplier", "canShoot", "lastShot" und "velocity" steuern die Physik und das Verhalten der Rakete im Spiel. Die Methode "onUpdate(double tpf)" wird aufgerufen, um die Bewegung der Rakete zu aktualisieren und die Physikkomponente zu aktualisieren. Die Methoden "up()", "down()" und "stop()" steuern die Richtung und die Geschwindigkeit der Rakete. Die Methode "shoot()" feuert ein Raketenprojektil ab, wenn die Rakete dazu in der Lage ist. Die Methoden "setSpeedMultiplier(float speedMultiplier)" und "getSpeedMultiplier()" setzen und geben den Geschwindigkeitsmultiplikator zurück. Die Methode "onHit()" wird aufgerufen, wenn die Rakete getroffen wird, und startet den HitEffect, der das Erscheinungsbild der Rakete verändert. Die innere Klasse "HitEffect" erbt von der Klasse "Effect" und bietet eine Möglichkeit, ein visuelles Effekt auf die Rakete anzuwenden, wenn sie getroffen wird.
+
+**Controller:**
+
+Die Klasse "AsteroidController" bietet verschiedene Methoden an, mit denen das Verhalten der Asteroiden im Spiel gesteuert werden kann. Die Methode "init()" ermöglicht es, das Erscheinen von Asteroiden zu initialisieren und deren Anzahl zu begrenzen. Mit den Methoden "addAsteroid()" und "removeAsteroid()" können Asteroiden hinzugefügt oder entfernt werden. Die Methode "getAsteroidAmount()" gibt die aktuelle Anzahl der Asteroiden zurück. Zusätzlich gibt es die Methoden "onAsteroidHit(GameEvent event)" und "onAsteroidReachedBorder(GameEvent event)", die aufgerufen werden, wenn ein Asteroid von einem Spieler getroffen oder die Grenze des Spielfeldes erreicht hat. Durch die Nutzung dieser Methoden kann das Verhalten der Asteroiden im Spiel angepasst werden, z.B. durch das Ändern der Maximalanzahl oder der Geschwindigkeit, mit der sie erscheinen.
+
+Die Klasse "CheckpointController" ermöglicht die Verwaltung von Checkpoints im Spiel. Mit der Methode "addCheckpoint()" wird ein neuer Planet als Checkpoint gespawnt. Die Anzahl der Checkpoints kann mit der Methode "getCheckpointAmount()" abgerufen werden. Die Methode "setCheckpointAmount(int planetAmount)" kann genutzt werden, um die Anzahl der Checkpoints zu setzen. Mit der Methode "removeCheckpoint()" kann ein Checkpoint entfernt werden.
+
+Die Klasse "LevelController" enthält eine statische Methode namens "nextLevel()", welche den nächsten Level im Spiel anzeigt. Diese Methode erhöht den Levelzähler um eins und überprüft, ob das Spiel das maximale Level erreicht hat. Falls ja, wird eine Meldung mit dem Text "GAME END" angezeigt und das Spiel wird beendet. Andernfalls wird die Methode "setLevel" aufgerufen, um den neuen Level zu initialisieren. Die Methode "setLevel" spawnt eine "Rocket"-Entität im Spiel.
+
+Die MovementControllerJoyStick Klasse ist für die Steuerung der Rakete mit einem Joystick zuständig. Die movement() Methode erstellt ein Joystick-Objekt und registriert Callbacks für die whileNorth() und whileSouth() Methoden des Joysticks. Wenn der Joystick nach Norden oder Süden bewegt wird, ruft der zugehörige Callback die up() oder down() Methode des RocketController auf und aktualisiert den Zustand der Steuerungskomponente für die Pfeiltasten entsprechend. Um die Joystick-Steuerung zu nutzen, verwendet die Klasse die PiGpio Bibliothek, um mit den GPIO-Pins des Raspberry Pi zu interagieren. Der Joystick wird über die Pins D5, D6, PWM13 und PWM19 angeschlossen. Die getArrowsControl() Methode wird verwendet, um das ArrowsComponent-Objekt zu erhalten, das für die Anzeige des Pfeilzustands auf dem Bildschirm verantwortlich ist.
+
+Die Klasse MovementControllerDEV steuert die Bewegung des Rockets mit Hilfe der Pfeiltasten nach oben und unten. Wenn die Taste nach oben gedrückt wird, wird die Rakete hochgefahren und das zugehörige Pfeilsymbol auf dem Dashboard wird aktiviert. Wenn die Taste losgelassen wird, stoppt die Rakete und das Pfeilsymbol wird deaktiviert. Wenn die Taste nach unten gedrückt wird, wird die Rakete heruntergefahren und das zugehörige Pfeilsymbol auf dem Dashboard wird aktiviert. Wenn die Taste losgelassen wird, stoppt die Rakete und das Pfeilsymbol wird deaktiviert. Wenn sich das Spiel im Entwicklungsmodus befindet, kann durch Drücken der Taste "L" das nächste Level erreicht werden. Der DashboardComponent steuert die Symbole auf dem Dashboard, und der ArrowsComponent steuert die Pfeilsymbole.
+
+Die PowerController-Klasse ist verantwortlich für die Berechnung und Anzeige der aktuellen und gesamten generierten Leistungen. Die calcPower()-Methode nimmt eine aktuelle Leistung als Parameter und addiert sie zur gesamten Leistung, um den aktualisierten Gesamtwert zu berechnen. Die Text-Instanz wird aktualisiert, um den aktuellen und gesamten Leistungswert anzuzeigen. Die initText()-Methode initialisiert die Text-Instanz, um den aktuellen und gesamten Leistungswert anzuzeigen. Mit der getCurrentPower()-Methode kann die aktuelle Leistung abgerufen werden, während die setCurrentPower()-Methode die aktuelle Leistung setzt und die Geschwindigkeit aktualisiert. Die getTotalPower()-Methode gibt die gesamte Leistung zurück, die bisher generiert wurde.
+
+In der Klasse ViewController können folgende Anpassungen gemacht werden: In der Methode addLife() kann die Positionierung der Leben auf der Benutzeroberfläche durch Ändern des Wertes von life.setX() angepasst werden. In der Methode loseLife() kann das Aussehen des Flash-Effekts durch Ändern der Farbwerte von Color.rgb(190, 10, 15, 0.5) angepasst werden. Die init()-Methode kann implementiert werden, um die Klasse beim Start der Anwendung zu initialisieren oder die Konfiguration zu laden.
+
+**Factory:**
+
+Die Klasse GalacticEnergiesFactory ist eine Fabrikklasse, die Entity-Objekte erzeugt, die in der Spielwelt verwendet werden. Änderungen können an den Methoden vorgenommen werden, die mit der @Spawns-Annotation gekennzeichnet sind.
+
+Die mit @Spawns annotierten Methoden generieren jeweils ein Entity-Objekt für eine spezifische type-Bezeichnung. Wenn Änderungen an einem Entity-Objekt oder seiner Komponenten vorgenommen werden sollen, können Sie diese in der entsprechenden Methode vornehmen.
+
+Zum Beispiel können Sie die Textur, die Skalierung und die Geschwindigkeit von Asteroiden in der Methode newAsteroid anpassen, indem Sie die Werte ändern, die an texture, setScaleX/Y und velocity übergeben werden. Sie können auch weitere Komponenten hinzufügen oder entfernen, indem Sie with oder remove Methodenaufrufe hinzufügen oder entfernen.
+
+Beachten Sie, dass Änderungen an den Methoden, die mit @Spawns annotiert sind, Auswirkungen auf alle Entity-Objekte haben, die von dieser Fabrikklasse erzeugt werden.
+
+**View:**
+
+Die Klasse "View" bietet verschiedene Methoden an, mit denen das Spiel angepasst werden kann. Die Methode "initSettings(GameSettings settings)" ermöglicht es, verschiedene Einstellungen wie den Titel des Spiels, die Version oder den Vollbildmodus festzulegen. Mit der Methode "initInput()" kann die Eingabe initialisiert werden, z.B. welche Tasten oder Mausaktionen bestimmte Aktionen im Spiel auslösen. Die Methode "initGameVars(Map<String, Object> vars)" ermöglicht die Initialisierung von Variablen, die im Spiel verwendet werden, z.B. die Anzahl der Leben, die Geschwindigkeit des Spielers oder die Anzahl der Asteroiden. Mit der Methode "initGame()" kann das Spiel initialisiert werden, indem z.B. die Hintergrundmusik gestartet wird und die Sprites auf dem Bildschirm platziert werden. Die Methode "initPhysics()" kann genutzt werden, um die Physik des Spiels zu initialisieren, indem z.B. eine Kollisionsbehandlung definiert wird, die auftritt, wenn ein Raumschiff mit einem Asteroiden kollidiert. Die Methode "initUI()" ermöglicht die Initialisierung des Benutzerinterfaces (UI) durch das Platzieren verschiedener Elemente auf dem Bildschirm, wie z.B. ein Dashboard, das die Anzahl der verbleibenden Leben anzeigt oder Pfeiltasten zur Steuerung des Raumschiffs. Durch die Nutzung dieser Methoden können Anpassungen am Spiel vorgenommen werden, z.B. indem die Anzahl der Leben erhöht, die Anzahl der Asteroiden verringert oder die Steuerung geändert wird.

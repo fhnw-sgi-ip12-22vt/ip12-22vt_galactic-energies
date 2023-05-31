@@ -1,0 +1,34 @@
+[[section-design-decisions]]
+== Architekturentscheidungen
+
+
+
+
+=== Strommesser
+[role="arc42help"]
+****
+
+Damit Der Strom, den Die Kurbel beim Drehen erzeugt, für das ganze Spiel System von Nutzem ist, wird ein Strommesser per Kupferkabel mit der Kurbel Verbunden. So können Daten erzeugt werden und das System kann diese für das Spiel verwerten. 
+
+****
+
+=== FXGL Library
+
+[role="arc42help"]
+****
+
+Durch die Nutzung der FXGL Library ist es möglich die Implementation des Spieles mit vordefinierten Klassen auszuführen und dies auch einfach mit dem Raspberry Pi zu verbinden.
+
+****
+=== MariaDB 
+
+[role="arc42help"]
+****
+
+Java Database Connectivity(JDBC). Wird vom System für lesenden und schreibenden Zugriff verwendet.
+
+****
+ 
+
+
+

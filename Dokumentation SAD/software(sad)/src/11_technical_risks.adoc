@@ -1,0 +1,22 @@
+[[section-technical-risks]]
+== Risiken und technische Schulden
+
+[role="arc42help"]
+****
+
+
+[cols="1,2" options="header"]
+|===
+|Technische Risiken | Gegenmassnahmen
+| Hardware Komponenten arbeiten nicht zusammen | Die Hardwarezusammensetzung testen, Code überprüfen
+| Kurbel kann nicht ins System integriert werden | Mit Pi4j Team zusammenarbeiten, Rechereche über Kurbel
+| Verbindung Kurbel und Strommesser funktioniert nicht | Fachpersonen fragen, Recherche
+|===
+
+
+.Weiterführende Informationen
+
+
+
+Die Liste der Risiken, zu denen auch die technischen Risiken dazugehören, werden im Qualitätsmanagement unter folgendem Link verwaltet: https://gitlab.fhnw.ch/ip12-22vt/ip12-22vt_digitaleralltag/docu/-/blob/main/software(sad)/Risikoliste_DigitalerAlltag.pdf[Risikoliste]
+****

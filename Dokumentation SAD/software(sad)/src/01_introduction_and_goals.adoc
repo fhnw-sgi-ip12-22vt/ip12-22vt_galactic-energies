@@ -1,0 +1,43 @@
+[[section-introduction-and-goals]]
+==	Einführung und Ziele
+
+[role="arc42help"]
+****
+
+
+Im Rahmen der Veranstaltung "Energie Kosmos" der Primeo Energie AG wurden verschiedene Projekte entwickelt, um Jugendlichen im Alter von 12 bis 16 Jahren spielerisch eine nachhaltige Nutzung von Strom im Alltag näherzubringen. Das Projekt "Digitaler Alltag" hat das Ziel, ein lehrreiches Arcade-Spiel zu entwickeln. Das Spiel fordert die Spieler heraus, eine Rakete mithilfe einer Kurbel mit Energie zu versorgen, um im Weltall Asteroiden auszuweichen und verschiedene Planeten zu erreichen. Sobald ein Planet erreicht wird, wird der erzeugte Strom in Bezug zu einem alltäglichen Gegenstand gesetzt, um den Spielern ein Gefühl für ihren Stromverbrauch zu vermitteln.
+
+
+Weitere Informationen zu den Produktzielen finden Sie in der Produktvision: 
+https://gitlab.fhnw.ch/ip12-22vt/ip12-22vt_digitaleralltag/docu/-/blob/main/software(sad)/Produktvision.pdf[Produktvision]
+
+Eine Detailierte Beschreibung der Anforderungen und die Use-Case Diagramme sind in den Requirements zu finden: 
+https://gitlab.fhnw.ch/ip12-22vt/ip12-22vt_digitaleralltag/docu/-/blob/main/software(sad)/Requirements.pdf[Requirements]
+
+****
+
+=== Qualitätsziele
+
+[role="arc42help"]
+****
+
+
+
+
+[cols="1,2" options="header"]
+|===
+|Qualitätsziel |Szenario 
+| Bedienung | Ein Nutzer, der das System nicht kennt, kann es innerhalb kurzer Zeit bedienen
+| Performance | Der Nutzer soll das System ohne Unterbrechungen benutzen können
+| Wartbarkeit | Austausch von Komponenten führt nicht zum Verlust der Funktionsweise vom System. Änderungen am Code sind möglich und können von einer technisch versierten Person vorgenommen werden. 
+|===
+
+****
+
+=== Stakeholder
+
+[role="arc42help"]
+****
+
+Genauere Informationen sind beim Stakeholder Management zu finden: https://gitlab.fhnw.ch/ip12-22vt/ip12-22vt_digitaleralltag/docu/-/blob/main/software(sad)/Stakeholdermanagement.pdf[Stakeholder Management]
+****

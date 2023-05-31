@@ -1,0 +1,43 @@
+[[section-quality-scenarios]]
+== Qualitätsanforderungen
+
+
+=== Qualitätsbaum
+
+[role="arc42help"]
+****
+
+
+[cols="1,2,3" options="header"]
+|===
+|Qualitäts Kategorie | Qualitätsziel | Szenario 
+| Bedienung | Einfacheit der Bedienung | Ein Nutzer, der das System nicht kennt, kann es innerhalb kurzer Zeit bedienen
+| Performance | Flüssigkeit des Spieles | Der Nutzer soll das System ohne Unterbrechungen benutzen können
+|             | Echtzeitvorraussetzung | Die Rackete bewegt sich genau dann, wenn der Joystick sich bewegt
+| Wartbarkeit | Wiederverwendung| Austausch von Komponenten führt nicht zum Verlust der Funktionsweise vom System
+| Zuverlässigkeit | Maximale Vermeidung von Fehlfunktionen und Minimierung von Ausfallzeiten | Im Falle eines Ausfalls kann auf die in GitLab gespeicherte Datenbank zurückgegriffen werden, um verlorene Daten wiederherzustellen. Durch regelmässige manuelle und automatisierte Tests wird sichergestellt, dass die Fehlerquote so gering wie möglich gehalten wird und das System wie erwartet funktioniert. Es hat eine hohe Verfügbarkeit, weil es lokal läuft und die Datenbank ebenfalls lokal ist.
+|===
+****
+
+=== Qualitätsszenarien
+
+[role="arc42help"]
+****
+
+
+[cols="1,2,3,4,5" options="header"]
+|===
+|Was wird getestet | Szenario  | Erwartetes Ergebnis | Tatsächliches Ergebnis | Auswertung
+| Raspberry Pi | Raspberry PI wurde mehrmals ausgeschaltet und wieder aufgestartet. | Der Raspberry Pi funktioniert nach wie vor einwandfrei | Der Raspberry Pi zeigt keine veränderung beim erneuten Ein- und Auschalten. | erfüllt 
+|Button und Joystick| Der Button wurde mehrmals gedrückt und der Joystick wurde hoch und runter bewegt, wie auch daran gerüttelt. Ebenso wurde die Kurbel einem grossen Druck ausgesetzt| Die Hardware funktioniert nach den angegebenen Stresstests einwandfrei | Es wurde festgestellt, dass der Button jedes Mal reibungslos funktioniert. Es wurde festgestellt, dass der Joystick korrekt und präzise reagiert und stabil ist. Es traten keine Fehlfunktionen, Verzögerungen oder Blockaden auf. Das Gleiche gilt für die Kurbel. | erfüllt 
+| Verkabelung | Die Box wurde mehrmals gerüttelt  | Nach dem genannten Szenario sollte die Verkabelung immernoch stabil sein |Es wurde festgestellt, dass alle Kabel fest und sicher angeschlossen sind, um einen zuverlässigen Daten- und Stromfluss zu gewährleisten. Alle Kabel und Steckverbindungen wurden sorgfältig untersucht, um sichtbare Schäden, Kurzschlüsse oder lose Verbindungen zu identifizieren.| erfüllt 
+| Systemstabilität | Das System wurde über einen längeren Zeitraum laufen gelassen. Das Spiel wurde mehrere Male gestartet und wieder abgebrochen | Das System bleibt stabil | . Die Software weist keine Probleme auf nach der Ausführung des genannten Szenarios | erfüllt 
+|Feuchtigkeitsabweisung| Die Box ist mit Wasser in Kontakt gekommen | Das System funktioniert immernoch, auch nach dem ausführen des Szenarios |  Die Komponenten erwiesen sich als robust und konnte der Feuchtigkeit standhalten. Das Holz der Box hat das Wasser nicht aufgesaugt und ist gegen verschüttete Getränke resistent. | erfüllt 
+
+
+|===
+
+Nach Abschluss dieser Zuverlässigkeitstests sind wir zuversichtlich, dass unser Produkt^zuverlässig und stabil funktioniert.
+
+|===
+****

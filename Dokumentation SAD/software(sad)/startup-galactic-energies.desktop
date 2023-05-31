@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=Start Galactic Energies
+Exec=bash /home/pi/startup.sh

@@ -1,0 +1,43 @@
+= Systemidee
+Als Grundlage Ihrer Entwurfstätigkeiten sollten Sie eine Vorstellung wichtiger Systemeigenschaften und Anforderungen besitzen und mindestens folgende Fragen über das System beantwortet haben.
+
+Umfang dieses Dokuments 1-3 A4 Seiten.
+
+Systemidee
+
+Kernaufgabe des Systems:
+
+• Die Kernaufgabe des Systems ist es Jugendlichen im Alter von 12 bis 16 
+  strombewusstes Denken beizubringen.
+  
+• Die Simulation stellt eine Rackete dar, die mit hilfe einer Kurbel Antrieb erhält.
+  Der Rackete werden unter anderem Asteroiden in den Weg gelegt, denen die Rackete ausweichen muss.
+  Erreicht sie einen Planeten, der als Checkpoint dient, so erscheint ein pop-up Fenster, dass dem 
+  Spieler zeigt, wie lange gewisse Alltagsgeräte mit dem gesammelten Storm betrieben werden können.  
+
+Art des Systems:
+
+• Unser System ist eine Mischung aus einem eingebetteten System und einem System 
+mit Echtzeitanforderungen
+
+Qualitätsanforderungen:
+
+• Es wird Wert daraufgelegt, wie flüssig das Spiel ist. Der graphische Aspekt ist 
+  hingegen nebensächlich.
+• Die Entwicklung soll so nachhaltig wie möglich geschehen.
+• Es wird Wert daraufgelegt, dass unser System stabil ist. Die Hardware, unter anderem Buttons, etc., müssen
+  robust sein und sollten nicht beim gebrauch schnell beschädigt werden. Das System soll immer stabil bleiben
+  und nicht spontan ausfallen. 
+• Da es sich um Jugendliche im Alter von 12 bis 16 Jahren handelt muss das System 
+verständlich sein und leicht bedienbar sein
+
+Stakeholder:
+
+• Das entwickelte Spiel ist für diejenigen im Alter von 12 bis 16 Jahren gedacht.
+• Das Spiel wird im Auftrag unseres Kunden und der Primeo Energie erledigt.
+• Das Team legt viel Wert auf die Qualität des Spiels
+
+
+Schnittstellen zu externen Systemen:
+
+Wir arbeiten mit der FXGL und der Pi4j Library um das Produkt realisieren zu können. 

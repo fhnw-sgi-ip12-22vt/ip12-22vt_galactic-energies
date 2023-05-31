@@ -1,0 +1,29 @@
+[[section-concepts]]
+== Querschnittliche Konzepte
+
+[role="arc42help"]
+****
+
+
+****
+
+
+
+**User Experience (UX):** Das Programm sollte eine intuitive Benutzeroberfläche bieten, die es dem Benutzer ermöglicht, den Joystick und Button einfach zu bedienen. Die Interaktion mit dem Button sollte klar und verständlich sein, um eine positive Benutzererfahrung zu gewährleisten. Dies kann durch klare visuelle Rückmeldungen, gut platzierte Bedienelemente und eine reaktionsschnelle Benutzeroberfläche erreicht werden.
+
+**Sicherheitskonzepte (Safety und Security):** Bei der Implementierung des Programms müssen Sicherheitskonzepte berücksichtigt werden, um sowohl die Safety- als auch die Security-Anforderungen zu erfüllen. Bei Benutzereingaben sollte die Sicherheit gewährleistet sein, indem unerwünschte oder unbeabsichtigte Aktionen das Programm nicht negativ beeinflussen. Der Datenbankbenutzer hat eingeschränkte Rechte, um die Integrität der Datenbank zu gewährleisten.
+
+**Architektur- und Entwurfsmuster:** Für die Softwarearchitektur des Java-Programms wurde eine angepasste Form des   MVC (Model-View-Controller)-Muster verwendet. Dies ermöglicht die Trennung von Datenmodell, Benutzeroberfläche und Steuerungslogik. Dadurch wird die Skalierbarkeit, Wartbarkeit und Testbarkeit des Programms verbessert.
+
+**Unter-der-Haube:** Das Programm sollte eine effiziente Kommunikation mit dem Joystick und Button ermöglichen. Dazu wird eine Umwandlung des Inputs dieser Elemente auf Betriebssystemebene in Keycodes umgewandelt, um die Joystick Eingaben besser erfassen und verarbeiten zu können. 
+
+**Entwicklungskonzepte:** Bei der Entwicklung des Java-Programms wird in separaten Branches gearbeitet, um Konflikte zu vermeiden. Merge requests müssen von den erfahrenen Entwicklern approved werden um Fehler im produktiven Code zu vermeiden. Zudem findet kontinuierlich manuelles und automatisiertes Testen statt. Dies stellt eine konsistente und fehlerfreie Entwicklungsumgebung sicher.
+
+**Betriebskonzepte:** Der Betrieb des Systems findet ausschliesslich lokal statt. Dies gewährt eine hohe Verfügbarkeit. Zudem sollten vom Betreiber regelmäßige Wartungs- und Updatezyklen geplant werden, um die Sicherheit und Stabilität des Systems aufrechtzuerhalten.
+
+
+
+
+
+
+

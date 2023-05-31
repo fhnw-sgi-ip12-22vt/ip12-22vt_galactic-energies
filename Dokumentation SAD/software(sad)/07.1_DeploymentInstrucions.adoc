@@ -1,0 +1,55 @@
+== Rahmenbedingungen
+
+
+Die Rahmenbedingungen sind unter dem folgenden Link zu finden: https://gitlab.fhnw.ch/ip12-22vt/ip12-22vt_digitaleralltag/docu/-/blob/main/software(sad)/src/02_architecture_constraints.adoc[Rahmenbedingungen]
+
+# Deployment-Anleitung
+
+## Schritt 1: Vorbereitung des Raspberry Pi
+
+Stellen Sie sicher, dass der Raspberry Pi ordnungsgemäss mit Strom- und HDMI-Kabel sowie dem Joystick und der Kurbel verbunden ist. Stellen Sie auch sicher, dass das Betriebssystem Raspbian auf dem Raspberry Pi installiert ist. Wenn nicht, installieren Sie das Betriebssystem und richten Sie es ein.
+
+## Schritt 2: Konfiguration des Raspberry Pi
+
+Um sicherzustellen, dass das Spiel automatisch startet, sobald der Raspberry Pi gestartet wird, können Sie, falls nicht bereits vorhanden, eine Verknüpfung (.desktop Datei) zum Spiel erstellen und diese in den Autostart-Ordner des Raspberry Pi legen. Hier ist, wie Sie das tun können:
+
+1.  Öffnen Sie den Dateimanager auf dem Raspberry Pi.
+2.  Navigieren Sie zum Homeverzeichnis des Benutzers (Standard: `/home/pi`).
+3.  Kopieren Sie die Datei startup.sh in das Homeverzeichnis.
+4.  Navigieren Sie zum Verzeichnis `$HOME/.config/autostart`.
+5.  Kopieren Sie die Datei `startup-galactic-energies.desktop` in den Autostart Ordner.
+
+Jetzt wird das Spiel automatisch gestartet, sobald der Raspberry Pi gestartet wird.
+
+## Schritt 3: Verwendung des Spiels
+
+Das Spiel ist jetzt einsatzbereit und Sie können es jederzeit spielen, indem Sie den Raspberry Pi starten und den Joystick und die Kurbel verwenden.
+Um das Spiel neuzustarten, stecken Sie das Stromkabel des Raspberry Pi aus und ein.
+
+# Neugenerierung des Systems aus Quell- und Konfigurationsdateien
+
+## Software Architektur Dokumentation (SAD)
+
+Die Software-Architrektur bietet alle notwendigen Informationen, um den Aufbau des Systems zu verstehen.
+
+## Deployment mit Maven
+
+```xml
+<!-- Raspberry Remote Deployment -->
+<example.remote.host>10.175.12.60</example.remote.host>
+<example.remote.port>22</example.remote.port>
+<example.remote.username>pi</example.remote.username>
+<example.remote.password>crowpi</example.remote.password>
+<example.remote.target>/home/pi/deployment</example.remote.target>
+<example.remote.jvmOptions/>
+```
+
+1. Anpassen der Maven Properties.
+2. Ausführen von `mvn install` mit dem `remote-run` Profil.
+
+## DBSetup
+
+1.  Installieren Sie den MariaDB Server falls nicht bereits vorhanden. (gemäss Dokumentation von MariaDB)
+https://mariadb.com/de/downloads/[MariaDB]
+2.  Kopieren Sie die Datei `DBSetup.sql` vom Git-Repository auf den Raspberry-Pi.
+3.  Führen Sie den Befehl `sudo mysql < DBSetup.sql` aus.

@@ -1,0 +1,68 @@
+[[section-architecture-constraints]]
+==       Randbedingungen
+
+
+=== Technische Randbedingungen
+
+[role="arc42help"]
+****
+
+[cols="1,2" options="header"]
+|===
+
+
+|Bedingungen |Erläuterungen 
+| Kurbel | Durch die Kurbel soll Strom erzeugt werden, welcher vom Strommesser gemessen werden kann. Zudem ist die Kurbel verantwortlich für die Fluggeschwindigkeit der Rakete https://gitlab.fhnw.ch/ip12-22vt/ip12-22vt_digitaleralltag/docu/-/blob/main/software(sad)/Hardwarebeschreibung.adoc[Hardwarebeschreibung]
+| Strommesser INA219 | Der Strommesser misst den erzeugten Strom der Kurbel und gibt in der Datenbank Weiterführende https://gitlab.fhnw.ch/ip12-22vt/ip12-22vt_digitaleralltag/docu/-/blob/main/software(sad)/Hardwarebeschreibung.adoc[Hardwarebeschreibung]
+| Button | Durch den Butten können eingaben gemacht werden um das Spiel zu Starten oder zu beenden https://gitlab.fhnw.ch/ip12-22vt/ip12-22vt_digitaleralltag/docu/-/blob/main/software(sad)/Hardwarebeschreibung.adoc[Hardwarebeschreibung]
+| Joystick | Der Joystick ist für die Menuauswahl und für die Steuerung der Rakete verantwotlich https://gitlab.fhnw.ch/ip12-22vt/ip12-22vt_digitaleralltag/docu/-/blob/main/software(sad)/Hardwarebeschreibung.adoc[Hardwarebeschreibung]
+| Programmiersprache | Java 17
+| FXGL | Die FXGL Library beinhaltet Funktionen welche für die Entwicklung des Spiels benötigt werden 
+| Pi4J | Die Pi4J Library beinhaltet Funktionen welche für die Entwicklung des Spiels benötigt werden
+| MariaDB | MariaDB Datenbank 10.5. Java Database Connectivity(JDBC). Wird vom System für lesenden und schreibenden Zugriff verwendet.
+| Kompatibilität | Es muss auf der Linux-Distribution Raspberry Pi OS lauffähig sein. Debian Version 11
+| Raspberry Pi 4 Model B | Das Spiel muss mit dem Raspberry Pi 4 Model B kompatibel sein https://gitlab.fhnw.ch/ip12-22vt/ip12-22vt_digitaleralltag/docu/-/blob/main/software(sad)/Hardwarebeschreibung.adoc[Hardwarebeschreibung]
+| Bildschirm | Das Spiel muss visuell dargestellt werden können
+| USB-C oder HDMI Kabel | Um den Raspberry Pi an einen Bildschirm anschliessen zu können braucht es ein HDMI Kabel mit Micro-HDMI-Adapter oder wenn möglich ein USB-C Kabel
+| Strom | Der Raspberry Pi muss während des Spielens mit Strom versorgt sein 
+| Stromkabel | Damit der Raspberry Pi mit Strom versorgt werden kann braucht es ein USB-C Stromkabel
+| Ablage| Die Spielbox muss auf einem Tisch gestellt werden, damit das Spielen möglichst angenehm wird
+|===
+
+****
+
+
+
+=== Organisatorische Randbedingungen
+
+[role="arc42help"]
+****
+
+[cols="1,2" options="header"]
+|===
+
+
+|Bedingungen |Erläuterungen 
+| Team | Team Digitaler Alltag unterstützt durch Dr. Dieter Holz, das Pi4J-Team und Dozierende der FHNW 
+| Zeitplan | Entwicklungsbeginn am September 2022. Fertigstellung Version 1.0 Mai 2023. Abgabe Produkt Juni 2023
+| Vorgehensmodell | arc42 wird zur Dokumentation benutzt. Die Architekrurdokumentation soll nach dieser Vorlage gegliedert werden
+| Entwicklungswerkzeuge | Die Java-Quelltexte werden in IntelliJ erstellt.  
+| Versionsverwaltung | Zur Versionsverwaltung wird GitLab benutzt 
+| Testwerkzeuge und prozesse | Es werden JUnit-Tests geschrieben und manuelle Tests gemacht um für die inhaltliche Richtigkeit und Effienz zu sorgen
+|===
+****
+
+=== Konventionelle Randbedingungen
+
+[role="arc42help"]
+****
+
+[cols="1,2" options="header"]
+|===
+
+|Bedingungen  |Erläuterungen
+| Kodierrichtlinien für Java | Vorgegebene Richtlinien wurden eingehalten. https://www.cs.technik.fhnw.ch/confluence20/pages/viewpage.action?pageId=73105864[Source Code Richtlinien]
+| Sprache ( Deutsch & Englisch) |  Dokummentation wird auf Deutsch geschrieben. Die Bezeichnung für Klassen, Methoden etc. werden im Java-Quelltext auf Englisch geschrieben. Die Spiel selbst ist auf Englisch. 
+
+****
+

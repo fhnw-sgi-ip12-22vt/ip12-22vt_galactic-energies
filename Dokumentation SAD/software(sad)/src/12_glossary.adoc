@@ -1,0 +1,31 @@
+[[section-glossary]]
+== Glossar
+
+
+
+[role="arc42help"]
+****
+
+[cols="e,2e" options="header"]
+|===
+|Begriff |Definition
+
+|Java
+|ist eine objektorientierte Programmiersprache
+
+|Raspberry Pi
+|Minicomputer 
+
+|Steckplatine
+| Dient der mechanischen Befestigung und der elektrischen Verbindung von elektronischen Bauteilen für Versuchsschaltungen und Experimente
+
+| Javaklasse
+| javaklassen bilden in der objektorientierten Programmierung die Vorlage, aus der zur Laufzeit des Programms Objekte   erzeugt werden
+
+|Klassendiagramm
+|Stellt die Klassen des Javaprogramms sowie deren Beziehungen graphish dar
+
+|UML
+|(Unified Modelling Language) Wird verwendet, um Klassendiagramme, Kontextdiagramme, etc. darzustellen
+|===
+****

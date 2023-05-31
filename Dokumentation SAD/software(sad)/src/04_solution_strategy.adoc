@@ -1,0 +1,22 @@
+[[section-solution-strategy]]
+== Lösungsstrategie
+
+[role="arc42help"]
+****
+
+
+
+[cols="1,2,3,4" options="header"]
+|===
+| Qualitätsziel | Szenario | Lösungsstrategie | Details
+| Bedienung | Nutzer kann ohne Vorwissen System bedienen | Implementierung einer intuitiven Benutzeroberfläche, die den Nutzer durch das System führt. Erklärungen vor der Nutzung des System sind eingebaut |  - 
+| Wartbarkeit | Auswechslung von Komponente gibt keinen Verlust der Funktion des Systems | Entwickling einer gut dokumentierter Architektur, die den Austausch von Komponenten ermöglicht, ohne dass die Funktionalität des Systemes beeinträchtigt wird. Bereitstellung einer Anleitung zum Einbau und Austausch von Komponenten, um sicherzustellen, dass die Wartung problemlos durchgeführt werden kann. | -
+| Kompatibilität | Javaprogramm muss auf dem Raspberry Pi laufen | Gewährleistung der Kompatibilität des Programms mit dem Raspberry Pi, indem spezifische Anforderungen und Abhängigkeiten berücksichtigt werden. Durchführung von Tests und Anpassungen, um sicherzustellen, dass Javaprogramm reibungslos auf dem Raspberry Pi läuft und alle erforderlichen Schnittstellen korrekt funktionieren | -
+| Analysierbarkeit | Der Softwarearchitekt setzt sich mit dem Spielsystem auseinander | Einfache Verständlichkeit durch arc42 Dokumentation und Kommentare bei jeder Klasse und Methode des Quellcodes. | -
+| Änderbarkeit | Änderungen werden an Spielkomponenten vorgenommen | Durch das Verwenden einer weitverbreiteten und verständlichen Programmiersprache wie Java in diesem Spiel. Ausserdem wurde die FXGL Library benutzt, welche gut dokumentiert ist. | -
+| Effizienz | Spiel läuft ohne Unterbruch und flüssig | Für die Performance wurden Objekte aus der Circle-Klasse erstellt, um die Sterne darzustellen. Es wurde auf unnötige Bilddateien verzichtet, welche die Performance massiv beeinträchtigen können. | -
+|===
+
+
+
+****
