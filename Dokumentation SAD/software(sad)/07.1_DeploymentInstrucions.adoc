@@ -1,7 +1,7 @@
 == Rahmenbedingungen
 
 
-Die Rahmenbedingungen sind unter dem folgenden Link zu finden: https://gitlab.fhnw.ch/ip12-22vt/ip12-22vt_digitaleralltag/docu/-/blob/main/software(sad)/src/02_architecture_constraints.adoc[Rahmenbedingungen]
+Die Rahmenbedingungen sind unter dem folgenden Link zu finden: https://github.com/fhnw-sgi-ip12-22vt/ip12-22vt_galactic-energies/blob/master/Dokumentation%20SAD/software(sad)/src/02_architecture_constraints.adoc[Rahmenbedingungen]
 
 # Deployment-Anleitung
 
