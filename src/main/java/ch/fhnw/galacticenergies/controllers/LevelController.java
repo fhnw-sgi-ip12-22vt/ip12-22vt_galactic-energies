@@ -84,20 +84,42 @@ public class LevelController {
 
         try {
             c = new DBConnection();
-
-
             conn = c.getConnection();
 
             double totalPower = PowerController.getTotalPower();
             PreparedStatement stmt =
-                conn.prepareStatement("SELECT * FROM energydata ORDER BY ABS(power - ? * 100) LIMIT 1");
+                conn.prepareStatement("SELECT * FROM energydata ORDER BY ABS(power - ? * 100) LIMIT 2");
             stmt.setInt(1, (int) totalPower);
             ResultSet rs = stmt.executeQuery();
-            rs.next();
-            int power = rs.getInt("power");
-            double timeToUse = totalPower/power;
-            String deviceName = rs.getString("devicename");
-            checkpointText = deviceName + ": " + (int) (timeToUse) + "h " + df.format((timeToUse - (int) timeToUse) * 60) + "min";
+            while (rs.next()) {
+                if (checkpointText != "") {
+                    checkpointText += "\n";
+                }
+                int power = rs.getInt("power");
+                double timeToUse = totalPower/power;
+                String deviceName = rs.getString("devicename");
+                checkpointText = deviceName + ": ";
+
+                int hours = (int) timeToUse;
+                timeToUse -= hours;
+                int minutes = (int) (timeToUse * 60);
+                timeToUse -= (double) minutes / 60;
+                int seconds = (int) (timeToUse * 3600);
+
+                if (hours > 0) {
+                    checkpointText = checkpointText + hours + "h ";
+                }
+                if (minutes > 0) {
+                    checkpointText = checkpointText + minutes + "min ";
+                }
+                if (hours == 0) {
+                    checkpointText = checkpointText + seconds + "s";
+                }
+            }
+
+
+
+
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -120,5 +142,9 @@ public class LevelController {
 
     public double getSavedPower() {
         return savedPower;
+    }
+
+    public void setSavedPower(double savedPower) {
+        this.savedPower = savedPower;
     }
 }

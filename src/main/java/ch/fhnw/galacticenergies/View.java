@@ -65,7 +65,7 @@ public class View extends GameApplication {
         settings.setMainMenuEnabled(true);
         settings.setProfilingEnabled(false);
         settings.setManualResizeEnabled(true);
-        settings.setApplicationMode(ApplicationMode.DEVELOPER);
+        settings.setApplicationMode(ApplicationMode.RELEASE);
         settings.setSceneFactory(new LoadingSceneFactory());
 
         settings.setTicksPerSecond(60);
@@ -99,7 +99,8 @@ public class View extends GameApplication {
         getGameScene().getRoot().setCursor(Cursor.NONE);
         asteroidController.setMaxAsteroids(5);
         initBackground();
-
+        ViewController.setPaused(false);
+        levelController.setSavedPower(0);
         if (ApplicationMode.RELEASE == getSettings().getApplicationMode()) {
             PowerInput.initPower();
         }
