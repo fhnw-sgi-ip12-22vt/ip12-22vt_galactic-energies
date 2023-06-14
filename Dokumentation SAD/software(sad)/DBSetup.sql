@@ -66,7 +66,7 @@ VALUES
 (18,'You could use a Fridge for', 150),
 (19,'You could use a Freezer for', 150),
 (20,'You could use a Dishwasher for', 1250),
-(21,'You could use a Washing machine for', 2400000),
+(21,'You could use a Washing machine for', 3500),
 (22,'You could use a LED lamp for', 25),
 (23,'You could use a light bulb for',60),
 (24,'You could use a Kettle for',2200),
